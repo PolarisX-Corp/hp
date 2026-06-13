@@ -1,237 +1,381 @@
-import Image from "next/image";
-import { Fragment } from "react";
-import ContactForm from "./components/ContactForm";
-import logoBlack from "@/public/assets/polarisx-logo-black.png";
-import symbolBlack from "@/public/assets/polarisx-symbol-black.png";
+import type { Metadata } from "next";
+import { spaceGrotesk, notoSansJP, jetbrainsMono } from "./fonts";
+import ServiceContactForm from "./components/ServiceContactForm";
+import "./service.css";
+import {
+  LineChart, ArrowRight, Check, FileCheck2, TrendingUp, Package, History,
+  User, Calendar, AlertTriangle, UserX, RotateCcw, FileX, HelpCircle, Layers,
+  Search, Database, Users, CheckCircle2, Repeat, Zap, Unlock, Sparkles,
+  ChevronUp, Route, Mail, PlusCircle, GitCommit,
+} from "lucide-react";
 
-const MARQUEE_ITEMS = [
-  "意思決定に、再現性を",
-  "AI×データ活用",
-  "良い判断を、仕組みに",
-  "誰もが・何度でも",
-  "再現可能な意思決定",
-];
-
-function MarqueeRow() {
-  return (
-    <span>
-      {MARQUEE_ITEMS.map((item) => (
-        <Fragment key={item}>
-          {item}
-          <span className="sep">✦</span>
-        </Fragment>
-      ))}
-    </span>
-  );
-}
+export const metadata: Metadata = {
+  title: "分析コンサルティング — 意思決定に、再現性を。",
+  description:
+    "勘と経験に頼ってきた「良い判断」を、データとAIで誰もが・何度でも再現できる仕組みへ。PolarisXの分析コンサルティングが、意思決定に“文脈”を実装します。",
+};
 
 export default function Home() {
   return (
-    <>
-      <header>
-        <div className="wrap nav">
-          <Image className="logo" src={logoBlack} alt="PolarisX" height={24} priority />
-          <ul>
-            <li><a href="#mission">MISSION</a></li>
-            <li><a href="#values">VALUES</a></li>
-            <li><a href="#services">SERVICES</a></li>
-            <li><a href="#members">MEMBERS</a></li>
-            <li><a href="#company">COMPANY</a></li>
-          </ul>
-          <a className="cta" href="#contact">CONTACT</a>
+    <div
+      className={`theme-service ${spaceGrotesk.variable} ${notoSansJP.variable} ${jetbrainsMono.variable}`}
+    >
+      {/* HEADER */}
+      <header className="mk-header">
+        <div className="mk-wrap mk-header__in">
+          <a className="mk-logo" href="#top"><img src="/assets/PolarisX_mark.svg" alt="" width={26} height={26} /><span>Polaris<span style={{ color: "var(--blue-500)" }}>X</span></span></a>
+          <nav className="mk-nav">
+            <a href="#problem">課題</a>
+            <a href="#provocation">提起</a>
+            <a href="#solution">ソリューション</a>
+            <a href="#benefits">メリット</a>
+            <a href="#process">導入の流れ</a>
+            <a href="/company">会社情報</a>
+          </nav>
+          <div className="mk-header__cta">
+            <a className="px-btn px-btn--ghost px-btn--sm" href="#contact">資料請求</a>
+            <a className="px-btn px-btn--primary px-btn--sm" href="#contact">無料で相談する</a>
+          </div>
         </div>
       </header>
 
-      <section className="hero">
-        <div className="wrap">
-          <div className="est">Founded June 2026 — Tokyo</div>
-          <h1>意思決定に、<br /><span className="out">再現性を。</span></h1>
-          <div className="hero-row">
-            <p>
-              勘と経験に頼ってきた「良い判断」を、AI×データ活用で、誰もが・何度でも再現できる仕組みへ。私たちは意思決定そのものを、再現可能なものに変えていきます。
-            </p>
-            <div className="acts">
-              <a className="btn btn-fill" href="#mission">MISSION →</a>
-              <a className="btn btn-out" href="#contact">お問い合わせ</a>
+      {/* HERO */}
+      <section className="mk-hero" id="top">
+        <div className="mk-stars">
+          <div className="mk-star" style={{ width: "340px", height: "340px", top: "-90px", right: "-50px" }}></div>
+          <div className="mk-star" style={{ width: "180px", height: "180px", top: "320px", left: "-70px", opacity: 0.3 }}></div>
+        </div>
+        <div className="mk-wrap mk-hero__grid">
+          <div className="sv-reveal">
+            <span className="mk-eyebrow"><LineChart />分析コンサルティング</span>
+            <h1 className="mk-h1">意思決定に、<br /><em>再現性</em>を。</h1>
+            <p className="mk-lead">勘と経験に頼ってきた「良い判断」を、データと AI で誰もが・何度でも再現できる仕組みへ。PolarisX の分析コンサルティングが、あなたのチームの意思決定に“文脈”を実装します。</p>
+            <div className="mk-hero__cta">
+              <a className="px-btn px-btn--primary px-btn--lg" href="#contact">無料で相談する<ArrowRight className="px-btn__icon" /></a>
+              <a className="px-btn px-btn--secondary px-btn--lg" href="#solution">進め方を見る</a>
             </div>
+            <div className="mk-hero__note"><Check style={{ width: 15, height: 15, color: "var(--success)" }} />初回相談は無料 ・ オンライン 60 分</div>
           </div>
-        </div>
-        <div className="marquee">
-          <div className="mq-track">
-            <MarqueeRow />
-            <MarqueeRow />
-          </div>
-        </div>
-      </section>
 
-      <section className="sec mission" id="mission">
-        <div className="wrap">
-          <div className="secnum">MISSION ／ 01</div>
-          <h2>勘と経験に頼ってきた「良い判断」を、<em>AI×データ活用</em>で誰もが再現できる仕組みに変える。</h2>
-          <div className="vision">
-            <div className="vlabel">VISION</div>
-            <p>優れた意思決定を、一部の才能に依存するものではなく、誰もが・何度でも再現できる仕組みへ。私たちは、企業の成長が「優れた意思決定者の有無」に左右されない世界を目指します。</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec" id="values">
-        <div className="wrap">
-          <div className="secnum">CORE VALUES ／ 02</div>
-          <div className="values">
-            <div className="val">
-              <div className="vno">01</div>
-              <h3>AI・データファースト</h3>
-              <p>私たち自身がAI・データを信じて投資し、生産性を高める。</p>
-            </div>
-            <div className="val">
-              <div className="vno">02</div>
-              <h3>本質思考</h3>
-              <p>目的に対して真剣に考え、常にベストを尽くします。</p>
-            </div>
-            <div className="val">
-              <div className="vno">03</div>
-              <h3>自己超克</h3>
-              <p>難易度の高い課題を、常に選び続ける。</p>
+          {/* HERO DEMO: 意思決定ログ / decision record */}
+          <div className="mk-preview sv-reveal" style={{ transitionDelay: ".08s" }}>
+            <div className="sv-rec">
+              <div className="sv-rec__head">
+                <span className="sv-rec__title"><FileCheck2 />意思決定ログ</span>
+                <span className="sv-score">再現スコア <b>0.92</b></span>
+              </div>
+              <div className="sv-rec__decision">東日本セグメントの在庫配分を <em>+15%</em> 引き上げる。</div>
+              <div className="sv-grounds">
+                <span className="sv-grounds__lbl">根拠 ・ データ出典</span>
+                <div className="sv-ground"><TrendingUp />需要予測：東日本の伸長率 +12.4%<span>forecast.v3</span></div>
+                <div className="sv-ground"><Package />欠品リスク：閾値超過 3 SKU<span>inventory.db</span></div>
+                <div className="sv-ground"><History />類似の過去判断：2 件で再現<span>decisions/2025</span></div>
+              </div>
+              <div className="sv-rec__meta"><span><User />承認：事業企画部</span><span><Calendar />2026-06-10</span></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="sec" id="services">
-        <div className="wrap">
-          <div className="secnum">SERVICES ／ 03</div>
-          <h2 className="serv-head">AIで意思決定を再現可能にする、<em>3つのサービス。</em></h2>
-          <p className="serv-lead">AIが使えるようにデータを整える土台づくりから、分析設計、AIエージェント・モデルの開発まで。データに基づく再現性ある意思決定を、一気通貫で支援します。</p>
+      {/* TRUST / framing strip */}
+      <div className="mk-trust">
+        <div className="mk-wrap">
+          <div className="mk-trust__lbl">こんなチームの意思決定を、仕組みに変えてきました</div>
+          <div className="mk-trust__row">
+            <span>経営企画</span><span>事業開発</span><span>マーケティング</span><span>サプライチェーン</span><span>経営層</span>
+          </div>
+        </div>
+      </div>
 
-          <div className="serv">
-            <div className="serv-top">
-              <div className="serv-no">01</div>
-              <div className="serv-meta">
-                <div className="serv-tag">AI-Ready Data Foundation</div>
-                <h3>AI Readyなデータ基盤構築支援</h3>
-                <p>AI活用で最も重要なのは、AIエージェントにとって扱いやすい形でデータとナレッジを整えること。これまでのデータ分析実務の知見を活かし、御社のデータ基盤を再現性ある意思決定ができる状態へ整えます。</p>
+      {/* PROBLEM */}
+      <section className="mk-section" id="problem">
+        <div className="mk-wrap">
+          <div className="mk-shead sv-reveal">
+            <span className="mk-eyebrow"><AlertTriangle />課題感</span>
+            <h2>なぜ、同じ意思決定を<br />毎回ゼロからやり直すのか。</h2>
+            <p>データもダッシュボードも揃っている。それでも「良い判断」は再現できない。原因は、いつも決まった3つに行き着きます。</p>
+          </div>
+          <div className="sv-problems">
+            <div className="sv-pcard sv-reveal">
+              <div className="sv-pcard__n">01</div>
+              <div className="sv-pcard__icon"><UserX /></div>
+              <h3>判断が属人化する</h3>
+              <p>「あの人にしか分からない」。なぜその判断に至ったかが個人の頭の中に閉じ、異動や退職とともに失われていく。</p>
+              <div className="sv-pcard__q">＝ 判断の理由が、組織に残らない。</div>
+            </div>
+            <div className="sv-pcard sv-reveal" style={{ transitionDelay: ".07s" }}>
+              <div className="sv-pcard__n">02</div>
+              <div className="sv-pcard__icon"><RotateCcw /></div>
+              <h3>毎回ゼロからやり直す</h3>
+              <p>過去に同じ問いに答えたはずなのに、前提も分析も残っていない。アナリストは似た集計を何度も作り直す。</p>
+              <div className="sv-pcard__q">＝ 分析が、使い捨てになっている。</div>
+            </div>
+            <div className="sv-pcard sv-reveal" style={{ transitionDelay: ".14s" }}>
+              <div className="sv-pcard__n">03</div>
+              <div className="sv-pcard__icon"><FileX /></div>
+              <h3>根拠が残らない</h3>
+              <p>結果の数字は記録されても、「どの前提で・なぜその一手を選んだか」の文脈は記録されず、検証も改善もできない。</p>
+              <div className="sv-pcard__q">＝ 良い判断を、学習に変えられない。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROVOCATION (dark) */}
+      <section className="mk-section sv-prov" id="provocation">
+        <div className="mk-stars">
+          <div className="mk-star" style={{ width: "300px", height: "300px", top: "-60px", right: "8%", background: "radial-gradient(circle,rgba(54,110,255,0.4),transparent 65%)" }}></div>
+          <div className="mk-star" style={{ width: "220px", height: "220px", bottom: "-90px", left: "6%", background: "radial-gradient(circle,rgba(124,130,226,0.32),transparent 65%)" }}></div>
+        </div>
+        <div className="mk-wrap">
+          <span className="sv-prov__eyebrow sv-reveal"><HelpCircle />ひとつの問い</span>
+          <h2 className="sv-reveal">それって、<br /><em>コンテキストレイヤー</em>が<br />無いんじゃない？</h2>
+          <p className="sv-prov__lead sv-reveal">データはある。ダッシュボードもある。それでも判断が再現できないのは、データと意思決定の<strong style={{ color: "#fff" }}>“あいだ”</strong>が抜けているから。前提・指標の定義・過去の決定とその根拠 —— 判断の<strong style={{ color: "#fff" }}>文脈</strong>を蓄積し、再利用する層がないのです。</p>
+
+          <div className="sv-gap sv-reveal" style={{ transitionDelay: ".1s" }}>
+            <div className="sv-gap__node">
+              <div className="k">Data</div>
+              <div className="t">データ層</div>
+              <div className="s">BI・DWH・SaaS<br />数字は揃っている</div>
+            </div>
+            <div className="sv-gap__arrow"><ArrowRight /></div>
+            <div className="sv-gap__node sv-gap__node--miss">
+              <div className="k">Missing</div>
+              <div className="t">コンテキストレイヤー</div>
+              <div className="s">前提・根拠・過去の決定<br />—— ここが空白</div>
+            </div>
+            <div className="sv-gap__arrow"><ArrowRight /></div>
+            <div className="sv-gap__node">
+              <div className="k">Decision</div>
+              <div className="t">意思決定</div>
+              <div className="s">毎回ゼロから<br />属人的に判断</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SOLUTION */}
+      <section className="mk-section" id="solution">
+        <div className="mk-wrap">
+          <div className="mk-shead sv-reveal">
+            <span className="mk-eyebrow"><Layers />ソリューション</span>
+            <h2>PolarisX は、その“あいだ”をつくる。</h2>
+            <p>散在する前提・指標・判断基準を、再利用できる「コンテキストレイヤー」として構造化。データと意思決定をつなぎ、判断を再現可能な資産に変えます。</p>
+          </div>
+
+          {/* layer stack diagram */}
+          <div className="sv-stack">
+            <div className="sv-layer sv-reveal">
+              <div className="sv-layer__tag">Decision</div>
+              <div className="sv-layer__body">
+                <span className="sv-layer__title">意思決定</span>
+                <div className="sv-layer__items"><span className="sv-chip">再現可能なアクション</span><span className="sv-chip">根拠付きの一手</span></div>
               </div>
             </div>
-            <div className="serv-list">
-              <div className="serv-li"><span className="sn">01</span><h4>信頼できる整備済みデータの構築</h4><p>プロダクトDB・CRM・問い合わせ履歴など、システムをまたいで分断したデータを統合し、AIが安心して使える形に整備。顧客ID・企業ID・契約IDの紐づけを早期に設計し、回答の根拠をたどれる土台をつくります。</p></div>
-              <div className="serv-li"><span className="sn">02</span><h4>データ分析／意思決定のフロー整理</h4><p>社内の既存のデータ分析・施策や、事業における意思決定の業務フローを洗い出し、どこに再現性が欠けているのかを可視化します。</p></div>
-              <div className="serv-li"><span className="sn">03</span><h4>KPIや業務用語の定義</h4><p>「アクティブユーザー」「解約率」などの指標と業務ルールをセマンティックレイヤーとして一元定義。人の頭の中にあった暗黙の前提を、AIが読める形に外在化します。</p></div>
-              <div className="serv-li"><span className="sn">04</span><h4>構造化データと非構造化データの接続</h4><p>DWHの数値だけでなく、商談メモ・問い合わせ履歴・社内ドキュメントといった非構造化データも接続。AIが業務の文脈ごと解釈できるようにします。</p></div>
-              <div className="serv-li"><span className="sn">05</span><h4>権限管理と参照範囲の制御</h4><p>社内向け・顧客向けでAIが参照してよいデータを分離し、権限に応じたアクセス制御を設計。利便性と情報ガバナンスを両立させます。</p></div>
+            <div className="sv-stack__rail"><ChevronUp /></div>
+            <div className="sv-layer sv-layer--ctx sv-reveal" style={{ transitionDelay: ".05s" }}>
+              <div className="sv-layer__tag">Context Layer</div>
+              <div className="sv-layer__body">
+                <span className="sv-layer__title"><Sparkles />コンテキストレイヤー</span>
+                <div className="sv-layer__items"><span className="sv-chip">前提</span><span className="sv-chip">指標定義</span><span className="sv-chip">過去の意思決定</span><span className="sv-chip">根拠</span></div>
+              </div>
+            </div>
+            <div className="sv-stack__rail"><ChevronUp /></div>
+            <div className="sv-layer sv-reveal" style={{ transitionDelay: ".1s" }}>
+              <div className="sv-layer__tag">Data</div>
+              <div className="sv-layer__body">
+                <span className="sv-layer__title">データ層</span>
+                <div className="sv-layer__items"><span className="sv-chip">BI</span><span className="sv-chip">DWH</span><span className="sv-chip">基幹・SaaS</span></div>
+              </div>
             </div>
           </div>
 
-          <div className="serv">
-            <div className="serv-top">
-              <div className="serv-no">02</div>
-              <div className="serv-meta">
-                <div className="serv-tag">AI-Driven Data Analytics Consulting</div>
-                <h3>AI駆動型データ分析コンサルティング</h3>
-                <p>AI駆動型データ分析の設計・運用まで一気通貫で支援するコンサルティングサービス。何をどう分析すれば意思決定に効くかを設計し、データに基づく再現性ある意思決定を支援します。</p>
-              </div>
+          {/* three pillars */}
+          <div className="mk-cards">
+            <div className="mk-fcard sv-reveal">
+              <div className="mk-fcard__icon"><Search /></div>
+              <h3>文脈の可視化</h3>
+              <p>散在する指標・前提・判断基準を棚卸しし、意思決定の文脈として構造化。「何を見て、なぜ決めるか」を言語化します。</p>
             </div>
-            <div className="serv-ex">
-              <div className="ex"><div className="ex-tag">Design</div><h4>分析設計</h4><p>何をどう分析すれば意思決定に効くかを設計し、勘と経験に頼っていた判断を、データに基づく再現可能なプロセスへと置き換えます。</p></div>
-              <div className="ex"><div className="ex-tag">Operation</div><h4>運用・定着</h4><p>分析の設計から運用まで一気通貫で伴走。再現性ある意思決定が、現場の業務に根づくところまで支援します。</p></div>
+            <div className="mk-fcard sv-reveal" style={{ transitionDelay: ".07s" }}>
+              <div className="mk-fcard__icon"><Database /></div>
+              <h3>再現可能な意思決定基盤</h3>
+              <p>コンテキストレイヤーをデータ基盤上に実装。AI が過去の文脈を踏まえ、次の一手を再現スコア付きで提案します。</p>
             </div>
-          </div>
-
-          <div className="serv">
-            <div className="serv-top">
-              <div className="serv-no">03</div>
-              <div className="serv-meta">
-                <div className="serv-tag">AI Agent &amp; Model Development</div>
-                <h3>AIエージェント・AIモデルの開発／内製化支援</h3>
-                <p>コードを書かなくても自然言語だけで高度な分析ができる仕組みを構築したり、より高度な需要予測・購買予測をするAIを開発。内製化までを見据えて支援します。</p>
-              </div>
-            </div>
-            <div className="serv-ex">
-              <div className="ex"><div className="ex-tag">Example A</div><h4>分析AIエージェント</h4><p>自然言語で高度な分析ができるAIエージェントの開発。属人化していた分析業務を、誰でも・どこでもできる状態にします。</p></div>
-              <div className="ex"><div className="ex-tag">Example B</div><h4>予測・レコメンドモデル</h4><p>需要予測やレコメンドエンジンなど、業務に組み込む予測モデルを開発し、意思決定とアクションを支えます。</p></div>
+            <div className="mk-fcard sv-reveal" style={{ transitionDelay: ".14s" }}>
+              <div className="mk-fcard__icon"><Users /></div>
+              <h3>定着と内製化</h3>
+              <p>運用に乗せ、再現スコアで判断の質を測りながらチームに定着。使うほど磨かれ、自走できる状態へ導きます。</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="sec" id="members">
-        <div className="wrap">
-          <div className="secnum">MEMBERS ／ 04</div>
-          <div className="members">
-            <div className="mem">
-              <div className="mono">SO</div>
-              <div className="role">代表取締役 CEO</div>
-              <h3>折本 聖也</h3>
-              <div className="romaji">Seiya Orimoto</div>
-              <p className="bio">東北大学・大学院を卒業後、メガベンチャーで主力事業のPdMとして、年次130%の成長を牽引。その後、東大発AIスタートアップでAIエンジニアとして最先端の深層学習の社会実装に従事。</p>
-            </div>
-            <div className="mem">
-              <div className="mono">IH</div>
-              <div className="role">共同創業者 COO</div>
-              <h3>He Sibei</h3>
-              <div className="romaji">Iris He</div>
-              <p className="bio">中国出身、学生時代に連続起業し、複数事業の収益化を実現。その後、DeNAにて国内最大規模のゲームタイトルの意思決定を支えるデータ分析、AI導入・推進をリード。</p>
-            </div>
-            <div className="mem">
-              <div className="mono">AA</div>
-              <div className="role">共同創業者 CTO</div>
-              <h3>安部 歩夢</h3>
-              <div className="romaji">Ayumu Abe</div>
-              <p className="bio">東京工業大学・大学院を卒業後、在学時から複数のスタートアップでリードエンジニア、CTOとして経営層と連携しながらプロダクト開発を主導。その後、DeNAでフルスタックエンジニアとして複数の新規事業開発に参画。</p>
-            </div>
+      {/* BENEFITS with embedded demos */}
+      <section className="mk-section mk-section--sunken" id="benefits">
+        <div className="mk-wrap">
+          <div className="mk-shead sv-reveal">
+            <span className="mk-eyebrow"><CheckCircle2 />導入のメリット</span>
+            <h2>判断が、再現できる資産になる。</h2>
           </div>
-        </div>
-      </section>
 
-      <section className="sec" id="company">
-        <div className="wrap">
-          <div className="secnum">COMPANY ／ 05</div>
-          <dl className="table">
-            <div className="row"><dt>会社名</dt><dd>PolarisX株式会社</dd></div>
-            <div className="row"><dt>代表者</dt><dd>折本 聖也（Seiya Orimoto）／ 代表取締役 CEO</dd></div>
-            <div className="row"><dt>設立予定日</dt><dd>2026年6月17日</dd></div>
-            <div className="row"><dt>資本金</dt><dd>1,000,000円</dd></div>
-            <div className="row"><dt>業種</dt><dd>情報通信業</dd></div>
-            <div className="row"><dt>事業内容</dt><dd>
-              <ul className="biz">
-                <li><span className="n">①</span><span>AI Readyなデータ基盤の開発</span></li>
-                <li><span className="n">②</span><span>AI駆動型データ分析コンサルティング</span></li>
-                <li><span className="n">③</span><span>AIエージェント、AIモデルの開発・内製化支援</span></li>
+          {/* Benefit 1 */}
+          <div className="mk-frow">
+            <div className="sv-reveal">
+              <span className="mk-eyebrow"><Repeat />再現性</span>
+              <h3>意思決定が、積み上がる資産になる</h3>
+              <p>すべての判断が、前提・根拠・成果とともに記録されます。次に同じ問いが来たとき、ゼロからではなく過去の文脈から始められます。</p>
+              <ul className="mk-checklist">
+                <li><Check />判断ごとに根拠とデータ出典を自動で紐付け</li>
+                <li><Check />再現スコアで「再び使える判断か」を可視化</li>
+                <li><Check />成果のフィードバックで判断の質が学習される</li>
               </ul>
-            </dd></div>
-            <div className="row"><dt>本店所在地</dt><dd>東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C</dd></div>
-            <div className="row"><dt>お問い合わせ</dt><dd>contact@polarisx.ltd</dd></div>
-          </dl>
-        </div>
-      </section>
-
-      <section className="sec contact" id="contact">
-        <div className="wrap">
-          <div className="secnum" style={{ color: "#9a9a9f" }}>CONTACT ／ 06</div>
-          <h2>未来を、<br />一緒につくろう。</h2>
-          <p className="lead">ご相談・取材・協業などのお問い合わせは、お気軽にどうぞ。</p>
-          <a className="mail en" href="mailto:contact@polarisx.ltd">contact@polarisx.ltd</a>
-          <ContactForm />
-          <Image className="symc" src={symbolBlack} alt="" width={120} />
-        </div>
-      </section>
-
-      <footer>
-        <div className="wrap">
-          <div className="foot">
-            <Image className="logo" src={logoBlack} alt="PolarisX" height={24} />
-            <ul>
-              <li><a href="#mission">MISSION</a></li>
-              <li><a href="#values">VALUES</a></li>
-              <li><a href="#services">SERVICES</a></li>
-              <li><a href="#members">MEMBERS</a></li>
-              <li><a href="#company">COMPANY</a></li>
-              <li><a href="#contact">CONTACT</a></li>
-            </ul>
+            </div>
+            <div className="mk-frow__media sv-reveal" style={{ transitionDelay: ".06s" }}>
+              <div className="mk-media">
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "14px" }}>
+                  <span className="px-badge px-badge--accent">意思決定ログ</span>
+                  <span style={{ fontSize: "11px", color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>直近 3 件</span>
+                </div>
+                <div className="sv-log">
+                  <div className="sv-logitem">
+                    <div className="sv-logitem__d">在庫配分を東日本に +15%</div>
+                    <div className="sv-logitem__s">0.92</div>
+                    <div className="sv-logitem__m">事業企画部 ・ 採用</div>
+                    <div className="sv-logitem__bar"><i style={{ width: "92%" }} /></div>
+                  </div>
+                  <div className="sv-logitem">
+                    <div className="sv-logitem__d">Pro プランを 5% 値上げ</div>
+                    <div className="sv-logitem__s">0.88</div>
+                    <div className="sv-logitem__m">プライシング ・ 検証中</div>
+                    <div className="sv-logitem__bar"><i style={{ width: "88%" }} /></div>
+                  </div>
+                  <div className="sv-logitem">
+                    <div className="sv-logitem__d">関西の広告予算を再配分</div>
+                    <div className="sv-logitem__s">0.79</div>
+                    <div className="sv-logitem__m">マーケ ・ 要見直し</div>
+                    <div className="sv-logitem__bar"><i style={{ width: "79%" }} /></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="copy">© 2026 PolarisX, Inc. All rights reserved.</div>
+
+          {/* Benefit 2 */}
+          <div className="mk-frow mk-frow--rev">
+            <div className="sv-reveal">
+              <span className="mk-eyebrow"><Zap />スピード</span>
+              <h3>判断のスピードが上がる</h3>
+              <p>聞きたいことを、そのまま問いかけるだけ。文脈を踏まえた回答が、根拠とデータ出典つきで返ってきます。会議の前に答えが揃います。</p>
+              <ul className="mk-checklist">
+                <li><Check />自然言語で問いかけ、根拠付きで即回答</li>
+                <li><Check />前提や指標定義はコンテキストレイヤーから自動補完</li>
+                <li><Check />「なぜ」まで遡れるから、その場で意思決定できる</li>
+              </ul>
+            </div>
+            <div className="mk-frow__media sv-reveal" style={{ transitionDelay: ".06s" }}>
+              <div className="mk-media">
+                <div className="sv-ask">
+                  <div className="sv-ask__bar"><Search /><span>東日本の在庫、来月どうすべき？</span><span className="sv-caret"></span></div>
+                  <div className="sv-answer">
+                    <div className="sv-answer__mark"><Sparkles /></div>
+                    <div>
+                      <div className="sv-answer__txt">需要予測は <b>+12.4%</b>、欠品リスクは 3 SKU。過去の類似判断 2 件はいずれも再現。<b>+15% の増配</b>を再現スコア 0.92 で推奨します。</div>
+                      <div className="sv-srcs"><span className="sv-src">forecast.v3</span><span className="sv-src">inventory.db</span><span className="sv-src">decisions/2025</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Benefit 3 */}
+          <div className="mk-frow">
+            <div className="sv-reveal">
+              <span className="mk-eyebrow"><Unlock />脱・属人化</span>
+              <h3>属人化から、解放される</h3>
+              <p>判断の前提も指標の定義も、組織の資産として蓄積。担当者が代わっても、文脈は引き継がれます。チームの判断力が、人に依存しなくなります。</p>
+              <ul className="mk-checklist">
+                <li><Check />前提・指標定義・過去の決定を一元的に蓄積</li>
+                <li><Check />異動・退職があっても文脈はそのまま残る</li>
+                <li><Check />新メンバーも初日から同じ土台で判断できる</li>
+              </ul>
+            </div>
+            <div className="mk-frow__media sv-reveal" style={{ transitionDelay: ".06s" }}>
+              <div className="mk-media">
+                <div className="sv-ctx">
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}><Layers style={{ width: 16, height: 16, color: "var(--blue-600)" }} /><span style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "14px", color: "var(--indigo-950)" }}>蓄積された文脈</span></div>
+                  <div className="sv-ctx__counts">
+                    <div className="sv-ctx__count"><div className="v">12</div><div className="l">前提</div></div>
+                    <div className="sv-ctx__count"><div className="v">34</div><div className="l">指標定義</div></div>
+                    <div className="sv-ctx__count"><div className="v">128</div><div className="l">過去の決定</div></div>
+                  </div>
+                  <div className="sv-ctx__feed">
+                    <div className="sv-ctx__row"><PlusCircle />「粗利は配送費控除後」を前提に追加<time>2分前</time></div>
+                    <div className="sv-ctx__row"><GitCommit />指標「再現スコア」の定義を更新<time>今日</time></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS / steps */}
+      <section className="mk-section" id="process">
+        <div className="mk-wrap">
+          <div className="mk-shead sv-reveal">
+            <span className="mk-eyebrow"><Route />導入の流れ</span>
+            <h2>最短4ステップで、判断を仕組みに。</h2>
+            <p>現状の診断から内製化まで、伴走します。初回のヒアリングと現状診断は無料です。</p>
+          </div>
+          <div className="sv-steps">
+            <div className="sv-step sv-reveal"><span className="sv-step__dot"></span><div className="sv-step__n">STEP 01</div><h3>ヒアリング & 現状診断</h3><p>意思決定の課題と、散在する文脈を洗い出す。どこに再現性の欠落があるかを可視化します。<br /><strong style={{ color: "var(--blue-600)" }}>（初回無料）</strong></p></div>
+            <div className="sv-step sv-reveal" style={{ transitionDelay: ".07s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 02</div><h3>コンテキスト設計</h3><p>指標・前提・判断基準を棚卸しし、再利用できるコンテキストレイヤーとして設計します。</p></div>
+            <div className="sv-step sv-reveal" style={{ transitionDelay: ".14s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 03</div><h3>実装 & 検証</h3><p>データ基盤上に実装し、実際の意思決定で運用。再現スコアで効果を検証します。</p></div>
+            <div className="sv-step sv-reveal" style={{ transitionDelay: ".21s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 04</div><h3>定着 & 内製化</h3><p>運用に乗せ、チームが自走できる状態へ。判断の質が使うほど磨かれていきます。</p></div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="mk-section sv-contact" id="contact">
+        <div className="mk-wrap">
+          <div className="sv-contact__grid">
+            <div className="sv-contact__intro sv-reveal">
+              <span className="mk-eyebrow"><Mail />お問い合わせ</span>
+              <h2>意思決定を、<br /><em>属人化</em>から解放する。</h2>
+              <p>今日から、あなたのチームの判断に再現性を。まずは現状の課題をお聞かせください。初回相談は無料です。</p>
+              <ul className="sv-assure">
+                <li><CheckCircle2 />初回ヒアリング & 現状診断は無料</li>
+                <li><CheckCircle2 />オンライン 60 分・営業日 2 日以内にご返信</li>
+                <li><CheckCircle2 />無理な提案・しつこい営業はしません</li>
+              </ul>
+            </div>
+
+            <ServiceContactForm />
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="mk-footer">
+        <div className="mk-wrap">
+          <div className="mk-footer__grid">
+            <div className="mk-footer__col">
+              <a className="mk-logo" href="#top" style={{ marginBottom: "14px" }}><img src="/assets/PolarisX_mark.svg" alt="" width={26} height={26} /><span>Polaris<span style={{ color: "var(--blue-500)" }}>X</span></span></a>
+              <p style={{ fontSize: "13.5px", color: "var(--text-muted)", lineHeight: 1.7, maxWidth: "24em" }}>AI × データで、意思決定に再現性を。北極星のように、組織の判断を導きます。</p>
+            </div>
+            <div className="mk-footer__col"><h4>サービス</h4><a href="#problem">課題感</a><a href="#solution">ソリューション</a><a href="#benefits">導入のメリット</a><a href="#process">導入の流れ</a></div>
+            <div className="mk-footer__col"><h4>会社情報</h4><a href="/company">会社情報</a><a href="#">導入事例</a><a href="#">採用情報</a><a href="#contact">お問い合わせ</a></div>
+            <div className="mk-footer__col"><h4>リソース</h4><a href="#">ブログ</a><a href="#">ドキュメント</a><a href="#">利用規約</a><a href="#">プライバシー</a></div>
+          </div>
+          <div className="mk-footer__bottom">
+            <span>© 2026 PolarisX, Inc.</span>
+            <span style={{ display: "flex", gap: "16px" }}><a href="#" style={{ color: "inherit", textDecoration: "none" }}>プライバシー</a><a href="#" style={{ color: "inherit", textDecoration: "none" }}>セキュリティ</a></span>
+          </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
