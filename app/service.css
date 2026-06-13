@@ -750,6 +750,7 @@ body { margin: 0; }
 @media (max-width: 900px) {
   .mk-hero__grid, .mk-frow, .mk-cards, .mk-prices, .mk-band__grid, .mk-footer__grid { grid-template-columns: 1fr; }
   .mk-h1 { font-size: 42px; }
+  .mk-nav { display: none; }
 }
 
 /* ============================================================
