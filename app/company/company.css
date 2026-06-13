@@ -11,6 +11,9 @@
 *, *::before, *::after { box-sizing: border-box; }
 .theme-company * { margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
+body { margin: 0; }
+
 .theme-company {
   font-family: var(--font-zen), system-ui, sans-serif;
   background: var(--paper);

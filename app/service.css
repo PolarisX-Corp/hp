@@ -330,6 +330,8 @@
 
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
+body { margin: 0; }
+
 .theme-service {
   font-family: var(--font-sans);
   font-weight: var(--fw-regular);
@@ -341,6 +343,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
+  margin: 0;
 }
 
 .theme-service h1, .theme-service h2, .theme-service h3, .theme-service h4, .theme-service h5, .theme-service h6 {
