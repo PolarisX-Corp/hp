@@ -131,7 +131,7 @@ export default function ServiceContactForm() {
           </button>
         </div>
         {status === "error" && (
-          <p className="sv-form__note" role="status" style={{ color: "var(--danger)" }}>
+          <p className="sv-form__note" role="alert" aria-live="assertive" style={{ color: "var(--danger)" }}>
             {error}
           </p>
         )}
