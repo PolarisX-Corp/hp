@@ -12,8 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Claude Design handoff bundle — reference only, not part of the app build.
+    // Claude Design handoff bundles — reference only, not part of the app build.
     "servicepage/**",
+    "blogpage/**",
+    "hp/**",
   ]),
 ]);
 
