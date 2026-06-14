@@ -60,10 +60,6 @@ export default function BlogIndexPage() {
                 <Icon name="message-square-text" size={18} className="px-btn__icon" />
                 無料で相談する
               </Link>
-              <Link className="px-btn px-btn--lg bl-btn-ghost-w" href="/#contact">
-                <Icon name="file-text" size={18} className="px-btn__icon" />
-                資料を見る
-              </Link>
             </div>
           </div>
         </section>

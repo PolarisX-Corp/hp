@@ -107,7 +107,9 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adju
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
-  overflow-x: hidden;
+  /* clip（hidden ではなく）: 横スクロールは抑えつつ、スクロールコンテナ化を
+     避けてサイドバーの position: sticky を機能させる。 */
+  overflow-x: clip;
 }
 .theme-blog *, .theme-blog *::before, .theme-blog *::after { box-sizing: border-box; }
 .theme-blog a { color: inherit; text-decoration: none; }
@@ -186,7 +188,8 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adju
 .bl-cat { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: 12px;
   letter-spacing: .02em; padding: 5px 11px; border-radius: 999px; background: var(--indigo-900); color: #fff; }
 .bl-cat--ghost { background: var(--blue-50); color: var(--blue-700); }
-.bl-cover__tag .bl-cat { font-size: 10.5px; padding: 4px 9px; gap: 5px; letter-spacing: .01em; }
+.bl-cover__tag .bl-cat { font-size: 9.5px; padding: 3px 7px; gap: 4px; letter-spacing: .01em; }
+.bl-cover__tag .bl-cat svg { width: 10px; height: 10px; }
 
 /* INDEX */
 .bl-index-hero { position: relative; overflow: hidden; background: var(--indigo-900); color: #fff; padding: var(--space-20) 0 var(--space-16); }

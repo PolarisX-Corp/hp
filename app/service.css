@@ -460,6 +460,15 @@ body { margin: 0; }
 .px-btn--danger { background: var(--danger); color: #fff; }
 .px-btn--danger:hover:not(:disabled) { background: var(--red-700); }
 
+/* Button label colors — outrank the base `.theme-service a` color rule
+   (anchors used as buttons would otherwise pick up --text-link). */
+.theme-service .px-btn--primary,
+.theme-service .px-btn--brand,
+.theme-service .px-btn--danger { color: #fff; }
+.theme-service .px-btn--primary:hover:not(:disabled),
+.theme-service .px-btn--brand:hover:not(:disabled) { color: #fff; }
+.theme-service .px-btn--secondary { color: var(--text-primary); }
+
 .px-btn__icon { display: inline-flex; width: 1em; height: 1em; font-size: 1.15em; }
 
 /* ---------- Icon button ---------- */

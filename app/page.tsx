@@ -33,7 +33,6 @@ export default function Home() {
             <a href="/company">会社情報</a>
           </nav>
           <div className="mk-header__cta">
-            <a className="px-btn px-btn--ghost px-btn--sm" href="#contact">資料請求</a>
             <a className="px-btn px-btn--primary px-btn--sm" href="#contact">無料で相談する</a>
           </div>
         </div>
@@ -367,8 +366,8 @@ export default function Home() {
               <p style={{ fontSize: "13.5px", color: "var(--text-muted)", lineHeight: 1.7, maxWidth: "24em" }}>AI × データで、意思決定に再現性を。北極星のように、組織の判断を導きます。</p>
             </div>
             <div className="mk-footer__col"><h4>サービス</h4><a href="#problem">課題感</a><a href="#solution">ソリューション</a><a href="#benefits">導入のメリット</a><a href="#process">導入の流れ</a></div>
-            <div className="mk-footer__col"><h4>会社情報</h4><a href="/company">会社情報</a><a href="#">導入事例</a><a href="#">採用情報</a><a href="#contact">お問い合わせ</a></div>
-            <div className="mk-footer__col"><h4>リソース</h4><a href="#">ブログ</a><a href="#">ドキュメント</a><a href="#">利用規約</a><a href="#">プライバシー</a></div>
+            <div className="mk-footer__col"><h4>会社情報</h4><a href="/company">会社情報</a><a href="/company#contact">お問い合わせ</a></div>
+            <div className="mk-footer__col"><h4>リソース</h4><a href="/blogs">ブログ</a><a href="#">プライバシー</a></div>
           </div>
           <div className="mk-footer__bottom">
             <span>© 2026 PolarisX, Inc.</span>

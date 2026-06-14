@@ -54,20 +54,26 @@ export function BlogCompany() {
             <h2>会社概要</h2>
             <dl className="bl-deflist">
               <dt>会社名</dt>
-              <dd>PolarisX 株式会社</dd>
-              <dt>設立</dt>
-              <dd>2021年4月</dd>
-              <dt>所在地</dt>
-              <dd>東京都千代田区丸の内1-1-1 PolarisXタワー 12F</dd>
+              <dd>PolarisX株式会社</dd>
               <dt>代表者</dt>
-              <dd>代表取締役CEO 北極 星一</dd>
+              <dd>折本 聖也（Seiya Orimoto）／ 代表取締役 CEO</dd>
+              <dt>設立予定日</dt>
+              <dd>2026年6月17日</dd>
+              <dt>資本金</dt>
+              <dd>1,000,000円</dd>
+              <dt>業種</dt>
+              <dd>情報通信業</dd>
               <dt>事業内容</dt>
-              <dd>AI × データ意思決定インテリジェンスプラットフォーム「PolarisX」の開発・提供</dd>
-              <dt>従業員数</dt>
-              <dd>128名（2026年6月時点）</dd>
-              <dt>URL</dt>
               <dd>
-                <Link href="/">https://www.polarisx.example</Link>
+                ① AI Readyなデータ基盤の開発
+                <br />② AI駆動型データ分析コンサルティング
+                <br />③ AIエージェント、AIモデルの開発・内製化支援
+              </dd>
+              <dt>本店所在地</dt>
+              <dd>東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C</dd>
+              <dt>お問い合わせ</dt>
+              <dd>
+                <a href="mailto:contact@polarisx.ltd">contact@polarisx.ltd</a>
               </dd>
             </dl>
           </div>
@@ -91,37 +97,32 @@ export function BlogFooter() {
               </span>
             </Link>
             <p className="bl-footer__lead">
-              AI × データで、意思決定に再現性を。北極星のように、組織の判断を正しい方向へ導きます。
+              AI × データで、意思決定に再現性を。北極星のように、組織の判断を導きます。
             </p>
           </div>
           <div className="bl-footer__col">
-            <h4>プロダクト</h4>
-            <Link href="/">概要</Link>
-            <Link href="/#solution">意思決定インサイト</Link>
-            <Link href="/#solution">データ探索</Link>
-            <Link href="/#contact">料金</Link>
+            <h4>サービス</h4>
+            <Link href="/#problem">課題感</Link>
+            <Link href="/#solution">ソリューション</Link>
+            <Link href="/#benefits">導入のメリット</Link>
+            <Link href="/#process">導入の流れ</Link>
+          </div>
+          <div className="bl-footer__col">
+            <h4>会社情報</h4>
+            <Link href="/company">会社情報</Link>
+            <Link href="/company#contact">お問い合わせ</Link>
           </div>
           <div className="bl-footer__col">
             <h4>リソース</h4>
             <Link href="/blogs">ブログ</Link>
-            <Link href="/#benefits">導入事例</Link>
-            <Link href="/">ドキュメント</Link>
-            <Link href="/#contact">資料ダウンロード</Link>
-          </div>
-          <div className="bl-footer__col">
-            <h4>会社情報</h4>
-            <Link href="/company">私たちについて</Link>
-            <Link href="/company">採用情報</Link>
-            <Link href="/#contact">お問い合わせ</Link>
-            <Link href="/company">利用規約</Link>
+            <Link href="#">プライバシー</Link>
           </div>
         </div>
         <div className="bl-footer__bottom">
           <span>© 2026 PolarisX, Inc.</span>
           <span className="links">
-            <Link href="/company">プライバシーポリシー</Link>
-            <Link href="/company">セキュリティ</Link>
-            <Link href="/company">特定商取引法に基づく表記</Link>
+            <Link href="#">プライバシー</Link>
+            <Link href="#">セキュリティ</Link>
           </span>
         </div>
       </div>
