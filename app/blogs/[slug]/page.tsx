@@ -14,11 +14,7 @@ import { CoverArt } from "../components/CoverArt";
 import { PostCard } from "../components/PostCard";
 import { Prose } from "../components/Prose";
 import { Icon } from "../components/Icon";
-import {
-  ReadingProgress,
-  TocNav,
-  ShareButtons,
-} from "../components/ArticleClient";
+import { ReadingProgress, TocNav } from "../components/ArticleClient";
 import "../blog.css";
 
 export function generateStaticParams() {
@@ -115,7 +111,6 @@ export default async function ArticlePage({
               <Icon name="clock" size={14} />
               読了 約{post.readingMinutes}分
             </span>
-            <ShareButtons title={post.title} />
           </div>
         </div>
 
