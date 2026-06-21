@@ -134,25 +134,22 @@ export default function Company() {
       <section className="co-sec co-sec--sunken" id="services">
         <div className="co-wrap">
           <div className="co-secnum co-reveal">SERVICES ／ 03</div>
-          <h2 className="co-serv-head co-reveal">AIで意思決定を再現可能にする、<em>3つのサービス。</em></h2>
-          <p className="co-serv-lead co-reveal">AIが使えるようにデータを整える土台づくりから、分析設計、AIエージェント・モデルの開発まで。データに基づく再現性ある意思決定を、一気通貫で支援します。</p>
+          <h2 className="co-serv-head co-reveal">データ×AIで、意思決定を再現可能にする、<em>3つのサービス。</em></h2>
+          <p className="co-serv-lead co-reveal">分析基盤の構築からAIエージェントの導入・内製化、2D・3Dデータ解析まで。データに基づく再現性ある意思決定を、一気通貫で支援します。</p>
 
           {/* Service 01 */}
           <div className="co-serv co-reveal">
             <div className="co-serv__top">
               <div className="co-serv__no">01</div>
               <div className="co-serv__meta">
-                <span className="px-badge px-badge--accent co-serv__tag co-en">AI-Ready Data Foundation</span>
-                <h3>AI Readyなデータ基盤構築支援</h3>
-                <p>AI活用で最も重要なのは、AIエージェントにとって扱いやすい形でデータとナレッジを整えること。これまでのデータ分析実務の知見を活かし、御社のデータ基盤を再現性ある意思決定ができる状態へ整えます。</p>
+                <span className="px-badge px-badge--accent co-serv__tag co-en">Data-Driven Analytics Consulting</span>
+                <h3>データドリブンな意思決定を実現する分析基盤構築コンサルティング</h3>
+                <p>勘と経験に頼ってきた「良い判断」を、データに基づく再現可能なプロセスへ。AIが使えるようにデータを整える土台づくりから分析設計・運用定着まで、一気通貫で伴走します。</p>
               </div>
             </div>
-            <div className="co-serv__list">
-              <div className="co-serv-li"><span className="sn">01</span><h4>信頼できる整備済みデータの構築</h4><p>プロダクトDB・CRM・問い合わせ履歴など、システムをまたいで分断したデータを統合し、AIが安心して使える形に整備。顧客ID・企業ID・契約IDの紐づけを早期に設計し、回答の根拠をたどれる土台をつくります。</p></div>
-              <div className="co-serv-li"><span className="sn">02</span><h4>データ分析／意思決定のフロー整理</h4><p>社内の既存のデータ分析・施策や、事業における意思決定の業務フローを洗い出し、どこに再現性が欠けているのかを可視化します。</p></div>
-              <div className="co-serv-li"><span className="sn">03</span><h4>KPIや業務用語の定義</h4><p>「アクティブユーザー」「解約率」などの指標と業務ルールをセマンティックレイヤーとして一元定義。人の頭の中にあった暗黙の前提を、AIが読める形に外在化します。</p></div>
-              <div className="co-serv-li"><span className="sn">04</span><h4>構造化データと非構造化データの接続</h4><p>DWHの数値だけでなく、商談メモ・問い合わせ履歴・社内ドキュメントといった非構造化データも接続。AIが業務の文脈ごと解釈できるようにします。</p></div>
-              <div className="co-serv-li"><span className="sn">05</span><h4>権限管理と参照範囲の制御</h4><p>社内向け・顧客向けでAIが参照してよいデータを分離し、権限に応じたアクセス制御を設計。利便性と情報ガバナンスを両立させます。</p></div>
+            <div className="co-serv__ex">
+              <div className="co-ex"><div className="co-ex-tag">Foundation</div><h4>分析基盤の整備</h4><p>分散したデータを統合し、KPI・業務用語を一元定義。AIエージェントが安心して参照できる信頼性の高いデータ基盤を構築します。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">Consulting</div><h4>分析設計・運用定着</h4><p>何をどう分析すれば意思決定に効くかを設計し、再現性ある判断プロセスが現場に根づくところまで支援します。</p></div>
             </div>
           </div>
 
@@ -161,14 +158,14 @@ export default function Company() {
             <div className="co-serv__top">
               <div className="co-serv__no">02</div>
               <div className="co-serv__meta">
-                <span className="px-badge px-badge--accent co-serv__tag co-en">AI-Driven Data Analytics Consulting</span>
-                <h3>AI駆動型データ分析コンサルティング</h3>
-                <p>AI駆動型データ分析の設計・運用まで一気通貫で支援するコンサルティングサービス。何をどう分析すれば意思決定に効くかを設計し、データに基づく再現性ある意思決定を支援します。</p>
+                <span className="px-badge px-badge--accent co-serv__tag co-en">AI Agent Implementation</span>
+                <h3>AIエージェントの導入・内製化支援</h3>
+                <p>自然言語だけで高度な分析・業務自動化ができるAIエージェントを導入し、属人化した業務を誰もが・何度でも再現できる仕組みに変えます。内製化までを見据えて伴走します。</p>
               </div>
             </div>
             <div className="co-serv__ex">
-              <div className="co-ex"><div className="co-ex-tag">Design</div><h4>分析設計</h4><p>何をどう分析すれば意思決定に効くかを設計し、勘と経験に頼っていた判断を、データに基づく再現可能なプロセスへと置き換えます。</p></div>
-              <div className="co-ex"><div className="co-ex-tag">Operation</div><h4>運用・定着</h4><p>分析の設計から運用まで一気通貫で伴走。再現性ある意思決定が、現場の業務に根づくところまで支援します。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">Implementation</div><h4>AIエージェント導入</h4><p>業務フローに合わせたAIエージェントを設計・構築。コードを書かずに高度な分析・自動化ができる仕組みを現場に組み込みます。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">Internalization</div><h4>内製化支援</h4><p>導入にとどまらず、社内チームが自走できるよう技術移転・体制構築まで伴走。継続的な改善サイクルを社内に根づかせます。</p></div>
             </div>
           </div>
 
@@ -177,14 +174,14 @@ export default function Company() {
             <div className="co-serv__top">
               <div className="co-serv__no">03</div>
               <div className="co-serv__meta">
-                <span className="px-badge px-badge--accent co-serv__tag co-en">AI Agent &amp; Model Development</span>
-                <h3>AIエージェント・AIモデルの開発／内製化支援</h3>
-                <p>コードを書かなくても自然言語だけで高度な分析ができる仕組みを構築したり、より高度な需要予測・購買予測をするAIを開発。内製化までを見据えて支援します。</p>
+                <span className="px-badge px-badge--accent co-serv__tag co-en">2D / 3D Data Analytics</span>
+                <h3>2D・3Dデータ解析コンサルティング</h3>
+                <p>画像・点群・CADデータなど、従来の表形式では扱えなかった2D・3Dデータを解析し、製造・建設・空間設計領域での意思決定に再現性をもたらします。</p>
               </div>
             </div>
             <div className="co-serv__ex">
-              <div className="co-ex"><div className="co-ex-tag">Example A</div><h4>分析AIエージェント</h4><p>自然言語で高度な分析ができるAIエージェントの開発。属人化していた分析業務を、誰でも・どこでもできる状態にします。</p></div>
-              <div className="co-ex"><div className="co-ex-tag">Example B</div><h4>予測・レコメンドモデル</h4><p>需要予測やレコメンドエンジンなど、業務に組み込む予測モデルを開発し、意思決定とアクションを支えます。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">2D Analysis</div><h4>画像・2Dデータ解析</h4><p>カメラ映像・図面・衛星画像など2Dデータから定量的なインサイトを抽出。目視に頼っていた判断を、データに基づく再現可能なプロセスへ置き換えます。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">3D Analysis</div><h4>点群・3Dデータ解析</h4><p>LiDAR・3Dスキャンなどの点群データを解析し、空間・構造物の定量評価を実現。現場の複雑な意思決定を根拠ある形で支えます。</p></div>
             </div>
           </div>
         </div>
@@ -232,9 +229,9 @@ export default function Company() {
             <div className="co-row"><dt>業種</dt><dd>情報通信業</dd></div>
             <div className="co-row"><dt>事業内容</dt><dd>
               <ul className="co-biz">
-                <li><span className="n">①</span><span>AI Readyなデータ基盤の開発</span></li>
-                <li><span className="n">②</span><span>AI駆動型データ分析コンサルティング</span></li>
-                <li><span className="n">③</span><span>AIエージェント、AIモデルの開発・内製化支援</span></li>
+                <li><span className="n">①</span><span>データドリブンな意思決定を実現する分析基盤構築コンサルティング</span></li>
+                <li><span className="n">②</span><span>AIエージェントの導入・内製化支援</span></li>
+                <li><span className="n">③</span><span>2D・3Dデータ解析コンサルティング</span></li>
               </ul>
             </dd></div>
             <div className="co-row"><dt>本店所在地</dt><dd>東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C</dd></div>
