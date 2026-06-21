@@ -115,14 +115,13 @@ export function BlogFooter() {
           <div className="bl-footer__col">
             <h4>リソース</h4>
             <Link href="/blogs">ブログ</Link>
-            <Link href="#">プライバシー</Link>
+            <Link href="/privacy-policy">プライバシー</Link>
           </div>
         </div>
         <div className="bl-footer__bottom">
           <span>© 2026 PolarisX, Inc.</span>
           <span className="links">
-            <Link href="#">プライバシー</Link>
-            <Link href="#">セキュリティ</Link>
+            <Link href="/privacy-policy">プライバシー</Link>
           </span>
         </div>
       </div>

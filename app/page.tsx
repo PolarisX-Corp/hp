@@ -367,11 +367,11 @@ export default function Home() {
             </div>
             <div className="mk-footer__col"><h4>サービス</h4><a href="#problem">課題感</a><a href="#solution">ソリューション</a><a href="#benefits">導入のメリット</a><a href="#process">導入の流れ</a></div>
             <div className="mk-footer__col"><h4>会社情報</h4><a href="/company">会社情報</a><a href="/company#contact">お問い合わせ</a></div>
-            <div className="mk-footer__col"><h4>リソース</h4><a href="/blogs">ブログ</a><a href="#">プライバシー</a></div>
+            <div className="mk-footer__col"><h4>リソース</h4><a href="/blogs">ブログ</a><a href="/privacy-policy">プライバシー</a></div>
           </div>
           <div className="mk-footer__bottom">
             <span>© 2026 PolarisX, Inc.</span>
-            <span style={{ display: "flex", gap: "16px" }}><a href="#" style={{ color: "inherit", textDecoration: "none" }}>プライバシー</a><a href="#" style={{ color: "inherit", textDecoration: "none" }}>セキュリティ</a></span>
+            <span style={{ display: "flex", gap: "16px" }}><a href="/privacy-policy" style={{ color: "inherit", textDecoration: "none" }}>プライバシー</a></span>
           </div>
         </div>
       </footer>

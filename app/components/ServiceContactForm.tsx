@@ -136,7 +136,9 @@ export default function ServiceContactForm() {
           </p>
         )}
         <p className="sv-form__note">
-          送信いただいた内容は、ご相談対応の目的にのみ利用します。プライバシーポリシーに同意のうえ送信してください。
+          送信いただいた内容は、ご相談対応の目的にのみ利用します。
+          <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+          に同意のうえ送信してください。
         </p>
       </div>
       <div className="sv-form__done">
