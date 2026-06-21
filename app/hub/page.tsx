@@ -28,8 +28,13 @@ export default function HubPage() {
         {/* ═══════════════ メインボタン（最重要・最上部） ═══════════════ */}
         <div className="sec-label">まずはこちら</div>
         <nav className="links">
-          {/* 無料60分相談を予約 → 既存の問い合わせフォーム */}
-          <Link className="lnk primary accent" href="/company#contact">
+          {/* 無料60分相談を予約 → Google カレンダーの予約ページ */}
+          <a
+            className="lnk primary accent"
+            href="https://calendar.app.google/A8Tnn3ZQB8Ncj9qE7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="ico">
               <CalendarCheck aria-hidden />
             </span>
@@ -40,7 +45,7 @@ export default function HubPage() {
             <span className="chev">
               <ArrowUpRight aria-hidden />
             </span>
-          </Link>
+          </a>
         </nav>
 
         {/* ═══════════════ 通常ボタン（中段） ═══════════════ */}
@@ -62,8 +67,12 @@ export default function HubPage() {
 
           {/* X・ブログ（2カラム） */}
           <div className="row-2col">
-            {/* TODO: 公式X の URL が確定したら href を差し替える */}
-            <a className="lnk secondary compact" href="#">
+            <a
+              className="lnk secondary compact"
+              href="https://x.com/polarisx_inc"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span className="ico">
                 <XIcon />
               </span>
