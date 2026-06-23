@@ -3,16 +3,16 @@ import { spaceGrotesk, notoSansJP, jetbrainsMono } from "./fonts";
 import ServiceContactForm from "./components/ServiceContactForm";
 import "./service.css";
 import {
-  LineChart, ArrowRight, Check, FileCheck2, TrendingUp, Package, History,
-  User, Calendar, AlertTriangle, UserX, RotateCcw, FileX, HelpCircle, Layers,
-  Search, Database, Users, CheckCircle2, Repeat, Zap, Unlock, Sparkles,
-  ChevronUp, Route, Mail, PlusCircle, GitCommit,
+  BarChart2, ArrowRight, Check, FileCheck2, TrendingUp, Package, History,
+  User, Calendar, AlertTriangle, UserX, RotateCcw, Cpu, Layers, Link2, Tag,
+  Shield, BookOpen, Sparkles, Repeat2, PlayCircle, Star, CreditCard, Route,
+  Mail, CheckCircle2,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "分析コンサルティング — 意思決定に、再現性を。",
   description:
-    "勘と経験に頼ってきた「良い判断」を、データとAIで誰もが・何度でも再現できる仕組みへ。PolarisXの分析コンサルティングが、意思決定に“文脈”を実装します。",
+    "勘と経験に頼ってきた「良い判断」を、AI × データで誰もが・何度でも再現できる仕組みへ。AIを入れても効果が出ない——その手前のコンテキスト整備から定着まで、PolarisXの分析コンサルティングが一気通貫で支援します。",
 };
 
 export default function Home() {
@@ -26,13 +26,14 @@ export default function Home() {
           <a className="mk-logo" href="#top"><img src="/assets/PolarisX_mark.svg" alt="" width={26} height={26} /><span>Polaris<span style={{ color: "var(--blue-500)" }}>X</span></span></a>
           <nav className="mk-nav">
             <a href="#problem">課題</a>
-            <a href="#provocation">提起</a>
             <a href="#solution">ソリューション</a>
-            <a href="#benefits">メリット</a>
+            <a href="#demo">デモ</a>
+            <a href="#why-us">選ばれる理由</a>
+            <a href="#pricing">料金</a>
             <a href="#process">導入の流れ</a>
-            <a href="/company">会社情報</a>
           </nav>
           <div className="mk-header__cta">
+            <a className="px-btn px-btn--ghost px-btn--sm" href="#contact">資料請求</a>
             <a className="px-btn px-btn--primary px-btn--sm" href="#contact">無料で相談する</a>
           </div>
         </div>
@@ -46,14 +47,14 @@ export default function Home() {
         </div>
         <div className="mk-wrap mk-hero__grid">
           <div className="sv-reveal">
-            <span className="mk-eyebrow"><LineChart />分析コンサルティング</span>
+            <span className="mk-eyebrow"><BarChart2 />分析コンサルティング</span>
             <h1 className="mk-h1">意思決定に、<br /><em>再現性</em>を。</h1>
-            <p className="mk-lead">勘と経験に頼ってきた「良い判断」を、データと AI で誰もが・何度でも再現できる仕組みへ。PolarisX の分析コンサルティングが、あなたのチームの意思決定に“文脈”を実装します。</p>
+            <p className="mk-lead">勘と経験に頼ってきた「良い判断」を、AI × データで誰もが・何度でも再現できる仕組みへ。AIを入れても効果が出ない——その手前のコンテキスト整備から、定着まで一気通貫で支援します。</p>
             <div className="mk-hero__cta">
               <a className="px-btn px-btn--primary px-btn--lg" href="#contact">無料で相談する<ArrowRight className="px-btn__icon" /></a>
-              <a className="px-btn px-btn--secondary px-btn--lg" href="#solution">進め方を見る</a>
+              <a className="px-btn px-btn--secondary px-btn--lg" href="#demo">デモを見る</a>
             </div>
-            <div className="mk-hero__note"><Check style={{ width: 15, height: 15, color: "var(--success)" }} />初回相談は無料 ・ オンライン 60 分</div>
+            <div className="mk-hero__note"><Check style={{ width: 15, height: 15, color: "var(--success)" }} />初回相談（30分）は無料 ・ オンライン</div>
           </div>
 
           {/* HERO DEMO: 意思決定ログ / decision record */}
@@ -90,249 +91,257 @@ export default function Home() {
       <section className="mk-section" id="problem">
         <div className="mk-wrap">
           <div className="mk-shead sv-reveal">
-            <span className="mk-eyebrow"><AlertTriangle />課題感</span>
-            <h2>なぜ、同じ意思決定を<br />毎回ゼロからやり直すのか。</h2>
-            <p>データもダッシュボードも揃っている。それでも「良い判断」は再現できない。原因は、いつも決まった3つに行き着きます。</p>
+            <span className="mk-eyebrow"><AlertTriangle />課題・現状</span>
+            <h2>なぜ「良い判断」は、毎回ゼロからなのか。</h2>
+            <p>データもダッシュボードもAIも揃っている。それでも判断は再現できない。原因は、いつも同じ3つに行き着きます。</p>
           </div>
           <div className="sv-problems">
             <div className="sv-pcard sv-reveal">
               <div className="sv-pcard__n">01</div>
               <div className="sv-pcard__icon"><UserX /></div>
               <h3>判断が属人化する</h3>
-              <p>「あの人にしか分からない」。なぜその判断に至ったかが個人の頭の中に閉じ、異動や退職とともに失われていく。</p>
+              <p>なぜその判断に至ったかが個人の頭の中に閉じ、異動や退職とともに失われていく。</p>
               <div className="sv-pcard__q">＝ 判断の理由が、組織に残らない。</div>
             </div>
             <div className="sv-pcard sv-reveal" style={{ transitionDelay: ".07s" }}>
               <div className="sv-pcard__n">02</div>
               <div className="sv-pcard__icon"><RotateCcw /></div>
               <h3>毎回ゼロからやり直す</h3>
-              <p>過去に同じ問いに答えたはずなのに、前提も分析も残っていない。アナリストは似た集計を何度も作り直す。</p>
+              <p>過去に同じ問いに答えたはずなのに、前提も分析も残らず、似た集計を何度も作り直す。</p>
               <div className="sv-pcard__q">＝ 分析が、使い捨てになっている。</div>
             </div>
             <div className="sv-pcard sv-reveal" style={{ transitionDelay: ".14s" }}>
               <div className="sv-pcard__n">03</div>
-              <div className="sv-pcard__icon"><FileX /></div>
-              <h3>根拠が残らない</h3>
-              <p>結果の数字は記録されても、「どの前提で・なぜその一手を選んだか」の文脈は記録されず、検証も改善もできない。</p>
-              <div className="sv-pcard__q">＝ 良い判断を、学習に変えられない。</div>
+              <div className="sv-pcard__icon"><Cpu /></div>
+              <h3>AIを入れても効果が出ない</h3>
+              <p>ChatGPT も PoC もやった。でも意思決定の質は変わらず「入れただけ」で止まっている。</p>
+              <div className="sv-pcard__q">＝ AI が、組織の文脈を知らない。</div>
+            </div>
+          </div>
+
+          {/* stat strip */}
+          <div className="sv-statstrip sv-reveal" style={{ transitionDelay: ".1s" }}>
+            <div className="sv-statstrip__bars">
+              <div className="sv-statbar">
+                <div className="sv-statbar__val">10%</div>
+                <div className="sv-statbar__track"><div className="sv-statbar__fill--lo"></div></div>
+                <div className="sv-statbar__lbl">日本</div>
+              </div>
+              <div className="sv-statbar sv-statbar--hi">
+                <div className="sv-statbar__val">45%</div>
+                <div className="sv-statbar__track"><div className="sv-statbar__fill--hi"></div></div>
+                <div className="sv-statbar__lbl">米国</div>
+              </div>
+            </div>
+            <div className="sv-statstrip__txt">
+              生成AIで「期待を大きく上回る効果」を出せている日本企業はわずか <strong>10%</strong>（米国は45%）。<strong>原因は、AIが「あなたの会社」を知らないから。</strong>KPI定義も事業背景も知らないAIが返すのは、一般論だけです。
+              <div className="sv-statstrip__src">出典：PwC Japan「生成AIに関する実態調査2025春 5カ国比較」</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PROVOCATION (dark) */}
-      <section className="mk-section sv-prov" id="provocation">
-        <div className="mk-stars">
-          <div className="mk-star" style={{ width: "300px", height: "300px", top: "-60px", right: "8%", background: "radial-gradient(circle,rgba(54,110,255,0.4),transparent 65%)" }}></div>
-          <div className="mk-star" style={{ width: "220px", height: "220px", bottom: "-90px", left: "6%", background: "radial-gradient(circle,rgba(124,130,226,0.32),transparent 65%)" }}></div>
-        </div>
-        <div className="mk-wrap">
-          <span className="sv-prov__eyebrow sv-reveal"><HelpCircle />ひとつの問い</span>
-          <h2 className="sv-reveal">それって、<br /><em>コンテキストレイヤー</em>が<br />無いんじゃない？</h2>
-          <p className="sv-prov__lead sv-reveal">データはある。ダッシュボードもある。それでも判断が再現できないのは、データと意思決定の<strong style={{ color: "#fff" }}>“あいだ”</strong>が抜けているから。前提・指標の定義・過去の決定とその根拠 —— 判断の<strong style={{ color: "#fff" }}>文脈</strong>を蓄積し、再利用する層がないのです。</p>
-
-          <div className="sv-gap sv-reveal" style={{ transitionDelay: ".1s" }}>
-            <div className="sv-gap__node">
-              <div className="k">Data</div>
-              <div className="t">データ層</div>
-              <div className="s">BI・DWH・SaaS<br />数字は揃っている</div>
-            </div>
-            <div className="sv-gap__arrow"><ArrowRight /></div>
-            <div className="sv-gap__node sv-gap__node--miss">
-              <div className="k">Missing</div>
-              <div className="t">コンテキストレイヤー</div>
-              <div className="s">前提・根拠・過去の決定<br />—— ここが空白</div>
-            </div>
-            <div className="sv-gap__arrow"><ArrowRight /></div>
-            <div className="sv-gap__node">
-              <div className="k">Decision</div>
-              <div className="t">意思決定</div>
-              <div className="s">毎回ゼロから<br />属人的に判断</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SOLUTION */}
-      <section className="mk-section" id="solution">
+      {/* SOLUTION: 2つの土台 */}
+      <section className="mk-section mk-section--sunken" id="solution">
         <div className="mk-wrap">
           <div className="mk-shead sv-reveal">
             <span className="mk-eyebrow"><Layers />ソリューション</span>
-            <h2>PolarisX は、その“あいだ”をつくる。</h2>
-            <p>散在する前提・指標・判断基準を、再利用できる「コンテキストレイヤー」として構造化。データと意思決定をつなぎ、判断を再現可能な資産に変えます。</p>
+            <h2>AIを&quot;意思決定に使える&quot;状態にする、2つの土台。</h2>
           </div>
 
-          {/* layer stack diagram */}
-          <div className="sv-stack">
-            <div className="sv-layer sv-reveal">
-              <div className="sv-layer__tag">Decision</div>
-              <div className="sv-layer__body">
-                <span className="sv-layer__title">意思決定</span>
-                <div className="sv-layer__items"><span className="sv-chip">再現可能なアクション</span><span className="sv-chip">根拠付きの一手</span></div>
+          <div className="sv-sol-intro sv-reveal">
+            <p className="sv-sol-intro__line">汎用AIが頼りないのは、頭が悪いからではありません。<em>あなたの会社を知らない</em>だけ。だから私たちは、AIに会社の知見を&quot;教える&quot;——その2つの土台をつくります。</p>
+          </div>
+
+          <div className="sv-pillars sv-reveal" style={{ transitionDelay: ".06s" }}>
+            <div className="sv-pillar-card">
+              <div className="sv-pillar-card__top">
+                <div className="sv-pillar-card__badge">FOUNDATION 01</div>
+                <div className="sv-pillar-card__n">C</div>
+              </div>
+              <div className="sv-pillar-card__title">AI Ready なデータ基盤</div>
+              <div className="sv-pillar-card__desc">AIが安心して使えるよう、散在するデータを整え、統合する。土台なしには、何も始まりません。</div>
+              <div className="sv-pillar-card__items">
+                <div className="sv-pillar-card__item"><Link2 />分断データの統合・ID紐づけ</div>
+                <div className="sv-pillar-card__item"><Tag />KPI・業務用語のセマンティック定義</div>
+                <div className="sv-pillar-card__item"><Shield />権限・参照範囲の制御</div>
               </div>
             </div>
-            <div className="sv-stack__rail"><ChevronUp /></div>
-            <div className="sv-layer sv-layer--ctx sv-reveal" style={{ transitionDelay: ".05s" }}>
-              <div className="sv-layer__tag">Context Layer</div>
-              <div className="sv-layer__body">
-                <span className="sv-layer__title"><Sparkles />コンテキストレイヤー</span>
-                <div className="sv-layer__items"><span className="sv-chip">前提</span><span className="sv-chip">指標定義</span><span className="sv-chip">過去の意思決定</span><span className="sv-chip">根拠</span></div>
+            <div className="sv-pillar-card sv-pillar-card--ctx">
+              <div className="sv-pillar-card__top">
+                <div className="sv-pillar-card__badge">FOUNDATION 02</div>
+                <div className="sv-pillar-card__n">B</div>
               </div>
-            </div>
-            <div className="sv-stack__rail"><ChevronUp /></div>
-            <div className="sv-layer sv-reveal" style={{ transitionDelay: ".1s" }}>
-              <div className="sv-layer__tag">Data</div>
-              <div className="sv-layer__body">
-                <span className="sv-layer__title">データ層</span>
-                <div className="sv-layer__items"><span className="sv-chip">BI</span><span className="sv-chip">DWH</span><span className="sv-chip">基幹・SaaS</span></div>
+              <div className="sv-pillar-card__title">コンテキストレイヤー</div>
+              <div className="sv-pillar-card__desc">会社の知見・KPI定義・業務の文脈を、AIが読める形に外在化する。一度教えれば、忘れない・全員で共有できる・退職しない。</div>
+              <div className="sv-pillar-card__items">
+                <div className="sv-pillar-card__item"><BookOpen />前提・指標定義・業務ルールの蓄積</div>
+                <div className="sv-pillar-card__item"><History />過去の意思決定と根拠のアーカイブ</div>
+                <div className="sv-pillar-card__item"><Sparkles />AI が自社の文脈で考えられる状態へ</div>
               </div>
             </div>
           </div>
 
-          {/* three pillars */}
-          <div className="mk-cards">
-            <div className="mk-fcard sv-reveal">
-              <div className="mk-fcard__icon"><Search /></div>
-              <h3>文脈の可視化</h3>
-              <p>散在する指標・前提・判断基準を棚卸しし、意思決定の文脈として構造化。「何を見て、なぜ決めるか」を言語化します。</p>
-            </div>
-            <div className="mk-fcard sv-reveal" style={{ transitionDelay: ".07s" }}>
-              <div className="mk-fcard__icon"><Database /></div>
-              <h3>再現可能な意思決定基盤</h3>
-              <p>コンテキストレイヤーをデータ基盤上に実装。AI が過去の文脈を踏まえ、次の一手を再現スコア付きで提案します。</p>
-            </div>
-            <div className="mk-fcard sv-reveal" style={{ transitionDelay: ".14s" }}>
-              <div className="mk-fcard__icon"><Users /></div>
-              <h3>定着と内製化</h3>
-              <p>運用に乗せ、再現スコアで判断の質を測りながらチームに定着。使うほど磨かれ、自走できる状態へ導きます。</p>
+          <div className="sv-pillar-result sv-reveal" style={{ transitionDelay: ".12s" }}>
+            <div className="sv-pillar-result__icon"><Repeat2 /></div>
+            <div>
+              <div className="sv-pillar-result__title">意思決定に、再現性が生まれる</div>
+              <div className="sv-pillar-result__desc">誰でも・何度でも、意思決定に使える分析ができる状態へ。判断の質が、人に依存しなくなります。</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* BENEFITS with embedded demos */}
-      <section className="mk-section mk-section--sunken" id="benefits">
+      {/* DEMO: BEFORE / AFTER */}
+      <section className="mk-section" id="demo">
         <div className="mk-wrap">
           <div className="mk-shead sv-reveal">
-            <span className="mk-eyebrow"><CheckCircle2 />導入のメリット</span>
-            <h2>判断が、再現できる資産になる。</h2>
+            <span className="mk-eyebrow"><PlayCircle />デモ</span>
+            <h2>同じ問いでも、答えはこれだけ変わる。</h2>
+            <p>言葉より、見てもらうのが早い。業種を問わず、同じ仕組みで効きます。</p>
           </div>
 
-          {/* Benefit 1 */}
-          <div className="mk-frow">
-            <div className="sv-reveal">
-              <span className="mk-eyebrow"><Repeat />再現性</span>
-              <h3>意思決定が、積み上がる資産になる</h3>
-              <p>すべての判断が、前提・根拠・成果とともに記録されます。次に同じ問いが来たとき、ゼロからではなく過去の文脈から始められます。</p>
-              <ul className="mk-checklist">
-                <li><Check />判断ごとに根拠とデータ出典を自動で紐付け</li>
-                <li><Check />再現スコアで「再び使える判断か」を可視化</li>
-                <li><Check />成果のフィードバックで判断の質が学習される</li>
-              </ul>
+          <div className="sv-demo-block sv-reveal">
+            <div className="sv-demo-q">
+              <span className="sv-demo-q__tag">SaaS · チャーン増加</span>
+              <span className="sv-demo-q__text">「先月チャーンが増えた。なぜ？防げたのか？」</span>
             </div>
-            <div className="mk-frow__media sv-reveal" style={{ transitionDelay: ".06s" }}>
-              <div className="mk-media">
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "14px" }}>
-                  <span className="px-badge px-badge--accent">意思決定ログ</span>
-                  <span style={{ fontSize: "11px", color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>直近 3 件</span>
-                </div>
-                <div className="sv-log">
-                  <div className="sv-logitem">
-                    <div className="sv-logitem__d">在庫配分を東日本に +15%</div>
-                    <div className="sv-logitem__s">0.92</div>
-                    <div className="sv-logitem__m">事業企画部 ・ 採用</div>
-                    <div className="sv-logitem__bar"><i style={{ width: "92%" }} /></div>
-                  </div>
-                  <div className="sv-logitem">
-                    <div className="sv-logitem__d">Pro プランを 5% 値上げ</div>
-                    <div className="sv-logitem__s">0.88</div>
-                    <div className="sv-logitem__m">プライシング ・ 検証中</div>
-                    <div className="sv-logitem__bar"><i style={{ width: "88%" }} /></div>
-                  </div>
-                  <div className="sv-logitem">
-                    <div className="sv-logitem__d">関西の広告予算を再配分</div>
-                    <div className="sv-logitem__s">0.79</div>
-                    <div className="sv-logitem__m">マーケ ・ 要見直し</div>
-                    <div className="sv-logitem__bar"><i style={{ width: "79%" }} /></div>
-                  </div>
+            <div className="sv-demo-pair">
+              <div className="sv-demo-box before">
+                <div className="sv-demo-box__lbl">BEFORE · 汎用AI</div>
+                <div className="sv-demo-box__txt">価値提供やオンボーディングに課題があるかもしれません。ヘルススコアの導入や、チャーンした顧客へのインタビューを実施することをお勧めします。</div>
+                <div className="sv-demo-crit">← 御社の数字も文脈も不在。一般論しか返らない。</div>
+              </div>
+              <div className="sv-demo-box after">
+                <div className="sv-demo-box__lbl">AFTER · コンテキスト整備済みAI</div>
+                <div className="sv-demo-grid">
+                  <span className="dk">結論</span><span className="dv">MRRチャーン <span className="num-neg">▲480万円</span></span>
+                  <span className="dk">要因</span><span className="dv">解約13社中9社が旧プランの<strong>更新月に集中</strong></span>
+                  <span className="dk">予兆</span><span className="dv">7社は60日前にシート率55%以下＝<strong>事前検知できた</strong></span>
+                  <span className="dk">打ち手</span><span className="dv">旧プランの年間巻き取り＋60日前アラート</span>
+                  <span className="dk">効果</span><span className="dv"><span className="num-pos">MRR約390万円</span>、半分は防げる</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Benefit 2 */}
-          <div className="mk-frow mk-frow--rev">
-            <div className="sv-reveal">
-              <span className="mk-eyebrow"><Zap />スピード</span>
-              <h3>判断のスピードが上がる</h3>
-              <p>聞きたいことを、そのまま問いかけるだけ。文脈を踏まえた回答が、根拠とデータ出典つきで返ってきます。会議の前に答えが揃います。</p>
-              <ul className="mk-checklist">
-                <li><Check />自然言語で問いかけ、根拠付きで即回答</li>
-                <li><Check />前提や指標定義はコンテキストレイヤーから自動補完</li>
-                <li><Check />「なぜ」まで遡れるから、その場で意思決定できる</li>
-              </ul>
+          <div className="sv-demo-block sv-reveal" style={{ transitionDelay: ".08s" }}>
+            <div className="sv-demo-q">
+              <span className="sv-demo-q__tag">EC · D2C · CVR低下</span>
+              <span className="sv-demo-q__text">「流入は増えてるのにCVRが落ちた。何が起きてる？」</span>
             </div>
-            <div className="mk-frow__media sv-reveal" style={{ transitionDelay: ".06s" }}>
-              <div className="mk-media">
-                <div className="sv-ask">
-                  <div className="sv-ask__bar"><Search /><span>東日本の在庫、来月どうすべき？</span><span className="sv-caret"></span></div>
-                  <div className="sv-answer">
-                    <div className="sv-answer__mark"><Sparkles /></div>
-                    <div>
-                      <div className="sv-answer__txt">需要予測は <b>+12.4%</b>、欠品リスクは 3 SKU。過去の類似判断 2 件はいずれも再現。<b>+15% の増配</b>を再現スコア 0.92 で推奨します。</div>
-                      <div className="sv-srcs"><span className="sv-src">forecast.v3</span><span className="sv-src">inventory.db</span><span className="sv-src">decisions/2025</span></div>
-                    </div>
-                  </div>
+            <div className="sv-demo-pair">
+              <div className="sv-demo-box before">
+                <div className="sv-demo-box__lbl">BEFORE · 汎用AI</div>
+                <div className="sv-demo-box__txt">表示速度や導線の問題、または季節要因が影響している可能性があります。A/Bテストで原因を特定することをお勧めします。</div>
+                <div className="sv-demo-crit">← 何も特定できていない。打てる手がない。</div>
+              </div>
+              <div className="sv-demo-box after">
+                <div className="sv-demo-box__lbl">AFTER · コンテキスト整備済みAI</div>
+                <div className="sv-demo-grid">
+                  <span className="dk">結論</span><span className="dv">CVR <span className="num-neg">2.8%→2.3%</span>（流入+12%＝転換の問題）</span>
+                  <span className="dk">要因</span><span className="dv">カート→決済が71→58%。<strong>送料無料ライン変更</strong>（5,000→8,000円）で定期初回客がラインを割った</span>
+                  <span className="dk">打ち手</span><span className="dv">ラインを6,000円に戻す</span>
+                  <span className="dk">効果</span><span className="dv">月 <span className="num-pos">+約330万円</span>の回復見込み</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Benefit 3 */}
-          <div className="mk-frow">
-            <div className="sv-reveal">
-              <span className="mk-eyebrow"><Unlock />脱・属人化</span>
-              <h3>属人化から、解放される</h3>
-              <p>判断の前提も指標の定義も、組織の資産として蓄積。担当者が代わっても、文脈は引き継がれます。チームの判断力が、人に依存しなくなります。</p>
-              <ul className="mk-checklist">
-                <li><Check />前提・指標定義・過去の決定を一元的に蓄積</li>
-                <li><Check />異動・退職があっても文脈はそのまま残る</li>
-                <li><Check />新メンバーも初日から同じ土台で判断できる</li>
-              </ul>
-            </div>
-            <div className="mk-frow__media sv-reveal" style={{ transitionDelay: ".06s" }}>
-              <div className="mk-media">
-                <div className="sv-ctx">
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}><Layers style={{ width: 16, height: 16, color: "var(--blue-600)" }} /><span style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "14px", color: "var(--indigo-950)" }}>蓄積された文脈</span></div>
-                  <div className="sv-ctx__counts">
-                    <div className="sv-ctx__count"><div className="v">12</div><div className="l">前提</div></div>
-                    <div className="sv-ctx__count"><div className="v">34</div><div className="l">指標定義</div></div>
-                    <div className="sv-ctx__count"><div className="v">128</div><div className="l">過去の決定</div></div>
-                  </div>
-                  <div className="sv-ctx__feed">
-                    <div className="sv-ctx__row"><PlusCircle />「粗利は配送費控除後」を前提に追加<time>2分前</time></div>
-                    <div className="sv-ctx__row"><GitCommit />指標「再現スコア」の定義を更新<time>今日</time></div>
-                  </div>
-                </div>
+          <div className="sv-demo-disc sv-reveal">※ デモ数値はリアル想定のダミーです。本番は自社データ・PoC結果に差し替えます。</div>
+        </div>
+      </section>
+
+      {/* WHY US: 4 reasons */}
+      <section className="mk-section mk-section--sunken" id="why-us">
+        <div className="mk-wrap">
+          <div className="mk-shead sv-reveal">
+            <span className="mk-eyebrow"><Star />選ばれる理由</span>
+            <h2>&quot;入れただけ&quot;で終わらせない、4つの理由。</h2>
+          </div>
+          <div className="sv-why-grid sv-reveal" style={{ transitionDelay: ".06s" }}>
+            <div className="sv-why-card">
+              <div className="sv-why-n">01</div>
+              <div>
+                <div className="sv-why-title">「AIを入れたのに効果が出ない」を越える</div>
+                <p className="sv-why-desc">コンテキストレイヤーで&quot;意思決定に使えるAI&quot;へ。汎用AIには届かなかった一歩を、確実に実現します。</p>
               </div>
+            </div>
+            <div className="sv-why-card">
+              <div className="sv-why-n">02</div>
+              <div>
+                <div className="sv-why-title">分析の当事者だった</div>
+                <p className="sv-why-desc">レポートを作る側ではなく、その数字で事業を動かしてきた人間が、現場で効く手を打ちます。</p>
+              </div>
+            </div>
+            <div className="sv-why-card">
+              <div className="sv-why-n">03</div>
+              <div>
+                <div className="sv-why-title">診断から基盤・開発まで一気通貫</div>
+                <p className="sv-why-desc">フルスタックの開発力とデータ専門性を持つ同じチームが、全工程を分断なく担います。</p>
+              </div>
+            </div>
+            <div className="sv-why-card">
+              <div className="sv-why-n">04</div>
+              <div>
+                <div className="sv-why-title">成果を仕組みとして残す</div>
+                <p className="sv-why-desc">成功した意思決定をナレッジ化し、私たちが離れても回り続ける状態をつくります。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section className="mk-section" id="pricing">
+        <div className="mk-wrap">
+          <div className="mk-shead sv-reveal">
+            <span className="mk-eyebrow"><CreditCard />料金プラン</span>
+            <h2>スモールスタートから、継続的な伴走まで。</h2>
+            <p>初期導入で土台をつくり、月次伴走で定着とナレッジ化を続けます。</p>
+          </div>
+          <div className="sv-prices sv-reveal" style={{ transitionDelay: ".06s" }}>
+            <div className="sv-price">
+              <div className="sv-price__plan">Initial</div>
+              <div className="sv-price__title">初期導入</div>
+              <div className="sv-price__sub">アセスメント＋コンテキストレイヤー構築＋導入設定</div>
+              <div className="sv-price__val">¥100万〜300万</div>
+              <div className="sv-price__unit">一括 / 導入設定までを含む</div>
+              <div className="sv-price__desc">現状のデータと業務を評価し、AIが意思決定に使える状態の土台を構築します。</div>
+            </div>
+            <div className="sv-price feat">
+              <div className="sv-price__plan">Monthly</div>
+              <div className="sv-price__title">月次伴走</div>
+              <div className="sv-price__sub">運用・定着支援と継続的なチューニング・テンプレ化</div>
+              <div className="sv-price__val">¥20万〜80万</div>
+              <div className="sv-price__unit">月額 / 継続</div>
+              <div className="sv-price__desc">定義チューニング、新規分析のテンプレート化、定着支援を継続。使うほど磨かれます。</div>
+            </div>
+            <div className="sv-price">
+              <div className="sv-price__plan">Option</div>
+              <div className="sv-price__title">オプション開発</div>
+              <div className="sv-price__sub">AIエージェント・予測モデル受託・基盤拡張</div>
+              <div className="sv-price__val">要相談</div>
+              <div className="sv-price__unit">プロジェクト個別見積（100万円〜想定）</div>
+              <div className="sv-price__desc">需要予測モデル受託、追加ワークフロー、基盤拡張。DWH/DBがない企業もご相談ください。</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* PROCESS / steps */}
-      <section className="mk-section" id="process">
+      <section className="mk-section mk-section--sunken" id="process">
         <div className="mk-wrap">
           <div className="mk-shead sv-reveal">
             <span className="mk-eyebrow"><Route />導入の流れ</span>
-            <h2>最短4ステップで、判断を仕組みに。</h2>
-            <p>現状の診断から内製化まで、伴走します。初回のヒアリングと現状診断は無料です。</p>
+            <h2>はじめ方は、シンプルです。</h2>
+            <p>「相談内容がまだ固まっていない」段階で十分です。まずは現状をお聞かせください。</p>
           </div>
           <div className="sv-steps">
-            <div className="sv-step sv-reveal"><span className="sv-step__dot"></span><div className="sv-step__n">STEP 01</div><h3>ヒアリング & 現状診断</h3><p>意思決定の課題と、散在する文脈を洗い出す。どこに再現性の欠落があるかを可視化します。<br /><strong style={{ color: "var(--blue-600)" }}>（初回無料）</strong></p></div>
-            <div className="sv-step sv-reveal" style={{ transitionDelay: ".07s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 02</div><h3>コンテキスト設計</h3><p>指標・前提・判断基準を棚卸しし、再利用できるコンテキストレイヤーとして設計します。</p></div>
-            <div className="sv-step sv-reveal" style={{ transitionDelay: ".14s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 03</div><h3>実装 & 検証</h3><p>データ基盤上に実装し、実際の意思決定で運用。再現スコアで効果を検証します。</p></div>
-            <div className="sv-step sv-reveal" style={{ transitionDelay: ".21s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 04</div><h3>定着 & 内製化</h3><p>運用に乗せ、チームが自走できる状態へ。判断の質が使うほど磨かれていきます。</p></div>
+            <div className="sv-step sv-reveal"><span className="sv-step__dot"></span><div className="sv-step__n">STEP 01</div><h3>無料相談・AI活用診断</h3><p>現状の課題とデータ環境を伺い、AI活用の論点を整理。まだ何も決まっていなくて大丈夫です。<strong style={{ color: "var(--blue-600)" }}>（初回無料）</strong></p></div>
+            <div className="sv-step sv-reveal" style={{ transitionDelay: ".07s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 02</div><h3>コンテキストレイヤー構築</h3><p>データ基盤を整え、会社の知見をAIに学習させ、意思決定に使える状態へ。</p></div>
+            <div className="sv-step sv-reveal" style={{ transitionDelay: ".14s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 03</div><h3>月次伴走・定着</h3><p>運用と定着を継続支援。分析テンプレ化で、成果を組織の仕組みとして残します。</p></div>
+            <div className="sv-step sv-reveal" style={{ transitionDelay: ".21s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 04</div><h3>モデル開発（任意）</h3><p>基盤が整ったら、需要予測・レコメンド等の本格AIを構築・内製化支援。</p></div>
           </div>
         </div>
       </section>
@@ -343,11 +352,11 @@ export default function Home() {
           <div className="sv-contact__grid">
             <div className="sv-contact__intro sv-reveal">
               <span className="mk-eyebrow"><Mail />お問い合わせ</span>
-              <h2>意思決定を、<br /><em>属人化</em>から解放する。</h2>
-              <p>今日から、あなたのチームの判断に再現性を。まずは現状の課題をお聞かせください。初回相談は無料です。</p>
+              <h2>御社の「先月、なぜ？」に、<br />AI が答えられるか<em>試しませんか。</em></h2>
+              <p>初回相談（30分）は無料です。話しながら整理していきましょう。</p>
               <ul className="sv-assure">
                 <li><CheckCircle2 />初回ヒアリング & 現状診断は無料</li>
-                <li><CheckCircle2 />オンライン 60 分・営業日 2 日以内にご返信</li>
+                <li><CheckCircle2 />オンライン 30〜60 分・営業日 2 日以内にご返信</li>
                 <li><CheckCircle2 />無理な提案・しつこい営業はしません</li>
               </ul>
             </div>
@@ -365,7 +374,7 @@ export default function Home() {
               <a className="mk-logo" href="#top" style={{ marginBottom: "14px" }}><img src="/assets/PolarisX_mark.svg" alt="" width={26} height={26} /><span>Polaris<span style={{ color: "var(--blue-500)" }}>X</span></span></a>
               <p style={{ fontSize: "13.5px", color: "var(--text-muted)", lineHeight: 1.7, maxWidth: "24em" }}>AI × データで、意思決定に再現性を。北極星のように、組織の判断を導きます。</p>
             </div>
-            <div className="mk-footer__col"><h4>サービス</h4><a href="#problem">課題感</a><a href="#solution">ソリューション</a><a href="#benefits">導入のメリット</a><a href="#process">導入の流れ</a></div>
+            <div className="mk-footer__col"><h4>サービス</h4><a href="#problem">課題・現状</a><a href="#solution">ソリューション</a><a href="#why-us">選ばれる理由</a><a href="#pricing">料金プラン</a><a href="#process">導入の流れ</a></div>
             <div className="mk-footer__col"><h4>会社情報</h4><a href="/company">会社情報</a><a href="/company#contact">お問い合わせ</a></div>
             <div className="mk-footer__col"><h4>リソース</h4><a href="/blogs">ブログ</a><a href="/privacy-policy">プライバシー</a></div>
           </div>
