@@ -922,3 +922,100 @@ body { margin: 0; }
   .sv-prov h2 { font-size: 34px; }
   .sv-step::before { display: none; }
 }
+
+/* ============================================================
+   PART G — servicepage 2 redesign (top page service sections)
+   ============================================================ */
+
+/* ── tighten section rhythm & headings ── */
+.mk-section { padding: var(--space-20) 0; }
+.mk-h1, .mk-shead h2 { text-wrap: balance; }
+.mk-shead { max-width: 680px; }
+.mk-shead h2 { font-size: 36px; }
+
+/* ── Problem: stat strip folded into 課題 ── */
+.sv-statstrip { display: flex; align-items: center; gap: var(--space-8); margin-top: var(--space-10); padding: var(--space-6) var(--space-8); background: var(--neutral-50); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); }
+.sv-statstrip__bars { display: flex; align-items: flex-end; gap: 20px; flex: none; }
+.sv-statbar { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.sv-statbar__val { font-family: var(--font-mono); font-weight: 700; font-size: 22px; color: var(--indigo-950); }
+.sv-statbar--hi .sv-statbar__val { color: var(--blue-600); }
+.sv-statbar__track { width: 58px; height: 84px; border-radius: 5px; background: var(--neutral-100); display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+.sv-statbar__fill--lo { height: 22%; background: var(--neutral-300); }
+.sv-statbar__fill--hi { height: 100%; background: var(--blue-500); }
+.sv-statbar__lbl { font-family: var(--font-display); font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+.sv-statstrip__txt { font-size: 15px; line-height: 1.75; color: var(--text-secondary); }
+.sv-statstrip__txt strong { color: var(--indigo-950); }
+.sv-statstrip__src { font-size: 11px; color: var(--text-muted); font-family: var(--font-display); margin-top: 6px; }
+
+/* ── Solution: 2つの土台 ── */
+.sv-sol-intro { max-width: 720px; margin: 0 auto var(--space-12); text-align: center; }
+.sv-sol-intro__line { font-family: var(--font-display); font-weight: 600; font-size: 19px; line-height: 1.6; color: var(--indigo-950); letter-spacing: -0.01em; }
+.sv-sol-intro__line em { font-style: normal; color: var(--blue-600); }
+.sv-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-bottom: var(--space-5); }
+.sv-pillar-card { border-radius: var(--radius-xl); padding: 28px var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); border: 1.5px solid var(--border-subtle); background: var(--surface-card); }
+.sv-pillar-card--ctx { border-color: var(--blue-400); background: linear-gradient(140deg, var(--indigo-950), var(--blue-800)); }
+.sv-pillar-card__top { display: flex; align-items: center; justify-content: space-between; }
+.sv-pillar-card__badge { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue-500); }
+.sv-pillar-card--ctx .sv-pillar-card__badge { color: var(--blue-300); }
+.sv-pillar-card__n { font-family: var(--font-mono); font-weight: 700; font-size: 32px; line-height: 1; color: var(--neutral-100); letter-spacing: -0.03em; }
+.sv-pillar-card--ctx .sv-pillar-card__n { color: rgba(255,255,255,.16); }
+.sv-pillar-card__title { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--indigo-950); letter-spacing: -0.01em; }
+.sv-pillar-card--ctx .sv-pillar-card__title { color: #fff; }
+.sv-pillar-card__desc { font-size: 14px; line-height: 1.72; color: var(--text-secondary); }
+.sv-pillar-card--ctx .sv-pillar-card__desc { color: rgba(255,255,255,.72); }
+.sv-pillar-card__items { display: flex; flex-direction: column; gap: 6px; margin-top: var(--space-1); }
+.sv-pillar-card__item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--text-secondary); }
+.sv-pillar-card--ctx .sv-pillar-card__item { color: rgba(255,255,255,.75); }
+.sv-pillar-card__item svg { width: 14px; height: 14px; color: var(--blue-500); flex: none; }
+.sv-pillar-card--ctx .sv-pillar-card__item svg { color: var(--blue-300); }
+.sv-pillar-result { display: flex; align-items: center; gap: var(--space-5); padding: var(--space-6) 28px; background: var(--blue-50); border: 1.5px solid var(--blue-200); border-radius: var(--radius-xl); }
+.sv-pillar-result__icon { width: 42px; height: 42px; border-radius: var(--radius-lg); background: var(--blue-500); display: flex; align-items: center; justify-content: center; flex: none; }
+.sv-pillar-result__icon svg { width: 21px; height: 21px; color: #fff; }
+.sv-pillar-result__title { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--indigo-950); margin-bottom: 3px; letter-spacing: -0.01em; }
+.sv-pillar-result__desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ── Demo BEFORE/AFTER ── */
+.sv-demo-block { margin-bottom: var(--space-10); }
+.sv-demo-block:last-of-type { margin-bottom: 0; }
+.sv-demo-q { display: flex; align-items: center; gap: 14px; padding: 13px 18px; background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); margin-bottom: var(--space-4); }
+.sv-demo-q__tag { font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue-600); white-space: nowrap; background: var(--blue-50); border: 1px solid var(--blue-100); padding: 3px 10px; border-radius: 999px; }
+.sv-demo-q__text { font-family: var(--font-jp); font-size: 16px; font-weight: 700; color: var(--indigo-950); }
+.sv-demo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sv-demo-box { border-radius: var(--radius-xl); padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+.sv-demo-box.before { background: rgba(200,53,59,.04); border: 1px solid rgba(200,53,59,.16); }
+.sv-demo-box.after { background: var(--blue-50); border: 1.5px solid var(--blue-200); }
+.sv-demo-box__lbl { font-family: var(--font-display); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+.sv-demo-box.before .sv-demo-box__lbl { color: rgba(200,53,59,.85); }
+.sv-demo-box.after .sv-demo-box__lbl { color: var(--blue-600); }
+.sv-demo-box__txt { font-family: var(--font-jp); font-size: 13.5px; line-height: 1.72; color: var(--text-secondary); padding: 12px 14px; background: rgba(0,0,0,.03); border-radius: 8px; }
+.sv-demo-grid { display: grid; grid-template-columns: 48px 1fr; gap: 8px 10px; align-items: start; }
+.sv-demo-grid .dk { font-family: var(--font-display); font-size: 11px; font-weight: 600; color: var(--blue-600); padding-top: 2px; }
+.sv-demo-grid .dv { font-family: var(--font-jp); font-size: 13px; color: var(--indigo-950); line-height: 1.6; }
+.sv-demo-grid .dv .num-neg { font-family: var(--font-mono); font-weight: 700; color: var(--danger, #C8353B); }
+.sv-demo-grid .dv .num-pos { font-family: var(--font-mono); font-weight: 700; color: var(--blue-600); }
+.sv-demo-crit { font-size: 11px; font-family: var(--font-display); color: rgba(200,53,59,.7); margin-top: var(--space-1); }
+.sv-demo-disc { font-size: 11.5px; color: var(--text-muted); font-family: var(--font-display); margin-top: var(--space-6); text-align: center; }
+
+/* ── Why us (4 reasons, 2×2) ── */
+.sv-why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+.sv-why-card { padding: var(--space-6); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); background: var(--surface-card); display: flex; gap: var(--space-4); }
+.sv-why-n { font-family: var(--font-mono); font-weight: 700; font-size: 22px; color: var(--blue-400); flex: none; line-height: 1.1; }
+.sv-why-title { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--indigo-950); margin-bottom: 6px; letter-spacing: -0.01em; }
+.sv-why-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.72; margin: 0; }
+
+/* ── Pricing ── */
+.sv-prices { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-5); align-items: start; }
+.sv-price { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 28px var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); }
+.sv-price.feat { border: 1.5px solid var(--blue-400); box-shadow: 0 8px 32px rgba(54,110,255,.12); position: relative; }
+.sv-price.feat::before { content: '最多選択'; position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--blue-500); color: #fff; font-family: var(--font-display); font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 999px; letter-spacing: .04em; white-space: nowrap; }
+.sv-price__plan { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-500); }
+.sv-price__title { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--indigo-950); letter-spacing: -0.01em; }
+.sv-price__sub { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+.sv-price__val { font-family: var(--font-mono); font-weight: 700; font-size: 28px; color: var(--indigo-950); line-height: 1.1; margin: var(--space-3) 0 var(--space-1); letter-spacing: -0.02em; }
+.sv-price__unit { font-size: 12px; color: var(--text-muted); font-family: var(--font-display); }
+.sv-price__desc { font-size: 13px; line-height: 1.7; color: var(--text-secondary); border-top: 1px solid var(--border-subtle); padding-top: var(--space-4); margin-top: var(--space-3); }
+
+@media (max-width: 960px) {
+  .sv-statstrip { flex-direction: column; align-items: flex-start; }
+  .sv-pillars, .sv-demo-pair, .sv-why-grid, .sv-prices { grid-template-columns: 1fr; }
+}
