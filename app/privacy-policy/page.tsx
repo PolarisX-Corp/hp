@@ -6,7 +6,7 @@ import "./privacy-policy.css";
 export const metadata: Metadata = {
   title: "プライバシーポリシー",
   description:
-    "PolarisX株式会社のプライバシーポリシー。データ分析コンサルティングにおける、個人情報および業務データの取扱いについて定めます。",
+    "PolarisX株式会社のプライバシーポリシー。データ分析コンサルティングにおける、個人情報の取扱いについて定めます。",
 };
 
 const LAST_UPDATED = "2026年6月25日";
@@ -94,7 +94,7 @@ export default function PrivacyPolicy() {
       <main className="lg-body">
         <div className="lg-narrow">
           <p className="lg-intro">
-            <strong>PolarisX株式会社</strong>（以下「当社」）は、データ分析コンサルティング（以下「本サービス」）における、お客様（以下「ユーザー」）の個人情報および業務データの取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定めます。
+            <strong>PolarisX株式会社</strong>（以下「当社」）は、データ分析コンサルティング（以下「本サービス」）における、お客様（以下「ユーザー」）の個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定めます。
           </p>
 
           {/* 第1条 */}
