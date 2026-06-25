@@ -6,10 +6,10 @@ import "./privacy-policy.css";
 export const metadata: Metadata = {
   title: "プライバシーポリシー",
   description:
-    "PolarisX株式会社のプライバシーポリシー。データ分析コンサルティングおよび分析基盤構築・運用支援サービスにおける、個人情報および業務データの取扱いについて定めます。",
+    "PolarisX株式会社のプライバシーポリシー。データ分析コンサルティングにおける、個人情報および業務データの取扱いについて定めます。",
 };
 
-const LAST_UPDATED = "2026年6月17日";
+const LAST_UPDATED = "2026年6月25日";
 
 const THIRD_PARTY_SERVICES = [
   {
@@ -19,7 +19,7 @@ const THIRD_PARTY_SERVICES = [
   },
   {
     name: "ユーザーのクラウド（Google Cloud / AWS / Azure 等）",
-    use: "分析基盤の稼働",
+    use: "分析対象データの保管・参照",
     data: "業務データへのアクセス（ユーザー権限内）",
   },
   {
@@ -94,7 +94,7 @@ export default function PrivacyPolicy() {
       <main className="lg-body">
         <div className="lg-narrow">
           <p className="lg-intro">
-            <strong>PolarisX株式会社</strong>（以下「当社」）は、データ分析コンサルティング、分析基盤構築・運用支援、AIエージェントの導入・内製化支援、および2D・3Dデータ解析コンサルティング（以下「本サービス」）における、お客様（以下「ユーザー」）の個人情報および業務データの取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定めます。
+            <strong>PolarisX株式会社</strong>（以下「当社」）は、データ分析コンサルティング（以下「本サービス」）における、お客様（以下「ユーザー」）の個人情報および業務データの取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定めます。
           </p>
 
           {/* 第1条 */}
@@ -122,7 +122,7 @@ export default function PrivacyPolicy() {
                 <dfn>コンサルティング実施中:</dfn> ヒアリング内容、業務概念・指標定義のドキュメント、分析設計情報
               </li>
               <li>
-                <dfn>継続支援・運用中:</dfn> 分析依頼内容、分析・レポートの提供ログ、利用統計
+                <dfn>継続的なご支援の中で:</dfn> 分析依頼内容、分析・レポートの提供ログ、利用統計
               </li>
               <li>
                 <dfn>ウェブサイト訪問時:</dfn> IPアドレス、ブラウザ情報、アクセス日時、ページ閲覧履歴（Cookieおよびアクセス解析ツール経由）
