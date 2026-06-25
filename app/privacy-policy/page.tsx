@@ -133,30 +133,7 @@ export default function PrivacyPolicy() {
           {/* 第3条 */}
           <section className="lg-sec" id="article-3">
             <div className="lg-sec__no">Article 03</div>
-            <h2>第3条（業務データの取扱い方針）</h2>
-            <ul className="lg-list">
-              <li>
-                <dfn>データの所在:</dfn> ユーザーの業務データ（売上、顧客、注文等）は、原則としてユーザー自身のクラウドアカウント（Google Cloud / AWS / Azure 等）内に留まり、当社のサーバーに永続的に保存することはありません。当社が一時的に預かる必要がある場合は、目的達成に必要な範囲・期間に限定します。
-              </li>
-              <li>
-                <dfn>アクセス範囲:</dfn> 当社は、ユーザーが許可したスコープの範囲内でのみ分析対象データにアクセスします。
-              </li>
-              <li>
-                <dfn>外部サービス（LLM等）への送信:</dfn> 分析やレポート生成のために外部のAI/LLMプロバイダ等のAPIを利用する場合、送信する情報は業務遂行に必要な最小限にとどめます。
-              </li>
-              <li>
-                <dfn>学習への不使用:</dfn> 当社は、ユーザーの業務データ・お問い合わせ内容を、当社または外部プロバイダのモデル学習に使用しません。外部プロバイダ側でも学習に使用しない契約・設定（Zero Data Retention 等）を選択して提供するよう努めます。
-              </li>
-              <li>
-                <dfn>個人情報を含むデータの取扱い:</dfn> 個人情報を含むデータについては、必要に応じてマスキング・匿名化等の対応を行うことができます。
-              </li>
-            </ul>
-          </section>
-
-          {/* 第4条 */}
-          <section className="lg-sec" id="article-4">
-            <div className="lg-sec__no">Article 04</div>
-            <h2>第4条（個人情報を収集・利用する目的）</h2>
+            <h2>第3条（個人情報を収集・利用する目的）</h2>
             <p>当社が個人情報を収集・利用する目的は、以下のとおりです。</p>
             <ul className="lg-list lg-list--num">
               <li>本サービスの提供・運営のため（分析、コンサルティング、レポート提供等）</li>
@@ -171,20 +148,20 @@ export default function PrivacyPolicy() {
             </ul>
           </section>
 
-          {/* 第5条 */}
-          <section className="lg-sec" id="article-5">
-            <div className="lg-sec__no">Article 05</div>
-            <h2>第5条（利用目的の変更）</h2>
+          {/* 第4条 */}
+          <section className="lg-sec" id="article-4">
+            <div className="lg-sec__no">Article 04</div>
+            <h2>第4条（利用目的の変更）</h2>
             <ul className="lg-list lg-list--num">
               <li>当社は、利用目的が変更前と関連性を有すると合理的に認められる場合に限り、個人情報の利用目的を変更するものとします。</li>
               <li>利用目的の変更を行った場合には、変更後の目的について、当社所定の方法によりユーザーに通知し、または本サービス上に公表します。</li>
             </ul>
           </section>
 
-          {/* 第6条 */}
-          <section className="lg-sec" id="article-6">
-            <div className="lg-sec__no">Article 06</div>
-            <h2>第6条（第三者提供）</h2>
+          {/* 第5条 */}
+          <section className="lg-sec" id="article-5">
+            <div className="lg-sec__no">Article 05</div>
+            <h2>第5条（第三者提供）</h2>
             <p>
               当社は、次に掲げる場合を除いて、あらかじめユーザーの同意を得ることなく、第三者に個人情報を提供しません。ただし、個人情報保護法その他の法令で認められる場合を除きます。
             </p>
@@ -218,10 +195,10 @@ export default function PrivacyPolicy() {
             </div>
           </section>
 
-          {/* 第7条 */}
-          <section className="lg-sec" id="article-7">
-            <div className="lg-sec__no">Article 07</div>
-            <h2>第7条（個人情報の開示）</h2>
+          {/* 第6条 */}
+          <section className="lg-sec" id="article-6">
+            <div className="lg-sec__no">Article 06</div>
+            <h2>第6条（個人情報の開示）</h2>
             <ul className="lg-list lg-list--num">
               <li>
                 当社は、本人から個人情報の開示を求められたときは、遅滞なくこれを開示します。ただし、開示することにより次のいずれかに該当する場合は、その全部または一部を開示しないことがあり、開示しない決定をした場合はその旨を遅滞なく通知します。
@@ -235,10 +212,10 @@ export default function PrivacyPolicy() {
             </ul>
           </section>
 
-          {/* 第8条 */}
-          <section className="lg-sec" id="article-8">
-            <div className="lg-sec__no">Article 08</div>
-            <h2>第8条（個人情報の訂正および削除）</h2>
+          {/* 第7条 */}
+          <section className="lg-sec" id="article-7">
+            <div className="lg-sec__no">Article 07</div>
+            <h2>第7条（個人情報の訂正および削除）</h2>
             <ul className="lg-list lg-list--num">
               <li>ユーザーは、当社の保有する自己の個人情報が誤った情報である場合には、当社が定める手続きにより、訂正、追加または削除（以下「訂正等」）を請求できます。</li>
               <li>当社は、請求に応じる必要があると判断した場合には、遅滞なく訂正等を行います。</li>
@@ -246,10 +223,10 @@ export default function PrivacyPolicy() {
             </ul>
           </section>
 
-          {/* 第9条 */}
-          <section className="lg-sec" id="article-9">
-            <div className="lg-sec__no">Article 09</div>
-            <h2>第9条（個人情報の利用停止等）</h2>
+          {/* 第8条 */}
+          <section className="lg-sec" id="article-8">
+            <div className="lg-sec__no">Article 08</div>
+            <h2>第8条（個人情報の利用停止等）</h2>
             <ul className="lg-list lg-list--num">
               <li>当社は、本人から、個人情報が利用目的の範囲を超えて取り扱われている、または不正の手段により取得されたという理由により、利用の停止または消去（以下「利用停止等」）を求められた場合には、遅滞なく必要な調査を行います。</li>
               <li>調査結果に基づき請求に応じる必要があると判断した場合には、遅滞なく利用停止等を行います。</li>
@@ -257,49 +234,20 @@ export default function PrivacyPolicy() {
             </ul>
           </section>
 
-          {/* 第10条 */}
-          <section className="lg-sec" id="article-10">
-            <div className="lg-sec__no">Article 10</div>
-            <h2>第10条（Cookie の使用）</h2>
-            <p>本サービスのウェブサイトでは以下のCookieを使用しています。</p>
-            <ul className="lg-list">
-              <li>
-                <dfn>必須Cookie:</dfn> ウェブサイトの基本機能に必要なもの
-              </li>
-              <li>
-                <dfn>分析Cookie:</dfn> アクセス解析に使用するもの
-              </li>
-            </ul>
-            <p>ブラウザの設定によりCookieを無効化できますが、一部の機能が利用できなくなる場合があります。</p>
-          </section>
-
-          {/* 第11条 */}
-          <section className="lg-sec" id="article-11">
-            <div className="lg-sec__no">Article 11</div>
-            <h2>第11条（データの保管・安全管理・削除）</h2>
-            <ul className="lg-list lg-list--num">
-              <li>業務データは原則としてユーザー自身のクラウドアカウント内に留まり、当社のサーバーに永続保存することはありません。</li>
-              <li>当社が保管する個人情報・契約情報等は、適切なアクセス制御・暗号化により管理されます。</li>
-              <li>本サービス間の通信はHTTPSにより暗号化されています。</li>
-              <li>解約・契約終了時、当社側で保管していたユーザー関連データは合理的な期間内に削除されます。納品済み成果物はユーザー帰属となるため、ユーザー側で引き続き保有・管理されます。</li>
-              <li>法令上保管が必要な情報（請求関連情報等）は、所定の期間保管します。</li>
-            </ul>
-          </section>
-
-          {/* 第12条 */}
-          <section className="lg-sec" id="article-12">
-            <div className="lg-sec__no">Article 12</div>
-            <h2>第12条（プライバシーポリシーの変更）</h2>
+          {/* 第9条 */}
+          <section className="lg-sec" id="article-9">
+            <div className="lg-sec__no">Article 09</div>
+            <h2>第9条（プライバシーポリシーの変更）</h2>
             <ul className="lg-list lg-list--num">
               <li>本ポリシーの内容は、法令その他別段の定めのある事項を除き、ユーザーに通知することなく変更できるものとします。</li>
               <li>別途定める場合を除き、変更後の本ポリシーは本ページに掲載したときから効力を生じます。</li>
             </ul>
           </section>
 
-          {/* 第13条 */}
-          <section className="lg-sec" id="article-13">
-            <div className="lg-sec__no">Article 13</div>
-            <h2>第13条（お問い合わせ窓口）</h2>
+          {/* 第10条 */}
+          <section className="lg-sec" id="article-10">
+            <div className="lg-sec__no">Article 10</div>
+            <h2>第10条（お問い合わせ窓口）</h2>
             <p>
               本ポリシーに関するお問い合わせは、
               <a href="/company#contact">お問い合わせフォーム</a>
