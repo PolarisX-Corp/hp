@@ -99,7 +99,6 @@ export default function PrivacyPolicy() {
 
           {/* 第1条 */}
           <section className="lg-sec" id="article-1">
-            <div className="lg-sec__no">Article 01</div>
             <h2>第1条（個人情報）</h2>
             <p>
               「個人情報」とは、個人情報保護法にいう「個人情報」を指すものとし、生存する個人に関する情報であって、当該情報に含まれる氏名、メールアドレス、その他の記述等により特定の個人を識別できる情報および個人識別符号が含まれるものを指します。
@@ -108,7 +107,6 @@ export default function PrivacyPolicy() {
 
           {/* 第2条 */}
           <section className="lg-sec" id="article-2">
-            <div className="lg-sec__no">Article 02</div>
             <h2>第2条（個人情報の収集方法）</h2>
             <p>当社は、以下の方法により個人情報を収集します。</p>
             <ul className="lg-list">
@@ -132,7 +130,6 @@ export default function PrivacyPolicy() {
 
           {/* 第3条 */}
           <section className="lg-sec" id="article-3">
-            <div className="lg-sec__no">Article 03</div>
             <h2>第3条（個人情報を収集・利用する目的）</h2>
             <p>当社が個人情報を収集・利用する目的は、以下のとおりです。</p>
             <ul className="lg-list lg-list--num">
@@ -150,7 +147,6 @@ export default function PrivacyPolicy() {
 
           {/* 第4条 */}
           <section className="lg-sec" id="article-4">
-            <div className="lg-sec__no">Article 04</div>
             <h2>第4条（利用目的の変更）</h2>
             <ul className="lg-list lg-list--num">
               <li>当社は、利用目的が変更前と関連性を有すると合理的に認められる場合に限り、個人情報の利用目的を変更するものとします。</li>
@@ -160,7 +156,6 @@ export default function PrivacyPolicy() {
 
           {/* 第5条 */}
           <section className="lg-sec" id="article-5">
-            <div className="lg-sec__no">Article 05</div>
             <h2>第5条（第三者提供）</h2>
             <p>
               当社は、次に掲げる場合を除いて、あらかじめユーザーの同意を得ることなく、第三者に個人情報を提供しません。ただし、個人情報保護法その他の法令で認められる場合を除きます。
@@ -197,7 +192,6 @@ export default function PrivacyPolicy() {
 
           {/* 第6条 */}
           <section className="lg-sec" id="article-6">
-            <div className="lg-sec__no">Article 06</div>
             <h2>第6条（個人情報の開示）</h2>
             <ul className="lg-list lg-list--num">
               <li>
@@ -214,7 +208,6 @@ export default function PrivacyPolicy() {
 
           {/* 第7条 */}
           <section className="lg-sec" id="article-7">
-            <div className="lg-sec__no">Article 07</div>
             <h2>第7条（個人情報の訂正および削除）</h2>
             <ul className="lg-list lg-list--num">
               <li>ユーザーは、当社の保有する自己の個人情報が誤った情報である場合には、当社が定める手続きにより、訂正、追加または削除（以下「訂正等」）を請求できます。</li>
@@ -225,7 +218,6 @@ export default function PrivacyPolicy() {
 
           {/* 第8条 */}
           <section className="lg-sec" id="article-8">
-            <div className="lg-sec__no">Article 08</div>
             <h2>第8条（個人情報の利用停止等）</h2>
             <ul className="lg-list lg-list--num">
               <li>当社は、本人から、個人情報が利用目的の範囲を超えて取り扱われている、または不正の手段により取得されたという理由により、利用の停止または消去（以下「利用停止等」）を求められた場合には、遅滞なく必要な調査を行います。</li>
@@ -236,7 +228,6 @@ export default function PrivacyPolicy() {
 
           {/* 第9条 */}
           <section className="lg-sec" id="article-9">
-            <div className="lg-sec__no">Article 09</div>
             <h2>第9条（プライバシーポリシーの変更）</h2>
             <ul className="lg-list lg-list--num">
               <li>本ポリシーの内容は、法令その他別段の定めのある事項を除き、ユーザーに通知することなく変更できるものとします。</li>
@@ -246,7 +237,6 @@ export default function PrivacyPolicy() {
 
           {/* 第10条 */}
           <section className="lg-sec" id="article-10">
-            <div className="lg-sec__no">Article 10</div>
             <h2>第10条（お問い合わせ窓口）</h2>
             <p>
               本ポリシーに関するお問い合わせは、
