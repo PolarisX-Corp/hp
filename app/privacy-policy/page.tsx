@@ -11,49 +11,6 @@ export const metadata: Metadata = {
 
 const LAST_UPDATED = "2026年6月25日";
 
-const THIRD_PARTY_SERVICES = [
-  {
-    name: "LLMプロバイダ（Google / OpenAI 等）",
-    use: "AI分析・レポート生成",
-    data: "質問内容、関連メタデータ、スキーマ情報",
-  },
-  {
-    name: "ユーザーのクラウド（Google Cloud / AWS / Azure 等）",
-    use: "分析対象データの保管・参照",
-    data: "業務データへのアクセス（ユーザー権限内）",
-  },
-  {
-    name: "Slack / Microsoft Teams 等",
-    use: "コミュニケーション",
-    data: "ユーザー入力、応答、レポートリンク",
-  },
-  {
-    name: "GitHub 等",
-    use: "成果物リポジトリの納品・管理",
-    data: "分析プロジェクト・設定",
-  },
-  {
-    name: "Supabase 等",
-    use: "運用管理データベース",
-    data: "アカウント情報、契約情報",
-  },
-  {
-    name: "Resend",
-    use: "お問い合わせメールの送信",
-    data: "氏名、メールアドレス、お問い合わせ内容",
-  },
-  {
-    name: "Google Analytics / GTM 等",
-    use: "ウェブサイトのアクセス解析",
-    data: "閲覧履歴、技術情報（匿名化）",
-  },
-  {
-    name: "Vercel（ホスティング事業者）",
-    use: "ウェブサイトのホスティング",
-    data: "サーバーログ",
-  },
-];
-
 export default function PrivacyPolicy() {
   return (
     <div
@@ -163,28 +120,13 @@ export default function PrivacyPolicy() {
               <li>国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、本人の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがあるとき</li>
             </ul>
             <p>
-              前項にかかわらず、本サービスの提供にあたり以下の第三者サービスを利用しており、各サービスのプライバシーポリシーに従って情報が処理されます。これらは業務委託に該当し、第三者提供には該当しません。
+              前項の定めにかかわらず、次に掲げる場合には、当該情報の提供先は第三者に該当しないものとします。
             </p>
-            <div className="lg-tablewrap">
-              <table className="lg-table">
-                <thead>
-                  <tr>
-                    <th>サービス</th>
-                    <th>用途</th>
-                    <th>提供される情報</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {THIRD_PARTY_SERVICES.map((svc) => (
-                    <tr key={svc.name}>
-                      <td>{svc.name}</td>
-                      <td>{svc.use}</td>
-                      <td>{svc.data}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <ul className="lg-list lg-list--num">
+              <li>当社が利用目的の達成に必要な範囲内において個人情報の取扱いの全部または一部を委託する場合</li>
+              <li>合併その他の事由による事業の承継に伴って個人情報が提供される場合</li>
+              <li>個人情報を特定の者との間で共同して利用する場合であって、その旨並びに共同して利用される個人情報の項目、共同して利用する者の範囲、利用する者の利用目的および当該個人情報の管理について責任を有する者の氏名または名称について、あらかじめ本人に通知し、または本人が容易に知り得る状態に置いた場合</li>
+            </ul>
           </section>
 
           {/* 第6条 */}
