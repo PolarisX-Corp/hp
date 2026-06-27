@@ -108,7 +108,7 @@ export default function PrivacyPolicy() {
           {/* 第2条 */}
           <section className="lg-sec" id="article-2">
             <h2>第2条（個人情報の収集方法）</h2>
-            <p>当社は、以下の方法により個人情報を収集します。</p>
+            <p>当社は、以下の方法により個人情報を収集することがあります。</p>
             <ul className="lg-list">
               <li>
                 <dfn>お問い合わせ・相談時:</dfn> 氏名、メールアドレス、会社名、電話番号、役職、ご相談内容
@@ -121,9 +121,6 @@ export default function PrivacyPolicy() {
               </li>
               <li>
                 <dfn>継続的なご支援の中で:</dfn> 分析依頼内容、分析・レポートの提供ログ、利用統計
-              </li>
-              <li>
-                <dfn>ウェブサイト訪問時:</dfn> IPアドレス、ブラウザ情報、アクセス日時、ページ閲覧履歴（Cookieおよびアクセス解析ツール経由）
               </li>
             </ul>
           </section>
