@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CalendarCheck, ArrowUpRight, Globe, Rss, ChevronRight } from "lucide-react";
+import { CalendarCheck, ArrowUpRight, Globe, Building2, Rss, ChevronRight } from "lucide-react";
 import { spaceGrotesk, notoSansJP, jetbrainsMono } from "../fonts";
 import { FoundersAccordion } from "./FoundersAccordion";
 import { XIcon } from "./BrandIcons";
@@ -22,43 +22,52 @@ export default function HubPage() {
         <header className="hdr">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="logo-full" src="/assets/PolarisX_wordmark.svg" alt="PolarisX" />
-          <p className="tagline">意思決定に、再現性を。</p>
+          <p className="tagline">そろそろ、AI経営を始めてみませんか。</p>
         </header>
 
         {/* ═══════════════ メインボタン（最重要・最上部） ═══════════════ */}
         <div className="sec-label">まずはこちら</div>
         <nav className="links">
-          {/* 無料60分相談を予約 → Google カレンダーの予約ページ */}
-          <a
-            className="lnk primary accent"
-            href="https://calendar.app.google/A8Tnn3ZQB8Ncj9qE7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          {/* 無料相談を予約 → トップの問い合わせセクション */}
+          <Link className="lnk primary accent" href="/#contact">
             <span className="ico">
               <CalendarCheck aria-hidden />
             </span>
             <span className="txt">
-              <span className="ttl">無料60分相談を予約する</span>
+              <span className="ttl">無料相談を予約する</span>
               <span className="sub">AI・データ活用の課題を無料で診断・ヒアリング</span>
             </span>
             <span className="chev">
               <ArrowUpRight aria-hidden />
             </span>
-          </a>
+          </Link>
         </nav>
 
         {/* ═══════════════ 通常ボタン（中段） ═══════════════ */}
         <div className="sec-label">PolarisX をもっと知る</div>
         <nav className="links">
-          {/* 会社HP */}
+          {/* サービス詳細（トップ） */}
           <Link className="lnk secondary" href="/">
             <span className="ico">
               <Globe aria-hidden />
             </span>
             <span className="txt">
-              <span className="ttl">会社HPを見る</span>
+              <span className="ttl">サービス詳細を見る</span>
               <span className="sub">polarisx.ltd</span>
+            </span>
+            <span className="chev">
+              <ChevronRight aria-hidden />
+            </span>
+          </Link>
+
+          {/* 会社情報 */}
+          <Link className="lnk secondary" href="/company">
+            <span className="ico">
+              <Building2 aria-hidden />
+            </span>
+            <span className="txt">
+              <span className="ttl">会社HPを見る</span>
+              <span className="sub">polarisx.ltd/company</span>
             </span>
             <span className="chev">
               <ChevronRight aria-hidden />
