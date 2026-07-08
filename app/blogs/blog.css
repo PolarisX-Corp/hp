@@ -54,7 +54,7 @@
   --accent-press:  var(--blue-700);
 
   /* Focus ring */
-  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--blue-500) 35%, transparent);
+  --focus-ring: 0 0 0 2px var(--surface-card), 0 0 0 4px var(--blue-600);
 
   /* Typography */
   --font-display: 'Space Grotesk', 'Noto Sans JP', system-ui, sans-serif;
@@ -148,9 +148,9 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adju
 .px-btn--sm { height: 32px; padding: 0 var(--space-3); font-size: var(--text-xs); }
 .px-btn--lg { height: 48px; padding: 0 var(--space-6); font-size: var(--text-md); }
 .px-btn--block { display: flex; width: 100%; }
-.px-btn--primary { background: var(--accent); color: #fff; }
-.px-btn--primary:hover:not(:disabled) { background: var(--accent-hover); }
-.px-btn--primary:active:not(:disabled) { background: var(--accent-press); }
+.px-btn--primary { background: var(--blue-600); color: #fff; }
+.px-btn--primary:hover:not(:disabled) { background: var(--blue-700); }
+.px-btn--primary:active:not(:disabled) { background: var(--blue-800); }
 .px-btn__icon { display: inline-flex; }
 .theme-blog .px-btn--primary { color: #fff; }
 .theme-blog .bl-btn-white { color: var(--indigo-900); }

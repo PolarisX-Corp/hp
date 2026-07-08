@@ -74,7 +74,7 @@
   --accent-hover:  var(--blue-600);
   --accent-press:  var(--blue-700);
 
-  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--blue-500) 35%, transparent);
+  --focus-ring: 0 0 0 2px var(--surface-card), 0 0 0 4px var(--blue-600);
 }
 
 /* --- typography --- */
@@ -226,9 +226,9 @@ body { margin: 0; }
 }
 .px-btn:active { transform: translateY(0.5px) scale(0.992); }
 .px-btn--sm { height: 32px; padding: 0 var(--space-3); font-size: var(--text-xs); }
-.px-btn--primary { background: var(--accent); color: #fff; }
-.px-btn--primary:hover { background: var(--accent-hover); }
-.px-btn--primary:active { background: var(--accent-press); }
+.px-btn--primary { background: var(--blue-600); color: #fff; }
+.px-btn--primary:hover { background: var(--blue-700); }
+.px-btn--primary:active { background: var(--blue-800); }
 .theme-legal .px-btn--primary { color: #fff; }
 
 /* ============================================================

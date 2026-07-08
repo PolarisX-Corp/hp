@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 import { spaceGrotesk, notoSansJP, jetbrainsMono } from "../fonts";
 import "./privacy-policy.css";
@@ -19,18 +20,18 @@ export default function PrivacyPolicy() {
       {/* HEADER */}
       <header className="lg-header">
         <div className="lg-wrap lg-header__in">
-          <a className="lg-logo" href="/" aria-label="PolarisX">
+          <Link className="lg-logo" href="/" aria-label="PolarisX">
             <img src="/assets/PolarisX_wordmark.svg" alt="PolarisX" />
-          </a>
+          </Link>
           <nav className="lg-nav">
-            <a href="/">HOME</a>
-            <a href="/company">COMPANY</a>
-            <a href="/blogs">BLOG</a>
+            <Link href="/">HOME</Link>
+            <Link href="/company">COMPANY</Link>
+            <Link href="/blogs">BLOG</Link>
           </nav>
           <div className="lg-header__cta">
-            <a href="/company#contact" className="px-btn px-btn--primary px-btn--sm">
+            <Link href="/company#contact" className="px-btn px-btn--primary px-btn--sm">
               CONTACT
-            </a>
+            </Link>
           </div>
         </div>
       </header>
@@ -201,21 +202,21 @@ export default function PrivacyPolicy() {
       <footer className="lg-footer">
         <div className="lg-wrap">
           <div className="lg-foot">
-            <a className="lg-logo" href="/" aria-label="PolarisX">
+            <Link className="lg-logo" href="/" aria-label="PolarisX">
               <img src="/assets/PolarisX_wordmark.svg" alt="PolarisX" />
-            </a>
+            </Link>
             <ul>
               <li>
-                <a href="/">HOME</a>
+                <Link href="/">HOME</Link>
               </li>
               <li>
-                <a href="/company">COMPANY</a>
+                <Link href="/company">COMPANY</Link>
               </li>
               <li>
-                <a href="/blogs">BLOG</a>
+                <Link href="/blogs">BLOG</Link>
               </li>
               <li>
-                <a href="/privacy-policy">PRIVACY</a>
+                <Link href="/privacy-policy">PRIVACY</Link>
               </li>
             </ul>
           </div>

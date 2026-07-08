@@ -170,7 +170,7 @@ export default async function ArticlePage({
               <h3>意思決定を、属人化から解放する。</h3>
               <p>
                 PolarisX
-                なら、データの統合から AI提案・再現スコアまでをひとつの場所で。まずは15分の無料相談から。
+                なら、データの統合から AI提案・再現スコアまでをひとつの場所で。まずは30分の無料相談から。
               </p>
               <div className="bl-ctablock__btns">
                 <Link className="px-btn px-btn--lg bl-btn-white" href="/#contact">
@@ -196,7 +196,7 @@ export default async function ArticlePage({
                 <div className="bl-star" style={{ width: 160, height: 160, top: -50, right: -30 }} />
               </div>
               <h4>資料・導入のご相談</h4>
-              <p>導入イメージや料金を知りたい方へ。専任担当が15分でご案内します。</p>
+              <p>導入イメージや料金を知りたい方へ。創業メンバーが30分で直接ご案内します。</p>
               <Link className="px-btn px-btn--block bl-btn-white" href="/#contact">
                 <Icon name="message-square-text" size={18} className="px-btn__icon" />
                 お問い合わせ

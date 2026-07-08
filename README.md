@@ -6,7 +6,7 @@ Claude Design の「案D：ボールド・モノクロ」を Next.js（App Route
 
 - [Next.js 16](https://nextjs.org/)（App Router）
 - TypeScript
-- `next/font`（Hanken Grotesk / Zen Kaku Gothic New）
+- `next/font`（Space Grotesk / Noto Sans JP / JetBrains Mono — すべて variable フォント）
 - お問い合わせフォーム送信に [Resend](https://resend.com)
 - ホスティング: Vercel
 

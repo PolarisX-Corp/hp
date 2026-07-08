@@ -9,7 +9,7 @@ import "./hub.css";
 export const metadata: Metadata = {
   title: "リンク一覧",
   description:
-    "PolarisX の各種リンク集。無料60分相談の予約、会社HP、公式X・公式ブログ、創業メンバーの紹介はこちらから。",
+    "PolarisX の各種リンク集。無料30分相談の予約、会社HP、公式X・公式ブログ、創業メンバーの紹介はこちらから。",
 };
 
 export default function HubPage() {

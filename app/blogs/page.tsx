@@ -53,7 +53,7 @@ export default function BlogIndexPage() {
             </div>
             <h3>意思決定を、属人化から解放する。</h3>
             <p>
-              データドリブン経営・BI活用について、まずは15分の無料相談から。専任担当が貴社の課題に合わせてご案内します。
+              データドリブン経営・BI活用について、まずは30分の無料相談から。創業メンバーが直接、貴社の課題に合わせてご案内します。
             </p>
             <div className="bl-ctablock__btns">
               <Link className="px-btn px-btn--lg bl-btn-white" href="/#contact">

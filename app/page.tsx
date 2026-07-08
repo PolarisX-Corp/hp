@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { spaceGrotesk, notoSansJP, jetbrainsMono } from "./fonts";
 import ServiceContactForm from "./components/ServiceContactForm";
 import "./service.css";
@@ -10,7 +11,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "AI経営 — AIを、会社のOSに。",
+  title: "AI経営 — AIを会社のOSに | PolarisX",
   description:
     "個人利用で止まっているAIを、担当業務を担う\"AI社員\"へ。AIが会社の一員として自律的に動き続ける「AI経営」を、御社に実装します。AI Readyなデータ基盤の構築から、AIエージェント開発・内製化まで、PolarisXが一気通貫で伴走します。",
 };
@@ -33,7 +34,7 @@ export default function Home() {
             <a href="#process">導入の流れ</a>
           </nav>
           <div className="mk-header__cta">
-            <a className="px-btn px-btn--ghost px-btn--sm" href="#contact">資料請求</a>
+            <a className="px-btn px-btn--ghost px-btn--sm" href="#process">導入の流れ</a>
             <a className="px-btn px-btn--primary px-btn--sm" href="#contact">無料で相談する</a>
           </div>
         </div>
@@ -58,7 +59,7 @@ export default function Home() {
           </div>
 
           {/* HERO DEMO: 意思決定ログ / decision record */}
-          <div className="mk-preview sv-reveal" style={{ transitionDelay: ".08s" }}>
+          <div className="mk-preview sv-reveal">
             <div className="sv-rec">
               <div className="sv-rec__head">
                 <span className="sv-rec__title"><FileCheck2 />経営参謀AI ・ 稼働ログ</span>
@@ -80,7 +81,7 @@ export default function Home() {
       {/* TRUST / framing strip */}
       <div className="mk-trust">
         <div className="mk-wrap">
-          <div className="mk-trust__lbl">こんなチームの業務を、&quot;AI社員&quot;が担い始めています</div>
+          <div className="mk-trust__lbl">&quot;AI社員&quot;が担えるのは、こんなチームの業務です</div>
           <div className="mk-trust__row">
             <span>経営企画</span><span>事業開発</span><span>マーケティング</span><span>サプライチェーン</span><span>経営層</span>
           </div>
@@ -103,14 +104,14 @@ export default function Home() {
               <p>社員それぞれがChatGPTを触ってはいる。でも会社全体・組織としてのナレッジは何も積み上がっていかない。</p>
               <div className="sv-pcard__q">＝ AIが、組織の力になっていない。</div>
             </div>
-            <div className="sv-pcard sv-reveal" style={{ transitionDelay: ".07s" }}>
+            <div className="sv-pcard sv-reveal">
               <div className="sv-pcard__n">02</div>
               <div className="sv-pcard__icon"><UserX /></div>
               <h3>業務が属人化している</h3>
               <p>営業もマーケも分析も、担当者の頭の中に閉じたまま。人が代われば振り出しに戻り、人手の限界がそのまま事業の限界になる。</p>
               <div className="sv-pcard__q">＝ ナレッジが、組織に残らない。</div>
             </div>
-            <div className="sv-pcard sv-reveal" style={{ transitionDelay: ".14s" }}>
+            <div className="sv-pcard sv-reveal">
               <div className="sv-pcard__n">03</div>
               <div className="sv-pcard__icon"><RotateCcw /></div>
               <h3>AIを入れても効果が出ない</h3>
@@ -120,7 +121,7 @@ export default function Home() {
           </div>
 
           {/* stat strip */}
-          <div className="sv-statstrip sv-reveal" style={{ transitionDelay: ".1s" }}>
+          <div className="sv-statstrip sv-reveal">
             <div className="sv-statstrip__bars">
               <div className="sv-statbar">
                 <div className="sv-statbar__val">10%</div>
@@ -134,8 +135,9 @@ export default function Home() {
               </div>
             </div>
             <div className="sv-statstrip__txt">
-              生成AIで「期待を大きく上回る効果」を出せている日本企業はわずか <strong>10%</strong>（米国は45%）。<strong>原因は、AIが「あなたの会社」を知らないから。</strong>KPI定義も事業背景も知らないAIが返すのは、一般論だけです。
+              生成AIで「期待を大きく上回る効果」を出せている日本企業はわずか <strong>10%</strong>（米国は45%）。
               <div className="sv-statstrip__src">出典：PwC Japan「生成AIに関する実態調査2025春 5カ国比較」</div>
+              <div className="sv-statstrip__view"><strong>この差の原因を、私たちは「AIが『あなたの会社』を知らないから」だと見ています。</strong>KPI定義も事業背景も知らないAIが返すのは、一般論だけです。</div>
             </div>
           </div>
         </div>
@@ -153,11 +155,11 @@ export default function Home() {
             <p className="sv-sol-intro__line">AI経営とは、AIが担当業務を持ち、人間の社員のように自律的に動き続ける経営です。汎用AIが頼りないのは、頭が悪いからではなく<em>あなたの会社を知らない</em>だけ。だから私たちは、&quot;AI社員&quot;が動くための共通の土台をつくります。</p>
           </div>
 
-          <div className="sv-pillars sv-reveal" style={{ transitionDelay: ".06s" }}>
+          <div className="sv-pillars sv-reveal">
             <div className="sv-pillar-card">
               <div className="sv-pillar-card__top">
                 <div className="sv-pillar-card__badge">FOUNDATION 01</div>
-                <div className="sv-pillar-card__n">C</div>
+                <div className="sv-pillar-card__n">01</div>
               </div>
               <div className="sv-pillar-card__title">AI Ready なデータ基盤</div>
               <div className="sv-pillar-card__desc">AIが安心して使えるよう、散在するデータを整え、統合する。土台なしには、何も始まりません。</div>
@@ -170,7 +172,7 @@ export default function Home() {
             <div className="sv-pillar-card sv-pillar-card--ctx">
               <div className="sv-pillar-card__top">
                 <div className="sv-pillar-card__badge">FOUNDATION 02</div>
-                <div className="sv-pillar-card__n">B</div>
+                <div className="sv-pillar-card__n">02</div>
               </div>
               <div className="sv-pillar-card__title">コンテキストレイヤー</div>
               <div className="sv-pillar-card__desc">会社の知見・KPI定義・業務の文脈を、AIが読める形に外在化する。一度教えれば、忘れない・全員で共有できる・退職しない。</div>
@@ -182,7 +184,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="sv-pillar-result sv-reveal" style={{ transitionDelay: ".12s" }}>
+          <div className="sv-pillar-result sv-reveal">
             <div className="sv-pillar-result__icon"><Repeat2 /></div>
             <div>
               <div className="sv-pillar-result__title">AIが、担当業務を持つ&quot;社員&quot;になる</div>
@@ -225,7 +227,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="sv-demo-block sv-reveal" style={{ transitionDelay: ".08s" }}>
+          <div className="sv-demo-block sv-reveal">
             <div className="sv-demo-q">
               <span className="sv-demo-q__tag">EC · D2C · CVR低下</span>
               <span className="sv-demo-q__text">「流入は増えてるのにCVRが落ちた。何が起きてる？」</span>
@@ -248,7 +250,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="sv-demo-disc sv-reveal">※ デモ数値はリアル想定のダミーです。本番は自社データ・PoC結果に差し替えます。</div>
+          <div className="sv-demo-disc sv-reveal">※ 画面と数値は説明用の架空サンプルです。実際の導入では御社のデータに接続し、同じ形式で御社の数字に基づく根拠つきの答えを返します。</div>
         </div>
       </section>
 
@@ -259,7 +261,7 @@ export default function Home() {
             <span className="mk-eyebrow"><Star />選ばれる理由</span>
             <h2>&quot;入れただけ&quot;で終わらせない、5つの理由。</h2>
           </div>
-          <div className="sv-why-grid sv-reveal" style={{ transitionDelay: ".06s" }}>
+          <div className="sv-why-grid sv-reveal">
             <div className="sv-why-card">
               <div className="sv-why-n">01</div>
               <div>
@@ -307,7 +309,7 @@ export default function Home() {
             <h2>スモールスタートから、継続的な伴走まで。</h2>
             <p>初期導入で土台をつくり、月次伴走で定着とナレッジ化を続けます。</p>
           </div>
-          <div className="sv-prices sv-reveal" style={{ transitionDelay: ".06s" }}>
+          <div className="sv-prices sv-reveal">
             <div className="sv-price">
               <div className="sv-price__plan">Initial</div>
               <div className="sv-price__title">初期導入</div>
@@ -346,9 +348,9 @@ export default function Home() {
           </div>
           <div className="sv-steps">
             <div className="sv-step sv-reveal"><span className="sv-step__dot"></span><div className="sv-step__n">STEP 01</div><h3>無料相談・AI活用診断</h3><p>現状の課題とデータ環境を伺い、AI活用の論点を整理。まだ何も決まっていなくて大丈夫です。<strong style={{ color: "var(--blue-600)" }}>（初回無料）</strong></p></div>
-            <div className="sv-step sv-reveal" style={{ transitionDelay: ".07s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 02</div><h3>共通の土台を構築</h3><p>データ基盤を整え、会社の知見・KPI定義・業務の文脈をAIが読める形に。&quot;AI社員&quot;が動ける状態へ。</p></div>
-            <div className="sv-step sv-reveal" style={{ transitionDelay: ".14s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 03</div><h3>月次伴走・定着</h3><p>運用と定着を継続支援。テンプレ化とチューニングで、成果を組織の仕組みとして残します。</p></div>
-            <div className="sv-step sv-reveal" style={{ transitionDelay: ".21s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 04</div><h3>AI社員・モデル開発（任意）</h3><p>土台が整ったら、営業・分析・経営参謀などのAI社員や需要予測モデルを開発・内製化支援。</p></div>
+            <div className="sv-step sv-reveal"><span className="sv-step__dot"></span><div className="sv-step__n">STEP 02</div><h3>共通の土台を構築</h3><p>データ基盤を整え、会社の知見・KPI定義・業務の文脈をAIが読める形に。&quot;AI社員&quot;が動ける状態へ。</p></div>
+            <div className="sv-step sv-reveal"><span className="sv-step__dot"></span><div className="sv-step__n">STEP 03</div><h3>月次伴走・定着</h3><p>運用と定着を継続支援。テンプレ化とチューニングで、成果を組織の仕組みとして残します。</p></div>
+            <div className="sv-step sv-reveal"><span className="sv-step__dot"></span><div className="sv-step__n">STEP 04</div><h3>AI社員・モデル開発（任意）</h3><p>土台が整ったら、営業・分析・経営参謀などのAI社員や需要予測モデルを開発・内製化支援。</p></div>
           </div>
         </div>
       </section>
@@ -363,7 +365,7 @@ export default function Home() {
               <p>初回相談（30分）は無料です。話しながら整理していきましょう。</p>
               <ul className="sv-assure">
                 <li><CheckCircle2 />初回ヒアリング & 現状診断は無料</li>
-                <li><CheckCircle2 />オンライン 30〜60 分・営業日 2 日以内にご返信</li>
+                <li><CheckCircle2 />オンライン 30 分・営業日 2 日以内にご返信</li>
                 <li><CheckCircle2 />無理な提案・しつこい営業はしません</li>
               </ul>
             </div>
@@ -381,13 +383,13 @@ export default function Home() {
               <a className="mk-logo" href="#top" style={{ marginBottom: "14px" }}><img src="/assets/PolarisX_mark.svg" alt="" width={26} height={26} /><span>Polaris<span style={{ color: "var(--blue-500)" }}>X</span></span></a>
               <p style={{ fontSize: "13.5px", color: "var(--text-muted)", lineHeight: 1.7, maxWidth: "24em" }}>AIを、会社のOSに。担当業務を持つ&quot;AI社員&quot;が動く経営を、あらゆる企業の当たり前に。</p>
             </div>
-            <div className="mk-footer__col"><h4>サービス</h4><a href="#problem">課題・現状</a><a href="#solution">AI経営とは</a><a href="#why-us">選ばれる理由</a><a href="#pricing">料金プラン</a><a href="#process">導入の流れ</a></div>
-            <div className="mk-footer__col"><h4>会社情報</h4><a href="/company">会社情報</a><a href="/company#contact">お問い合わせ</a></div>
-            <div className="mk-footer__col"><h4>リソース</h4><a href="/blogs">ブログ</a><a href="/privacy-policy">プライバシー</a></div>
+            <div className="mk-footer__col"><p className="mk-footer__h">サービス</p><a href="#problem">課題・現状</a><a href="#solution">AI経営とは</a><a href="#why-us">選ばれる理由</a><a href="#pricing">料金プラン</a><a href="#process">導入の流れ</a></div>
+            <div className="mk-footer__col"><p className="mk-footer__h">会社情報</p><Link href="/company">会社情報</Link><Link href="/company#contact">お問い合わせ</Link></div>
+            <div className="mk-footer__col"><p className="mk-footer__h">リソース</p><Link href="/blogs">ブログ</Link><Link href="/privacy-policy">プライバシー</Link></div>
           </div>
           <div className="mk-footer__bottom">
             <span>© 2026 PolarisX, Inc.</span>
-            <span style={{ display: "flex", gap: "16px" }}><a href="/privacy-policy" style={{ color: "inherit", textDecoration: "none" }}>プライバシー</a></span>
+            <span style={{ display: "flex", gap: "16px" }}><Link href="/privacy-policy" style={{ color: "inherit", textDecoration: "none" }}>プライバシー</Link></span>
           </div>
         </div>
       </footer>
