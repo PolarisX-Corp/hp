@@ -13,9 +13,9 @@ export function BlogHeader() {
           </span>
         </Link>
         <nav className="bl-nav">
-          <Link href="/#solution">機能</Link>
-          <Link href="/#contact">料金</Link>
-          <Link href="/#benefits">導入事例</Link>
+          <Link href="/#solution">Polaris AIとは</Link>
+          <Link href="/#why-us">選ばれる理由</Link>
+          <Link href="/#process">導入の流れ</Link>
           <Link href="/blogs" className="is-active">
             ブログ
           </Link>
@@ -102,9 +102,9 @@ export function BlogFooter() {
           </div>
           <div className="bl-footer__col">
             <h4>サービス</h4>
-            <Link href="/#problem">課題感</Link>
-            <Link href="/#solution">ソリューション</Link>
-            <Link href="/#benefits">導入のメリット</Link>
+            <Link href="/#problem">課題・現状</Link>
+            <Link href="/#solution">Polaris AIとは</Link>
+            <Link href="/#why-us">選ばれる理由</Link>
             <Link href="/#process">導入の流れ</Link>
           </div>
           <div className="bl-footer__col">
