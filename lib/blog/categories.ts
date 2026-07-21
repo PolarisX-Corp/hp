@@ -21,6 +21,57 @@ export interface Category {
 }
 
 export const CATEGORIES: Category[] = [
+  // ---- V2キー（2026-07-21〜）: 新規記事はこちらのみ使用 ----
+  {
+    key: "ai-agent",
+    label: "AIエージェント・AI社員",
+    icon: "sparkles",
+    coverVariant: "c",
+    coverShape: "network",
+  },
+  {
+    key: "knowledge-base",
+    label: "社内ナレッジ・RAG",
+    icon: "database",
+    coverVariant: "b",
+    coverShape: "rows",
+  },
+  {
+    key: "ai-helpdesk",
+    label: "問い合わせ自動化",
+    icon: "message-square-text",
+    coverVariant: "a",
+    coverShape: "donut",
+  },
+  {
+    key: "ai-adoption",
+    label: "法人AI導入",
+    icon: "compass",
+    coverVariant: "a",
+    coverShape: "line",
+  },
+  {
+    key: "ai-workflow",
+    label: "業務効率化・AI活用術",
+    icon: "clock",
+    coverVariant: "b",
+    coverShape: "bars",
+  },
+  {
+    key: "ai-tools",
+    label: "AIツールガイド",
+    icon: "lightbulb",
+    coverVariant: "a",
+    coverShape: "bars",
+  },
+  {
+    key: "case-study",
+    label: "導入事例・実践レポート",
+    icon: "file-text",
+    coverVariant: "b",
+    coverShape: "line",
+  },
+  // ---- 旧キー（deprecated）: 既存公開記事の互換用。新規記事での使用禁止 ----
   {
     key: "data-driven-management",
     label: "データドリブン経営",
