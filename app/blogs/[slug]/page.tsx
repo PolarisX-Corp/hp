@@ -183,11 +183,7 @@ export default async function ArticlePage({
 
           {/* sidebar */}
           <aside className="bl-side">
-            <div className="bl-side__card">
-              <div className="bl-side__h">
-                <Icon name="list" size={14} />
-                目次
-              </div>
+            <div className="bl-side__card bl-side__card--toc">
               <TocNav toc={post.toc} />
             </div>
 
@@ -204,7 +200,7 @@ export default async function ArticlePage({
             </div>
 
             {popular.length > 0 && (
-              <div className="bl-side__card">
+              <div className="bl-side__card bl-side__card--popular">
                 <div className="bl-side__h">
                   <Icon name="flame" size={14} />
                   人気の記事
