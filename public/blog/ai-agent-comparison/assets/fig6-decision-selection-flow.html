@@ -1,0 +1,121 @@
+<!-- style: illust (light) — 決定木フロー + R3 codex 型イラスト（illus-type-*.png）を到達ノードに再利用 -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); color:var(--ink); background:
+      radial-gradient(1100px 620px at 92% -12%, var(--accent-bg) 0%, rgba(234,240,255,0) 58%),
+      var(--bg);
+    padding:44px 60px 24px; display:flex; flex-direction:column;
+  }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.30em; color:var(--accent-d); }
+  .title { font-size:45px; font-weight:800; letter-spacing:-.01em; margin-top:10px; line-height:1.22; color:var(--ink); }
+  .title .em { color:var(--accent); }
+  .sub { font-size:21px; color:var(--muted); margin-top:11px; line-height:1.45; }
+  .drule { margin-top:14px; height:3px; border-radius:3px;
+           background:linear-gradient(90deg,var(--accent) 0%,var(--accent-bd) 52%,transparent 100%); }
+
+  .flow { flex:1; display:flex; flex-direction:column; margin-top:16px; }
+
+  .rail { display:grid; grid-template-columns:1fr 1fr 1fr 360px; gap:14px; margin-bottom:12px; }
+  .stage { display:flex; align-items:center; gap:11px; font-size:19px; font-weight:800; color:var(--accent-d); letter-spacing:.005em; }
+  .stage .no { width:30px; height:30px; flex-shrink:0; border-radius:8px; background:var(--accent-bg);
+               border:1px solid var(--accent-bd); display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--accent-d); }
+
+  .rows { flex:1; display:grid; grid-template-rows:repeat(4,1fr); gap:13px; }
+  .row { display:grid; grid-template-columns:1fr 1fr 1fr 360px; gap:14px; align-items:stretch; }
+  .cellq { border-radius:12px; padding:14px 20px; background:var(--card); border:1px solid var(--border);
+           display:flex; flex-direction:column; justify-content:center; box-shadow:0 4px 14px rgba(0,9,133,.04); }
+  .cellq .a { font-size:21px; font-weight:800; letter-spacing:.005em; color:var(--ink); }
+  .cellq .b { font-size:15.5px; color:var(--muted); margin-top:4px; font-weight:600; line-height:1.4; }
+
+  .dest { position:relative; border-radius:14px; padding:12px 20px 12px 26px; display:flex; align-items:center; gap:14px;
+          background:linear-gradient(90deg,var(--accent-bg),#FFFFFF); border:1px solid var(--accent-bd); }
+  .dest::before { content:''; position:absolute; left:-24px; top:50%; transform:translateY(-50%);
+                  width:0; height:0; border-top:11px solid transparent; border-bottom:11px solid transparent; border-left:15px solid var(--accent-bd); }
+  .dthumb { width:58px; height:58px; flex-shrink:0; border-radius:12px; background-color:var(--accent-bg);
+            background-size:150%; background-position:center 30%; background-repeat:no-repeat; border:1px solid var(--accent-bd); }
+  .dest .n { font-size:23px; font-weight:800; color:var(--ink); }
+  .dest .d { font-size:15px; color:var(--accent-d); margin-top:3px; font-weight:600; }
+  .row.hot .cellq { border-color:var(--accent-bd); }
+  .row.hot .dest { background:linear-gradient(90deg,#DCE7FF,#F3F7FF); border:2px solid var(--accent); box-shadow:0 10px 26px rgba(54,110,255,.20); }
+  .row.hot .dest::before { border-left-color:var(--accent); }
+  .row.hot .dthumb { border:2px solid var(--accent); }
+  .row.hot .dest .n { color:var(--accent-d); }
+
+  .poc { flex-shrink:0; margin-top:14px; border-radius:14px; padding:15px 26px;
+         background:var(--accent-bg); border:2px dashed var(--accent-bd);
+         display:flex; align-items:center; gap:16px; }
+  .poc .ic { width:40px; height:40px; flex-shrink:0; border-radius:10px; background:#FFFFFF; border:1px solid var(--accent-bd);
+             display:flex; align-items:center; justify-content:center; }
+  .poc .ic svg { width:24px; height:24px; }
+  .poc .t { font-size:22px; font-weight:800; color:var(--ink); }
+  .poc .t .k { color:var(--accent-d); }
+  .poc .s { font-size:17px; color:var(--muted); margin-left:auto; font-weight:600; }
+
+  .brandbar { flex-shrink:0; margin-top:14px; padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">選定フロー</div>
+  <div class="title">ランキングではなく、<span class="em">タイプを決めてから試す</span></div>
+  <div class="sub">用途 → 自社データ → 情シスの有無、の順に辿れば、自社に合うタイプにたどり着く</div>
+  <div class="drule"></div>
+
+  <div class="flow">
+    <div class="rail">
+      <div class="stage"><span class="no">1</span>用途は？</div>
+      <div class="stage"><span class="no">2</span>自社データを持ち込む？</div>
+      <div class="stage"><span class="no">3</span>情シス・運用体制は？</div>
+      <div class="stage"><span class="no">4</span>到達するタイプ</div>
+    </div>
+
+    <div class="rows">
+      <div class="row">
+        <div class="cellq"><div class="a">横断作業</div><div class="b">調査・要約・下書き</div></div>
+        <div class="cellq"><div class="a">都度渡せば十分</div><div class="b">文脈依存は低い</div></div>
+        <div class="cellq"><div class="a">不問</div><div class="b">すぐ触れる</div></div>
+        <div class="dest"><div class="dthumb" style="background-image:url(illus-type-general.png)"></div><div><div class="n">汎用作業型</div><div class="d">まず試したい</div></div></div>
+      </div>
+      <div class="row">
+        <div class="cellq"><div class="a">特定業務</div><div class="b">経理・営業・CSなど</div></div>
+        <div class="cellq"><div class="a">その業務の範囲内</div><div class="b">設定は軽い</div></div>
+        <div class="cellq"><div class="a">不問</div><div class="b">範囲内で完結</div></div>
+        <div class="dest"><div class="dthumb" style="background-image:url(illus-type-specialized.png)"></div><div><div class="n">業務特化型</div><div class="d">1業務を自動化</div></div></div>
+      </div>
+      <div class="row">
+        <div class="cellq"><div class="a">複数処理の連結</div><div class="b">入力→処理→出力</div></div>
+        <div class="cellq"><div class="a">設計しだい</div><div class="b">API・MCPで連携</div></div>
+        <div class="cellq"><div class="a">あると安心</div><div class="b">フロー設計が要る</div></div>
+        <div class="dest"><div class="dthumb" style="background-image:url(illus-type-workflow.png); background-size:120%; background-position:center;"></div><div><div class="n">ワークフロー連携型</div><div class="d">定型処理を回す</div></div></div>
+      </div>
+      <div class="row hot">
+        <div class="cellq"><div class="a">複数部門で継続</div><div class="b">社内文脈を深く使う</div></div>
+        <div class="cellq"><div class="a">RAGで深く参照</div><div class="b">文脈依存が高い</div></div>
+        <div class="cellq"><div class="a">無ければ運用しやすく</div><div class="b">窓口を一つに束ねる</div></div>
+        <div class="dest"><div class="dthumb" style="background-image:url(illus-type-custom.png)"></div><div><div class="n">カスタム構築型</div><div class="d">司令塔・深く長く使う</div></div></div>
+      </div>
+    </div>
+
+    <div class="poc">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 h6 M10 3 v6 l-5 9 a2 2 0 0 0 2 3 h10 a2 2 0 0 0 2 -3 l-5 -9 v-6"/><line x1="8" y1="15" x2="16" y2="15"/></svg></div>
+      <div class="t">どのルートも最後は <span class="k">PoC（1業務・1窓口で効果を確認）</span> → 本番展開</div>
+      <div class="s">ランキングを見なくても、自社のタイプに辿り着く</div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

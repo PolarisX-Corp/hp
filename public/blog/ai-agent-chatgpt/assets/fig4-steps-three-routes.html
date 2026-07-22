@@ -1,0 +1,116 @@
+<!-- style: flat + R3 illustration (gpt-image-2 文字なし下絵) + HTML labels -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --deep:#000985;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); background:var(--bg); color:var(--ink);
+    padding:40px 56px 24px; display:flex; flex-direction:column;
+  }
+  .title { font-size:46px; font-weight:800; letter-spacing:-.02em; }
+  .title .em { color:var(--accent); }
+  .sub { font-size:23px; color:var(--muted); margin-top:10px; }
+
+  .flow { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:22px; flex:1; }
+  .step { background:var(--card); border-radius:20px; overflow:hidden; border:2px solid var(--border);
+          box-shadow:0 8px 24px rgba(0,9,133,.06); display:flex; flex-direction:column; }
+  .s3 { border-color:var(--accent-bd); }
+
+  .illus { height:250px; background-size:cover; background-position:center; background-repeat:no-repeat; flex-shrink:0; border-bottom:1px solid var(--border); }
+  .s1 .illus { background-image:url(fig4-illus-route1.png); }
+  .s2 .illus { background-image:url(fig4-illus-route2.png); }
+  .s3 .illus { background-image:url(fig4-illus-route3.png); }
+
+  .b { padding:20px 24px 22px; display:flex; flex-direction:column; flex:1; }
+  .top { display:flex; align-items:center; gap:12px; }
+  .num { width:52px; height:52px; border-radius:14px; color:#fff; flex-shrink:0;
+         display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1; }
+  .num .rt { font-size:11px; font-weight:800; letter-spacing:.06em; opacity:.85; }
+  .num .n { font-size:26px; font-weight:800; }
+  .s1 .num { background:#7AA0FF; } .s2 .num { background:var(--accent); } .s3 .num { background:var(--deep); }
+  .rtag { font-size:17px; font-weight:800; letter-spacing:.02em; color:var(--faint); }
+
+  .sh { font-size:28px; font-weight:800; margin-top:14px; line-height:1.28; letter-spacing:-.01em; }
+  .s1 .sh { color:#2C5BD0; } .s2 .sh { color:var(--accent-d); } .s3 .sh { color:var(--deep); }
+  .meta { margin-top:14px; display:flex; flex-direction:column; gap:8px; }
+  .mrow { display:flex; align-items:center; gap:10px; font-size:20px; font-weight:600; color:var(--body); }
+  .mrow .k { font-size:14px; font-weight:800; color:var(--faint); background:#F0F2F7; border-radius:6px; padding:3px 9px; flex-shrink:0; }
+  .aim { margin-top:auto; padding-top:16px; display:flex; align-items:baseline; gap:12px; border-top:1px dashed var(--border); }
+  .aim .albl { font-size:14px; font-weight:800; color:var(--faint); letter-spacing:.04em; flex-shrink:0; }
+  .aim .aval { font-size:22px; font-weight:800; line-height:1.3; }
+  .s1 .aim .aval { color:#2C5BD0; } .s2 .aim .aval { color:var(--accent-d); } .s3 .aim .aval { color:var(--deep); }
+
+  .axis { margin-top:18px; display:flex; align-items:center; gap:18px; }
+  .axis .cap { font-size:19px; font-weight:800; white-space:nowrap; }
+  .axis .cap.l { color:#5C86FF; } .axis .cap.r { color:var(--deep); }
+  .axis .bar { flex:1; height:12px; border-radius:999px; background:linear-gradient(90deg,#AEC4FF,#366EFF 50%,#000985); }
+
+  .brandbar { flex-shrink:0; margin-top:16px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">ChatGPTでエージェントを作る・使う<span class="em">3つのルート</span></div>
+  <div class="sub">右へ行くほど作り込み度が上がる。目的に応じて、手軽な順に段階的に選ぶ</div>
+
+  <div class="flow">
+    <div class="step s1">
+      <div class="illus"></div>
+      <div class="b">
+        <div class="top"><div class="num"><span class="rt">ROUTE</span><span class="n">1</span></div><div class="rtag">エージェントモードを使う</div></div>
+        <div class="sh">設定不要で<br>そのまま使う</div>
+        <div class="meta">
+          <div class="mrow"><span class="k">手軽さ</span>設定不要・今日から</div>
+          <div class="mrow"><span class="k">要件</span>対応プランにログイン</div>
+        </div>
+        <div class="aim"><span class="albl">向く目的</span><span class="aval">まず試す</span></div>
+      </div>
+    </div>
+
+    <div class="step s2">
+      <div class="illus"></div>
+      <div class="b">
+        <div class="top"><div class="num"><span class="rt">ROUTE</span><span class="n">2</span></div><div class="rtag">GPTsで自社専用を作る</div></div>
+        <div class="sh">ノーコードで<br>自社専用を作る</div>
+        <div class="meta">
+          <div class="mrow"><span class="k">手軽さ</span>ノーコード</div>
+          <div class="mrow"><span class="k">要件</span>作成はPlus以上</div>
+        </div>
+        <div class="aim"><span class="albl">向く目的</span><span class="aval">社内で共有する定型業務</span></div>
+      </div>
+    </div>
+
+    <div class="step s3">
+      <div class="illus"></div>
+      <div class="b">
+        <div class="top"><div class="num"><span class="rt">ROUTE</span><span class="n">3</span></div><div class="rtag">APIで業務に組み込む</div></div>
+        <div class="sh">"部品=頭脳"として<br>業務に組み込む</div>
+        <div class="meta">
+          <div class="mrow"><span class="k">手軽さ</span>要開発</div>
+          <div class="mrow"><span class="k">要件</span>恒常的な自動化</div>
+        </div>
+        <div class="aim"><span class="albl">向く目的</span><span class="aval">業務システムに組み込む</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="axis">
+    <span class="cap l">手軽さ</span>
+    <div class="bar"></div>
+    <span class="cap r">作り込み度</span>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

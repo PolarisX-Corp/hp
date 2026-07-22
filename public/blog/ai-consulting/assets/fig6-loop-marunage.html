@@ -1,0 +1,106 @@
+<!-- style: paper + R2 SVG loop -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --paper:#FFFFFF; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --deep:#000985;
+    --neutral:#F1EFE8; --bad:#E0405E; --bad-bg:#FBECEC;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:44px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:46px; font-weight:700; margin-top:10px; }
+  .title .em { color:var(--bad); border-bottom:4px solid var(--bad); padding-bottom:2px; }
+  .sub { font-size:22px; color:var(--muted); margin-top:12px; line-height:1.5; }
+  .drule { margin-top:16px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .stage { flex:1; position:relative; margin-top:8px; }
+  .stage svg.wires { position:absolute; inset:0; width:100%; height:100%; }
+  .ln { position:absolute; width:280px; background:var(--bad-bg); border:1.5px solid #EFC7CE;
+        border-radius:5px; padding:10px 14px; z-index:2; text-align:center; }
+  .ln .no { display:inline-block; font-size:15px; font-weight:800; color:#fff; background:var(--bad);
+            border-radius:999px; padding:2px 12px; }
+  .ln .tx { font-size:19px; font-weight:700; color:var(--ink); line-height:1.4; margin-top:6px; }
+
+  .loopcap { position:absolute; left:325px; top:275px; width:230px; text-align:center; z-index:2; }
+  .loopcap .h { font-family:var(--serif); font-size:27px; font-weight:700; color:var(--bad); }
+  .loopcap .b { font-size:17px; color:var(--muted); margin-top:4px; }
+
+  .exit { position:absolute; right:0; width:430px; z-index:2; display:flex; flex-direction:column; gap:14px; }
+  .exit .cut { background:#F5F8FF; border:1.5px solid var(--accent); border-left:5px solid var(--accent);
+               border-radius:5px; padding:16px 20px; }
+  .exit .cut .h { font-family:var(--serif); font-size:24px; font-weight:700; color:var(--accent-d); }
+  .exit .cut .b { font-size:18.5px; color:var(--body); line-height:1.55; margin-top:8px; }
+  .exit .goal { background:var(--accent); border-radius:5px; padding:14px 20px; color:#fff; }
+  .exit .goal .h { font-size:21px; font-weight:800; }
+  .exit .goal .b { font-size:17.5px; line-height:1.5; margin-top:6px; opacity:.92; }
+
+  .brandbar { flex-shrink:0; margin-top:14px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">丸投げの構造</div>
+  <div class="title">丸投げは「<span class="em">依存の悪循環</span>」になる — 断ち切る鍵は移管</div>
+  <div class="sub">回っているように見えて、自社には何も積み上がらない。抜け道は運用とナレッジの自社移管</div>
+  <div class="drule"></div>
+
+  <div class="stage">
+    <svg class="wires" viewBox="0 0 1480 580" preserveAspectRatio="none">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 Z" fill="#E0405E"/>
+        </marker>
+        <marker id="arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 Z" fill="#366EFF"/>
+        </marker>
+      </defs>
+      <!-- 悪循環の矢印（時計回り） -->
+      <g stroke="#E0405E" stroke-width="4" fill="none">
+        <path d="M585 95 A 260 215 0 0 1 700 245" marker-end="url(#arr)"/>
+        <path d="M690 340 A 260 215 0 0 1 560 470" marker-end="url(#arr)"/>
+        <path d="M310 480 A 260 215 0 0 1 175 350" marker-end="url(#arr)"/>
+        <path d="M170 250 A 260 215 0 0 1 290 100" marker-end="url(#arr)"/>
+      </g>
+      <!-- 断ち切り矢印 -->
+      <path d="M845 300 C 930 300, 950 300, 1030 300" stroke="#366EFF" stroke-width="6" fill="none" marker-end="url(#arrb)"/>
+      <line x1="878" y1="262" x2="878" y2="338" stroke="#366EFF" stroke-width="6"/>
+    </svg>
+
+    <!-- 悪循環ノード -->
+    <div class="ln" style="left:300px; top:28px;"><span class="no">1</span><div class="tx">外部に丸ごと依頼する</div></div>
+    <div class="ln" style="left:575px; top:240px;"><span class="no">2</span><div class="tx">外部が設計し、実行する</div></div>
+    <div class="ln" style="left:430px; top:462px;"><span class="no">3</span><div class="tx">ナレッジ・運用が外部に残る</div></div>
+    <div class="ln" style="left:60px; top:462px;"><span class="no">4</span><div class="tx">自社に判断力が育たない</div></div>
+    <div class="ln" style="left:15px; top:240px;"><span class="no">5</span><div class="tx">また依頼する（依存が深まる）</div></div>
+
+    <div class="loopcap">
+      <div class="h">丸投げの悪循環</div>
+      <div class="b">費用は固定費のまま続く</div>
+    </div>
+
+    <!-- 断ち切り -->
+    <div class="exit" style="top:120px;">
+      <div class="cut">
+        <div class="h">断ち切り方＝内製化支援</div>
+        <div class="b">運用手順・プロンプト・判断基準を自社へ移管する契約に組み替える。外部の役割は「立ち上げの加速」と「壁打ち」に限定する。</div>
+      </div>
+      <div class="goal">
+        <div class="h">ゴール：契約が終わった翌月、自社だけで回る</div>
+        <div class="b">運用とナレッジが社内にあれば、支援が縮小しても成果は残り続ける。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

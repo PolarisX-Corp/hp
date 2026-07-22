@@ -1,0 +1,84 @@
+<!-- style: paper + illust（R3: codex/gpt-image-2 下絵をカードヘッダーに敷き、和文はHTML合成） -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF;
+    --neutral:#F1EFE8; --bad:#E0405E;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:40px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:43px; font-weight:700; margin-top:8px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .drule { margin-top:12px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .cols { flex:1; position:relative; display:grid; grid-template-columns:1fr 1fr; gap:110px; margin-top:16px; }
+  .col { background:var(--card); border:1px solid var(--border); border-radius:4px; overflow:hidden;
+         display:flex; flex-direction:column; }
+  .col.left  { border-top:4px solid var(--faint); }
+  .col.right { border:2.5px solid var(--accent); border-top-width:4px; }
+  .illus { height:252px; background-size:cover; background-position:center 32%; }
+  .col.left  .illus { background-image:url(fig5-illus-build.png); filter:saturate(.55); }
+  .col.right .illus { background-image:url(fig5-illus-operate.png); }
+  .chead { font-family:var(--serif); font-size:27px; font-weight:700; padding:14px 24px 10px;
+           border-bottom:2px solid var(--rule); margin:0 20px; text-align:center; }
+  .col.left  .chead { color:var(--muted); }
+  .col.right .chead { color:var(--accent-d); }
+  .items { padding:6px 26px 14px; }
+  .it { display:flex; gap:12px; align-items:flex-start; padding:10px 0; font-size:20px; line-height:1.5; }
+  .it + .it { border-top:1px dashed var(--border); }
+  .mk { flex-shrink:0; width:24px; height:24px; border-radius:50%; margin-top:3px;
+        display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:800; color:#fff; }
+  .col.left  .mk { background:var(--bad); }
+  .col.right .mk { background:var(--accent); }
+  .col.left  .it { color:var(--body); }
+
+  .axis { position:absolute; left:50%; top:46%; transform:translate(-50%,-50%); z-index:2;
+          background:var(--rule); color:#fff; font-size:19px; font-weight:700; line-height:1.5;
+          padding:14px 18px; border-radius:6px; width:170px; text-align:center; }
+  .axis small { display:block; font-weight:600; font-size:15px; color:#C9D2EA; margin-bottom:4px; }
+
+  .brandbar { flex-shrink:0; margin-top:14px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">比較表に出ない分かれ道</div>
+  <div class="title">「作って終わりの受託」と<span class="em">「自社運用に載る構築」</span></div>
+  <div class="drule"></div>
+
+  <div class="cols">
+    <div class="col left">
+      <div class="illus"></div>
+      <div class="chead">作って終わりの受託</div>
+      <div class="items">
+        <div class="it"><span class="mk">✕</span>納品がゴール。使われ方は誰も観測しない</div>
+        <div class="it"><span class="mk">✕</span>業務が変わっても仕組みは固定＝納品直後から陳腐化</div>
+        <div class="it"><span class="mk">✕</span>改修は都度見積もり。やがて「誰も開かないツール」に</div>
+      </div>
+    </div>
+    <div class="col right">
+      <div class="illus"></div>
+      <div class="chead">自社運用に載る構築</div>
+      <div class="items">
+        <div class="it"><span class="mk">✓</span>運用開始がスタート。使われ方を観測して改善が回る</div>
+        <div class="it"><span class="mk">✓</span>自社ナレッジを取り込み、答えの精度が育ち続ける</div>
+        <div class="it"><span class="mk">✓</span>業務の変化に、運用の中で追従できる</div>
+      </div>
+    </div>
+    <div class="axis"><small>分かれ目</small>納品後、誰が<br>改善を回すか</div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

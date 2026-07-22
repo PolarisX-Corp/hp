@@ -1,0 +1,125 @@
+<!-- style: flat + R2 pictogram (ladder＝プラン階段。fig4横フローと差別化＝上昇構図) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --deep:#000985; --red:#E0405E; --lock-bg:#F0F2F7;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); background:var(--bg); color:var(--ink);
+    padding:40px 56px 22px; display:flex; flex-direction:column;
+  }
+  .title { font-size:46px; font-weight:800; letter-spacing:-.02em; }
+  .title .em { color:var(--accent); }
+  .sub { font-size:23px; color:var(--muted); margin-top:10px; }
+
+  .stairs { flex:1; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; align-items:end; margin-top:20px; }
+  .col { display:flex; flex-direction:column; }
+  .card { background:var(--card); border:2px solid var(--border); border-radius:18px; padding:22px 22px 20px;
+          box-shadow:0 8px 24px rgba(0,9,133,.06); display:flex; flex-direction:column; }
+  .c1 .card { border-top:5px solid #B7BFD2; }
+  .c2 .card { border:2px solid var(--accent); border-top:5px solid var(--accent); background:#F4F7FF; box-shadow:0 12px 30px rgba(54,110,255,.16); }
+  .c3 .card { border-top:5px solid var(--accent-d); }
+  .c4 .card { border-top:5px solid var(--deep); }
+
+  .plan { font-size:29px; font-weight:800; letter-spacing:-.01em; }
+  .c1 .plan { color:var(--faint); } .c2 .plan { color:var(--accent-d); } .c3 .plan { color:var(--accent-d); } .c4 .plan { color:var(--deep); }
+  .price { font-size:19px; font-weight:700; color:var(--muted); margin-top:3px; }
+  .flag { display:inline-block; align-self:flex-start; margin-top:12px; font-size:16px; font-weight:800; color:#fff;
+          background:var(--accent); border-radius:999px; padding:5px 14px; }
+
+  .ul { margin-top:14px; display:flex; flex-direction:column; gap:11px; }
+  .li { display:flex; align-items:flex-start; gap:10px; font-size:20px; font-weight:700; line-height:1.35; }
+  .li .ic { width:24px; height:24px; flex-shrink:0; margin-top:1px; }
+  .li.ok { color:var(--ink); } .li.no { color:var(--faint); } .li.add { color:var(--accent-d); }
+
+  /* 階段のライザー（下の踏み板） */
+  .riser { height:26px; border-radius:0 0 8px 8px; margin-top:0; }
+  .c1 .riser { background:#DFE3EC; } .c2 .riser { background:#9FB8FF; } .c3 .riser { background:#6E93F0; } .c4 .riser { background:#3F63C8; }
+  .base { grid-column:1 / -1; height:8px; background:#CDD3E0; border-radius:999px; margin-top:2px; }
+
+  .cap { text-align:center; font-size:19px; font-weight:600; color:var(--muted); margin-top:16px; }
+  .cap b { color:var(--accent-d); font-weight:800; }
+
+  .brandbar { flex-shrink:0; margin-top:14px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">プランが上がるほど<span class="em">使える機能が増える</span></div>
+  <div class="sub">無料は「公開GPTsの利用」まで。エージェントモードとGPTs作成はPlus以上で解禁される</div>
+
+  <div class="stairs">
+    <!-- 無料 -->
+    <div class="col c1">
+      <div class="card" style="min-height:300px">
+        <div class="plan">無料（Free）</div>
+        <div class="price">￥0</div>
+        <div class="ul">
+          <div class="li no"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#9AA1B5" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg><div>エージェントモード</div></div>
+          <div class="li no"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#9AA1B5" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg><div>GPTsの作成</div></div>
+          <div class="li ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,6"/></svg><div>公開GPTsの利用<br><span style="font-weight:600;color:#6B7388;font-size:17px">（回数制限あり）</span></div></div>
+        </div>
+      </div>
+      <div class="riser"></div>
+    </div>
+
+    <!-- Plus -->
+    <div class="col c2">
+      <div class="card" style="min-height:372px">
+        <div class="plan">Plus</div>
+        <div class="price">月額20ドル前後（目安）</div>
+        <div class="flag">ここが分かれ目</div>
+        <div class="ul">
+          <div class="li add"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#1841B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,6"/></svg><div>エージェントモード解禁</div></div>
+          <div class="li add"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#1841B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,6"/></svg><div>GPTsの作成が可能</div></div>
+          <div class="li ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,6"/></svg><div>公開GPTsの利用</div></div>
+        </div>
+      </div>
+      <div class="riser"></div>
+    </div>
+
+    <!-- Pro -->
+    <div class="col c3">
+      <div class="card" style="min-height:432px">
+        <div class="plan">Pro（上位）</div>
+        <div class="price">Plusの機能をすべて含む</div>
+        <div class="ul">
+          <div class="li add"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#1841B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,6"/></svg><div>実行回数がさらに多い</div></div>
+          <div class="li ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,6"/></svg><div>エージェントモード</div></div>
+          <div class="li ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,6"/></svg><div>GPTsの作成</div></div>
+        </div>
+      </div>
+      <div class="riser"></div>
+    </div>
+
+    <!-- 法人 -->
+    <div class="col c4">
+      <div class="card" style="min-height:492px">
+        <div class="plan">Business／<br>Enterprise</div>
+        <div class="price">法人向け</div>
+        <div class="ul">
+          <div class="li add"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#000985" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,6"/></svg><div>チーム管理・権限設計</div></div>
+          <div class="li add"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#000985" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,6"/></svg><div>全社での運用・統制</div></div>
+          <div class="li ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,6"/></svg><div>エージェントモード／GPTs作成</div></div>
+        </div>
+      </div>
+      <div class="riser"></div>
+    </div>
+    <div class="base"></div>
+  </div>
+
+  <div class="cap">※このほか低価格の「Go」あり。<b>金額は目安で、改定・為替で変動します</b>。最新は公式の料金ページで確認（下の表も参照）</div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

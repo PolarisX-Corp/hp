@@ -1,0 +1,120 @@
+<!-- style: paper + R2 pictogram -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --paper:#FFFFFF; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --deep:#000985;
+    --neutral:#F1EFE8;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); background:var(--bg); color:var(--ink);
+    padding:44px 60px 24px; display:flex; flex-direction:column;
+  }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:47px; font-weight:700; letter-spacing:.01em; margin-top:10px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .sub { font-size:22px; color:var(--muted); margin-top:12px; line-height:1.5; }
+  .drule { margin-top:16px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .cols { flex:1; display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:22px; }
+  .col { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:24px 30px 20px; display:flex; flex-direction:column; }
+  .col.good { border-top:3px solid var(--accent); }
+  .col.wait { border-top:3px solid var(--faint); background:var(--neutral); }
+  .chead { font-family:var(--serif); font-size:30px; font-weight:700; letter-spacing:.02em; }
+  .col.good .chead { color:var(--accent-d); }
+  .col.wait .chead { color:var(--muted); }
+  .csub { font-family:var(--sans); font-size:19px; font-weight:600; color:var(--muted); margin-top:6px; }
+  .cheadwrap { padding-bottom:14px; border-bottom:2px solid var(--rule); margin-bottom:4px; }
+
+  .item { display:flex; align-items:center; gap:14px; padding:13px 0; font-family:var(--sans); font-size:23px; line-height:1.45; }
+  .item + .item { border-top:1px solid var(--border); }
+  .itext { flex:1; }
+  .col.good .item { color:var(--ink); }
+  .col.wait .item { color:var(--body); }
+  .mk { flex-shrink:0; width:30px; height:30px; display:flex; align-items:center; justify-content:center;
+        font-family:var(--serif); font-size:17px; font-weight:700; align-self:flex-start; margin-top:1px; }
+  .mk.on { background:var(--accent); color:#fff; border-radius:4px; position:relative; }
+  .mk.on::after { content:''; position:absolute; left:10px; top:5px; width:8px; height:15px;
+                  border:solid #fff; border-width:0 4px 4px 0; transform:rotate(45deg); }
+  .mk.off { border:2px solid var(--faint); border-radius:4px; color:var(--faint); }
+  .mk.off::after { content:'…'; line-height:0.2; }
+  .ipic { flex-shrink:0; width:34px; height:34px; }
+
+  .brandbar { flex-shrink:0; margin-top:18px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">導入前の見極め</div>
+  <div class="title">AI社員が自社に必要か — <span class="em">自己診断チェックリスト</span></div>
+  <div class="sub">「AIが賢いか」ではなく、渡せる社内文脈・繰り返す業務・確認する人がいるかで決まる</div>
+  <div class="drule"></div>
+
+  <div class="cols">
+    <div class="col good">
+      <div class="cheadwrap">
+        <div class="chead">効きやすいサイン</div>
+        <div class="csub">当てはまるほど費用対効果が出やすい</div>
+      </div>
+      <div class="item"><span class="mk on"></span><span class="itext">同じ問い合わせが特定のエース社員に集中している</span>
+        <svg class="ipic" viewBox="0 0 40 40" fill="none" stroke="#6B7388" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="16" cy="15" r="5.4"/><path d="M6 33 v-2 a10 10 0 0 1 20 0 v2"/>
+          <path d="M31 5 l1.5 3.4 3.6 .5 -2.7 2.5 .7 3.6 -3.1 -1.8 -3.1 1.8 .7 -3.6 -2.7 -2.5 3.6 -.5 z" fill="#6B7388" stroke="none"/>
+        </svg></div>
+      <div class="item"><span class="mk on"></span><span class="itext">社内の情報が複数のツールに散在し、探すのに時間がかかる</span>
+        <svg class="ipic" viewBox="0 0 40 40" fill="none" stroke="#6B7388" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="17" cy="17" r="8"/><line x1="23" y1="23" x2="31" y2="31"/>
+          <rect x="26" y="6" width="6" height="6" rx="1.4"/><rect x="6" y="27" width="6" height="6" rx="1.4"/>
+        </svg></div>
+      <div class="item"><span class="mk on"></span><span class="itext">定型・準定型の業務（一次対応・下書き・照合）が繰り返し発生する</span>
+        <svg class="ipic" viewBox="0 0 40 40" fill="none" stroke="#6B7388" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M31 15 a11 11 0 1 0 1.5 9"/><polyline points="31.5,6 32,15.5 23,15"/>
+        </svg></div>
+      <div class="item"><span class="mk on"></span><span class="itext">AIツールを入れたが、一部の詳しい人しか使えていない</span>
+        <svg class="ipic" viewBox="0 0 40 40" fill="none" stroke="#6B7388" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="17" r="3.6"/><path d="M3 30 v-1.5 a6 6 0 0 1 12 0 v1.5"/>
+          <circle cx="31" cy="17" r="3.6"/><path d="M25 30 v-1.5 a6 6 0 0 1 12 0 v1.5"/>
+          <circle cx="20" cy="14" r="4.4" fill="#6B7388" stroke="none"/><path d="M13 30 v-2 a7 7 0 0 1 14 0 v2" fill="#6B7388" stroke="none"/>
+        </svg></div>
+      <div class="item"><span class="mk on"></span><span class="itext">属人化していて、退職・異動でノウハウが失われる不安がある</span>
+        <svg class="ipic" viewBox="0 0 40 40" fill="none" stroke="#6B7388" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 7 h11 v26 h-11"/><line x1="17" y1="20" x2="34" y2="20"/><polyline points="28,14 35,20 28,26"/>
+        </svg></div>
+    </div>
+    <div class="col wait">
+      <div class="cheadwrap">
+        <div class="chead">まだ早いサイン</div>
+        <div class="csub">先に別の準備が要る</div>
+      </div>
+      <div class="item"><span class="mk off"></span><span class="itext">そもそも業務に型がなく、毎回ゼロから判断している</span>
+        <svg class="ipic" viewBox="0 0 40 40" fill="none" stroke="#9AA1B5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="8" width="24" height="24" rx="3" stroke-dasharray="4 3.5"/>
+          <path d="M16 17 a4 4 0 1 1 4.4 4 c-.9 .6 -.9 1.4 -.9 2.4"/><circle cx="19.5" cy="27" r="1.3" fill="#9AA1B5" stroke="none"/>
+        </svg></div>
+      <div class="item"><span class="mk off"></span><span class="itext">AIに渡せる社内資料・マニュアル・データがほとんどない</span>
+        <svg class="ipic" viewBox="0 0 40 40" fill="none" stroke="#9AA1B5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 6 h13 l6 6 v22 h-19 z"/><path d="M24 6 v6 h6"/><line x1="9" y1="32" x2="31" y2="8"/>
+        </svg></div>
+      <div class="item"><span class="mk off"></span><span class="itext">出力を確認・改善する担当を置けない</span>
+        <svg class="ipic" viewBox="0 0 40 40" fill="none" stroke="#9AA1B5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 20 c4 -6 24 -6 28 0 c-4 6 -24 6 -28 0 z"/><circle cx="20" cy="20" r="3.4"/><line x1="8" y1="33" x2="32" y2="7"/>
+        </svg></div>
+      <div class="item"><span class="mk off"></span><span class="itext">目的が「AIを入れること」自体になっている</span>
+        <svg class="ipic" viewBox="0 0 40 40" fill="none" stroke="#9AA1B5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="20" cy="20" r="12"/><circle cx="20" cy="20" r="6.5"/><circle cx="20" cy="20" r="1.6" fill="#9AA1B5" stroke="none"/>
+        </svg></div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

@@ -1,0 +1,92 @@
+<!-- style: sketch + R3 hand-drawn illustration (fig3-base.png / codex gpt-image-2, text-less staircase) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FBFBF8; --ink:#1F2836; --body:#3A4152; --muted:#727A8C;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#E9F0FF;
+    --line:#C7CCD8;
+    --hand:"Klee","ヒラギノ丸ゴ ProN","Hiragino Maru Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;
+    --marker:"Chalkboard SE","Bradley Hand","Marker Felt","Klee","ヒラギノ丸ゴ ProN",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1600px;height:900px;}
+  body{
+    font-family:var(--hand); color:var(--ink);
+    background-color:var(--bg);
+    background-image:radial-gradient(circle, rgba(70,86,120,.09) 1.5px, transparent 1.6px);
+    background-size:32px 32px;
+    padding:44px 58px 26px; display:flex; flex-direction:column;
+  }
+  .eyebrow{font-family:var(--marker); font-size:20px; font-weight:700; letter-spacing:.05em; color:var(--accent-d); transform:rotate(-.6deg);}
+  .title{font-size:45px; font-weight:800; letter-spacing:.01em; margin-top:8px; line-height:1.2;}
+  .title .em{ color:var(--accent-d); background:linear-gradient(180deg,transparent 58%, rgba(54,110,255,.24) 58%, rgba(54,110,255,.24) 92%, transparent 92%); padding:0 .05em; }
+  .sub{font-size:20px; color:var(--muted); margin-top:10px; line-height:1.5; font-weight:500;}
+  .hr{margin-top:13px; height:0; border-top:3px dashed var(--line);}
+
+  .stage{flex:1; display:grid; grid-template-columns:1fr 400px; gap:38px; align-items:center; margin-top:16px;}
+  .tiers{ display:flex; flex-direction:column; gap:16px; }
+  .tier{ background:#FFFFFF; border:2.6px solid var(--ink); border-radius:17px 11px 19px 10px/10px 18px 11px 19px;
+         box-shadow:3px 4px 0 rgba(31,40,54,.06); padding:16px 22px; display:flex; gap:18px; align-items:center; position:relative; }
+  .tier:nth-child(1){ transform:rotate(-.4deg); border-left:9px solid #9DBBFF; }
+  .tier:nth-child(2){ transform:rotate(.3deg);  border-left:9px solid #5C86FF; margin-left:26px; }
+  .tier:nth-child(3){ transform:rotate(-.3deg); border-left:9px solid var(--accent); margin-left:52px; }
+  .step{ flex-shrink:0; width:48px; height:48px; border-radius:50%; border:2.6px solid var(--ink); background:var(--accent-bg);
+         display:flex; align-items:center; justify-content:center; font-family:var(--marker); font-size:24px; font-weight:700; color:var(--accent-d); }
+  .tt{ flex:1; }
+  .th{ font-size:26px; font-weight:800; color:var(--ink); line-height:1.2; }
+  .td{ font-size:18.5px; color:var(--body); margin-top:5px; line-height:1.45; font-weight:500; }
+  .skill{ flex-shrink:0; text-align:center; }
+  .skill .sk{ display:inline-block; font-family:var(--marker); font-size:15px; font-weight:700; color:#fff; background:var(--accent);
+              border-radius:8px 5px 9px 5px/5px 8px 5px 9px; padding:4px 12px; }
+  .skill .sn{ font-size:13px; color:var(--muted); margin-top:4px; font-weight:600; }
+  .tier:nth-child(1) .sk{ background:#9DBBFF; color:#1F2836; }
+  .tier:nth-child(2) .sk{ background:#5C86FF; }
+
+  .side{ display:flex; flex-direction:column; align-items:center; gap:14px; }
+  .side img{ width:360px; mix-blend-mode:multiply; transform:rotate(1.2deg); }
+  .side .cap{ font-family:var(--marker); font-size:20px; font-weight:700; color:var(--accent-d); text-align:center; line-height:1.4; transform:rotate(-.6deg); }
+  .side .note{ font-size:17px; color:var(--muted); text-align:center; font-weight:600; background:#FFFDF6; border:2.2px dashed var(--line);
+               border-radius:11px 7px 12px 7px/7px 11px 7px 12px; padding:8px 14px; }
+
+  .brandbar{flex-shrink:0; margin-top:14px; padding-top:13px; border-top:2px dashed var(--line); display:flex; align-items:center; justify-content:space-between;}
+  .brandbar .tag{font-size:21px; color:var(--muted); font-weight:700; letter-spacing:.02em;}
+  .brandbar .logo{height:36px; width:auto; opacity:.95;}
+</style></head>
+<body>
+  <div class="eyebrow">タイプ別の地図 — 3つの階層で捉える</div>
+  <div class="title">そのまま使う→<span class="em">ノーコードで作る</span>→開発者向け</div>
+  <div class="sub">◯選で覚えるより「タイプの地図」で。まず気軽に試し、必要になったら段階を上げる</div>
+  <div class="hr"></div>
+
+  <div class="stage">
+    <div class="tiers">
+      <div class="tier">
+        <div class="step">1</div>
+        <div class="tt"><div class="th">そのまま使う自律型</div><div class="td">設定不要。情報収集・要約をすぐ試せる（生成AI付属も）</div></div>
+        <div class="skill"><span class="sk">スキル 低</span><div class="sn">必要スキル</div></div>
+      </div>
+      <div class="tier">
+        <div class="step">2</div>
+        <div class="tt"><div class="th">ノーコード構築型</div><div class="td">画面操作で"自社仕様"を作る（Dify・Coze等が代表例）</div></div>
+        <div class="skill"><span class="sk">スキル 中</span><div class="sn">必要スキル</div></div>
+      </div>
+      <div class="tier">
+        <div class="step">3</div>
+        <div class="tt"><div class="th">開発者向け・コーディング支援型</div><div class="td">OSS・コード補助。柔軟だが構築と保守の技術力が要る</div></div>
+        <div class="skill"><span class="sk">スキル 高</span><div class="sn">必要スキル</div></div>
+      </div>
+    </div>
+
+    <div class="side">
+      <img src="fig3-base.png" alt="">
+      <div class="cap">気軽に試す → 作り込む へ<br>段階を上げる</div>
+      <div class="note">優劣ではなく"段階"。<br>無料で始める大多数は 1〜2 で十分</div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <span class="tag">AIを会社のOSにする。</span>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

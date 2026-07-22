@@ -1,0 +1,93 @@
+<!-- style: paper -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:44px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:45px; font-weight:700; margin-top:10px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .drule { margin-top:14px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .stage { flex:1; position:relative; display:flex; align-items:flex-end; gap:26px; margin-top:16px; padding:0 10px 46px; }
+  .step { flex:1; display:flex; flex-direction:column; justify-content:flex-end; }
+  .riser { border:1px solid var(--border); border-top:5px solid var(--faint); border-radius:4px 4px 0 0;
+           background:var(--card); padding:18px 20px 14px; }
+  .s1 .riser{height:190px} .s2 .riser{height:285px} .s3 .riser{height:390px} .s4 .riser{height:495px}
+  .s3 .riser { border-top-color:var(--accent); background:var(--accent-bg); border-color:#CBD8F8; }
+  .s4 .riser { border-top-color:var(--rule); }
+  .ph { font-family:var(--serif); font-size:26px; font-weight:700; }
+  .s3 .ph { color:var(--accent-d); }
+  .amt { font-size:28px; font-weight:800; letter-spacing:-.02em; margin-top:8px; white-space:nowrap; }
+  .s3 .amt, .s4 .amt { font-size:26px; }
+  .amt small { font-size:18px; font-weight:700; color:var(--muted); }
+  .note { font-size:18px; color:var(--muted); margin-top:8px; line-height:1.5; }
+  .base { position:absolute; left:0; right:0; bottom:40px; border-bottom:2.5px solid var(--rule); }
+
+  .flag { position:absolute; left:calc(50% + 10px); bottom:436px; width:330px; }
+  .flag .fl { border-left:3px solid var(--accent); height:64px; margin-left:2px; }
+  .flag .fb { background:var(--rule); color:#fff; font-size:19px; font-weight:700; border-radius:4px;
+              padding:10px 14px; line-height:1.45; width:330px; }
+  .src { position:absolute; right:10px; bottom:4px; font-size:16px; color:var(--faint); }
+
+  .brandbar { flex-shrink:0; margin-top:10px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">費用相場の見方</div>
+  <div class="title">AI開発の費用は<span class="em">フェーズの階段</span>で桁が上がる</div>
+  <div class="drule"></div>
+
+  <div class="stage">
+    <div class="step s1">
+      <div class="riser">
+        <div class="ph">PoC（概念実証）</div>
+        <div class="amt">100万〜500万円</div>
+        <div class="note">1〜3か月。精度と業務適合を検証し、撤退基準を判定</div>
+      </div>
+    </div>
+    <div class="step s2">
+      <div class="riser">
+        <div class="ph">小規模開発</div>
+        <div class="amt">500万〜1,000万円</div>
+        <div class="note">限定した業務範囲でのシステム化（〜1,500万円とする解説も）</div>
+      </div>
+    </div>
+    <div class="step s3">
+      <div class="riser">
+        <div class="ph">本番開発</div>
+        <div class="amt">1,000万〜3,000万円<small>超</small></div>
+        <div class="note">業務システムとしての本格構築・既存システム統合</div>
+      </div>
+    </div>
+    <div class="step s4">
+      <div class="riser">
+        <div class="ph">大規模開発</div>
+        <div class="amt">3,000万〜1億円<small>超</small></div>
+        <div class="note">全社展開・基幹連携。大手SIer型の主戦場</div>
+      </div>
+    </div>
+    <div class="flag">
+      <div class="fb">ここで投資判断——PoCの結果が撤退基準を超えたときだけ、桁が上がる本番へ進む</div>
+      <div class="fl"></div>
+    </div>
+    <div class="base"></div>
+    <div class="src">出典: GeNEE・LION AI ほか各社解説の相場帯（変動あり・最終判断は各社の公式見積もりで）</div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>
