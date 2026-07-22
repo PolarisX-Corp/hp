@@ -1,0 +1,85 @@
+<!-- style: paper -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF;
+    --neutral:#F1EFE8;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:44px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:45px; font-weight:700; margin-top:10px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .drule { margin-top:14px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .stage { flex:1; position:relative; margin:18px 40px 8px 120px; }
+  .quad { position:absolute; width:calc(50% - 14px); height:calc(50% - 40px);
+          background:var(--card); border:1px solid var(--border); border-radius:4px; padding:18px 22px; }
+  .q-tl{left:0; top:0} .q-tr{right:0; top:0}
+  .q-bl{left:0; bottom:52px} .q-br{right:0; bottom:52px}
+  .q-br { border:2.5px solid var(--accent); background:var(--accent-bg); }
+  .qh { font-family:var(--serif); font-size:25px; font-weight:700; }
+  .q-br .qh { color:var(--accent-d); }
+  .qd { font-size:18.5px; color:var(--body); margin-top:8px; line-height:1.55; }
+  .qtagline { display:inline-block; font-size:16px; font-weight:700; color:var(--muted);
+              border:1px solid var(--border); border-radius:999px; padding:2px 12px; margin-bottom:8px; background:var(--bg); }
+  .q-br .qtagline { color:var(--accent-d); border-color:#CBD8F8; background:#fff; }
+
+  .ax { position:absolute; font-size:18px; font-weight:800; color:var(--rule); letter-spacing:.06em; }
+  .ax-x { left:0; right:0; bottom:18px; text-align:center; }
+  .ax-x .arrow { color:var(--faint); font-weight:600; margin:0 14px; }
+  .ax-y { left:-108px; top:44%; transform:rotate(-90deg); transform-origin:center; width:220px; text-align:center; }
+  .xl { position:absolute; bottom:18px; font-size:17px; font-weight:700; color:var(--muted); }
+  .xl.left{left:6px} .xl.right{right:6px}
+  .yl { position:absolute; left:-96px; font-size:17px; font-weight:700; color:var(--muted); width:84px; text-align:right; }
+  .yl.top{top:8px} .yl.bottom{bottom:64px}
+
+  .brandbar { flex-shrink:0; margin-top:12px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">フェーズ・目的別の診断</div>
+  <div class="title">「作るか・載せるか」×「フェーズ」で<span class="em">発注先を当てる</span></div>
+  <div class="drule"></div>
+
+  <div class="stage">
+    <div class="quad q-tl">
+      <div class="qtagline">探索 × ゼロから作る</div>
+      <div class="qh">受託開発型に PoC を依頼</div>
+      <div class="qd">既製品にない仕組みの精度を100万〜500万円・1〜3か月で検証。撤退基準を先に決める</div>
+    </div>
+    <div class="quad q-tr">
+      <div class="qtagline">本番 × ゼロから作る</div>
+      <div class="qh">受託開発型・大手SIer型</div>
+      <div class="qd">PoCを通過した仕組みの本番開発、大規模・基幹システム連携。費用の桁が上がる領域</div>
+    </div>
+    <div class="quad q-bl">
+      <div class="qtagline">探索 × 既製を載せる</div>
+      <div class="qh">既製SaaS・ツールの試験導入</div>
+      <div class="qd">開発せず小さく試す。1業務に絞って効果を確かめてから広げる。情シス不在の最初の一歩</div>
+    </div>
+    <div class="quad q-br">
+      <div class="qtagline">本番 × 既製を載せる</div>
+      <div class="qh">生成AI・SaaS型（運用伴走・AI社員）</div>
+      <div class="qd">既製プロダクトを業務・ナレッジに合わせて構築し、使われ方を見ながら改善を回し続ける</div>
+    </div>
+    <div class="ax ax-y">アプローチ</div>
+    <div class="yl top">ゼロから<br>作る</div>
+    <div class="yl bottom">既製を<br>載せる</div>
+    <div class="ax ax-x"><span class="arrow">◀ 探索・検証</span>自社のフェーズ<span class="arrow">本番・定着 ▶</span></div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

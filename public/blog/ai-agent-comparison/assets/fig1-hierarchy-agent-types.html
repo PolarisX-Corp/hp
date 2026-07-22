@@ -1,0 +1,136 @@
+<!-- style: illust (light) — R3 codex flat-vector illustrations (illus-type-*.png) as card headers + HTML labels -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --deep:#000985;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); color:var(--ink); background:
+      radial-gradient(1200px 680px at 88% -14%, var(--accent-bg) 0%, rgba(234,240,255,0) 56%),
+      var(--bg);
+    padding:40px 60px 22px; display:flex; flex-direction:column;
+  }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.30em; color:var(--accent-d); }
+  .title { font-size:45px; font-weight:800; letter-spacing:-.01em; margin-top:9px; line-height:1.2; color:var(--ink); }
+  .title .em { color:var(--accent); }
+  .sub { font-size:21px; color:var(--muted); margin-top:10px; line-height:1.45; }
+  .drule { margin-top:14px; height:3px; border-radius:3px;
+           background:linear-gradient(90deg,var(--accent) 0%,var(--accent-bd) 52%,transparent 100%); }
+
+  .stage { flex:1; position:relative; margin-top:14px; display:flex; flex-direction:column; }
+
+  .root { align-self:center; text-align:center; padding:13px 44px; border-radius:15px;
+          background:linear-gradient(180deg,#FFFFFF,var(--accent-bg));
+          border:2px solid var(--accent);
+          box-shadow:0 10px 26px rgba(54,110,255,.16); }
+  .root .rname { font-size:29px; font-weight:800; letter-spacing:.01em; color:var(--ink); }
+  .root .rsub { font-size:17px; color:var(--accent-d); margin-top:3px; font-weight:600; }
+
+  .connect { height:44px; }
+  .connect svg { width:100%; height:100%; display:block; }
+
+  .cards { flex:1; display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  .card { border-radius:16px; background:var(--card); border:1px solid var(--border);
+          display:flex; flex-direction:column; overflow:hidden;
+          box-shadow:0 8px 22px rgba(0,9,133,.05); }
+  .illus { height:172px; flex-shrink:0; background-color:var(--accent-bg);
+           background-size:cover; background-position:center 40%; background-repeat:no-repeat;
+           border-bottom:1px solid var(--border); }
+  .card .in { padding:16px 20px 18px; display:flex; flex-direction:column; flex:1; }
+  .cname { font-size:25px; font-weight:800; letter-spacing:.005em; color:var(--ink); }
+  .cwork { font-size:16px; font-weight:700; color:var(--accent-d); margin-top:4px; letter-spacing:.01em; }
+  .cbody { font-size:17.5px; line-height:1.5; color:var(--body); margin-top:11px; flex:1; }
+  .ctag { align-self:flex-start; margin-top:12px; font-size:15px; font-weight:800; letter-spacing:.02em;
+          color:var(--muted); border:1px solid var(--border); border-radius:999px; padding:5px 14px; }
+
+  .card.hot { border:2px solid var(--accent); box-shadow:0 12px 30px rgba(54,110,255,.16); }
+  .card.hot .illus { background-color:#DCE7FF; border-bottom:1px solid var(--accent-bd); }
+  .card.hot .ctag { color:#fff; background:var(--accent); border-color:var(--accent); }
+
+  .brandbar { flex-shrink:0; margin-top:18px; padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">比較の地図</div>
+  <div class="title">乱立する◯選は、実務で使う<span class="em">4タイプ</span>に整理できる</div>
+  <div class="sub">「目的を渡すと自律実行する」のが共通の芯。分類が3〜5型でバラつくのは粒度の違いだけ</div>
+  <div class="drule"></div>
+
+  <div class="stage">
+    <div class="root">
+      <div class="rname">AIエージェント</div>
+      <div class="rsub">目的を渡すと、自分で手順を分解・計画し、タスクを実行する</div>
+    </div>
+
+    <div class="connect">
+      <svg viewBox="0 0 1600 44" preserveAspectRatio="none" fill="none"
+           stroke="#ADC3FF" stroke-width="2">
+        <path d="M800 0 V14" />
+        <path d="M185 22 H1415" />
+        <path d="M800 14 V22" />
+        <path d="M185 22 V42" /><path d="M595 22 V42" /><path d="M1005 22 V42" /><path d="M1415 22 V42" />
+        <circle cx="185" cy="42" r="3.6" fill="#366EFF" stroke="none"/>
+        <circle cx="595" cy="42" r="3.6" fill="#366EFF" stroke="none"/>
+        <circle cx="1005" cy="42" r="3.6" fill="#366EFF" stroke="none"/>
+        <circle cx="1415" cy="42" r="4.8" fill="#366EFF" stroke="none"/>
+      </svg>
+    </div>
+
+    <div class="cards">
+      <!-- 汎用作業型 -->
+      <div class="card">
+        <div class="illus" style="background-image:url(illus-type-general.png)"></div>
+        <div class="in">
+          <div class="cname">汎用作業型</div>
+          <div class="cwork">部門を問わない横断作業</div>
+          <div class="cbody">調べもの・要約・下書き。すぐ触れる反面、自社の文脈は都度渡す。</div>
+          <div class="ctag">まず試したい</div>
+        </div>
+      </div>
+      <!-- 業務特化型 -->
+      <div class="card">
+        <div class="illus" style="background-image:url(illus-type-specialized.png)"></div>
+        <div class="in">
+          <div class="cname">業務特化型</div>
+          <div class="cwork">特定業務に最適化</div>
+          <div class="cbody">経理・営業・CSなど。その業務内は軽く効くが、外へは広がらない。</div>
+          <div class="ctag">1業務を自動化</div>
+        </div>
+      </div>
+      <!-- ワークフロー連携型 -->
+      <div class="card">
+        <div class="illus" style="background-image:url(illus-type-workflow.png)"></div>
+        <div class="in">
+          <div class="cname">ワークフロー連携型</div>
+          <div class="cwork">定型処理を連結（API・MCP）</div>
+          <div class="cbody">入力→処理→出力でつなぐ。ノーコードでフローとRAGを組める。</div>
+          <div class="ctag">複数処理を連結</div>
+        </div>
+      </div>
+      <!-- カスタム構築型 -->
+      <div class="card hot">
+        <div class="illus" style="background-image:url(illus-type-custom.png)"></div>
+        <div class="in">
+          <div class="cname">カスタム構築型</div>
+          <div class="cwork">複数部門で継続運用（司令塔）</div>
+          <div class="cbody">社内文脈を深く理解させ、窓口を一つに束ねる。適合度が最も高い。</div>
+          <div class="ctag">深く・長く使う</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

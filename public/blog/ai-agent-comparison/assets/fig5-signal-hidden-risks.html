@@ -1,0 +1,119 @@
+<!-- style: illust (light) — R3 codex flat-vector illustrations (illus-signal-*.png) as column headers + HTML labels -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --amber:#E7A227; --amber-bg:#FBF1DC; --amber-ink:#8A5E10;
+    --red:#E0405E; --red-bg:#FCE7EB; --red-ink:#B02138;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); color:var(--ink); background:
+      radial-gradient(1100px 620px at 92% -12%, var(--accent-bg) 0%, rgba(234,240,255,0) 58%),
+      var(--bg);
+    padding:44px 60px 24px; display:flex; flex-direction:column;
+  }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.30em; color:var(--accent-d); }
+  .title { font-size:45px; font-weight:800; letter-spacing:-.01em; margin-top:10px; line-height:1.22; color:var(--ink); }
+  .title .em { color:var(--accent); }
+  .sub { font-size:21px; color:var(--muted); margin-top:11px; line-height:1.45; }
+  .drule { margin-top:14px; height:3px; border-radius:3px;
+           background:linear-gradient(90deg,var(--accent) 0%,var(--accent-bd) 52%,transparent 100%); }
+
+  .cols { flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:18px; }
+  .col { border-radius:18px; display:flex; flex-direction:column; overflow:hidden;
+         background:var(--card); border:1px solid var(--border); box-shadow:0 10px 26px rgba(0,9,133,.05); }
+  .col.blue  { border-top:6px solid var(--accent); }
+  .col.amber { border-top:6px solid var(--amber); }
+  .col.red   { border-top:6px solid var(--red); }
+
+  .illus { height:176px; flex-shrink:0; background-size:auto 158px; background-position:center; background-repeat:no-repeat;
+           background-color:#F5F6FB; border-bottom:1px solid var(--border); }
+  .blue  .illus { background-image:url(illus-signal-good.png); }
+  .amber .illus { background-image:url(illus-signal-caution.png); }
+  .red   .illus { background-image:url(illus-signal-bad.png); }
+
+  .in { padding:18px 24px 22px; display:flex; flex-direction:column; align-items:center; flex:1; }
+  .state { font-size:17px; font-weight:800; letter-spacing:.03em; color:#fff; border-radius:999px; padding:6px 18px; }
+  .blue  .state { background:var(--accent); }
+  .amber .state { background:var(--amber); }
+  .red   .state { background:var(--red); }
+
+  .verdict { font-size:27px; font-weight:800; margin-top:14px; text-align:center; line-height:1.3; }
+  .blue  .verdict { color:var(--accent-d); }
+  .amber .verdict { color:var(--amber-ink); }
+  .red   .verdict { color:var(--red-ink); }
+  .desc { font-size:18px; line-height:1.5; color:var(--body); margin-top:11px; text-align:center; flex:1; }
+
+  .conds { width:100%; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:9px; }
+  .cond { display:flex; align-items:flex-start; gap:10px; font-size:17px; line-height:1.42; color:var(--body); }
+  .cond .m { flex-shrink:0; width:20px; height:20px; margin-top:1px; }
+
+  .brandbar { flex-shrink:0; margin-top:18px; padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">カタログスペックに出ない運用の落とし穴</div>
+  <div class="title">効くか効かないかは、<span class="em">ツール選定より運用設計</span>で決まる</div>
+  <div class="sub">3部門・約20エージェントを自社運用して繰り返し見た、比較表には映らない3つの分かれ目</div>
+  <div class="drule"></div>
+
+  <div class="cols">
+    <!-- 青 -->
+    <div class="col blue">
+      <div class="illus"></div>
+      <div class="in">
+        <div class="state">青信号｜効く</div>
+        <div class="verdict">精度が出て、<br>使われ続ける</div>
+        <div class="desc">整った土台の上なら、AIは根拠をもって答え、社内に定着する。</div>
+        <div class="conds">
+          <div class="cond"><svg class="m" viewBox="0 0 20 20" fill="none" stroke="#366EFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,10 8,14 16,5"/></svg>社内ナレッジ（RAG）を整備</div>
+          <div class="cond"><svg class="m" viewBox="0 0 20 20" fill="none" stroke="#366EFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,10 8,14 16,5"/></svg>窓口を一元化（司令塔）</div>
+          <div class="cond"><svg class="m" viewBox="0 0 20 20" fill="none" stroke="#366EFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,10 8,14 16,5"/></svg>人が確認する体制がある</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 黄 -->
+    <div class="col amber">
+      <div class="illus"></div>
+      <div class="in">
+        <div class="state">黄信号｜条件つき</div>
+        <div class="verdict">動くが、<br>あとで伸びる</div>
+        <div class="desc">当面は回るが、詰めが甘い箇所が定着後にコストや混乱として効いてくる。</div>
+        <div class="conds">
+          <div class="cond"><svg class="m" viewBox="0 0 20 20" fill="none" stroke="#E7A227" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="10" y1="5" x2="10" y2="12"/><circle cx="10" cy="16" r="1.3" fill="#E7A227" stroke="none"/></svg>役割分担が曖昧なまま増やす</div>
+          <div class="cond"><svg class="m" viewBox="0 0 20 20" fill="none" stroke="#E7A227" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="10" y1="5" x2="10" y2="12"/><circle cx="10" cy="16" r="1.3" fill="#E7A227" stroke="none"/></svg>従量コストを確認していない</div>
+          <div class="cond"><svg class="m" viewBox="0 0 20 20" fill="none" stroke="#E7A227" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="10" y1="5" x2="10" y2="12"/><circle cx="10" cy="16" r="1.3" fill="#E7A227" stroke="none"/></svg>→ 増やす前に、まず束ね直す</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 赤 -->
+    <div class="col red">
+      <div class="illus"></div>
+      <div class="in">
+        <div class="state">赤信号｜効かない</div>
+        <div class="verdict">根拠なく答え、<br>精度が出ない</div>
+        <div class="desc">土台がないままでは、機能比較で高評価でも成果は出ない。まず整備から。</div>
+        <div class="conds">
+          <div class="cond"><svg class="m" viewBox="0 0 20 20" fill="none" stroke="#E0405E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="14" y2="14"/><line x1="14" y1="6" x2="6" y2="14"/></svg>RAG未整備で渡す材料がない</div>
+          <div class="cond"><svg class="m" viewBox="0 0 20 20" fill="none" stroke="#E0405E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="14" y2="14"/><line x1="14" y1="6" x2="6" y2="14"/></svg>窓口が分裂しナレッジが分断</div>
+          <div class="cond"><svg class="m" viewBox="0 0 20 20" fill="none" stroke="#E0405E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="14" y2="14"/><line x1="14" y1="6" x2="6" y2="14"/></svg>同じ問いに別々の答えが返る</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

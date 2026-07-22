@@ -1,0 +1,97 @@
+<!-- style: flat + R2 SVG venn (geometric precision → R1/R2) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --deep:#000985; --gray:#8B93A8; --gray-bg:#EEF0F5;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); background:var(--bg); color:var(--ink);
+    padding:40px 56px 24px; display:flex; flex-direction:column;
+  }
+  .title { font-size:46px; font-weight:800; letter-spacing:-.02em; }
+  .title .em { color:var(--accent); }
+  .sub { font-size:23px; color:var(--muted); margin-top:10px; }
+
+  /* 固定高でsvg座標(1488×600)とHTMLラベルpxを一致させる */
+  .venn { position:relative; width:1488px; height:600px; margin-top:18px; }
+  .venn svg.shapes { position:absolute; inset:0; width:1488px; height:600px; }
+  .lab { position:absolute; text-align:center; }
+  .lab .n { font-weight:800; letter-spacing:-.01em; line-height:1.2; }
+  .lab .d { font-weight:700; line-height:1.35; margin-top:5px; }
+
+  /* 生成AI（左円・非重なり側） */
+  .l-gen { left:230px; top:196px; width:220px; }
+  .l-gen .n { font-size:34px; color:var(--gray); }
+  .l-gen .d { font-size:20px; color:var(--muted); }
+  /* AIエージェント（右円・非重なり側） */
+  .l-agent { left:665px; top:196px; width:250px; }
+  .l-agent .n { font-size:34px; color:var(--accent-d); }
+  .l-agent .d { font-size:20px; color:var(--accent-d); }
+  /* 重なり：ChatGPTエージェント */
+  .l-chat { left:410px; top:268px; width:300px; }
+  .l-chat .pin { display:inline-flex; align-items:center; gap:9px; background:var(--deep); color:#fff;
+                 border-radius:999px; padding:10px 20px; box-shadow:0 8px 20px rgba(0,9,133,.28); }
+  .l-chat .pin svg { width:22px; height:22px; flex-shrink:0; }
+  .l-chat .pin span { font-size:23px; font-weight:800; white-space:nowrap; }
+  .l-chat .note { font-size:19px; font-weight:700; color:var(--body); margin-top:10px; }
+
+  /* 限定グループ（RPA・チャットボット） */
+  .l-limit { left:1010px; top:74px; width:330px; text-align:center; }
+  .l-limit span { display:inline-block; font-size:18px; font-weight:800; color:var(--faint);
+                  background:var(--gray-bg); border-radius:999px; padding:7px 18px; }
+  .l-rpa { left:1058px; top:188px; width:234px; }
+  .l-rpa .n { font-size:29px; color:var(--body); }
+  .l-rpa .d { font-size:18px; color:var(--muted); }
+  .l-bot { left:1058px; top:398px; width:234px; }
+  .l-bot .n { font-size:29px; color:var(--body); }
+  .l-bot .d { font-size:18px; color:var(--muted); }
+
+  .brandbar { flex-shrink:0; margin-top:auto; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">生成AI・エージェント・RPA・<span class="em">チャットボットの違い</span></div>
+  <div class="sub">決め手は「手順を自分で組み立てて実行するか」。ChatGPTエージェントは生成AIとエージェントの両方をあわせ持つ</div>
+
+  <div class="venn">
+    <svg class="shapes" viewBox="0 0 1488 600" preserveAspectRatio="none">
+      <!-- 生成AI（左・グレー） -->
+      <circle cx="430" cy="300" r="210" fill="#8B93A8" fill-opacity="0.10" stroke="#8B93A8" stroke-width="2.5"/>
+      <!-- AIエージェント（右・青） -->
+      <circle cx="690" cy="300" r="210" fill="#366EFF" fill-opacity="0.10" stroke="#366EFF" stroke-width="3"/>
+      <!-- 限定グループ（点線枠） -->
+      <rect x="1010" y="60" width="330" height="480" rx="26" fill="none" stroke="#C6CBD8" stroke-width="2.5" stroke-dasharray="8 6"/>
+      <circle cx="1175" cy="230" r="95" fill="#8B93A8" fill-opacity="0.09" stroke="#9AA1B5" stroke-width="2.5"/>
+      <circle cx="1175" cy="440" r="95" fill="#8B93A8" fill-opacity="0.09" stroke="#9AA1B5" stroke-width="2.5"/>
+    </svg>
+
+    <div class="lab l-gen"><div class="n">生成AI</div><div class="d">聞かれたことに<br>回答する</div></div>
+    <div class="lab l-agent"><div class="n">AIエージェント</div><div class="d">目的から手順を組み<br>実行する</div></div>
+
+    <div class="lab l-chat">
+      <div class="pin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 l2.6 6.3 6.8 .5 -5.2 4.4 1.7 6.6 -5.7 -3.6 -5.7 3.6 1.7 -6.6 -5.2 -4.4 6.8 -.5 z"/></svg>
+        <span>ChatGPTエージェント</span>
+      </div>
+      <div class="note">生成AI × エージェントの<br>両方に重なる位置</div>
+    </div>
+
+    <div class="lab l-limit"><span>あらかじめ決めた範囲でだけ動く＝限定的</span></div>
+    <div class="lab l-rpa"><div class="n">RPA</div><div class="d">決めた手順を反復<br>（判断はしない）</div></div>
+    <div class="lab l-bot"><div class="n">チャットボット</div><div class="d">想定した問答に<br>定型応答</div></div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

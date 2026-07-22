@@ -1,0 +1,111 @@
+<!-- style: paper + illust (R3 codex gpt-image 文字なし下絵 fig1-illus-walk.png) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --paper:#FFFFFF; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --deep:#000985;
+    --neutral:#F1EFE8;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:44px 60px 24px; display:flex; flex-direction:column; }
+
+  .head { display:flex; justify-content:space-between; align-items:flex-start; gap:30px; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:46px; font-weight:700; letter-spacing:.01em; margin-top:10px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .sub { font-size:22px; color:var(--muted); margin-top:12px; line-height:1.5; }
+  .illus { width:320px; height:196px; flex-shrink:0; border:1px solid var(--border); border-radius:6px;
+           background:#F7F8FB url(fig1-illus-walk.png) center/cover no-repeat; }
+  .drule { margin-top:16px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .board { flex:1; display:grid; grid-template-columns:230px repeat(5,1fr);
+           grid-auto-rows:min-content; column-gap:14px; margin-top:22px; align-content:space-between; }
+
+  .phase { background:var(--card); border:1px solid var(--border); border-top:3px solid var(--rule);
+           border-radius:4px; padding:14px 16px 12px; }
+  .phase .no { font-family:var(--serif); font-size:21px; font-weight:700; color:var(--faint); }
+  .phase .name { font-family:var(--serif); font-size:26px; font-weight:700; margin-top:2px; }
+  .phase .desc { font-size:17.5px; color:var(--muted); line-height:1.45; margin-top:6px; }
+  .phase.last { border-top-color:var(--accent); background:#F5F8FF; }
+  .phase.last .name { color:var(--accent-d); }
+  .phead { align-self:end; padding-bottom:6px; font-size:18px; font-weight:800; color:var(--faint); letter-spacing:.14em; }
+
+  .rowlab { display:flex; flex-direction:column; justify-content:center; padding-right:6px; }
+  .rowlab .nm { font-family:var(--serif); font-size:24px; font-weight:700; }
+  .rowlab .tp { font-size:17px; color:var(--muted); margin-top:3px; }
+  .track { position:relative; height:74px; margin-top:14px; }
+  .lane { position:absolute; left:0; right:0; top:50%; height:2px; background:var(--border); }
+  .span { position:absolute; top:50%; transform:translateY(-50%); height:46px; border-radius:999px;
+          display:flex; align-items:center; justify-content:center; font-size:18.5px; font-weight:700; }
+  .span.ghost { background:var(--neutral); border:1px solid var(--border); color:var(--body); }
+  .span.hot { background:var(--accent); color:#fff; box-shadow:0 3px 10px rgba(54,110,255,.25); }
+  .dot { position:absolute; top:50%; transform:translate(-50%,-50%); width:26px; height:26px; border-radius:50%;
+         background:#fff; border:5px solid var(--muted); }
+  .dotnote { position:absolute; top:50%; transform:translateY(-50%); font-size:18.5px; color:var(--muted); font-weight:700; }
+
+  .note { grid-column:1 / -1; margin-top:16px; font-size:19px; color:var(--body);
+          background:var(--paper); border:1px solid var(--border); border-left:4px solid var(--accent);
+          padding:12px 18px; line-height:1.5; }
+  .note b { color:var(--accent-d); }
+
+  .brandbar { flex-shrink:0; margin-top:18px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="head">
+    <div>
+      <div class="eyebrow">守備範囲</div>
+      <div class="title">AIコンサルは「<span class="em">どこまで伴走するか</span>」で選ぶ</div>
+      <div class="sub">守備範囲は戦略設計から内製化までの5フェーズ。契約形態によって、伴走してくれる区間が変わる</div>
+    </div>
+    <div class="illus"></div>
+  </div>
+  <div class="drule"></div>
+
+  <div class="board">
+    <!-- フェーズ帯 -->
+    <div class="phead">契約形態＼フェーズ</div>
+    <div class="phase"><div class="no">01</div><div class="name">戦略設計</div><div class="desc">どの業務に・どのAIを・どの順で</div></div>
+    <div class="phase"><div class="no">02</div><div class="name">PoC検証</div><div class="desc">小さく試して効果を確かめる</div></div>
+    <div class="phase"><div class="no">03</div><div class="name">開発・実装</div><div class="desc">RAG・エージェント等の構築</div></div>
+    <div class="phase"><div class="no">04</div><div class="name">運用・定着</div><div class="desc">現場で使われる状態を作る</div></div>
+    <div class="phase last"><div class="no">05</div><div class="name">内製化</div><div class="desc">自社だけで回る状態へ移管</div></div>
+
+    <!-- スポット相談 -->
+    <div class="rowlab"><div class="nm">スポット相談</div><div class="tp">1回単位・数万円〜</div></div>
+    <div class="track" style="grid-column:2 / 7;">
+      <div class="lane"></div>
+      <div class="dot" style="left:9%;"></div>
+      <div class="dotnote" style="left:14%;">必要な時点だけ、点で相談する</div>
+    </div>
+
+    <!-- プロジェクト型 -->
+    <div class="rowlab"><div class="nm">プロジェクト型</div><div class="tp">期間限定・ゴール明確</div></div>
+    <div class="track" style="grid-column:2 / 7;">
+      <div class="lane"></div>
+      <div class="span ghost" style="left:1%; width:56%;">戦略設計〜開発・実装の区間を請け負う</div>
+    </div>
+
+    <!-- 伴走型顧問 -->
+    <div class="rowlab"><div class="nm">伴走型AI顧問</div><div class="tp">月単位・継続</div></div>
+    <div class="track" style="grid-column:2 / 7;">
+      <div class="lane"></div>
+      <div class="span hot" style="left:1%; width:98%;">立ち上げから内製化まで、長い帯で伴走する</div>
+    </div>
+
+    <div class="note">依頼の出発点は会社選びではなく、「<b>どのフェーズの力を、いつまで借りるか</b>」を決めること。ゴールを内製化（05）に置くと、契約の形が決めやすい。</div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

@@ -1,0 +1,103 @@
+<!-- style: flat（ライト背景） + R2 pictogram -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --deep:#000985;
+    --amber:#C8891A; --amber-bg:#FBF3E2; --amber-bd:#EAD7A8;
+    --red:#E0405E; --red-bg:#FBECEF; --red-bd:#F3C9D1;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); background:var(--bg); color:var(--ink);
+    padding:40px 56px 24px; display:flex; flex-direction:column;
+  }
+  .title { font-size:46px; font-weight:800; letter-spacing:-.02em; }
+  .title .em { color:var(--accent); }
+  .sub { font-size:23px; color:var(--muted); margin-top:10px; }
+
+  .gauge { flex:1; margin-top:26px; position:relative; display:flex; flex-direction:column; }
+
+  .zheads { display:grid; grid-template-columns:42fr 22fr 36fr; }
+  .zh { text-align:center; padding-bottom:14px; }
+  .zh .lvl { display:inline-flex; align-items:center; gap:10px; font-size:25px; font-weight:800; padding:8px 22px; border-radius:999px; }
+  .zh.hi .lvl { color:var(--accent-d); background:var(--accent-bg); border:1.5px solid var(--accent-bd); }
+  .zh.mid .lvl { color:#8A5E10; background:var(--amber-bg); border:1.5px solid var(--amber-bd); }
+  .zh.lo .lvl { color:#B02840; background:var(--red-bg); border:1.5px solid var(--red-bd); }
+  .zh .lvl .dot { width:15px; height:15px; border-radius:50%; }
+  .zh.hi .dot { background:var(--accent); } .zh.mid .dot { background:var(--amber); } .zh.lo .dot { background:var(--red); }
+  .zh .cap { font-size:19px; font-weight:700; color:var(--muted); margin-top:10px; }
+
+  .track { height:28px; border-radius:999px; position:relative;
+           background:linear-gradient(90deg,#366EFF 0%, #366EFF 38%, #C8891A 52%, #C8891A 60%, #E0405E 74%, #E0405E 100%);
+           box-shadow:inset 0 2px 5px rgba(0,0,0,.12); }
+  .track .tick { position:absolute; top:-5px; bottom:-5px; width:3px; background:rgba(255,255,255,.75); border-radius:2px; }
+
+  .cards { display:grid; grid-template-columns:42fr 22fr 36fr; gap:22px; margin-top:26px; flex:1; }
+  .zone { display:flex; flex-direction:column; gap:14px; }
+  .zone.mid, .zone.lo { padding-left:8px; }
+  .ztag { font-size:19px; font-weight:800; letter-spacing:.02em; }
+  .zone.hi .ztag { color:var(--accent-d); } .zone.mid .ztag { color:#8A5E10; } .zone.lo .ztag { color:#B02840; }
+  .tk { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:16px 20px;
+        display:flex; align-items:center; gap:16px; box-shadow:0 6px 18px rgba(0,9,133,.05); }
+  .tk .ic { width:36px; height:36px; flex-shrink:0; }
+  .tk .tx { font-size:23px; font-weight:700; line-height:1.35; color:var(--ink); }
+  .tk .tx small { display:block; font-size:18px; color:var(--muted); font-weight:600; margin-top:2px; }
+  .zone.hi .tk { border-left:5px solid var(--accent); }
+  .zone.mid .tk { border-left:5px solid var(--amber); }
+  .zone.lo .tk { border-left:5px solid var(--red); }
+
+  /* 人の確認ライン（中↔低 の境） */
+  .line { position:absolute; left:64%; top:66px; bottom:6px; border-left:3px dashed rgba(0,9,133,.5); }
+  .line .flag { position:absolute; left:-12px; bottom:150px; transform:translateX(-100%);
+                background:var(--deep); color:#fff; font-size:18px; font-weight:800; border-radius:8px;
+                padding:8px 14px; white-space:nowrap; box-shadow:0 6px 18px rgba(0,9,133,.25); }
+  .line .flag::after { content:""; position:absolute; right:-7px; top:13px; border:7px solid transparent; border-left-color:var(--deep); }
+
+  .brandbar { flex-shrink:0; margin-top:14px; padding-top:16px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">タスク別・<span class="em">そのまま任せられる度</span></div>
+  <div class="sub">定型の調査・資料化は任せやすい。判断・法務・個人情報が絡むほど、人の確認が前提になる</div>
+
+  <div class="gauge">
+    <div class="zheads">
+      <div class="zh hi"><span class="lvl"><span class="dot"></span>高</span><div class="cap">そのまま任せやすい</div></div>
+      <div class="zh mid"><span class="lvl"><span class="dot"></span>中</span><div class="cap">人の監督下で</div></div>
+      <div class="zh lo"><span class="lvl"><span class="dot"></span>低</span><div class="cap">人の確認が前提</div></div>
+    </div>
+
+    <div class="track"><div class="tick" style="left:47%"></div><div class="tick" style="left:64%"></div></div>
+
+    <div class="cards">
+      <div class="zone hi">
+        <div class="ztag">任せられる</div>
+        <div class="tk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/></svg><div class="tx">定型の調査・情報収集</div></div>
+        <div class="tk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg><div class="tx">資料の下書き・一次集計</div></div>
+      </div>
+      <div class="zone mid">
+        <div class="ztag">条件つき</div>
+        <div class="tk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#C8891A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15 l-2.5 2.5 a3.5 3.5 0 0 1 -5 -5 L4 10"/><path d="M15 9 l2.5 -2.5 a3.5 3.5 0 0 1 5 5 L20 14"/><line x1="9.5" y1="14.5" x2="14.5" y2="9.5"/></svg><div class="tx">外部連携を伴う作業<small>（人の監督下で）</small></div></div>
+      </div>
+      <div class="zone lo">
+        <div class="ztag">人の確認が前提</div>
+        <div class="tk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#E0405E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 l8 3 v6 c0 5 -3.5 8 -8 10 c-4.5 -2 -8 -5 -8 -10 V6 z"/><path d="M12 9 v4 M12 16 v.2"/></svg><div class="tx">判断・法務・契約・個人情報が絡む業務</div></div>
+      </div>
+    </div>
+
+    <div class="line"><span class="flag">人の最終確認が要るライン</span></div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

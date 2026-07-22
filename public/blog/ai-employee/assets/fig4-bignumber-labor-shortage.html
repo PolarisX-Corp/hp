@@ -1,0 +1,87 @@
+<!-- style: paper + R2 pictogram -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --paper:#FFFFFF; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --deep:#000985;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); background:var(--bg); color:var(--ink);
+    padding:44px 60px 24px; display:flex; flex-direction:column;
+  }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:47px; font-weight:700; letter-spacing:.01em; margin-top:10px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .sub { font-size:22px; color:var(--muted); margin-top:12px; line-height:1.5; }
+  .drule { margin-top:16px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .stage { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .kicker { display:flex; align-items:center; gap:20px; font-family:var(--serif); font-size:26px; font-weight:600; color:var(--ink); letter-spacing:.06em; }
+  .kicker::before, .kicker::after { content:""; width:70px; height:1.5px; background:var(--rule); display:block; }
+
+  .hero { display:flex; align-items:baseline; justify-content:center; margin-top:6px; }
+  .hero .big { font-family:var(--serif); font-size:210px; font-weight:700; line-height:.94; color:var(--accent); letter-spacing:-.01em; }
+  .hero .unit { font-family:var(--serif); font-size:82px; font-weight:700; color:var(--accent); margin-left:8px; }
+  .hero .rel { font-family:var(--serif); font-size:42px; font-weight:600; color:var(--ink); margin-left:22px; align-self:center; }
+
+  /* 人型ピクトグラムの隊列＝働き手が右へ欠けていく（不足） */
+  .people { display:flex; align-items:flex-end; justify-content:center; gap:11px; margin-top:6px; }
+  .people svg { width:30px; height:42px; display:block; }
+
+  .line2 { font-family:var(--serif); font-size:36px; font-weight:600; color:var(--ink); margin-top:16px; letter-spacing:.02em; }
+  .line2 b { color:var(--accent-d); font-weight:700; }
+
+  .hl { margin-top:22px; font-family:var(--serif); font-size:28px; font-weight:700; color:var(--ink);
+        border-top:1.5px solid var(--rule); border-bottom:1.5px solid var(--rule); padding:12px 34px; letter-spacing:.03em; }
+  .hl span { color:var(--accent-d); }
+
+  .src { font-family:var(--sans); margin-top:20px; font-size:19px; color:var(--muted); }
+
+  .brandbar { flex-shrink:0; margin-top:8px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">なぜいま AI社員なのか</div>
+  <div class="title">深刻化する<span class="em">人手不足</span></div>
+  <div class="sub">採用で穴を埋めきれない以上、定型・準定型の業務を誰に担わせるかが経営課題に</div>
+  <div class="drule"></div>
+
+  <div class="stage">
+    <div class="kicker">2035年、日本で不足する労働力（未来推計）</div>
+    <div class="hero">
+      <span class="big">384</span><span class="unit">万人</span><span class="rel">相当</span>
+    </div>
+
+    <div class="people">
+      <!-- 働き手（埋まっている） -->
+      <svg viewBox="0 0 24 40" fill="#1841B8"><circle cx="12" cy="9" r="6.2"/><path d="M1.5 40 v-8 a10.5 10.5 0 0 1 21 0 v8 z"/></svg>
+      <svg viewBox="0 0 24 40" fill="#1841B8"><circle cx="12" cy="9" r="6.2"/><path d="M1.5 40 v-8 a10.5 10.5 0 0 1 21 0 v8 z"/></svg>
+      <svg viewBox="0 0 24 40" fill="#366EFF"><circle cx="12" cy="9" r="6.2"/><path d="M1.5 40 v-8 a10.5 10.5 0 0 1 21 0 v8 z"/></svg>
+      <svg viewBox="0 0 24 40" fill="#366EFF"><circle cx="12" cy="9" r="6.2"/><path d="M1.5 40 v-8 a10.5 10.5 0 0 1 21 0 v8 z"/></svg>
+      <svg viewBox="0 0 24 40" fill="#366EFF"><circle cx="12" cy="9" r="6.2"/><path d="M1.5 40 v-8 a10.5 10.5 0 0 1 21 0 v8 z"/></svg>
+      <svg viewBox="0 0 24 40" fill="#5C86FF"><circle cx="12" cy="9" r="6.2"/><path d="M1.5 40 v-8 a10.5 10.5 0 0 1 21 0 v8 z"/></svg>
+      <svg viewBox="0 0 24 40" fill="#5C86FF"><circle cx="12" cy="9" r="6.2"/><path d="M1.5 40 v-8 a10.5 10.5 0 0 1 21 0 v8 z"/></svg>
+      <!-- 不足（欠員・破線） -->
+      <svg viewBox="0 0 24 40" fill="none" stroke="#B7BDCC" stroke-width="2" stroke-dasharray="3.4 2.6" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M2 39 v-7.5 a10 10 0 0 1 20 0 v7.5"/></svg>
+      <svg viewBox="0 0 24 40" fill="none" stroke="#C4C9D6" stroke-width="2" stroke-dasharray="3.4 2.6" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M2 39 v-7.5 a10 10 0 0 1 20 0 v7.5"/></svg>
+      <svg viewBox="0 0 24 40" fill="none" stroke="#D2D6E0" stroke-width="2" stroke-dasharray="3.4 2.6" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M2 39 v-7.5 a10 10 0 0 1 20 0 v7.5"/></svg>
+    </div>
+
+    <div class="line2">1日あたり <b>1,775万時間</b> の労働力が不足すると推計</div>
+    <div class="hl">最も不足する職種は<span>「事務従事者」</span></div>
+    <div class="src">出典：パーソル総合研究所・中央大学「労働市場の未来推計2035」（2024年）</div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

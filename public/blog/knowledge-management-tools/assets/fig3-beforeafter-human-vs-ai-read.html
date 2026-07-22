@@ -1,0 +1,86 @@
+<!-- style: illust (R3 codex下絵 fig3-illus-*.png + HTML和文合成) — 記事内の強調1枚 -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); color:var(--ink); background:
+           radial-gradient(1100px 620px at 92% -12%, var(--accent-bg) 0%, rgba(234,240,255,0) 58%),
+           var(--bg);
+         padding:42px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.30em; color:var(--accent-d); }
+  .title { font-size:43px; font-weight:800; letter-spacing:-.01em; margin-top:8px; line-height:1.25; }
+  .title .em { color:var(--accent); }
+  .drule { margin-top:13px; height:3px; border-radius:3px;
+           background:linear-gradient(90deg,var(--accent) 0%,var(--accent-bd) 52%,transparent 100%); }
+
+  .stage { flex:1; display:grid; grid-template-columns:1fr 96px 1fr; gap:0; margin-top:18px; align-items:stretch; }
+  .panel { background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden;
+           display:flex; flex-direction:column; box-shadow:0 6px 18px rgba(0,9,133,.05); }
+  .panel.after { border:2px solid var(--accent); box-shadow:0 12px 30px rgba(54,110,255,.16); }
+  .phead { padding:13px 24px; display:flex; align-items:center; gap:12px; }
+  .panel.before .phead { background:#EFF1F6; }
+  .panel.after .phead { background:linear-gradient(90deg,#DCE7FF,#EAF0FF); }
+  .phead .chip { font-size:15.5px; font-weight:800; letter-spacing:.08em; border-radius:999px; padding:4px 14px; }
+  .panel.before .chip { color:var(--muted); background:#FFFFFF; border:1px solid var(--border); }
+  .panel.after .chip { color:#FFFFFF; background:var(--accent); }
+  .phead .t { font-size:24px; font-weight:800; }
+  .illus { height:378px; background-size:cover; background-position:center 32%; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .pbody { flex:1; padding:18px 26px 20px; display:flex; flex-direction:column; justify-content:center; gap:12px; }
+  .li { display:flex; gap:10px; align-items:baseline; font-size:19.5px; font-weight:600; color:var(--body); line-height:1.45; }
+  .li::before { content:''; flex-shrink:0; width:9px; height:9px; border-radius:3px; background:var(--accent-bd); transform:translateY(-2px); }
+  .panel.after .li::before { background:var(--accent); }
+  .li b { color:var(--ink); }
+
+  .mid { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
+  .mid .arr { width:0; height:0; border-top:26px solid transparent; border-bottom:26px solid transparent; border-left:34px solid var(--accent); }
+  .mid .lbl { writing-mode:vertical-rl; font-size:17px; font-weight:800; color:var(--accent-d); letter-spacing:.18em; }
+
+  .brandbar { flex-shrink:0; margin-top:16px; padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:21px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">第7の選定軸</div>
+  <div class="title">ナレッジベースは、<span class="em">AIが読む「一次ソース」</span>に変わる</div>
+  <div class="drule"></div>
+
+  <div class="stage">
+    <div class="panel before">
+      <div class="phead"><span class="chip">これまで</span><span class="t">人が探して、人が読む</span></div>
+      <div class="illus" style="background-image:url(fig3-illus-human.png)"></div>
+      <div class="pbody">
+        <div class="li">検索窓にキーワードを打ち、<b>文書を探して読む</b></div>
+        <div class="li">見つからなければ、<b>エース社員に口頭で聞く</b></div>
+        <div class="li">評価軸は、人にとっての<b>検索性・読みやすさ</b></div>
+      </div>
+    </div>
+
+    <div class="mid">
+      <div class="arr"></div>
+      <div class="lbl">生成AIの普及</div>
+    </div>
+
+    <div class="panel after">
+      <div class="phead"><span class="chip">これから</span><span class="t">AIが読んで、答える（RAG）</span></div>
+      <div class="illus" style="background-image:url(fig3-illus-ai.png)"></div>
+      <div class="pbody">
+        <div class="li">人は<b>普段の言葉で質問</b>するだけ</div>
+        <div class="li">AIが社内ナレッジを検索して読み、<b>根拠つきで回答</b></div>
+        <div class="li">評価軸に「<b>AIが読める形か</b>」が加わる</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

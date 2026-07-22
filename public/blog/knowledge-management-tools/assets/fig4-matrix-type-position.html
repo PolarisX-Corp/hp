@@ -1,0 +1,93 @@
+<!-- style: paper + R2 pictogram (positioning map — complements the markdown table, not a copy) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --accent-bd:#ADC3FF;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:42px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:44px; font-weight:700; letter-spacing:.01em; margin-top:8px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .drule { margin-top:14px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .plot { flex:1; display:grid; grid-template-columns:64px 1fr; grid-template-rows:1fr 52px; margin-top:16px; }
+  .yaxis { grid-column:1; grid-row:1; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:8px 0; }
+  .yaxis .hi, .yaxis .lo { font-size:17.5px; font-weight:800; color:var(--muted); writing-mode:vertical-rl; letter-spacing:.06em; }
+  .yaxis .hi { color:var(--accent-d); }
+  .yaxis .name { writing-mode:vertical-rl; font-family:var(--serif); font-size:22px; font-weight:700; letter-spacing:.14em; }
+  .field { grid-column:2; grid-row:1; position:relative; border-left:2px solid var(--rule); border-bottom:2px solid var(--rule);
+           background:linear-gradient(180deg, #F0F5FF 0%, rgba(240,245,255,0) 48%); margin-left:12px; }
+  .field .vline { position:absolute; left:50%; top:0; bottom:0; border-left:1.5px dashed var(--border); }
+  .field .hline { position:absolute; top:50%; left:0; right:0; border-top:1.5px dashed var(--border); }
+  .zone { position:absolute; right:18px; top:14px; font-size:16.5px; font-weight:800; color:var(--accent-d);
+          background:#FFFFFF; border:1px solid var(--accent-bd); border-radius:999px; padding:5px 16px; }
+  .xaxis { grid-column:2; grid-row:2; display:flex; align-items:center; justify-content:space-between; padding:12px 6px 0 18px; }
+  .xaxis .name { font-family:var(--serif); font-size:22px; font-weight:700; letter-spacing:.1em; }
+  .xaxis .l, .xaxis .r { font-size:17.5px; font-weight:800; color:var(--muted); }
+
+  .chip { position:absolute; transform:translate(-50%,-50%); background:var(--card); border:1px solid var(--rule);
+          border-radius:4px; padding:12px 20px; box-shadow:3px 3px 0 rgba(27,34,51,.08); text-align:left; width:300px; }
+  .chip .n { font-family:var(--serif); font-size:23px; font-weight:700; display:flex; align-items:center; gap:10px; white-space:nowrap; }
+  .chip .n svg { width:26px; height:26px; flex-shrink:0; }
+  .chip .d { font-size:16px; color:var(--muted); font-weight:600; margin-top:4px; line-height:1.4; }
+  .chip.hot { border:2px solid var(--accent); background:linear-gradient(180deg,#F3F7FF,#FFFEFB); box-shadow:4px 4px 0 rgba(54,110,255,.18); }
+  .chip.hot .n { color:var(--accent-d); }
+
+  .brandbar { flex-shrink:0; margin-top:16px; padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:21px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">位置づけの地図</div>
+  <div class="title">4タイプの現在地 — <span class="em">「AIが読んで答える」</span>へ向かう</div>
+  <div class="drule"></div>
+
+  <div class="plot">
+    <div class="yaxis">
+      <div class="hi">AIが読んで答える</div>
+      <div class="name">活用の主体</div>
+      <div class="lo">人が検索して読む</div>
+    </div>
+    <div class="field">
+      <div class="vline"></div><div class="hline"></div>
+      <div class="zone">これからの主戦場</div>
+
+      <div class="chip" style="left:24%; top:56%;">
+        <div class="n"><svg viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/><path d="M9.5 9.5a2.4 2.4 0 0 1 4.7.7c0 1.5-2.2 1.8-2.2 3"/></svg>FAQ型</div>
+        <div class="d">定型のQ&Aを整備し、人にもチャットにも直答させる</div>
+      </div>
+      <div class="chip" style="left:20%; top:84%;">
+        <div class="n"><svg viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="15.5" cy="13.5" r="2.3"/></svg>ドキュメント管理型</div>
+        <div class="d">統制された正式文書。閉じた設計の製品が多い</div>
+      </div>
+      <div class="chip" style="left:72%; top:70%;">
+        <div class="n"><svg viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M13 3v5h5"/><line x1="8" y1="12" x2="16" y2="12"/></svg>社内Wiki型</div>
+        <div class="d">自由な文書を書いて共有。AI検索の搭載は製品差が大きい</div>
+      </div>
+      <div class="chip hot" style="left:63%; top:20%;">
+        <div class="n"><svg viewBox="0 0 24 24" fill="none" stroke="#1841B8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="2.5"/><circle cx="9.5" cy="13" r="1" fill="#1841B8"/><circle cx="14.5" cy="13" r="1" fill="#1841B8"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1.2"/></svg>AI・RAG型</div>
+        <div class="d">社内文書を横断してAIが読み、根拠つきで答える</div>
+      </div>
+    </div>
+    <div class="corner" style="grid-column:1; grid-row:2;"></div>
+    <div class="xaxis">
+      <div class="l">定型のQ&A・統制文書</div>
+      <div class="name">扱うナレッジ</div>
+      <div class="r">自由な文書・ノウハウ</div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

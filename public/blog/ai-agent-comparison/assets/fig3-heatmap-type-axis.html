@@ -1,0 +1,110 @@
+<!-- style: flat (light) + R2 pictogram -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --amber:#E7A227; --amber-ink:#7A5312;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); color:var(--ink); background:
+      radial-gradient(1100px 620px at 92% -12%, var(--accent-bg) 0%, rgba(234,240,255,0) 58%),
+      var(--bg);
+    padding:44px 60px 24px; display:flex; flex-direction:column;
+  }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.30em; color:var(--accent-d); }
+  .title { font-size:46px; font-weight:800; letter-spacing:-.01em; margin-top:10px; line-height:1.24; color:var(--ink); }
+  .title .em { color:var(--accent); }
+  .sub { font-size:22px; color:var(--muted); margin-top:12px; line-height:1.5; }
+  .drule { margin-top:16px; height:3px; border-radius:3px;
+           background:linear-gradient(90deg,var(--accent) 0%,var(--accent-bd) 52%,transparent 100%); }
+
+  .hm { flex:1; display:grid;
+        grid-template-columns:296px repeat(5,1fr);
+        grid-template-rows:78px repeat(4,1fr);
+        gap:9px; margin-top:18px; }
+
+  .ch { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+        font-size:19px; font-weight:800; color:var(--accent-d); line-height:1.25; letter-spacing:.005em; padding:4px; }
+  .ch.load { color:var(--amber-ink); }
+  .ch .k { font-size:14px; font-weight:700; color:var(--faint); margin-top:3px; letter-spacing:.02em; }
+  .corner { display:flex; align-items:flex-end; }
+  .corner .rd { font-size:16px; font-weight:800; color:var(--muted); letter-spacing:.02em; display:flex; align-items:center; gap:8px; }
+  .corner svg { width:20px; height:20px; }
+
+  .rh { display:flex; flex-direction:column; justify-content:center; padding:0 20px; border-radius:12px;
+        background:var(--card); border:1px solid var(--border); }
+  .rh .rn { font-size:24px; font-weight:800; letter-spacing:.005em; color:var(--ink); }
+  .rh .rd { font-size:15px; color:var(--muted); margin-top:3px; font-weight:600; }
+  .rh.hot { background:linear-gradient(90deg,var(--accent-bg),#FFFFFF); border:2px solid var(--accent); box-shadow:0 6px 18px rgba(54,110,255,.14); }
+  .rh.hot .rd { color:var(--accent-d); }
+
+  .cell { border-radius:12px; display:flex; align-items:center; justify-content:center;
+          font-size:34px; font-weight:800; border:1px solid var(--border); }
+  .b3 { background:#366EFF; border-color:#2C5CE0; color:#fff; }
+  .b2 { background:rgba(54,110,255,.30); border-color:var(--accent-bd); color:#1841B8; }
+  .b1 { background:rgba(54,110,255,.10); color:#8A93AD; }
+  .a3 { background:rgba(231,162,39,.72); border-color:rgba(231,162,39,.6); color:#4A340C; }
+  .a2 { background:rgba(231,162,39,.34); border-color:rgba(231,162,39,.4); color:#7A5312; }
+  .a1 { background:rgba(231,162,39,.13); color:#B79251; }
+
+  .legend { flex-shrink:0; display:flex; align-items:center; gap:26px; margin-top:16px; font-size:17px; color:var(--muted); font-weight:600; }
+  .legend .grp { display:flex; align-items:center; gap:9px; }
+  .sw { width:22px; height:22px; border-radius:6px; border:1px solid var(--border); }
+  .legend .note { margin-left:auto; color:var(--faint); font-size:15.5px; }
+
+  .brandbar { flex-shrink:0; margin-top:14px; padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">4タイプ × 5軸の早見表</div>
+  <div class="title">重視する軸の列を<span class="em">縦に見て</span>、当たりのタイプを絞る</div>
+  <div class="sub">個別の製品名は載せない（変動が激しい）。あくまで「タイプの傾向」——同じタイプでも製品で強弱は動く</div>
+  <div class="drule"></div>
+
+  <div class="hm">
+    <!-- header row -->
+    <div class="corner"><div class="rd">
+      <svg viewBox="0 0 20 20" fill="none" stroke="#6B7388" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" y1="3" x2="10" y2="15"/><polyline points="5,10 10,16 15,10"/></svg>
+      列を縦に読む</div></div>
+    <div class="ch">用途の広さ</div>
+    <div class="ch">自社文脈の<br>持ち込み</div>
+    <div class="ch">外部連携<span class="k">API／MCP</span></div>
+    <div class="ch load">初期の重さ<span class="k">＝コスト</span></div>
+    <div class="ch load">従量の効き方<span class="k">＝コスト</span></div>
+
+    <!-- 汎用作業型 -->
+    <div class="rh"><div class="rn">汎用作業型</div><div class="rd">調査・下書き・要約</div></div>
+    <div class="cell b3">◎</div><div class="cell b1">△</div><div class="cell b2">○</div><div class="cell a1">△</div><div class="cell a3">◎</div>
+
+    <!-- 業務特化型 -->
+    <div class="rh"><div class="rn">業務特化型</div><div class="rd">特定業務の自動化</div></div>
+    <div class="cell b1">△</div><div class="cell b2">○</div><div class="cell b1">△</div><div class="cell a2">○</div><div class="cell a1">△</div>
+
+    <!-- ワークフロー連携型 -->
+    <div class="rh"><div class="rn">ワークフロー連携型</div><div class="rd">定型処理を連結</div></div>
+    <div class="cell b2">○</div><div class="cell b2">○</div><div class="cell b3">◎</div><div class="cell a2">○</div><div class="cell a2">○</div>
+
+    <!-- カスタム構築型 -->
+    <div class="rh hot"><div class="rn">カスタム構築型</div><div class="rd">複数部門で継続運用</div></div>
+    <div class="cell b3">◎</div><div class="cell b3">◎</div><div class="cell b3">◎</div><div class="cell a3">◎</div><div class="cell a2">○</div>
+  </div>
+
+  <div class="legend">
+    <div class="grp"><span class="sw" style="background:#366EFF"></span>強み: ◎強い ○中 △弱い</div>
+    <div class="grp"><span class="sw" style="background:rgba(231,162,39,.72)"></span>コスト: ◎重い ○中 △軽い</div>
+    <span class="note">初期の重さ・従量は「強み」ではなく負荷の大きさ。回収できるかで判断する。</span>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

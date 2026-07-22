@@ -1,0 +1,96 @@
+<!-- style: paper + R2 SVG ribbons -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --paper:#FFFFFF; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --deep:#000985;
+    --neutral:#F1EFE8;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:44px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:46px; font-weight:700; margin-top:10px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .sub { font-size:22px; color:var(--muted); margin-top:12px; line-height:1.5; }
+  .drule { margin-top:16px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .flow { flex:1; position:relative; margin-top:16px; }
+  .flow svg.ribbons { position:absolute; inset:0; width:100%; height:100%; }
+  .colhead { position:absolute; top:0; font-size:18px; font-weight:800; letter-spacing:.18em; color:var(--faint); }
+  .node { position:absolute; width:496px; background:var(--card); border:1px solid var(--border);
+          border-radius:5px; padding:12px 18px; z-index:2; }
+  .node .nm { font-family:var(--serif); font-size:21.5px; font-weight:700; line-height:1.35; }
+  .node .tp { font-size:16.5px; color:var(--muted); margin-top:4px; line-height:1.4; }
+  .node.l { left:0; border-left:4px solid var(--rule); }
+  .node.r { right:0; border-left:none; border-right:4px solid var(--muted); text-align:left; }
+  .node.r.hot { border:1px solid var(--accent); border-right:4px solid var(--accent); background:#F5F8FF; }
+  .node.r.hot .nm { color:var(--accent-d); }
+
+  .brandbar { flex-shrink:0; margin-top:16px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">必要かどうか</div>
+  <div class="title">自社の状況から、<span class="em">関わり方</span>を選ぶ</div>
+  <div class="sub">いきなり大型契約ではなく、状況に合う最小の関わり方から。詰まったら次の段へ広げればよい</div>
+  <div class="drule"></div>
+
+  <div class="flow">
+    <div class="colhead" style="left:6px;">自社の状況</div>
+    <div class="colhead" style="right:6px;">合う関わり方</div>
+
+    <svg class="ribbons" viewBox="0 0 1480 570" preserveAspectRatio="none">
+      <path d="M506 105 C 730 105, 760 105, 990 105" stroke="#9AA1B5" stroke-width="30" fill="none" opacity=".38" stroke-linecap="round"/>
+      <path d="M506 235 C 730 235, 760 235, 990 235" stroke="#9AA1B5" stroke-width="26" fill="none" opacity=".38" stroke-linecap="round"/>
+      <path d="M506 365 C 730 365, 760 365, 990 365" stroke="#366EFF" stroke-width="38" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M506 495 C 730 495, 760 495, 990 495" stroke="#9AA1B5" stroke-width="26" fill="none" opacity=".38" stroke-linecap="round"/>
+    </svg>
+
+    <div class="node l" style="top:64px;">
+      <div class="nm">対象業務が明確で、SaaS型ツールで試せる</div>
+      <div class="tp">法人向け生成AIサービスで足りる範囲</div>
+    </div>
+    <div class="node l" style="top:196px;">
+      <div class="nm">方針の壁打ち・セカンドオピニオンがほしい</div>
+      <div class="tp">進め方の妥当性だけ確認したい</div>
+    </div>
+    <div class="node l" style="top:326px;">
+      <div class="nm">推進役が足りない。定着まで併走してほしい</div>
+      <div class="tp">導入したのに現場で使われていない</div>
+    </div>
+    <div class="node l" style="top:458px;">
+      <div class="nm">開発を伴う。複数部門の業務再設計が必要</div>
+      <div class="tp">RAG構築・独自エージェントなど</div>
+    </div>
+
+    <div class="node r" style="top:64px;">
+      <div class="nm">自社で小さく始める</div>
+      <div class="tp">コンサル契約なし。1〜2か月で詰まりどころを特定する</div>
+    </div>
+    <div class="node r" style="top:196px;">
+      <div class="nm">スポット相談</div>
+      <div class="tp">1回単位で論点を整理する</div>
+    </div>
+    <div class="node r hot" style="top:326px;">
+      <div class="nm">伴走型AI顧問</div>
+      <div class="tp">月単位で定着・内製化まで併走してもらう</div>
+    </div>
+    <div class="node r" style="top:458px;">
+      <div class="nm">プロジェクト型</div>
+      <div class="tp">期間とゴールを区切って構築を任せる</div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

@@ -1,0 +1,98 @@
+<!-- style: sketch + R3 hand-drawn illustration (fig1-base.png / codex gpt-image-2, text-less balance scale) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FBFBF8; --ink:#1F2836; --body:#3A4152; --muted:#727A8C;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#E9F0FF;
+    --red:#E0405E; --red-d:#B02840; --red-bg:#FCEDED;
+    --line:#C7CCD8;
+    --hand:"Klee","ヒラギノ丸ゴ ProN","Hiragino Maru Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;
+    --marker:"Chalkboard SE","Bradley Hand","Marker Felt","Klee","ヒラギノ丸ゴ ProN",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1600px;height:900px;}
+  body{
+    font-family:var(--hand); color:var(--ink);
+    background-color:var(--bg);
+    background-image:radial-gradient(circle, rgba(70,86,120,.09) 1.5px, transparent 1.6px);
+    background-size:32px 32px;
+    padding:44px 58px 26px; display:flex; flex-direction:column;
+  }
+  .eyebrow{font-family:var(--marker); font-size:20px; font-weight:700; letter-spacing:.05em; color:var(--accent-d); transform:rotate(-.6deg);}
+  .title{font-size:45px; font-weight:800; letter-spacing:.01em; margin-top:8px; line-height:1.2;}
+  .title .em{ color:var(--accent-d); background:linear-gradient(180deg,transparent 58%, rgba(54,110,255,.24) 58%, rgba(54,110,255,.24) 92%, transparent 92%); padding:0 .05em; }
+  .sub{font-size:20px; color:var(--muted); margin-top:10px; line-height:1.5; font-weight:500;}
+  .hr{margin-top:13px; height:0; border-top:3px dashed var(--line);}
+
+  .stage{flex:1; display:flex; gap:24px; align-items:stretch; margin-top:18px;}
+  .col{ flex:1; background:#FFFFFF; border:2.6px solid var(--ink);
+        border-radius:18px 12px 20px 11px/11px 19px 12px 20px; box-shadow:3px 4px 0 rgba(31,40,54,.06);
+        padding:20px 26px 22px; display:flex; flex-direction:column; }
+  .col.free{ border-top:9px solid var(--accent); transform:rotate(-.5deg); }
+  .col.paid{ border-top:9px solid var(--red);   transform:rotate(.5deg); }
+  .tab{ display:inline-block; align-self:flex-start; font-family:var(--marker); font-size:20px; font-weight:700; color:#fff;
+        border-radius:9px 6px 10px 6px/6px 9px 6px 10px; padding:6px 18px; letter-spacing:.02em; }
+  .free .tab{ background:var(--accent); }
+  .paid .tab{ background:var(--red); }
+  .csub{ font-size:18px; color:var(--muted); margin-top:9px; font-weight:600; }
+  .items{ margin-top:14px; display:flex; flex-direction:column; gap:0; }
+  .it{ display:flex; align-items:center; gap:15px; padding:14px 2px; font-size:22.5px; font-weight:600; line-height:1.35; }
+  .it + .it{ border-top:2px dashed var(--line); }
+  .mk{ flex-shrink:0; width:30px; height:30px; }
+  .free .it{ color:var(--ink); }
+  .paid .it{ color:var(--body); }
+
+  .mid{ width:300px; flex-shrink:0; display:flex; flex-direction:column; align-items:center; }
+  .balance{ width:290px; mix-blend-mode:multiply; margin-top:2px; transform:rotate(.6deg); }
+  .divider{ flex:1; width:0; border-left:3px dashed var(--line); margin:4px 0; }
+  .axis{ font-family:var(--marker); font-size:19px; font-weight:700; color:var(--body); text-align:center;
+         background:#FFFDF6; border:2.4px solid var(--ink); border-radius:12px 8px 13px 7px/7px 12px 8px 13px;
+         box-shadow:2px 3px 0 rgba(31,40,54,.06); padding:9px 16px; line-height:1.3; transform:rotate(-.8deg); }
+  .axis .ar{ color:var(--accent); font-size:22px; }
+
+  .brandbar{flex-shrink:0; margin-top:14px; padding-top:13px; border-top:2px dashed var(--line); display:flex; align-items:center; justify-content:space-between;}
+  .brandbar .tag{font-size:21px; color:var(--muted); font-weight:700; letter-spacing:.02em;}
+  .brandbar .logo{height:36px; width:auto; opacity:.95;}
+</style></head>
+<body>
+  <div class="eyebrow">無料で体験できる ／ 有料・自作が要る の境界</div>
+  <div class="title">無料は<span class="em">試運転</span>まで、恒常運用は有料・自作へ</div>
+  <div class="sub">間違えても人がすぐ確認できる業務は無料で。止めずに・正確に・大人数で回すなら有料側</div>
+  <div class="hr"></div>
+
+  <div class="stage">
+    <div class="col free">
+      <span class="tab">無料で体験できる</span>
+      <div class="csub">間違えても人がすぐ確認できる業務</div>
+      <div class="items">
+        <div class="it"><svg class="mk" viewBox="0 0 30 30" fill="none" stroke="#366EFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16 l6 6 12 -15"/></svg><span>議事録・長文の要約</span></div>
+        <div class="it"><svg class="mk" viewBox="0 0 30 30" fill="none" stroke="#366EFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16 l6 6 12 -15"/></svg><span>情報収集とレポートの下書き</span></div>
+        <div class="it"><svg class="mk" viewBox="0 0 30 30" fill="none" stroke="#366EFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16 l6 6 12 -15"/></svg><span>単発の調べもの</span></div>
+        <div class="it"><svg class="mk" viewBox="0 0 30 30" fill="none" stroke="#366EFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16 l6 6 12 -15"/></svg><span>社内FAQの試作</span></div>
+      </div>
+    </div>
+
+    <div class="mid">
+      <img class="balance" src="fig1-base.png" alt="">
+      <div class="divider"></div>
+      <div class="axis">相性の見極め<br><span class="ar">⇕</span><br>恒常運用</div>
+    </div>
+
+    <div class="col paid">
+      <span class="tab">有料・自作が要る</span>
+      <div class="csub">止めずに・正確に・大人数で回す</div>
+      <div class="items">
+        <div class="it"><svg class="mk" viewBox="0 0 30 30" fill="none" stroke="#E0405E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="13" width="16" height="12" rx="2"/><path d="M10 13 v-3 a5 5 0 0 1 10 0 v3"/></svg><span>止まらない安定運用</span></div>
+        <div class="it"><svg class="mk" viewBox="0 0 30 30" fill="none" stroke="#E0405E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 l3 6 6.5 .9 -4.7 4.6 1.1 6.5 -5.9 -3.1 -5.9 3.1 1.1 -6.5 -4.7 -4.6 6.5 -.9 z"/></svg><span>高性能モデルでの精度</span></div>
+        <div class="it"><svg class="mk" viewBox="0 0 30 30" fill="none" stroke="#E0405E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="11" r="3.4"/><circle cx="21" cy="11" r="3.4"/><path d="M4 24 v-1.5 a6 6 0 0 1 12 0"/><path d="M15 24 v-1.5 a6 6 0 0 1 12 0 v1.5"/></svg><span>チーム・権限管理／監査ログ</span></div>
+        <div class="it"><svg class="mk" viewBox="0 0 30 30" fill="none" stroke="#E0405E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4 l11 4 v7 c0 7 -5 11 -11 13 c-6 -2 -11 -6 -11 -13 v-7 z"/><path d="M15 12 v6 M15 21.5 v.3"/></svg><span>機密情報・法令対応</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <span class="tag">AIを会社のOSにする。</span>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

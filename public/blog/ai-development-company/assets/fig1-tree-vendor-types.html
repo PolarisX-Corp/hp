@@ -1,0 +1,109 @@
+<!-- style: paper + R2 pictogram -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --deep:#000985;
+    --neutral:#F1EFE8;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:44px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:45px; font-weight:700; letter-spacing:.01em; margin-top:10px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .drule { margin-top:14px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .stage { flex:1; position:relative; margin-top:10px; }
+  svg.wire { position:absolute; inset:0; width:100%; height:100%; }
+
+  .root { position:absolute; left:0; top:50%; transform:translateY(-50%);
+          width:330px; background:var(--card); border:1px solid var(--border);
+          border-left:5px solid var(--rule); border-radius:4px; padding:24px 26px; }
+  .root .rq { font-family:var(--serif); font-size:29px; font-weight:700; line-height:1.4; }
+  .root .rs { font-size:19px; color:var(--muted); margin-top:10px; line-height:1.5; }
+
+  .leaf { position:absolute; left:760px; width:780px; background:var(--card);
+          border:1px solid var(--border); border-radius:4px; padding:14px 20px 13px;
+          display:flex; align-items:center; gap:16px; }
+  .leaf .pic { flex-shrink:0; width:46px; height:46px; }
+  .leaf .tx { flex:1; }
+  .leaf .nm { font-family:var(--serif); font-size:25px; font-weight:700; }
+  .leaf .ds { font-size:18px; color:var(--body); margin-top:3px; line-height:1.45; }
+  .leaf.t3 { border:2px solid var(--accent); background:var(--accent-bg); }
+  .leaf.t3 .nm { color:var(--accent-d); }
+  .blabel { position:absolute; font-size:17px; font-weight:700; color:var(--muted);
+            background:var(--bg); padding:0 8px; }
+  .l1{top:8px} .l2{top:158px} .l3{top:308px} .l4{top:462px}
+
+  .brandbar { flex-shrink:0; margin-top:16px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="eyebrow">発注先の地図</div>
+  <div class="title">AI開発企業は<span class="em">4タイプ</span>に分けると選べる</div>
+  <div class="drule"></div>
+
+  <div class="stage">
+    <svg class="wire" viewBox="0 0 1480 610" preserveAspectRatio="none">
+      <path d="M340 305 C 560 305 540 70 752 70"  fill="none" stroke="#C9C4B2" stroke-width="2.5"/>
+      <path d="M340 305 C 560 305 540 220 752 220" fill="none" stroke="#C9C4B2" stroke-width="2.5"/>
+      <path d="M340 305 C 560 305 540 370 752 370" fill="none" stroke="#366EFF" stroke-width="3"/>
+      <path d="M340 305 C 560 305 540 524 752 524" fill="none" stroke="#C9C4B2" stroke-width="2.5"/>
+    </svg>
+
+    <div class="root">
+      <div class="rq">AIで何をしたいか<br>＝自社のフェーズ</div>
+      <div class="rs">社名の比較より先に、自社の状態から枝をたどる</div>
+    </div>
+
+    <div class="blabel" style="left:520px; top:110px;">課題がまだ曖昧</div>
+    <div class="blabel" style="left:520px; top:212px;">専用の仕組みをPoCから作る</div>
+    <div class="blabel" style="left:520px; top:330px; color:#1841B8;">業務に根付かせ運用まで</div>
+    <div class="blabel" style="left:520px; top:462px;">大規模・基幹システム連携</div>
+
+    <div class="leaf l1">
+      <svg class="pic" viewBox="0 0 48 48" fill="none" stroke="#6B7388" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="24" cy="24" r="17"/><path d="M30 18 l-4 8 -8 4 4 -8 z" fill="#6B7388" stroke="none"/>
+      </svg>
+      <div class="tx"><div class="nm">① AI戦略コンサル型</div>
+      <div class="ds">何にAIを使うかの整理・PoC企画。実装は別会社へ引き継ぐ前提が多い</div></div>
+    </div>
+    <div class="leaf l2">
+      <svg class="pic" viewBox="0 0 48 48" fill="none" stroke="#6B7388" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 30 L8 40"/><path d="M40 8 l-9 3 -2 9 9 -3 z" fill="#6B7388" stroke="none"/>
+        <path d="M29 19 L18 30"/><rect x="6" y="34" width="8" height="8" rx="2"/>
+      </svg>
+      <div class="tx"><div class="nm">② 受託・スクラッチ開発型</div>
+      <div class="ds">既製品にない仕組みをゼロから開発。自由度は最大、保守は自社側で背負う</div></div>
+    </div>
+    <div class="leaf l3 t3">
+      <svg class="pic" viewBox="0 0 48 48" fill="none" stroke="#1841B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M38 22 a14 14 0 1 0 2 8"/><polyline points="40,10 40.5,22.5 29,21.5"/>
+        <circle cx="24" cy="26" r="5" fill="#1841B8" stroke="none"/>
+      </svg>
+      <div class="tx"><div class="nm">③ 生成AI・SaaS型（運用伴走）</div>
+      <div class="ds">既製プロダクト（AIエージェント・AI社員）を業務・ナレッジに載せて運用まで</div></div>
+    </div>
+    <div class="leaf l4">
+      <svg class="pic" viewBox="0 0 48 48" fill="none" stroke="#6B7388" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="10" y="12" width="14" height="28"/><rect x="28" y="20" width="12" height="20"/>
+        <line x1="14" y1="18" x2="20" y2="18"/><line x1="14" y1="25" x2="20" y2="25"/><line x1="14" y1="32" x2="20" y2="32"/>
+      </svg>
+      <div class="tx"><div class="nm">④ 大手SIer・エンタープライズ型</div>
+      <div class="ds">大規模開発・基幹連携を一括体制で。費用は最大級、スピードは遅め</div></div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>
