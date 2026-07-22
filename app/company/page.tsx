@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
-import { Sparkles, ArrowRight, Database, Crosshair, Mountain } from "lucide-react";
+import { Sparkles, ArrowRight, Crosshair, Mountain } from "lucide-react";
+import { COMPANY_BRAND, COMPANY_PROFILE } from "@/lib/company";
 import CompanyContactForm from "../components/CompanyContactForm";
 import { spaceGrotesk, notoSansJP, jetbrainsMono } from "../fonts";
 import "./company.css";
@@ -8,15 +9,15 @@ import "./company.css";
 export const metadata: Metadata = {
   title: "会社情報",
   description:
-    "PolarisX株式会社の会社情報。AIを、会社のOSに。個人利用で止まったAIを、担当業務を担う\"AI社員\"へ。MISSION・VALUES・SERVICES・MEMBERS・会社概要。",
+    "PolarisX株式会社の会社情報。法人向けAIエージェントの開発、社内ナレッジベースの構築、AIコンサルティングサービスを提供しています。",
 };
 
 const MARQUEE_ITEMS = [
-  "AIを、会社のOSに",
-  "AI経営",
-  "個人の道具から、AI社員へ",
-  "自律的に働くAI",
-  "人手の限界に縛られない経営",
+  "AIを会社のOSにする",
+  "AIファースト",
+  "法人向けAIエージェント",
+  "社内ナレッジベース",
+  "AIコンサルティング",
 ];
 
 function MarqueeGroup() {
@@ -63,10 +64,10 @@ export default function Company() {
           <div className="co-star" style={{ width: "200px", height: "200px", top: "280px", left: "-70px", opacity: 0.3 }} />
         </div>
         <div className="co-wrap co-hero__in">
-          <span className="co-eyebrow"><Sparkles />Founded June 2026 — Tokyo</span>
-          <h1>AIを、<br /><span className="co-accent">会社のOSに。</span></h1>
+          <span className="co-eyebrow"><Sparkles />Founded July 2026 — Tokyo</span>
+          <h1>AIを<br /><span className="co-accent">会社のOSに。</span></h1>
           <div className="co-hero__row">
-            <p>個人利用で止まっているAIを、担当業務を担う&quot;AI社員&quot;へ。人手の限界に縛られない経営を、あらゆる企業の当たり前にする。私たちはAIを、会社のOSにします。</p>
+            <p>{COMPANY_BRAND.catchphrase}<br />{COMPANY_BRAND.description}</p>
             <div className="co-hero__acts">
               <a className="px-btn px-btn--primary px-btn--lg" href="#mission">MISSION<ArrowRight className="px-btn__icon" /></a>
               <a className="px-btn px-btn--secondary px-btn--lg" href="#contact">お問い合わせ</a>
@@ -89,11 +90,7 @@ export default function Company() {
         </div>
         <div className="co-wrap">
           <div className="co-secnum co-reveal">MISSION ／ 01</div>
-          <h2 className="co-reveal">個人利用で止まっているAIを、担当業務を担う<em>&quot;AI社員&quot;</em>へ。人手の限界に縛られない経営を、あらゆる企業の当たり前にする。</h2>
-          <div className="co-vision co-reveal">
-            <div className="co-vlabel">VISION</div>
-            <p>AIが「使えるツール」で止まらず、会社の一員として自律的に働く世界へ。私たちは、企業の成長が人材の採用・育成の限界に縛られない世界を目指します。</p>
-          </div>
+          <h2 className="co-reveal">{COMPANY_BRAND.mission}</h2>
         </div>
       </section>
 
@@ -102,30 +99,19 @@ export default function Company() {
         <div className="co-wrap">
           <div className="co-secnum co-reveal">CORE VALUES ／ 02</div>
           <div className="co-values">
-            <div className="co-val co-reveal">
-              <div className="co-val__top">
-                <span className="co-val__no">01</span>
-                <span className="co-val__icon"><Database /></span>
-              </div>
-              <h3>AI・データファースト</h3>
-              <p>私たち自身がAI・データを信じて投資し、生産性を高める。</p>
-            </div>
-            <div className="co-val co-reveal">
-              <div className="co-val__top">
-                <span className="co-val__no">02</span>
-                <span className="co-val__icon"><Crosshair /></span>
-              </div>
-              <h3>本質思考</h3>
-              <p>目的に対して真剣に考え、常にベストを尽くします。</p>
-            </div>
-            <div className="co-val co-reveal">
-              <div className="co-val__top">
-                <span className="co-val__no">03</span>
-                <span className="co-val__icon"><Mountain /></span>
-              </div>
-              <h3>自己超克</h3>
-              <p>難易度の高い課題を、常に選び続ける。</p>
-            </div>
+            {COMPANY_BRAND.values.map((value, index) => {
+              const ValueIcon = [Sparkles, Mountain, Crosshair][index];
+              return (
+                <div className="co-val co-reveal" key={value.name}>
+                  <div className="co-val__top">
+                    <span className="co-val__no">{String(index + 1).padStart(2, "0")}</span>
+                    <span className="co-val__icon"><ValueIcon /></span>
+                  </div>
+                  <h3>{value.name}</h3>
+                  <p>{value.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -134,22 +120,22 @@ export default function Company() {
       <section className="co-sec co-sec--sunken" id="services">
         <div className="co-wrap">
           <div className="co-secnum co-reveal">SERVICES ／ 03</div>
-          <h2 className="co-serv-head co-reveal">AIを会社のOSにする、<em>3つのサービス。</em></h2>
-          <p className="co-serv-lead co-reveal">AI社員が動く共通の土台の構築から、AIエージェントを基盤とした経営インフラの内製化、2D・3Dデータ解析まで。担当業務を持つAI社員が動く経営を、一気通貫で実装します。</p>
+          <h2 className="co-serv-head co-reveal">AIを会社のOSにする、<em>3つの事業。</em></h2>
+          <p className="co-serv-lead co-reveal">AI社員の開発、社内ナレッジの整備、導入・運用支援まで。企業がAIを実務で使い続けられる仕組みを、一気通貫で構築します。</p>
 
           {/* Service 01 */}
           <div className="co-serv co-reveal">
             <div className="co-serv__top">
               <div className="co-serv__no">01</div>
               <div className="co-serv__meta">
-                <span className="px-badge px-badge--accent co-serv__tag co-en">AI Ready Data Foundation</span>
-                <h3>AI社員が動く「共通の土台」の構築（AI Readyなデータ基盤）</h3>
-                <p>AIエージェント＝AI社員が、会社の文脈で判断・実行できる基盤を整えます。AI活用で最も重要な、データとナレッジをAIにとって扱いやすい形に整える土台づくりを担います。</p>
+                <span className="px-badge px-badge--accent co-serv__tag co-en">AI Agent Development</span>
+                <h3>{COMPANY_PROFILE.businesses[0]}</h3>
+                <p>営業・人事・マーケティングなど、担当業務を持つ「AI社員」を、各社の業務と既存環境に合わせて設計・開発します。</p>
               </div>
             </div>
             <div className="co-serv__ex">
-              <div className="co-ex"><div className="co-ex-tag">Data</div><h4>信頼できるデータ基盤</h4><p>システムをまたいで分断したデータを統合し、AIが安心して使える形へ整備。顧客・企業・契約IDを紐づけ、回答の根拠をたどれる土台をつくります。</p></div>
-              <div className="co-ex"><div className="co-ex-tag">Context</div><h4>言葉と文脈を揃える</h4><p>KPIや業務用語をセマンティックレイヤーとして一元定義。商談メモや社内ドキュメントなど非構造化データも接続し、AIが業務の文脈ごと解釈できる状態へ。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">Workflow</div><h4>業務別AI社員</h4><p>日常業務の流れや社内ルールを踏まえ、必要な情報収集から成果物の作成までを担うAIエージェントを構築します。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">Integration</div><h4>既存環境との接続</h4><p>現在利用している社内ツールやデータを活かし、AI社員が必要な情報を参照して働ける環境を整えます。</p></div>
             </div>
           </div>
 
@@ -158,14 +144,14 @@ export default function Company() {
             <div className="co-serv__top">
               <div className="co-serv__no">02</div>
               <div className="co-serv__meta">
-                <span className="px-badge px-badge--accent co-serv__tag co-en">AI Agent-Driven Operations</span>
-                <h3>AIエージェントを基盤とした経営インフラ構築・内製化支援</h3>
-                <p>営業・分析・ヘルプデスク・経営参謀など、担当業務を持つ&quot;AI社員&quot;を開発し、経営インフラとして組み込みます。自社で運用・更新できる状態まで伴走します。</p>
+                <span className="px-badge px-badge--accent co-serv__tag co-en">Internal Knowledge Base</span>
+                <h3>{COMPANY_PROFILE.businesses[1]}</h3>
+                <p>社内に散在する文書や業務知見をつなぎ、必要な人とAIが、必要なときに活用できるナレッジ基盤を構築します。</p>
               </div>
             </div>
             <div className="co-serv__ex">
-              <div className="co-ex"><div className="co-ex-tag">Implementation</div><h4>AI社員の開発</h4><p>提案の場で答える営業AI、自然言語で高度な分析を担う分析AI、社内情報を横断するヘルプデスクAI、KPIを見張る経営参謀AIなどを業務に組み込みます。</p></div>
-              <div className="co-ex"><div className="co-ex-tag">Internalization</div><h4>内製化支援</h4><p>導入にとどまらず、社内チームが自走できるよう技術移転・体制構築まで伴走。ノウハウを御社の資産として残し、私たちが離れても回り続ける状態へ。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">Connection</div><h4>社内情報をつなぐ</h4><p>Notion・Confluence・Slack・Google Driveなど、情報がある場所を横断して参照できる状態へ整えます。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">Knowledge</div><h4>属人知を共通知へ</h4><p>個人の頭の中や日々のやり取りに埋もれた判断・進め方を、組織で再利用できる知見として蓄積します。</p></div>
             </div>
           </div>
 
@@ -174,14 +160,14 @@ export default function Company() {
             <div className="co-serv__top">
               <div className="co-serv__no">03</div>
               <div className="co-serv__meta">
-                <span className="px-badge px-badge--accent co-serv__tag co-en">2D / 3D Data Analytics</span>
-                <h3>2D・3Dデータ解析コンサルティング</h3>
-                <p>画像・点群・CADデータなど、従来の表形式では扱えなかった2D・3Dデータを解析し、製造・建設・空間設計領域での意思決定を、データに基づいて支えます。</p>
+                <span className="px-badge px-badge--accent co-serv__tag co-en">AI Consulting</span>
+                <h3>{COMPANY_PROFILE.businesses[2]}</h3>
+                <p>AI活用の課題整理から導入設計、実装、運用・定着まで、各社の状況に合わせて一貫して支援します。</p>
               </div>
             </div>
             <div className="co-serv__ex">
-              <div className="co-ex"><div className="co-ex-tag">2D Analysis</div><h4>画像・2Dデータ解析</h4><p>カメラ映像・図面・衛星画像など2Dデータから定量的なインサイトを抽出。目視に頼っていた判断を、データに基づく再現可能なプロセスへ置き換えます。</p></div>
-              <div className="co-ex"><div className="co-ex-tag">3D Analysis</div><h4>点群・3Dデータ解析</h4><p>LiDAR・3Dスキャンなどの点群データを解析し、空間・構造物の定量評価を実現。現場の複雑な意思決定を根拠ある形で支えます。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">Planning</div><h4>導入設計</h4><p>業務と課題を整理し、どこからAIを導入すべきか、成果につながる優先順位と進め方を設計します。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">Adoption</div><h4>運用・定着支援</h4><p>導入後の改善や社内展開まで伴走し、現場が継続してAIを活用できる運用体制づくりを支援します。</p></div>
             </div>
           </div>
         </div>
@@ -222,21 +208,21 @@ export default function Company() {
         <div className="co-wrap">
           <div className="co-secnum co-reveal">COMPANY ／ 05</div>
           <dl className="co-table co-reveal">
-            <div className="co-row"><dt>会社名</dt><dd>PolarisX株式会社</dd></div>
-            <div className="co-row"><dt>代表者</dt><dd>折本 聖也（Seiya Orimoto）／ 代表取締役 CEO</dd></div>
-            <div className="co-row"><dt>設立予定日</dt><dd>2026年6月17日</dd></div>
-            <div className="co-row"><dt>資本金</dt><dd>1,000,000円</dd></div>
-            <div className="co-row"><dt>業種</dt><dd>情報通信業</dd></div>
+            <div className="co-row"><dt>会社名</dt><dd>{COMPANY_PROFILE.name}</dd></div>
+            <div className="co-row"><dt>代表者</dt><dd>{COMPANY_PROFILE.representative}</dd></div>
+            <div className="co-row"><dt>設立日</dt><dd>{COMPANY_PROFILE.establishedOn}</dd></div>
+            <div className="co-row"><dt>資本金</dt><dd>{COMPANY_PROFILE.capital}</dd></div>
+            <div className="co-row"><dt>業種</dt><dd>{COMPANY_PROFILE.industry}</dd></div>
             <div className="co-row"><dt>事業内容</dt><dd>
               <ul className="co-biz">
-                <li><span className="n">①</span><span>AI社員が動く「共通の土台」の構築（AI Readyなデータ基盤）</span></li>
-                <li><span className="n">②</span><span>AIエージェントを基盤とした経営インフラ構築・内製化支援</span></li>
-                <li><span className="n">③</span><span>2D・3Dデータ解析コンサルティング</span></li>
+                {COMPANY_PROFILE.businesses.map((business, index) => (
+                  <li key={business}><span className="n">{index + 1}</span><span>{business}</span></li>
+                ))}
               </ul>
             </dd></div>
-            <div className="co-row"><dt>本店所在地</dt><dd>東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C</dd></div>
-            <div className="co-row"><dt>お問い合わせ</dt><dd><a href="mailto:contact@polarisx.ltd">contact@polarisx.ltd</a></dd></div>
-            <div className="co-row"><dt>公式X</dt><dd><a href="https://x.com/polarisx_inc" target="_blank" rel="noopener noreferrer">@polarisx_inc</a></dd></div>
+            <div className="co-row"><dt>本店所在地</dt><dd>{COMPANY_PROFILE.address}</dd></div>
+            <div className="co-row"><dt>お問い合わせ</dt><dd><a href={`mailto:${COMPANY_PROFILE.contactEmail}`}>{COMPANY_PROFILE.contactEmail}</a></dd></div>
+            <div className="co-row"><dt>公式X</dt><dd><a href={COMPANY_PROFILE.officialX.url} target="_blank" rel="noopener noreferrer">{COMPANY_PROFILE.officialX.label}</a></dd></div>
           </dl>
         </div>
       </section>

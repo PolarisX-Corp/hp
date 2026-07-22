@@ -78,9 +78,9 @@ export async function POST(request: Request) {
       from,
       to: [to],
       reply_to: email,
-      subject: `【分析コンサル相談】${company} / ${name} 様`,
+      subject: `【AI導入相談】${company} / ${name} 様`,
       html: `
-        <h2>分析コンサルティング ページからのご相談</h2>
+        <h2>AI導入・活用ページからのご相談</h2>
         <p><strong>会社名:</strong> ${escapeHtml(company)}</p>
         <p><strong>お名前:</strong> ${escapeHtml(name)}</p>
         <p><strong>メール:</strong> ${escapeHtml(email)}</p>

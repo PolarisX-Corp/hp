@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 import { spaceGrotesk, notoSansJP, jetbrainsMono } from "../fonts";
 import "./privacy-policy.css";
@@ -6,10 +7,10 @@ import "./privacy-policy.css";
 export const metadata: Metadata = {
   title: "プライバシーポリシー",
   description:
-    "PolarisX株式会社のプライバシーポリシー。データ分析コンサルティングにおける、個人情報の取扱いについて定めます。",
+    "PolarisX株式会社が提供するAI関連サービスにおける、個人情報の取扱いについて定めます。",
 };
 
-const LAST_UPDATED = "2026年6月25日";
+const LAST_UPDATED = "2026年7月22日";
 
 export default function PrivacyPolicy() {
   return (
@@ -19,18 +20,18 @@ export default function PrivacyPolicy() {
       {/* HEADER */}
       <header className="lg-header">
         <div className="lg-wrap lg-header__in">
-          <a className="lg-logo" href="/" aria-label="PolarisX">
+          <Link className="lg-logo" href="/" aria-label="PolarisX">
             <img src="/assets/PolarisX_wordmark.svg" alt="PolarisX" />
-          </a>
+          </Link>
           <nav className="lg-nav">
-            <a href="/">HOME</a>
-            <a href="/company">COMPANY</a>
-            <a href="/blogs">BLOG</a>
+            <Link href="/">HOME</Link>
+            <Link href="/company">COMPANY</Link>
+            <Link href="/blogs">BLOG</Link>
           </nav>
           <div className="lg-header__cta">
-            <a href="/company#contact" className="px-btn px-btn--primary px-btn--sm">
+            <Link href="/company#contact" className="px-btn px-btn--primary px-btn--sm">
               CONTACT
-            </a>
+            </Link>
           </div>
         </div>
       </header>
@@ -51,7 +52,7 @@ export default function PrivacyPolicy() {
       <main className="lg-body">
         <div className="lg-narrow">
           <p className="lg-intro">
-            <strong>PolarisX株式会社</strong>（以下「当社」）は、データ分析コンサルティング（以下「本サービス」）における、お客様（以下「ユーザー」）の個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定めます。
+            <strong>PolarisX株式会社</strong>（以下「当社」）は、法人向けAIエージェントの開発、社内ナレッジベースの構築およびAIコンサルティングサービス（以下「本サービス」）における、お客様（以下「ユーザー」）の個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定めます。
           </p>
 
           {/* 第1条 */}
@@ -180,7 +181,7 @@ export default function PrivacyPolicy() {
             <h2>第10条（お問い合わせ窓口）</h2>
             <p>
               本ポリシーに関するお問い合わせは、
-              <a href="/company#contact">お問い合わせフォーム</a>
+              <Link href="/company#contact">お問い合わせフォーム</Link>
               または下記メールアドレスよりご連絡ください。
             </p>
             <div className="lg-contact">
@@ -201,21 +202,21 @@ export default function PrivacyPolicy() {
       <footer className="lg-footer">
         <div className="lg-wrap">
           <div className="lg-foot">
-            <a className="lg-logo" href="/" aria-label="PolarisX">
+            <Link className="lg-logo" href="/" aria-label="PolarisX">
               <img src="/assets/PolarisX_wordmark.svg" alt="PolarisX" />
-            </a>
+            </Link>
             <ul>
               <li>
-                <a href="/">HOME</a>
+                <Link href="/">HOME</Link>
               </li>
               <li>
-                <a href="/company">COMPANY</a>
+                <Link href="/company">COMPANY</Link>
               </li>
               <li>
-                <a href="/blogs">BLOG</a>
+                <Link href="/blogs">BLOG</Link>
               </li>
               <li>
-                <a href="/privacy-policy">PRIVACY</a>
+                <Link href="/privacy-policy">PRIVACY</Link>
               </li>
             </ul>
           </div>

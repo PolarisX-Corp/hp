@@ -9,6 +9,7 @@ import {
   getRelatedPosts,
 } from "@/lib/blog/posts";
 import { formatDot } from "@/lib/blog/format";
+import { COMPANY_BRAND } from "@/lib/company";
 import { BlogHeader, BlogCompany, BlogFooter } from "../components/BlogChrome";
 import { CoverArt } from "../components/CoverArt";
 import { PostCard } from "../components/PostCard";
@@ -94,7 +95,7 @@ export default async function ArticlePage({
               <div className="bl-byline__av">{avatarInitials(post.author)}</div>
               <div>
                 <div className="bl-byline__name">{post.author}</div>
-                <div className="bl-byline__role">意思決定インテリジェンス研究チーム</div>
+                <div className="bl-byline__role">AI活用の実務者チーム</div>
               </div>
             </div>
             <div className="bl-meta__dates">
@@ -143,10 +144,10 @@ export default async function ArticlePage({
               <div className="bl-author__av">{avatarInitials(post.author)}</div>
               <div>
                 <div className="bl-author__name">{post.author}</div>
-                <div className="bl-author__role">意思決定インテリジェンス研究チーム</div>
+                <div className="bl-author__role">AI活用の実務者チーム</div>
                 <p className="bl-author__bio">
-                  「意思決定に、再現性を。」をミッションに、AI ×
-                  データ活用による経営判断の仕組み化を研究・発信しています。BI導入、指標設計、データドリブン文化の定着に関する実務知見をお届けします。
+                  {COMPANY_BRAND.mission}
+                  法人向けAIエージェントの開発、社内ナレッジベースの構築、AI導入・運用に関する実務知見を発信しています。
                 </p>
                 <div className="bl-author__links">
                   <Link href="/company">
@@ -167,10 +168,9 @@ export default async function ArticlePage({
                 <div className="bl-star" style={{ width: 260, height: 260, top: -60, right: "6%" }} />
                 <div className="bl-star" style={{ width: 180, height: 180, bottom: -70, left: "10%", opacity: 0.6 }} />
               </div>
-              <h3>意思決定を、属人化から解放する。</h3>
+              <h3>{COMPANY_BRAND.catchphrase}</h3>
               <p>
-                PolarisX
-                なら、データの統合から AI提案・再現スコアまでをひとつの場所で。まずは15分の無料相談から。
+                法人向けAIエージェントの開発から社内ナレッジベースの構築、導入・運用まで、PolarisXが一気通貫で支援します。
               </p>
               <div className="bl-ctablock__btns">
                 <Link className="px-btn px-btn--lg bl-btn-white" href="/#contact">
@@ -192,7 +192,7 @@ export default async function ArticlePage({
                 <div className="bl-star" style={{ width: 160, height: 160, top: -50, right: -30 }} />
               </div>
               <h4>資料・導入のご相談</h4>
-              <p>導入イメージや料金を知りたい方へ。専任担当が15分でご案内します。</p>
+              <p>AIエージェントや社内ナレッジベースの導入について、課題に合わせてご案内します。</p>
               <Link className="px-btn px-btn--block bl-btn-white" href="/#contact">
                 <Icon name="message-square-text" size={18} className="px-btn__icon" />
                 お問い合わせ
