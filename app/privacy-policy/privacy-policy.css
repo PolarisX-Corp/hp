@@ -294,6 +294,64 @@ body { margin: 0; }
 .lg-list--num > li::before { content: counter(lg-num); counter-increment: lg-num; left: 0; top: 0; width: auto; height: auto; background: none; font-family: var(--font-mono); font-weight: 700; font-size: 13px; color: var(--blue-500); line-height: 1.9; }
 .lg-list dfn { font-style: normal; font-weight: var(--fw-semibold); color: var(--text-primary); }
 
+/* nested ordered lists restart counter independently */
+.lg-list .lg-list { margin-bottom: 0; }
+.lg-list .lg-list--num { counter-reset: lg-num; }
+
+/* tables */
+.lg-table-wrap {
+  margin: 0 0 var(--space-5);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+.lg-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+.lg-table th,
+.lg-table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.lg-table th {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: var(--bg-canvas);
+  white-space: nowrap;
+}
+.lg-table td { color: var(--text-secondary); }
+.lg-table tbody tr:last-child td { border-bottom: none; }
+.lg-table tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--bg-canvas) 55%, transparent); }
+
+.lg-note {
+  font-size: 13.5px !important;
+  line-height: 1.8 !important;
+  color: var(--text-muted) !important;
+  margin: calc(-1 * var(--space-2)) 0 var(--space-5) !important;
+}
+
+/* company seal */
+.lg-seal {
+  margin-top: var(--space-16);
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--border-subtle);
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-primary);
+}
+.lg-seal p { margin: 0; color: var(--text-primary); }
+.lg-seal p + p { margin-top: 0.15em; }
+
 /* contact callout */
 .lg-contact { margin-top: var(--space-6); padding: var(--space-6); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); background: var(--bg-canvas); display: flex; flex-direction: column; gap: var(--space-2); }
 .lg-contact dl { margin: 0; display: grid; grid-template-columns: 130px 1fr; gap: var(--space-2) var(--space-4); }
