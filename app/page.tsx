@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { spaceGrotesk, notoSansJP, jetbrainsMono } from "./fonts";
 import ServiceContactForm from "./components/ServiceContactForm";
 import "./service.css";
@@ -10,9 +11,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "AI経営 — AIを、会社のOSに。",
+  title: "AI経営 — AIを会社のOSに。",
   description:
-    "個人利用で止まっているAIを、担当業務を担う\"AI社員\"へ。AIが会社の一員として自律的に動き続ける「AI経営」を、御社に実装します。AI Readyなデータ基盤の構築から、AIエージェント開発・内製化まで、PolarisXが一気通貫で伴走します。",
+    "法人向けAIエージェントの開発、社内ナレッジベースの構築、AIコンサルティングを通じて、AIを会社のOSにします。",
 };
 
 export default function Home() {
@@ -382,12 +383,12 @@ export default function Home() {
               <p style={{ fontSize: "13.5px", color: "var(--text-muted)", lineHeight: 1.7, maxWidth: "24em" }}>AIを、会社のOSに。担当業務を持つ&quot;AI社員&quot;が動く経営を、あらゆる企業の当たり前に。</p>
             </div>
             <div className="mk-footer__col"><h4>サービス</h4><a href="#problem">課題・現状</a><a href="#solution">AI経営とは</a><a href="#why-us">選ばれる理由</a><a href="#pricing">料金プラン</a><a href="#process">導入の流れ</a></div>
-            <div className="mk-footer__col"><h4>会社情報</h4><a href="/company">会社情報</a><a href="/company#contact">お問い合わせ</a></div>
-            <div className="mk-footer__col"><h4>リソース</h4><a href="/blogs">ブログ</a><a href="/privacy-policy">プライバシー</a></div>
+            <div className="mk-footer__col"><h4>会社情報</h4><Link href="/company">会社情報</Link><Link href="/company#contact">お問い合わせ</Link></div>
+            <div className="mk-footer__col"><h4>リソース</h4><Link href="/blogs">ブログ</Link><Link href="/privacy-policy">プライバシー</Link></div>
           </div>
           <div className="mk-footer__bottom">
             <span>© 2026 PolarisX, Inc.</span>
-            <span style={{ display: "flex", gap: "16px" }}><a href="/privacy-policy" style={{ color: "inherit", textDecoration: "none" }}>プライバシー</a></span>
+            <span style={{ display: "flex", gap: "16px" }}><Link href="/privacy-policy" style={{ color: "inherit", textDecoration: "none" }}>プライバシー</Link></span>
           </div>
         </div>
       </footer>

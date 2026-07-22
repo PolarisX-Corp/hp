@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
+import { COMPANY_BRAND } from "@/lib/company";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "PolarisX株式会社",
     short_name: "PolarisX",
-    description:
-      "AI×データ活用で、意思決定に再現性を。勘と経験に頼ってきた「良い判断」を、誰もが・何度でも再現できる仕組みへ。",
+    description: `${COMPANY_BRAND.catchphrase} ${COMPANY_BRAND.description}`,
     start_url: "/",
     display: "standalone",
     background_color: "#FFFFFF",

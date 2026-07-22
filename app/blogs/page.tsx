@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { spaceGrotesk, notoSansJP, jetbrainsMono } from "../fonts";
 import { getAllPosts, getFeaturedPost } from "@/lib/blog/posts";
+import { COMPANY_BRAND } from "@/lib/company";
 import { BlogHeader, BlogCompany, BlogFooter } from "./components/BlogChrome";
 import { BlogIndexClient } from "./components/BlogIndexClient";
 import { Icon } from "./components/Icon";
 import "./blog.css";
 
 export const metadata: Metadata = {
-  title: "PolarisX Blog — 意思決定とデータ活用の知見",
+  title: "PolarisX Blog — AI活用の実務知見",
   description:
-    "データドリブン経営・BI導入・KPI設計・意思決定の仕組み化に関する実務知見をお届けする PolarisX 公式ブログ。",
+    "AIエージェント・AI社員、社内ナレッジ・RAG、法人AI導入に関する実務知見をお届けするPolarisX公式ブログ。",
 };
 
 export default function BlogIndexPage() {
@@ -34,9 +35,9 @@ export default function BlogIndexPage() {
             <Icon name="sparkles" size={15} />
             PolarisX Blog
           </span>
-          <h1>意思決定とデータ活用の、再現可能な知見を。</h1>
+          <h1>AIを、会社の戦力にする実務知見を。</h1>
           <p>
-            データドリブン経営・BI導入・KPI設計・意思決定の仕組み化。勘と経験に頼らない「良い判断」をつくるための実務ノウハウをお届けします。
+            AIエージェント・AI社員、社内ナレッジ・RAG、法人AI導入。現場でAIを使い続けるための実務ノウハウをお届けします。
           </p>
         </div>
       </section>
@@ -51,9 +52,9 @@ export default function BlogIndexPage() {
               <div className="bl-star" style={{ width: 260, height: 260, top: -60, right: "6%" }} />
               <div className="bl-star" style={{ width: 180, height: 180, bottom: -70, left: "10%", opacity: 0.6 }} />
             </div>
-            <h3>意思決定を、属人化から解放する。</h3>
+            <h3>{COMPANY_BRAND.catchphrase}</h3>
             <p>
-              データドリブン経営・BI活用について、まずは15分の無料相談から。専任担当が貴社の課題に合わせてご案内します。
+              法人向けAIエージェントの開発や社内ナレッジベースの構築について、貴社の課題に合わせてご案内します。
             </p>
             <div className="bl-ctablock__btns">
               <Link className="px-btn px-btn--lg bl-btn-white" href="/#contact">
