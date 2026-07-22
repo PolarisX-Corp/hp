@@ -31,6 +31,11 @@ export function BlogIndexClient({
   const [activeCat, setActiveCat] = useState<string>("all");
   const [query, setQuery] = useState("");
 
+  const visibleCategories = useMemo(() => {
+    const publishedCategoryKeys = new Set(posts.map((post) => post.category.key));
+    return CATEGORIES.filter((category) => publishedCategoryKeys.has(category.key));
+  }, [posts]);
+
   const q = query.trim().toLowerCase();
   const isFiltering = activeCat !== "all" || q.length > 0;
 
@@ -58,7 +63,7 @@ export function BlogIndexClient({
           >
             すべて
           </button>
-          {CATEGORIES.map((c) => (
+          {visibleCategories.map((c) => (
             <button
               key={c.key}
               className={`bl-chip${activeCat === c.key ? " is-active" : ""}`}
