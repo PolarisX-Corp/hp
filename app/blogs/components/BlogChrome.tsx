@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { COMPANY_BRAND, COMPANY_PROFILE } from "@/lib/company";
 import { Icon } from "./Icon";
 
 export function BlogHeader() {
@@ -46,34 +47,36 @@ export function BlogCompany() {
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/assets/PolarisX_mark_white.svg" alt="PolarisX" />
-            <div className="tag">
-              意思決定に、<em>再現性</em>を。
-            </div>
+            <div className="tag">{COMPANY_BRAND.catchphrase}</div>
           </div>
           <div>
             <h2>会社概要</h2>
             <dl className="bl-deflist">
               <dt>会社名</dt>
-              <dd>PolarisX株式会社</dd>
+              <dd>{COMPANY_PROFILE.name}</dd>
               <dt>代表者</dt>
-              <dd>折本 聖也（Seiya Orimoto）／ 代表取締役 CEO</dd>
-              <dt>設立予定日</dt>
-              <dd>2026年6月17日</dd>
+              <dd>{COMPANY_PROFILE.representative}</dd>
+              <dt>設立日</dt>
+              <dd>{COMPANY_PROFILE.establishedOn}</dd>
               <dt>資本金</dt>
-              <dd>1,000,000円</dd>
+              <dd>{COMPANY_PROFILE.capital}</dd>
               <dt>業種</dt>
-              <dd>情報通信業</dd>
+              <dd>{COMPANY_PROFILE.industry}</dd>
               <dt>事業内容</dt>
               <dd>
-                ① AI Readyなデータ基盤の開発
-                <br />② AI駆動型データ分析コンサルティング
-                <br />③ AIエージェント、AIモデルの開発・内製化支援
+                {COMPANY_PROFILE.businesses.map((business, index) => (
+                  <span key={business} style={{ display: "block" }}>
+                    {index + 1}. {business}
+                  </span>
+                ))}
               </dd>
               <dt>本店所在地</dt>
-              <dd>東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C</dd>
+              <dd>{COMPANY_PROFILE.address}</dd>
               <dt>お問い合わせ</dt>
               <dd>
-                <a href="mailto:contact@polarisx.ltd">contact@polarisx.ltd</a>
+                <a href={`mailto:${COMPANY_PROFILE.contactEmail}`}>
+                  {COMPANY_PROFILE.contactEmail}
+                </a>
               </dd>
             </dl>
           </div>
@@ -97,7 +100,7 @@ export function BlogFooter() {
               </span>
             </Link>
             <p className="bl-footer__lead">
-              AI × データで、意思決定に再現性を。北極星のように、組織の判断を導きます。
+              {COMPANY_BRAND.description}
             </p>
           </div>
           <div className="bl-footer__col">

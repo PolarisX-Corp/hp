@@ -1,0 +1,122 @@
+<!-- style: illust (R3 codex gpt-image-2下絵) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --paper:#FFFFFF; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --deep:#000985;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink); position:relative; overflow:hidden; }
+
+  /* --- 下絵（文字なしAIイラスト）を主役に敷く --- */
+  .base { position:absolute; inset:0; width:1600px; height:900px; object-fit:cover; object-position:center 60%; }
+  /* 上部：ヘッダー可読性のためのペーパースクリム（左寄り・右のイラストは残す） */
+  .scrim-top { position:absolute; left:0; top:0; width:1600px; height:250px;
+    background:linear-gradient(180deg, rgba(250,249,245,.97) 0%, rgba(250,249,245,.93) 48%, rgba(250,249,245,0) 100%); }
+  .scrim-top2 { position:absolute; left:0; top:0; width:1060px; height:340px;
+    background:linear-gradient(110deg, rgba(250,249,245,.98) 0%, rgba(250,249,245,.90) 55%, rgba(250,249,245,0) 100%); }
+  .scrim-bot { position:absolute; left:0; bottom:0; width:1600px; height:150px;
+    background:linear-gradient(0deg, rgba(250,249,245,.98) 0%, rgba(250,249,245,.9) 55%, rgba(250,249,245,0) 100%); }
+
+  /* --- ヘッダー --- */
+  .header { position:absolute; left:60px; top:38px; width:1120px; z-index:5; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:41px; font-weight:700; letter-spacing:.01em; margin-top:9px; line-height:1.16; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .sub { font-size:21px; color:var(--muted); margin-top:11px; line-height:1.5; max-width:830px; }
+  .drule { margin-top:14px; width:250px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  /* --- 引き出し線（SVG） --- */
+  .leads { position:absolute; inset:0; width:1600px; height:900px; z-index:6; pointer-events:none; }
+
+  /* --- 呼び出しラベル（ペーパー基調のピル） --- */
+  .lab { position:absolute; z-index:7; background:rgba(255,254,251,.96); border:1px solid var(--border);
+         border-left:4px solid var(--accent); border-radius:5px; padding:14px 20px 15px;
+         box-shadow:0 6px 20px rgba(20,30,60,.10); }
+  .lab .role { font-family:var(--serif); font-size:25px; font-weight:700; color:var(--accent-d); letter-spacing:.14em; }
+  .lab .role .eq { color:var(--faint); font-weight:600; margin:0 4px 0 8px; }
+  .lab .term { font-family:var(--serif); font-size:26px; font-weight:700; color:var(--ink); }
+  .lab .desc { font-family:var(--sans); font-size:19px; color:var(--body); margin-top:6px; line-height:1.45; }
+
+  #labBrain { left:44px; top:470px; width:360px; }
+  #labMem   { left:1160px; top:388px; width:396px; }
+  #labHand  { left:1150px; top:636px; width:406px; }
+
+  /* 中央：AI社員 バッジ（主役の上に直接） */
+  .badge { position:absolute; z-index:7; left:598px; top:452px;
+           background:var(--accent); color:#fff; font-family:var(--sans); font-weight:800;
+           font-size:26px; letter-spacing:.16em; padding:12px 34px; border-radius:6px;
+           box-shadow:0 8px 22px rgba(20,40,120,.28); }
+  .badge::after { content:""; position:absolute; left:50%; bottom:-9px; transform:translateX(-50%) rotate(45deg);
+                  width:16px; height:16px; background:var(--accent); }
+
+  /* 下部キャプション（注記） */
+  .note { position:absolute; z-index:7; left:60px; bottom:96px; width:720px;
+          font-family:var(--serif); font-size:22px; color:var(--body); padding-left:18px;
+          border-left:4px solid var(--accent); line-height:1.5; }
+  .note b { color:var(--accent-d); font-weight:700; }
+
+  /* brandbar */
+  .brandbar { position:absolute; z-index:7; left:60px; right:60px; bottom:26px;
+              padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <img class="base" src="fig1-base.png" alt="">
+  <div class="scrim-top"></div>
+  <div class="scrim-top2"></div>
+  <div class="scrim-bot"></div>
+
+  <div class="header">
+    <div class="title">AI社員の仕組み ―― <span class="em">頭脳・記憶・手足</span>の3要素</div>
+    <div class="sub">3つが揃うと「賢いが自社を知らない相談相手」から「自社を理解して手を動かす働き手」へ変わる</div>
+    <div class="drule"></div>
+  </div>
+
+  <!-- 引き出し線：ラベル → 下絵の各要素 -->
+  <svg class="leads" viewBox="0 0 1600 900">
+    <g fill="#366EFF" stroke="#366EFF">
+      <!-- 頭脳 → 脳 -->
+      <line x1="224" y1="470" x2="280" y2="356" stroke-width="2.5"/>
+      <circle cx="280" cy="356" r="6"/>
+      <!-- 記憶 → 書庫/DB -->
+      <line x1="1360" y1="388" x2="1352" y2="330" stroke-width="2.5"/>
+      <circle cx="1352" cy="330" r="6"/>
+      <!-- 手足 → ロボットアーム/工具 -->
+      <line x1="1352" y1="636" x2="1352" y2="598" stroke-width="2.5"/>
+      <circle cx="1352" cy="598" r="6"/>
+    </g>
+  </svg>
+
+  <div class="lab" id="labBrain">
+    <div class="role">頭脳<span class="eq">＝</span></div>
+    <div class="term">大規模言語モデル（LLM）</div>
+    <div class="desc">理解・要約・生成と「次に何をすべきか」の判断</div>
+  </div>
+  <div class="lab" id="labMem">
+    <div class="role">記憶<span class="eq">＝</span></div>
+    <div class="term">社内ナレッジベース・RAG</div>
+    <div class="desc">自社の資料を根拠に“自社を知っている状態”で答える</div>
+  </div>
+  <div class="lab" id="labHand">
+    <div class="role">手足<span class="eq">＝</span></div>
+    <div class="term">ツール連携・MCP</div>
+    <div class="desc">業務ツールへ安全につなぎ、実作業まで実行する</div>
+  </div>
+
+  <div class="badge">AI社員</div>
+
+  <div class="note">頭脳だけを入れても、<b>記憶（自社データ）</b>と<b>手足（業務ツール）</b>がなければ、AI社員にはならない。</div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

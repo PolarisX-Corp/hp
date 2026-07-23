@@ -1,0 +1,87 @@
+<!-- style: paper -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF;
+    --neutral:#F1EFE8;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:40px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:43px; font-weight:700; margin-top:8px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .drule { margin-top:12px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .stage { flex:1; display:flex; flex-direction:column; margin-top:14px; gap:0; }
+  .row { display:flex; align-items:center; gap:0; }
+  .qcol { width:640px; display:flex; flex-direction:column; align-items:center; }
+  .q { width:100%; background:var(--card); border:1.5px solid var(--rule); border-radius:6px;
+       padding:18px 22px; font-family:var(--serif); font-size:25px; font-weight:700; text-align:center; }
+  .q small { display:block; font-family:var(--sans); font-size:16px; font-weight:600; color:var(--muted); margin-top:2px; }
+  .vlink { display:flex; flex-direction:column; align-items:center; height:66px; justify-content:center; }
+  .vlink .lb { font-size:16px; font-weight:800; color:var(--accent-d); background:var(--bg); padding:0 6px; z-index:1; }
+  .vlink::before { content:''; position:absolute; }
+  .vwire { width:2.5px; background:#C9C4B2; height:66px; margin-top:-66px; }
+  .hlink { flex:1; display:flex; align-items:center; position:relative; height:2.5px; background:#C9C4B2; margin:0 0; }
+  .hlink .lb { position:absolute; left:50%; top:-26px; transform:translateX(-50%);
+               font-size:15px; font-weight:800; color:var(--muted); background:var(--bg); padding:0 6px; white-space:nowrap; }
+  .hlink::after { content:''; position:absolute; right:-1px; top:-5px; border:6px solid transparent; border-left-color:#C9C4B2; }
+  .res { width:430px; background:var(--card); border:1px solid var(--border); border-left:5px solid var(--faint);
+         border-radius:4px; padding:14px 18px; }
+  .res .nm { font-size:21px; font-weight:800; }
+  .res .ds { font-size:16.5px; color:var(--muted); margin-top:2px; line-height:1.45; }
+  .res.hot { border:2px solid var(--accent); border-left-width:5px; background:var(--accent-bg); }
+  .res.hot .nm { color:var(--accent-d); }
+  .resstack { width:430px; display:flex; flex-direction:column; gap:8px; }
+  .resstack .res { width:100%; }
+  .rlabel { font-size:15px; font-weight:800; color:var(--muted); margin-bottom:-2px; }
+
+  .common { margin-top:auto; background:var(--rule); color:#fff; border-radius:6px;
+            font-size:19px; font-weight:700; padding:14px 22px; text-align:center; }
+  .common b { color:#AFC6FF; }
+
+  .brandbar { flex-shrink:0; margin-top:14px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">フェーズを決めてから、<span class="em">発注先タイプ</span>に落とす</div>
+  <div class="drule"></div>
+
+  <div class="stage">
+    <div class="row">
+      <div class="qcol"><div class="q">Q1. 課題は明確か？</div></div>
+      <div class="hlink"><span class="lb">いいえ＝整理から</span></div>
+      <div class="res"><div class="nm">① AI戦略コンサル型</div><div class="ds">何にAIを使うかの整理・PoC企画から相談</div></div>
+    </div>
+    <div class="row"><div class="qcol"><div class="vlink"><span class="lb">はい</span></div><div class="vwire"></div></div></div>
+    <div class="row">
+      <div class="qcol"><div class="q">Q2. ゼロから作る必要があるか？<small>既製のSaaS・AI社員では足りないか</small></div></div>
+      <div class="hlink"><span class="lb">いいえ＝既製を運用に載せる</span></div>
+      <div class="res hot"><div class="nm">③ 生成AI・SaaS型（運用伴走）</div><div class="ds">業務・ナレッジに載せて定着と改善まで。軽く試すなら既製ツールの試験導入から</div></div>
+    </div>
+    <div class="row"><div class="qcol"><div class="vlink"><span class="lb">はい</span></div><div class="vwire"></div></div></div>
+    <div class="row">
+      <div class="qcol"><div class="q">Q3. 大規模・基幹システム連携か？</div></div>
+      <div class="hlink"><span class="lb">はい／いいえ</span></div>
+      <div class="resstack">
+        <div class="res"><div class="nm">④ 大手SIer型</div><div class="ds">はい＝全社展開・基幹連携を一括体制で</div></div>
+        <div class="res"><div class="nm">② 受託・スクラッチ開発型</div><div class="ds">いいえ＝まずPoC（100万〜500万円・1〜3か月）で検証</div></div>
+      </div>
+    </div>
+    <div class="common">共通条件：運用・改善を自社で回せないなら、どの経路でも<b>「運用伴走」を契約に含める</b></div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

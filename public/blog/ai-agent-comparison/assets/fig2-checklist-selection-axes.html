@@ -1,0 +1,122 @@
+<!-- style: flat (light) + R2 pictogram -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --deep:#000985;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); color:var(--ink); background:
+      radial-gradient(1100px 620px at 92% -12%, var(--accent-bg) 0%, rgba(234,240,255,0) 58%),
+      var(--bg);
+    padding:44px 60px 24px; display:flex; flex-direction:column;
+  }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.30em; color:var(--accent-d); }
+  .title { font-size:46px; font-weight:800; letter-spacing:-.01em; margin-top:10px; line-height:1.24; color:var(--ink); }
+  .title .em { color:var(--accent); }
+  .sub { font-size:22px; color:var(--muted); margin-top:12px; line-height:1.5; }
+  .drule { margin-top:16px; height:3px; border-radius:3px;
+           background:linear-gradient(90deg,var(--accent) 0%,var(--accent-bd) 52%,transparent 100%); }
+
+  .grid { flex:1; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:1fr 1fr;
+          gap:22px; margin-top:22px; }
+  .card { border-radius:16px; padding:22px 24px 20px; background:var(--card);
+          border:1px solid var(--border); display:flex; flex-direction:column;
+          box-shadow:0 8px 22px rgba(0,9,133,.05); position:relative; }
+  .top { display:flex; align-items:center; gap:14px; }
+  .chk { width:38px; height:38px; flex-shrink:0; border-radius:9px; border:2px solid var(--accent);
+         background:var(--accent-bg); position:relative; }
+  .chk::after { content:''; position:absolute; left:13px; top:6px; width:9px; height:17px;
+                border:solid var(--accent); border-width:0 4px 4px 0; transform:rotate(45deg); }
+  .num { font-size:16px; font-weight:800; color:var(--faint); letter-spacing:.14em; margin-left:auto; }
+  .icowrap { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+             background:var(--accent-bg); border:1px solid var(--accent-bd); }
+  .icowrap svg { width:24px; height:24px; }
+  .axis { font-size:26px; font-weight:800; margin-top:16px; letter-spacing:.005em; color:var(--ink); }
+  .q { font-size:19.5px; line-height:1.5; color:var(--body); margin-top:9px; flex:1; }
+  .q .k { color:var(--accent-d); font-weight:700; }
+
+  .card.key { background:linear-gradient(180deg,var(--accent-bg),#FFFFFF 70%);
+              border:2px solid var(--accent); box-shadow:0 12px 30px rgba(54,110,255,.14); }
+  .flag { position:absolute; top:-13px; left:22px; font-size:14px; font-weight:800; letter-spacing:.03em;
+          color:#fff; background:var(--accent); border-radius:999px; padding:5px 15px;
+          box-shadow:0 6px 16px rgba(54,110,255,.32); }
+
+  .brandbar { flex-shrink:0; margin-top:20px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">機能の◯×より先に、<span class="em">6つの軸</span>で問いを立てる</div>
+  <div class="sub">「製品Aは◎」ではなく「このタイプはこの軸にどう効くか」で見ると、新しいサービスも同じ物差しで測れる</div>
+  <div class="drule"></div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="top">
+        <div class="icowrap"><svg viewBox="0 0 32 32" fill="none" stroke="#366EFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="5"/><circle cx="16" cy="16" r="1" fill="#366EFF" stroke="none"/></svg></div>
+        <span class="num">AXIS 01</span>
+      </div>
+      <div class="axis">用途適合</div>
+      <div class="q">自社の業務は、<span class="k">4タイプのどれ</span>に当たるか。まずそこを合わせる。</div>
+    </div>
+
+    <div class="card key">
+      <div class="flag">回答精度を最も左右</div>
+      <div class="top">
+        <div class="icowrap"><svg viewBox="0 0 32 32" fill="none" stroke="#1841B8" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="8" rx="10" ry="4"/><path d="M6 8 v8 c0 2.2 4.5 4 10 4 s10 -1.8 10 -4 V8"/><path d="M6 16 v8 c0 2.2 4.5 4 10 4 s10 -1.8 10 -4 v-8"/></svg></div>
+        <span class="num">AXIS 02</span>
+      </div>
+      <div class="axis">自社データの持ち込み</div>
+      <div class="q">社内ナレッジ／<span class="k">RAG</span>を参照させられるか。比較表の機能欄に出にくい軸。</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="icowrap"><svg viewBox="0 0 32 32" fill="none" stroke="#366EFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="16" r="3.5"/><circle cx="24" cy="8" r="3.5"/><circle cx="24" cy="24" r="3.5"/><line x1="11" y1="14.5" x2="21" y2="9.5"/><line x1="11" y1="17.5" x2="21" y2="22.5"/></svg></div>
+        <span class="num">AXIS 03</span>
+      </div>
+      <div class="axis">外部ツール連携</div>
+      <div class="q">既存ツールと<span class="k">API・MCP</span>でつながるか。業務に組み込めるかを分ける。</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="icowrap"><svg viewBox="0 0 32 32" fill="none" stroke="#366EFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4 l10 3.5 v7 c0 6.5 -5 10.5 -10 13 c-5 -2.5 -10 -6.5 -10 -13 v-7 z"/><polyline points="11.5,16 15,19.5 21,12.5"/></svg></div>
+        <span class="num">AXIS 04</span>
+      </div>
+      <div class="axis">セキュリティ</div>
+      <div class="q"><span class="k">国内処理・学習不使用・ログ保管</span>の3点を、ベンダーに直接確認できるか。</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="icowrap"><svg viewBox="0 0 32 32" fill="none" stroke="#366EFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="20" width="5" height="7" rx="1"/><rect x="13.5" y="14" width="5" height="13" rx="1"/><rect x="22" y="7" width="5" height="20" rx="1"/></svg></div>
+        <span class="num">AXIS 05</span>
+      </div>
+      <div class="axis">料金体系</div>
+      <div class="q"><span class="k">初期・固定・従量</span>の3層で総額を足したか。従量は後から効く。</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="icowrap"><svg viewBox="0 0 32 32" fill="none" stroke="#366EFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="11" r="4.5"/><path d="M5 27 v-2 a8 8 0 0 1 16 0 v2"/><path d="M22 9 a6 6 0 0 1 0 11"/><path d="M24 6 a10 10 0 0 1 0 17"/></svg></div>
+        <span class="num">AXIS 06</span>
+      </div>
+      <div class="axis">運用・サポート</div>
+      <div class="q">定着まで<span class="k">伴走・改善</span>できる体制があるか。導入後の「使われる」を決める。</div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

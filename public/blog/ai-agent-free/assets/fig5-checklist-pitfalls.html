@@ -1,0 +1,77 @@
+<!-- style: sketch + R3 hand-drawn illustration (fig5-base.png / codex gpt-image-2, text-less clipboard) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FBFBF8; --ink:#1F2836; --body:#3A4152; --muted:#727A8C;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#E9F0FF;
+    --red:#E0405E; --red-d:#B02840; --red-bg:#FCEDED;
+    --line:#C7CCD8;
+    --hand:"Klee","ヒラギノ丸ゴ ProN","Hiragino Maru Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;
+    --marker:"Chalkboard SE","Bradley Hand","Marker Felt","Klee","ヒラギノ丸ゴ ProN",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1600px;height:900px;}
+  body{
+    font-family:var(--hand); color:var(--ink);
+    background-color:var(--bg);
+    background-image:radial-gradient(circle, rgba(70,86,120,.09) 1.5px, transparent 1.6px);
+    background-size:32px 32px;
+    padding:44px 58px 26px; display:flex; flex-direction:column;
+  }
+  .eyebrow{font-family:var(--marker); font-size:20px; font-weight:700; letter-spacing:.05em; color:var(--accent-d); transform:rotate(-.6deg);}
+  .title{font-size:45px; font-weight:800; letter-spacing:.01em; margin-top:8px; line-height:1.2;}
+  .title .em{ color:var(--red-d); background:linear-gradient(180deg,transparent 58%, rgba(224,64,94,.22) 58%, rgba(224,64,94,.22) 92%, transparent 92%); padding:0 .05em; }
+  .sub{font-size:20px; color:var(--muted); margin-top:10px; line-height:1.5; font-weight:500;}
+  .hr{margin-top:13px; height:0; border-top:3px dashed var(--line);}
+
+  .stage{flex:1; display:grid; grid-template-columns:300px 1fr; gap:36px; align-items:center; margin-top:16px;}
+  .hero{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .hero img{ width:280px; mix-blend-mode:multiply; transform:rotate(-1.6deg); }
+  .hero .cap{ font-family:var(--marker); font-size:19px; font-weight:700; color:var(--body); text-align:center; line-height:1.35; transform:rotate(-.6deg); }
+
+  .grid{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr 1fr; gap:15px; }
+  .card{ background:#FFFFFF; border:2.6px solid var(--ink); border-radius:15px 10px 17px 9px/9px 16px 10px 17px;
+         box-shadow:3px 4px 0 rgba(31,40,54,.06); padding:14px 18px; display:flex; gap:14px; align-items:center; }
+  .card:nth-child(odd){ transform:rotate(-.4deg); }
+  .card:nth-child(even){ transform:rotate(.4deg); }
+  .card.warn{ background:var(--red-bg); border-color:var(--red); }
+  .box{ flex-shrink:0; width:36px; height:36px; border:2.8px solid var(--ink); border-radius:8px 5px 9px 5px/5px 8px 5px 9px; position:relative; background:#fff; }
+  .box::after{ content:""; position:absolute; left:8px; top:3px; width:13px; height:22px; border:solid var(--red); border-width:0 4.5px 4.5px 0; transform:rotate(42deg); }
+  .card.warn .box{ border-color:var(--red); }
+  .txt{ flex:1; }
+  .num{ font-family:var(--marker); font-size:15px; font-weight:700; color:var(--muted); }
+  .card.warn .num{ color:var(--red-d); }
+  .lbl{ font-size:20.5px; font-weight:700; color:var(--ink); line-height:1.3; margin-top:2px; }
+  .card.warn .lbl{ color:var(--red-d); }
+  .tagx{ display:inline-block; font-family:var(--marker); font-size:13px; font-weight:700; color:#fff; background:var(--red); border-radius:6px 4px 7px 4px/4px 6px 4px 7px; padding:1px 9px; margin-left:8px; vertical-align:middle; }
+
+  .brandbar{flex-shrink:0; margin-top:14px; padding-top:13px; border-top:2px dashed var(--line); display:flex; align-items:center; justify-content:space-between;}
+  .brandbar .tag{font-size:21px; color:var(--muted); font-weight:700; letter-spacing:.02em;}
+  .brandbar .logo{height:36px; width:auto; opacity:.95;}
+</style></head>
+<body>
+  <div class="title">無料で回すと必ず当たる、<span class="em">6つの落とし穴</span></div>
+  <div class="sub">私たちが自社運用（サブスク枠）で繰り返しぶつかった限界。恒常運用に乗せた瞬間に顔を出す</div>
+  <div class="hr"></div>
+
+  <div class="stage">
+    <div class="hero">
+      <img src="fig5-base.png" alt="">
+      <div class="cap">試運転では気づかない。<br>本番で毎日回すと現れる</div>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="box"></div><div class="txt"><div class="num">CHECK 01</div><div class="lbl">回数・メッセージ上限で業務が止まる</div></div></div>
+      <div class="card"><div class="box"></div><div class="txt"><div class="num">CHECK 02</div><div class="lbl">無料プランは学習オフにできない場合がある</div></div></div>
+      <div class="card warn"><div class="box"></div><div class="txt"><div class="num">CHECK 03</div><div class="lbl">機密情報の入力ルールが未整備<span class="tagx">シャドーAI</span></div></div></div>
+      <div class="card"><div class="box"></div><div class="txt"><div class="num">CHECK 04</div><div class="lbl">無料が予告なく有料化・終了しうる</div></div></div>
+      <div class="card"><div class="box"></div><div class="txt"><div class="num">CHECK 05</div><div class="lbl">一世代前のモデルで精度が頭打ち</div></div></div>
+      <div class="card"><div class="box"></div><div class="txt"><div class="num">CHECK 06</div><div class="lbl">チーム・権限管理／監査ログが無い</div></div></div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <span class="tag">AIを会社のOSにする。</span>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

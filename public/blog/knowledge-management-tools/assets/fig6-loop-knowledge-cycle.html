@@ -1,0 +1,101 @@
+<!-- style: paper + R2 pictogram (knowledge cycle loop with 3 break points) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --accent-bd:#ADC3FF;
+    --bad:#E0405E; --bad-bg:#FBECEC;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:42px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:43px; font-weight:700; letter-spacing:.01em; margin-top:8px; }
+  .title .em { color:var(--bad); border-bottom:4px solid var(--bad); padding-bottom:2px; }
+  .drule { margin-top:14px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .stage { flex:1; display:grid; grid-template-columns:640px 1fr; gap:40px; margin-top:8px; align-items:center; }
+  .loop { position:relative; width:640px; height:620px; }
+  .loop svg.ring { position:absolute; inset:0; width:100%; height:100%; }
+
+  .node { position:absolute; transform:translate(-50%,-50%); width:210px; background:var(--card);
+          border:1.5px solid var(--rule); border-radius:4px; padding:12px 14px 11px; text-align:center;
+          box-shadow:3px 3px 0 rgba(27,34,51,.08); }
+  .node .n { font-family:var(--serif); font-size:23px; font-weight:700; }
+  .node .d { font-size:14.5px; color:var(--muted); font-weight:600; margin-top:2px; line-height:1.35; }
+
+  .break { position:absolute; transform:translate(-50%,-50%); width:44px; height:44px; border-radius:50%;
+           background:var(--bad); color:#fff; display:flex; align-items:center; justify-content:center;
+           font-size:23px; font-weight:800; border:3px solid #FFFFFF; box-shadow:0 3px 10px rgba(224,64,94,.4); }
+
+  .list { display:flex; flex-direction:column; gap:14px; }
+  .cap { font-size:18px; font-weight:800; color:var(--muted); letter-spacing:.06em; }
+  .item { background:var(--bad-bg); border:1px solid #F2C7CE; border-left:5px solid var(--bad);
+          border-radius:4px; padding:13px 18px; display:flex; gap:14px; align-items:flex-start; }
+  .item .no { flex-shrink:0; width:34px; height:34px; border-radius:50%; background:var(--bad); color:#fff;
+              display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; }
+  .item .b { font-size:17.5px; line-height:1.5; color:var(--body); font-weight:600; }
+  .item .b b { display:block; font-size:19.5px; color:var(--ink); }
+  .ok { background:var(--accent-bg); border:1px solid var(--accent-bd); border-left:5px solid var(--accent);
+        border-radius:4px; padding:13px 18px; font-size:17.5px; font-weight:600; color:var(--body); line-height:1.5; }
+  .ok b { color:var(--accent-d); }
+
+  .brandbar { flex-shrink:0; margin-top:12px; padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:21px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">ナレッジの循環が<span class="em">3つの断点</span>で止まると、形骸化する</div>
+  <div class="drule"></div>
+
+  <div class="stage">
+    <div class="loop">
+      <svg class="ring" viewBox="0 0 640 620">
+        <defs>
+          <marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto">
+            <path d="M0,0 L8,4.5 L0,9 z" fill="#366EFF"/>
+          </marker>
+        </defs>
+        <!-- circular arcs between nodes (clockwise): top(320,90) right(545,310) bottom(320,530) left(95,310) -->
+        <g fill="none" stroke="#366EFF" stroke-width="5" marker-end="url(#ah)">
+          <path d="M 415 122 A 225 220 0 0 1 528 232"/>
+          <path d="M 528 388 A 225 220 0 0 1 415 498"/>
+          <path d="M 225 498 A 225 220 0 0 1 112 388"/>
+          <path d="M 112 232 A 225 220 0 0 1 225 122"/>
+        </g>
+        <circle cx="320" cy="310" r="86" fill="#EDF2FF" stroke="#ADC3FF" stroke-width="1.5"/>
+      </svg>
+      <div style="position:absolute; left:320px; top:310px; transform:translate(-50%,-50%); text-align:center;">
+        <div style="font-family:var(--serif); font-size:24px; font-weight:700; color:var(--accent-d); line-height:1.3;">回れば<br>定着</div>
+      </div>
+
+      <div class="node" style="left:320px; top:88px;"><div class="n">貯める</div><div class="d">現場が書く・記録が残る</div></div>
+      <div class="node" style="left:545px; top:310px;"><div class="n">整える</div><div class="d">構造化・更新<br>（AIが読める形に）</div></div>
+      <div class="node" style="left:320px; top:532px;"><div class="n">引く（人・AI）</div><div class="d">検索する／AIが答える</div></div>
+      <div class="node" style="left:95px; top:310px;"><div class="n">使って直す</div><div class="d">古い記述に気づき書き戻す</div></div>
+
+      <div class="break" style="left:497px; top:172px;">1</div>
+      <div class="break" style="left:497px; top:452px;">2</div>
+      <div class="break" style="left:143px; top:452px;">3</div>
+    </div>
+
+    <div class="list">
+      <div class="cap">循環を断つ3つの断点（比較表には載らない）</div>
+      <div class="item"><div class="no">1</div><div class="b"><b>更新の担い手がいない</b>書く人・直す人を決めないと、古い記述が残り続けて信頼を失う</div></div>
+      <div class="item"><div class="no">2</div><div class="b"><b>AIが読めない形で貯まる</b>画像PDF・スクショ・チャット散在は、RAGをつないでも引けない</div></div>
+      <div class="item"><div class="no">3</div><div class="b"><b>検索性が低く「エースに聞く」に戻る</b>見つからない体験が続くと開かれず、新しいノウハウも貯まらなくなる</div></div>
+      <div class="ok"><b>判定のサイン:</b> 検索窓に同じ質問が繰り返し打たれる／結局エースに口頭で聞いている——なら、引ける形になっていない。</div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

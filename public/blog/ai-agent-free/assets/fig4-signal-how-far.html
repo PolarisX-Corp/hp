@@ -1,0 +1,95 @@
+<!-- style: sketch + R3 hand-drawn illustration (fig4-base.png / codex gpt-image-2, text-less) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FBFBF8; --ink:#1F2836; --body:#3A4152; --muted:#727A8C;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#E9F0FF;
+    --amber:#C8891A; --amber-d:#8A5E10; --amber-bg:#FBF3E1;
+    --red:#E0405E; --red-d:#B02840; --red-bg:#FCEDED;
+    --line:#C7CCD8;
+    --hand:"Klee","ヒラギノ丸ゴ ProN","Hiragino Maru Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;
+    --marker:"Chalkboard SE","Bradley Hand","Marker Felt","Klee","ヒラギノ丸ゴ ProN",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1600px;height:900px;}
+  body{
+    font-family:var(--hand); color:var(--ink);
+    background-color:var(--bg);
+    background-image:radial-gradient(circle, rgba(70,86,120,.09) 1.5px, transparent 1.6px);
+    background-size:32px 32px;
+    padding:44px 58px 26px; display:flex; flex-direction:column;
+  }
+  .eyebrow{font-family:var(--marker); font-size:20px; font-weight:700; letter-spacing:.05em; color:var(--accent-d); transform:rotate(-.6deg);}
+  .title{font-size:45px; font-weight:800; letter-spacing:.01em; margin-top:8px; line-height:1.2;}
+  .title .em{ color:var(--accent-d); background:linear-gradient(180deg,transparent 58%, rgba(54,110,255,.24) 58%, rgba(54,110,255,.24) 92%, transparent 92%); padding:0 .05em; }
+  .sub{font-size:20px; color:var(--muted); margin-top:10px; line-height:1.5; font-weight:500;}
+  .hr{margin-top:13px; height:0; border-top:3px dashed var(--line);}
+
+  .stage{flex:1; display:grid; grid-template-columns:360px 1fr; gap:44px; align-items:center; margin-top:18px;}
+  .light{ display:flex; align-items:center; justify-content:center; }
+  .light img{ width:320px; mix-blend-mode:multiply; transform:rotate(-1.2deg); }
+
+  .bands{ display:flex; flex-direction:column; gap:16px; }
+  .band{ background:#FFFFFF; border:2.6px solid var(--ink); border-radius:16px 11px 18px 10px/10px 17px 11px 18px;
+         box-shadow:3px 4px 0 rgba(31,40,54,.06); padding:16px 24px 16px 22px; display:flex; gap:18px; align-items:flex-start; position:relative; }
+  .band.b1{ border-left:9px solid var(--accent); transform:rotate(-.4deg); }
+  .band.b2{ border-left:9px solid var(--amber); transform:rotate(.35deg); }
+  .band.b3{ border-left:9px solid var(--red);   transform:rotate(-.3deg); }
+  .dot{ flex-shrink:0; width:34px; height:34px; border-radius:50%; margin-top:4px; border:2.4px solid var(--ink); }
+  .b1 .dot{ background:var(--accent); }
+  .b2 .dot{ background:var(--amber); }
+  .b3 .dot{ background:var(--red); }
+  .bt{ flex:1; }
+  .chip{ display:inline-block; font-family:var(--marker); font-size:16px; font-weight:700; color:#fff; border-radius:8px 6px 9px 5px/5px 8px 6px 9px; padding:3px 12px; letter-spacing:.03em; }
+  .b1 .chip{ background:var(--accent); }
+  .b2 .chip{ background:var(--amber); }
+  .b3 .chip{ background:var(--red); }
+  .bh{ font-size:27px; font-weight:800; margin-top:7px; line-height:1.25; }
+  .b1 .bh{ color:var(--accent-d); } .b2 .bh{ color:var(--amber-d); } .b3 .bh{ color:var(--red-d); }
+  .bd{ font-size:18.5px; color:var(--body); margin-top:6px; line-height:1.5; font-weight:500; }
+
+  .brandbar{flex-shrink:0; margin-top:14px; padding-top:13px; border-top:2px dashed var(--line); display:flex; align-items:center; justify-content:space-between;}
+  .brandbar .tag{font-size:21px; color:var(--muted); font-weight:700; letter-spacing:.02em;}
+  .brandbar .logo{height:36px; width:auto; opacity:.95;}
+</style></head>
+<body>
+  <div class="title">無料で足りる？<span class="em">条件つき？</span>それとも有料・自作へ？</div>
+  <div class="sub">「入れれば無料でずっと回る」は誤解。青→黄→赤の信号で"次の一歩"を判定する</div>
+  <div class="hr"></div>
+
+  <div class="stage">
+    <div class="light"><img src="fig4-base.png" alt=""></div>
+    <div class="bands">
+      <div class="band b1">
+        <div class="dot"></div>
+        <div class="bt">
+          <span class="chip">青信号｜無料で足りる</span>
+          <div class="bh">今はまだ有料化を急がない</div>
+          <div class="bd">PoC（試し導入）段階・単発や少量の業務・使うのは少人数・機密情報を扱わない。どれかに当てはまるうちは、無料で相性を見極める。</div>
+        </div>
+      </div>
+      <div class="band b2">
+        <div class="dot"></div>
+        <div class="bt">
+          <span class="chip">黄信号｜条件つき</span>
+          <div class="bh">折れる条件を先に言語化する</div>
+          <div class="bd">回数がやや足りなくなってきた・精度に不満が出はじめた・連携を増やしたい。有料化のタイミングを見積もる先行指標。</div>
+        </div>
+      </div>
+      <div class="band b3">
+        <div class="dot"></div>
+        <div class="bt">
+          <span class="chip">赤信号｜有料・自作へ</span>
+          <div class="bh">迷わず次の一歩へ折れる</div>
+          <div class="bd">回数上限に頻繁に到達・高性能／高速処理が要る・他部署へ展開したい・機密情報や法令要件が絡む。複数が同時に立ったら合図。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <span class="tag">AIを会社のOSにする。</span>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

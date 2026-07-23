@@ -1,0 +1,116 @@
+<!-- style: paper + R2 SVG radar -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --paper:#FFFFFF; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --deep:#000985;
+    --neutral:#F1EFE8; --bad:#E0405E;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:44px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:46px; font-weight:700; margin-top:10px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .sub { font-size:22px; color:var(--muted); margin-top:12px; line-height:1.5; }
+  .drule { margin-top:16px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .wrap { flex:1; display:grid; grid-template-columns:1fr 430px; gap:28px; margin-top:8px; align-items:center; min-height:0; }
+  .radar { width:100%; height:540px; display:block; }
+
+  .side { display:flex; flex-direction:column; gap:16px; }
+  .leg { background:var(--card); border:1px solid var(--border); border-radius:5px; padding:16px 20px; }
+  .leg .row { display:flex; align-items:center; gap:12px; font-size:20px; font-weight:700; }
+  .leg .row + .row { margin-top:10px; }
+  .leg .sw { width:38px; height:14px; border-radius:3px; flex-shrink:0; }
+  .leg .sw.a { background:rgba(54,110,255,.55); border:2.5px solid var(--accent); }
+  .leg .sw.b { background:rgba(107,115,136,.14); border:2.5px dashed var(--muted); }
+  .axcard { background:#F5F8FF; border:1px solid var(--accent); border-top:3px solid var(--accent);
+            border-radius:5px; padding:16px 20px; }
+  .axcard .h { font-family:var(--serif); font-size:23px; font-weight:700; color:var(--accent-d); }
+  .axcard .b { font-size:18.5px; color:var(--body); line-height:1.6; margin-top:8px; }
+  .qcard { background:var(--card); border:1px solid var(--border); border-radius:5px; padding:14px 20px; }
+  .qcard .b { font-size:18px; color:var(--body); line-height:1.6; }
+  .qcard .b b { color:var(--bad); }
+
+  .brandbar { flex-shrink:0; margin-top:14px; padding-top:14px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:38px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">評価軸は5つ — 最上位は「<span class="em">内製化支援</span>」</div>
+  <div class="sub">丸投げ前提の会社と内製化支援型の会社は、「内製化支援」の軸でいちばん差が出る</div>
+  <div class="drule"></div>
+
+  <div class="wrap">
+    <svg class="radar" viewBox="0 0 900 610">
+      <!-- グリッド（3リング） -->
+      <g stroke="#E4E1D6" fill="none" stroke-width="1.6">
+        <polygon points="450,70 678,231 591,499 309,499 222,231"/>
+        <polygon points="450,146 602,254 544,432 356,432 298,254"/>
+        <polygon points="450,223 526,277 497,366 403,366 374,277"/>
+        <line x1="450" y1="305" x2="450" y2="70"/>
+        <line x1="450" y1="305" x2="678" y2="231"/>
+        <line x1="450" y1="305" x2="591" y2="499"/>
+        <line x1="450" y1="305" x2="309" y2="499"/>
+        <line x1="450" y1="305" x2="222" y2="231"/>
+      </g>
+      <!-- 丸投げ前提（グレー破線） -->
+      <polygon points="450,257 575,264 506,383 351,441 336,268"
+               fill="rgba(107,115,136,.14)" stroke="#6B7388" stroke-width="3" stroke-dasharray="9 7"/>
+      <!-- 内製化支援型（青） -->
+      <polygon points="450,77 644,242 563,460 337,460 256,242"
+               fill="rgba(54,110,255,.28)" stroke="#366EFF" stroke-width="4" stroke-linejoin="round"/>
+      <circle cx="450" cy="77" r="8" fill="#366EFF"/>
+      <circle cx="450" cy="257" r="7" fill="#6B7388"/>
+      <!-- 軸ラベル -->
+      <g font-family="Hiragino Mincho ProN,serif" font-weight="700" fill="#00063D" text-anchor="middle">
+        <text x="450" y="44" font-size="27" fill="#1841B8">内製化支援</text>
+        <text x="723" y="212" font-size="24">伴走体制</text>
+        <text x="626" y="541" font-size="24">成果の定義</text>
+        <text x="272" y="541" font-size="24">セキュリティ</text>
+        <text x="172" y="212" font-size="24">文脈理解</text>
+      </g>
+      <!-- 最重視バッジ -->
+      <g>
+        <rect x="560" y="18" width="96" height="36" rx="4" fill="#366EFF"/>
+        <text x="608" y="43" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle"
+              font-family="-apple-system,Hiragino Kaku Gothic ProN,sans-serif">最重視</text>
+      </g>
+      <!-- 差が出る注記 -->
+      <g>
+        <line x1="450" y1="90" x2="450" y2="244" stroke="#E0405E" stroke-width="3"/>
+        <path d="M444 100 L450 90 L456 100 Z" fill="#E0405E"/>
+        <path d="M444 234 L450 244 L456 234 Z" fill="#E0405E"/>
+        <rect x="462" y="140" width="188" height="40" rx="4" fill="#FBECEC"/>
+        <text x="556" y="167" font-size="20" font-weight="800" fill="#E0405E" text-anchor="middle"
+              font-family="-apple-system,Hiragino Kaku Gothic ProN,sans-serif">ここで差が出る</text>
+      </g>
+    </svg>
+
+    <div class="side">
+      <div class="leg">
+        <div class="row"><span class="sw a"></span>内製化支援型のAIコンサル</div>
+        <div class="row"><span class="sw b"></span>丸投げ前提のAIコンサル</div>
+      </div>
+      <div class="axcard">
+        <div class="h">内製化支援＝「卒業できるか」</div>
+        <div class="b">運用移管・社内人材の育成・ドキュメントの引き渡しが契約に明記されているか。ほかの4軸が良くても、ここが欠けると成果は契約期間限りになる。</div>
+      </div>
+      <div class="qcard">
+        <div class="b">確認の一言：「<b>解約した翌月、自社だけで回りますか？</b>」——答えを渋る相手は丸投げ前提の設計かもしれない。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

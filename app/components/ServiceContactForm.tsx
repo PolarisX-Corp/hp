@@ -116,7 +116,7 @@ export default function ServiceContactForm() {
             id="f-msg"
             name="message"
             rows={4}
-            placeholder="現状の意思決定の課題や、実現したいことをお書きください。"
+            placeholder="現在のAI活用の課題や、実現したいことをお書きください。"
             required
           />
         </div>

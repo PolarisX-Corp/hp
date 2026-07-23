@@ -1,0 +1,108 @@
+<!-- style: paper (vertical decision tree — ai-agent-comparison の横レール型とレイアウトを変える) -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#FAF9F5; --card:#FFFEFB; --border:#E4E1D6; --rule:#1B2233;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EDF2FF; --accent-bd:#ADC3FF;
+    --serif:"Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink);
+         padding:40px 60px 24px; display:flex; flex-direction:column; }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.42em; color:var(--accent-d); }
+  .title { font-family:var(--serif); font-size:42px; font-weight:700; letter-spacing:.01em; margin-top:8px; }
+  .title .em { color:var(--accent); border-bottom:4px solid var(--accent); padding-bottom:2px; }
+  .drule { margin-top:12px; border-top:2.5px solid var(--rule); border-bottom:1px solid var(--rule); height:5px; }
+
+  .flow { flex:1; display:flex; flex-direction:column; margin-top:16px; }
+  .qbox { align-self:center; background:var(--card); border:1.5px solid var(--rule); border-radius:4px;
+          padding:13px 34px; font-family:var(--serif); font-size:24px; font-weight:700;
+          box-shadow:3px 3px 0 rgba(27,34,51,.08); display:flex; align-items:center; gap:12px; }
+  .qbox .qn { font-family:var(--sans); font-size:15px; font-weight:800; color:#FFFFFF; background:var(--rule);
+              border-radius:999px; padding:3px 12px; letter-spacing:.1em; }
+  .stem { align-self:center; width:2px; flex:1 1 14px; min-height:14px; background:var(--rule); }
+  .rail { align-self:center; width:82%; height:2px; background:var(--rule); }
+  .drops { align-self:center; width:82%; display:grid; grid-template-columns:repeat(4,1fr); }
+  .drops span { justify-self:center; width:2px; height:18px; background:var(--rule); }
+
+  .types { align-self:center; width:88%; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .tcol { display:flex; flex-direction:column; align-items:center; }
+  .cond { font-size:17px; font-weight:700; color:var(--muted); text-align:center; line-height:1.4; height:56px; display:flex; align-items:center; }
+  .tchip { width:100%; text-align:center; background:var(--accent-bg); border:1px solid var(--accent-bd); border-radius:4px;
+           padding:13px 6px; font-family:var(--serif); font-size:23px; font-weight:700; color:var(--accent-d); }
+  .tchip.hot { background:var(--accent); border-color:var(--accent); color:#FFFFFF; }
+
+  .merge { align-self:center; width:82%; display:flex; flex-direction:column; align-items:center; }
+  .merge .bar { width:100%; height:2px; background:var(--rule); }
+  .merge .down { width:2px; height:18px; background:var(--rule); }
+
+  .gate { align-self:center; width:78%; background:var(--card); border:1px solid var(--border); border-left:5px solid var(--accent);
+          border-radius:4px; padding:16px 24px; display:flex; align-items:center; gap:18px;
+          box-shadow:2px 2px 0 rgba(27,34,51,.06); }
+  .gate .q { font-family:var(--serif); font-size:22.5px; font-weight:700; white-space:nowrap; }
+  .gate .a { font-size:17px; color:var(--body); font-weight:600; line-height:1.45; }
+  .gate .a b { color:var(--accent-d); }
+  .gate .yn { flex-shrink:0; font-size:14px; font-weight:800; color:var(--accent-d); background:var(--accent-bg);
+              border:1px solid var(--accent-bd); border-radius:999px; padding:3px 12px; }
+
+  .goal { align-self:center; width:78%; margin-top:0; background:linear-gradient(90deg,#DCE7FF,#F3F7FF);
+          border:2px solid var(--accent); border-radius:4px; padding:16px 26px; display:flex; align-items:center; gap:16px;
+          box-shadow:0 8px 20px rgba(54,110,255,.16); }
+  .goal .ic { flex-shrink:0; width:38px; height:38px; border-radius:10px; background:#FFFFFF; border:1px solid var(--accent-bd);
+              display:flex; align-items:center; justify-content:center; }
+  .goal .ic svg { width:22px; height:22px; }
+  .goal .t { font-family:var(--serif); font-size:22.5px; font-weight:700; }
+  .goal .t b { color:var(--accent-d); }
+  .goal .s { margin-left:auto; font-size:15.5px; color:var(--muted); font-weight:600; }
+
+  .brandbar { flex-shrink:0; margin-top:12px; padding-top:12px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:21px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title"><span class="em">課題 → AI活用 → 体制</span> の順で決める</div>
+  <div class="drule"></div>
+
+  <div class="flow">
+    <div class="qbox"><span class="qn">STEP 1</span>いちばん解決したい課題は？</div>
+    <div class="stem"></div>
+    <div class="rail"></div>
+    <div class="drops"><span></span><span></span><span></span><span></span></div>
+    <div class="types">
+      <div class="tcol"><div class="cond">問い合わせ対応を<br>減らしたい</div><div class="tchip">FAQ型</div></div>
+      <div class="tcol"><div class="cond">手順・ノウハウを<br>自由に貯めたい</div><div class="tchip">社内Wiki型</div></div>
+      <div class="tcol"><div class="cond">版管理・承認が要る<br>文書が中心</div><div class="tchip">ドキュメント管理型</div></div>
+      <div class="tcol"><div class="cond">社内文書をAIに<br>答えさせたい</div><div class="tchip hot">AI・RAG型</div></div>
+    </div>
+    <div style="flex:1 1 12px; min-height:12px"></div>
+    <div class="merge"><div class="bar"></div><div class="down"></div></div>
+
+    <div class="gate">
+      <span class="yn">STEP 2</span>
+      <div class="q">将来、AIから読める形にする？</div>
+      <div class="a">→ どのタイプでも「<b>テキスト構造化・外部参照（API/MCP）・鮮度・権限</b>」の4条件を満たす製品・設計を選ぶ</div>
+    </div>
+    <div class="stem"></div>
+    <div class="gate">
+      <span class="yn">STEP 3</span>
+      <div class="q">情シス・運用体制はある？</div>
+      <div class="a">→ なければ<b>運用のしやすさを最優先</b>。構築が要る構成は外部パートナーと組む</div>
+    </div>
+    <div class="stem"></div>
+    <div class="goal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-6 5-9 9-11"/><circle cx="16.5" cy="6.5" r="3"/><path d="M13 20a20 20 0 0 0 7-9"/></svg></div>
+      <div class="t"><b>STEP 4</b>｜1部門・1用途でスモールスタート</div>
+      <div class="s">検索される率・更新の回り方を1〜2か月見てから広げる</div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

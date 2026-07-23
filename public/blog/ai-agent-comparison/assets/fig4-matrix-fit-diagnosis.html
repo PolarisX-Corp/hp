@@ -1,0 +1,137 @@
+<!-- style: illust (light) — 4象限マトリクス + R3 codex 型イラスト（illus-type-*.png）をマーカーに再利用 -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388; --faint:#9AA1B5;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --amber:#E7A227; --amber-ink:#8A5E10;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:900px; }
+  body {
+    font-family:var(--sans); color:var(--ink); background:
+      radial-gradient(1100px 620px at 92% -12%, var(--accent-bg) 0%, rgba(234,240,255,0) 58%),
+      var(--bg);
+    padding:44px 60px 24px; display:flex; flex-direction:column;
+  }
+  .eyebrow { font-size:19px; font-weight:800; letter-spacing:.30em; color:var(--accent-d); }
+  .title { font-size:45px; font-weight:800; letter-spacing:-.01em; margin-top:10px; line-height:1.22; color:var(--ink); }
+  .title .em { color:var(--accent); }
+  .sub { font-size:21px; color:var(--muted); margin-top:11px; line-height:1.45; }
+  .drule { margin-top:14px; height:3px; border-radius:3px;
+           background:linear-gradient(90deg,var(--accent) 0%,var(--accent-bd) 52%,transparent 100%); }
+
+  .plot { flex:1; display:grid; grid-template-columns:56px 1fr; grid-template-rows:1fr 46px; margin-top:16px; }
+  .yaxis { grid-column:1; grid-row:1; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:6px 0; }
+  .yaxis .hi,.yaxis .lo { font-size:18px; font-weight:800; color:var(--muted); }
+  .yaxis .name { writing-mode:vertical-rl; font-size:22px; font-weight:800; color:var(--accent-d); letter-spacing:.14em; }
+  .xaxis { grid-column:2; grid-row:2; display:flex; align-items:center; justify-content:space-between; padding:12px 12px 0; }
+  .xaxis .name { font-size:22px; font-weight:800; color:var(--accent-d); letter-spacing:.10em; }
+  .xaxis .l,.xaxis .r { font-size:18px; font-weight:800; color:var(--muted); }
+  .corner { grid-column:1; grid-row:2; }
+
+  .field { grid-column:2; grid-row:1; position:relative; margin-left:14px;
+           border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#FCFCFE;
+           display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; }
+  .quad { position:relative; }
+  .q-tl { background:linear-gradient(135deg,rgba(231,162,39,.12),transparent 70%); }
+  .q-tr { background:radial-gradient(120% 120% at 90% 10%,rgba(54,110,255,.24),rgba(54,110,255,.05) 70%); }
+  .q-bl { background:linear-gradient(135deg,rgba(120,131,160,.05),transparent 70%); }
+  .q-br { background:linear-gradient(135deg,rgba(54,110,255,.09),transparent 70%); }
+  .field::before { content:''; position:absolute; left:50%; top:0; width:1.5px; height:100%;
+                   background:var(--border); z-index:3; }
+  .field::after { content:''; position:absolute; top:50%; left:0; height:1.5px; width:100%;
+                  background:var(--border); z-index:3; }
+
+  .qlab { position:absolute; font-size:15px; font-weight:800; letter-spacing:.03em; color:var(--faint);
+          z-index:4; }
+  .qlab.tl { top:16px; left:18px; } .qlab.tr { top:16px; right:18px; text-align:right; color:var(--accent-d); }
+  .qlab.bl { bottom:14px; left:18px; } .qlab.br { bottom:14px; right:18px; text-align:right; }
+
+  .diag { position:absolute; inset:0; z-index:4; pointer-events:none; }
+  .diag svg { width:100%; height:100%; }
+
+  .mk { position:absolute; z-index:6; transform:translate(-50%,-50%);
+        display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .thumb { width:66px; height:66px; border-radius:50%; background-color:var(--accent-bg);
+           background-size:150%; background-position:center 30%; background-repeat:no-repeat;
+           border:2px solid var(--accent-bd); box-shadow:0 6px 16px rgba(0,9,133,.12); }
+  .chip { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:8px 15px;
+          text-align:center; box-shadow:0 8px 20px rgba(0,9,133,.08); }
+  .chip .n { font-size:20px; font-weight:800; letter-spacing:.005em; color:var(--ink); }
+  .chip .d { font-size:14px; color:var(--muted); margin-top:2px; font-weight:600; }
+
+  .mk.hot .thumb { width:80px; height:80px; border:3px solid var(--accent); box-shadow:0 10px 24px rgba(54,110,255,.28); }
+  .mk.hot .chip { background:linear-gradient(180deg,var(--accent-bg),#FFFFFF); border:2px solid var(--accent); box-shadow:0 12px 28px rgba(54,110,255,.22); }
+  .mk.hot .chip .n { font-size:23px; color:var(--accent-d); }
+  .star { margin-top:1px; font-size:13px; font-weight:800; letter-spacing:.03em; color:#fff; background:var(--accent); border-radius:999px; padding:3px 12px; }
+
+  .todo { position:absolute; z-index:6; transform:translate(-50%,-50%); text-align:center;
+          border:2px dashed rgba(231,162,39,.7); border-radius:12px; padding:11px 18px; background:rgba(231,162,39,.08); }
+  .todo .n { font-size:19px; font-weight:800; color:var(--amber-ink); }
+  .todo .d { font-size:14px; color:var(--muted); margin-top:2px; font-weight:600; }
+
+  .brandbar { flex-shrink:0; margin-top:14px; padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">「業務の<span class="em">定型度</span>」×「<span class="em">社内文脈</span>への依存」で当てる</div>
+  <div class="sub">右上ほど作り込んだカスタム構築型の投資対効果が出る。左上（非定型×文脈依存）はまず業務の型づくりから</div>
+  <div class="drule"></div>
+
+  <div class="plot">
+    <div class="yaxis"><span class="hi">高</span><span class="name">社内文脈への依存</span><span class="lo">低</span></div>
+    <div class="field">
+      <div class="quad q-tl"></div><div class="quad q-tr"></div>
+      <div class="quad q-bl"></div><div class="quad q-br"></div>
+
+      <span class="qlab tl">非定型 × 文脈依存 高</span>
+      <span class="qlab tr">定型 × 文脈依存 高</span>
+      <span class="qlab bl">非定型 × 文脈依存 低</span>
+      <span class="qlab br">定型 × 文脈依存 低</span>
+
+      <div class="diag">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
+          <defs><marker id="ah" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 z" fill="#366EFF"/></marker></defs>
+          <line x1="16" y1="86" x2="80" y2="18" stroke="rgba(54,110,255,.5)" stroke-width="0.7" stroke-dasharray="2.4 2" vector-effect="non-scaling-stroke" marker-end="url(#ah)"/>
+        </svg>
+      </div>
+
+      <!-- markers -->
+      <div class="mk hot" style="left:76%; top:23%;">
+        <div class="thumb" style="background-image:url(illus-type-custom.png)"></div>
+        <div class="chip"><div class="n">カスタム構築型</div><div class="d">司令塔・複数部門で継続運用</div></div>
+        <div class="star">投資対効果が最大</div>
+      </div>
+      <div class="mk" style="left:64%; top:54%;">
+        <div class="thumb" style="background-image:url(illus-type-workflow.png); background-size:120%; background-position:center;"></div>
+        <div class="chip"><div class="n">ワークフロー連携型</div><div class="d">定型処理を連結</div></div>
+      </div>
+      <div class="mk" style="left:84%; top:72%;">
+        <div class="thumb" style="background-image:url(illus-type-specialized.png)"></div>
+        <div class="chip"><div class="n">業務特化型</div><div class="d">特定業務に最適化</div></div>
+      </div>
+      <div class="mk" style="left:24%; top:73%;">
+        <div class="thumb" style="background-image:url(illus-type-general.png)"></div>
+        <div class="chip"><div class="n">汎用作業型</div><div class="d">横断作業・まず試す</div></div>
+      </div>
+      <div class="todo" style="left:25%; top:26%;">
+        <div class="n">まず業務の型づくり</div>
+        <div class="d">型がなければ、どのタイプでも成果は出にくい</div>
+      </div>
+    </div>
+    <div class="corner"></div>
+    <div class="xaxis"><span class="l">非定型</span><span class="name">業務が定型的か</span><span class="r">定型</span></div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

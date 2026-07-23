@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --ink:#00063D; --body:#363C4D; --muted:#6B7388;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --border:#E2E5EE;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; }
+  body {
+    font-family:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+    background:
+      radial-gradient(900px 520px at 100% -10%, var(--accent-bg) 0%, rgba(234,240,255,0) 60%),
+      var(--bg);
+    color:var(--ink); padding:64px 72px; display:flex; flex-direction:column;
+  }
+  .main { flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .title { font-weight:800; line-height:1.28; letter-spacing:-.02em; }
+  .title .tline { font-size:54px; white-space:nowrap; }
+  .title .em { color:var(--accent); }
+  .accentbar { width:84px; height:8px; background:var(--accent); border-radius:999px; margin:30px 0 0; }
+  .brandbar { flex-shrink:0; padding-top:24px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:flex-end; }
+  .brandbar .logo { height:40px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="main">
+    <div class="title">
+      <div class="tline"><span class="em">AI開発企業</span>の選び方</div>
+      <div class="tline">発注先4タイプと費用相場を比較解説</div>
+    </div>
+    <div class="accentbar"></div>
+  </div>
+  <div class="brandbar">
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>
