@@ -117,7 +117,6 @@ export default function Home() {
           <div className="v2-shead">
             <span className="v2-eyebrow"><AlertTriangle />課題・現状</span>
             <h2>これから &quot;本気で&quot; AIを活用するなら。</h2>
-            <p>次の症状が１つでも当てはまるなら、Polaris AI が刺さります。</p>
           </div>
           <div className="v2-problems">
             <div className="v2-problem">
@@ -179,7 +178,6 @@ export default function Home() {
           <div className="v2-shead">
             <span className="v2-eyebrow"><Bot />Polaris AIとは</span>
             <h2>Polaris AI は、話しかけて仕事を任せられる &quot;AI社員&quot; です。</h2>
-            <p>「◯◯を作って」「◯◯を調べて」と社員に頼むのと同じ感覚で使えます。裏側で御社の情報を集めながら仕事を進め、対話と成果物が組織のナレッジとして残っていきます。</p>
           </div>
           <div className="v2-zigzag">
             <div className="v2-zigzag__row">
@@ -269,6 +267,7 @@ export default function Home() {
             <span className="v2-eyebrow"><Scale />比較</span>
             <h2>ChatGPTと、何が違うのか。</h2>
           </div>
+          <p className="v2-cmp__scroll-hint" aria-hidden="true">横にスクロールして比較 →</p>
           <div className="v2-cmp">
             <table>
               <thead>
@@ -540,8 +539,8 @@ export default function Home() {
                       <div className="why-viz__cred-d">メガベンチャー主力事業を年次130%成長</div>
                     </div>
                     <div className="why-viz__cred">
-                      <div className="why-viz__cred-t">大規模データ分析・AI導入</div>
-                      <div className="why-viz__cred-d">DeNA 国内最大規模のデータ分析リード</div>
+                      <div className="why-viz__cred-t">大規模チームでのAI推進リード</div>
+                      <div className="why-viz__cred-d">定常業務を50%以上削減、新人育成期間を60%短縮</div>
                     </div>
                     <div className="why-viz__cred">
                       <div className="why-viz__cred-t">プロダクト開発</div>
@@ -567,8 +566,7 @@ export default function Home() {
         <div className="v2-wrap">
           <div className="v2-shead">
             <span className="v2-eyebrow"><Route />導入の流れ</span>
-            <h2>はじめ方は、2つのフェーズです。</h2>
-            <p>「相談内容がまだ固まっていない」段階で十分です。まずは無料相談から。</p>
+            <h2>まずは無料相談から。</h2>
           </div>
 
           <div className="v2-process__meta">
@@ -610,7 +608,7 @@ export default function Home() {
               <div className="v2-price__label">初期費用</div>
               <div className="v2-price__val"><span className="v2-price__num">20万円</span><span className="v2-price__unit">〜</span></div>
             </div>
-            <p className="v2-price__note">上記は初期費用の最低ライン。業務範囲・接続ツールの数・データ量など、御社の実態に応じて個別お見積もりします。月額は業務範囲によって変動するため、無料相談時にレンジをご提示します。</p>
+            <p className="v2-price__note">業務範囲・接続ツールの数・データ量など、御社の実態に応じて個別お見積もりします。月額は業務範囲によって変動するため、無料相談時にレンジをご提示します。</p>
             <ul>
               <li><Check />フェーズ1 から、小さく始められます</li>
               <li><Check />権限体系の再設計、既存ツールのライセンス費用は対象外（すでにあるものを活かします）</li>
