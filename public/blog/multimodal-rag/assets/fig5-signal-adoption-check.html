@@ -1,0 +1,82 @@
+<!-- style: flat (基調) + R2 SVGピクトグラム — signal: 自社に必要かの3段階判定（灰=不要/黄=前処理から/青=検討に進む。赤は否定/失敗専用のためブランド規則により不使用）
+     ブリーフ第一候補の decision は直近記事（knowledge-management-tools fig7 ほか）と型重複のため signal へ代替。 -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --stop:#6B7388; --stop-bg:#F1F3F9; --stop-bd:#D7DBE6;
+    --hold:#B87700; --hold-bg:#FFF3E4; --hold-bd:#F2C48D;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1280px; height:1024px; }
+  body { font-family:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+         background:var(--bg); color:var(--ink); padding:44px 50px 26px; display:flex; flex-direction:column; }
+  .title { font-size:30px; font-weight:800; letter-spacing:-.01em; }
+  .title .em { color:var(--accent); }
+  .sub { font-size:18px; color:var(--muted); font-weight:600; margin-top:10px; line-height:1.5; }
+
+  .cards { flex:1; display:flex; flex-direction:column; gap:16px; margin-top:16px; justify-content:space-evenly; }
+  .card { background:var(--card); border:1.5px solid var(--border); border-radius:16px;
+          padding:18px 24px; display:flex; align-items:center; gap:20px;
+          box-shadow:0 6px 18px rgba(0,6,61,.06); }
+  .dot { width:34px; height:34px; border-radius:50%; flex-shrink:0; border:4px solid #fff;
+         box-shadow:0 0 0 2px var(--border), 0 4px 10px rgba(0,6,61,.14); }
+  .verdict { font-size:26px; font-weight:800; line-height:1.25; flex-shrink:0; width:250px; }
+  .card.stop .dot { background:var(--stop); }
+  .card.hold .dot { background:#F0A93B; }
+  .card.go   .dot { background:var(--accent); }
+  .card.stop .verdict { color:var(--stop); }
+  .card.hold .verdict { color:var(--hold); }
+  .card.go   .verdict { color:var(--accent-d); }
+  .card.go { border:2.5px solid var(--accent); box-shadow:0 10px 26px rgba(54,110,255,.16); }
+
+  .body3 { flex:1; display:flex; flex-direction:column; gap:8px; }
+  .cond { border-radius:10px; padding:10px 16px; font-size:19px; font-weight:700; line-height:1.4; }
+  .card.stop .cond { background:var(--stop-bg); border:1px solid var(--stop-bd); }
+  .card.hold .cond { background:var(--hold-bg); border:1px solid var(--hold-bd); }
+  .card.go   .cond { background:var(--accent-bg); border:1px solid var(--accent-bd); }
+
+  .next { font-size:19px; color:var(--body); line-height:1.4; }
+  .next b { color:var(--ink); }
+
+  .brandbar { flex-shrink:0; margin-top:18px; padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:18px; color:var(--muted); font-weight:600; }
+  .brandbar .logo { height:32px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">自社に必要か — <span class="em">3段階で判定する</span></div>
+  <div class="sub">軸①「重要情報はテキストで完結しているか」× 軸②「通常のRAGで図表の壁に当たっているか」</div>
+
+  <div class="cards">
+    <div class="card stop">
+      <div class="dot"></div><div class="verdict">マルチモーダルRAGは<br>まだ不要</div>
+      <div class="body3">
+        <div class="cond">社内の重要な情報が、ほぼテキストで完結している</div>
+        <div class="next"><b>通常のRAG＋ナレッジ整備が先。</b>テキストの構造化と検索性への投資のほうが効果が大きい</div>
+      </div>
+    </div>
+    <div class="card hold">
+      <div class="dot"></div><div class="verdict">まずデータの<br>前処理から</div>
+      <div class="body3">
+        <div class="cond">図・スキャンは多いが、解像度・キャプション・図と本文の紐づけが未整備</div>
+        <div class="next"><b>前処理とテキスト化（方式③）で拾えるか検証。</b>低コストで確かめてから次を判断する</div>
+      </div>
+    </div>
+    <div class="card go">
+      <div class="dot"></div><div class="verdict">マルチモーダルRAGの<br>検討に進む</div>
+      <div class="body3">
+        <div class="cond">非テキスト依存が高く、通常のRAGで「図表の中身は答えられない」壁に当たっている</div>
+        <div class="next"><b>1部門・1用途に絞って検証。</b>「図そのものへの質問」が多い業務から小さく始める</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

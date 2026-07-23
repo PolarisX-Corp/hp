@@ -1,0 +1,98 @@
+<!-- style: flat (light) — 対応ヒートマップ。メリット3行×設計の整い方2列。否定の赤は最小限 -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+    --red:#E0405E; --red-bg:#FCE7EB; --red-ink:#B02138;
+    --sans:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1280px; height:1024px; }
+  body {
+    font-family:var(--sans); color:var(--ink); background:
+      radial-gradient(1100px 620px at 92% -12%, var(--accent-bg) 0%, rgba(234,240,255,0) 58%),
+      var(--bg);
+    padding:44px 50px 26px; display:flex; flex-direction:column;
+  }
+  .title { font-size:34px; font-weight:800; letter-spacing:-.01em; line-height:1.28; }
+  .title .em { color:var(--accent); }
+  .sub { font-size:20px; color:var(--muted); margin-top:10px; }
+  .drule { margin-top:14px; height:3px; border-radius:3px;
+           background:linear-gradient(90deg,var(--accent) 0%,var(--accent-bd) 52%,transparent 100%); }
+
+  .grid { flex:1; margin-top:18px; display:grid;
+          grid-template-columns:230px 1fr 1fr; grid-template-rows:52px repeat(3,1fr); gap:12px; }
+  .h { display:flex; align-items:center; justify-content:center; border-radius:12px;
+       font-size:22px; font-weight:800; text-align:center; padding:6px; }
+  .h.good { background:var(--accent); color:#fff; }
+  .h.bad  { background:#EDEFF5; color:var(--muted); border:1px dashed #C9CEDC; }
+
+  .rowh { display:flex; flex-direction:column; justify-content:center; gap:8px; background:var(--card); border:1px solid var(--border);
+          border-radius:14px; padding:14px 16px; }
+  .rowh .ic { flex-shrink:0; width:40px; height:40px; border-radius:12px; background:var(--accent-bg);
+              display:flex; align-items:center; justify-content:center; }
+  .rowh .t { font-size:25px; font-weight:800; line-height:1.2; }
+  .rowh .s { font-size:17px; color:var(--muted); margin-top:2px; line-height:1.3; }
+
+  .cell { border-radius:14px; padding:16px 20px; display:flex; flex-direction:column; justify-content:center; }
+  .cell .v { font-size:26px; font-weight:800; }
+  .cell .d { font-size:18px; line-height:1.4; margin-top:6px; }
+  .cell.g1 { background:#DCE7FF; border:1px solid var(--accent-bd); }
+  .cell.g1 .v { color:var(--accent-d); } .cell.g1 .d { color:var(--body); }
+  .cell.b1 { background:#F2F3F8; border:1px solid var(--border); }
+  .cell.b1 .v { color:var(--muted); } .cell.b1 .d { color:var(--muted); }
+  .cell.b2 { background:var(--red-bg); border:1px solid #F3C3CD; }
+  .cell.b2 .v { color:var(--red-ink); } .cell.b2 .d { color:var(--body); }
+
+  .read { margin-top:10px; display:flex; align-items:center; gap:10px; font-size:19px; color:var(--muted); font-weight:600; }
+
+  .brandbar { flex-shrink:0; margin-top:12px; padding-top:13px; border-top:1px solid var(--border);
+              display:flex; align-items:center; justify-content:space-between; }
+  .brandbar .tag { font-size:22px; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+  .brandbar .logo { height:36px; width:auto; opacity:.95; }
+</style></head>
+<body>
+  <div class="title">同じ構成でも、<span class="em">設計しだいでメリットは課題に裏返る</span></div>
+  <div class="sub">マルチエージェントの3つのメリットと、その裏側にある課題の対応関係</div>
+  <div class="drule"></div>
+
+  <div class="grid">
+    <div></div>
+    <div class="h good">設計・運用が整っている</div>
+    <div class="h bad">整っていないまま増やす</div>
+
+    <div class="rowh">
+      <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2" stroke-linecap="round"><path d="M4 5h16M4 12h16M4 19h16"/><path d="M14 2l3 3-3 3M14 9l3 3-3 3M14 16l3 3-3 3"/></svg></div>
+      <div><div class="t">並列処理</div><div class="s">独立した作業を同時に進める</div></div>
+    </div>
+    <div class="cell g1"><div class="v">効率化</div><div class="d">幅のある仕事（調査・資料作成）が速くなる</div></div>
+    <div class="cell b1"><div class="v">コスト膨張</div><div class="d">処理量だけが増える（約15倍のトークン消費の報告も）</div></div>
+
+    <div class="rowh">
+      <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="#366EFF" stroke="none"/></svg></div>
+      <div><div class="t">専門特化</div><div class="s">役割に絞った知識と指示を持つ</div></div>
+    </div>
+    <div class="cell g1"><div class="v">精度・網羅性の向上</div><div class="d">万能1体より深く、抜けの少ない出力になる</div></div>
+    <div class="cell b2"><div class="v">情報の分断</div><div class="d">参照する情報がずれ、同じ質問に別々の答えが返る</div></div>
+
+    <div class="rowh">
+      <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8a5 5 0 1010 0 5 5 0 00-10 0z" transform="translate(0,1)"/><polyline points="9.5,9.5 11.5,11.5 15,7.5"/><path d="M4.5 21c1.2-3 4-4.5 7.5-4.5s6.3 1.5 7.5 4.5"/></svg></div>
+      <div><div class="t">相互検証</div><div class="s">作る担当と確認する担当を分ける</div></div>
+    </div>
+    <div class="cell g1"><div class="v">信頼性の向上</div><div class="d">誤りに気づける構造を仕組みとして持てる</div></div>
+    <div class="cell b1"><div class="v">責任の曖昧化</div><div class="d">何がどこで間違ったかを追えなくなる（ログ・監査が必須）</div></div>
+  </div>
+
+  <div class="read">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B7388" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    横に読む：同じメリットが、設計の整い方しだいでどちらに転ぶか
+  </div>
+
+  <div class="brandbar">
+    <div class="tag">AIを会社のOSにする。</div>
+    <img class="logo" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>

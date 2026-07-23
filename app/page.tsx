@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { spaceGrotesk, notoSansJP, jetbrainsMono } from "./fonts";
 import ServiceContactForm from "./components/ServiceContactForm";
+import { ToolLogo, TOOL_ITEMS } from "./components/ToolLogo";
 import "./service.css";
 import {
-  BarChart2, ArrowRight, Check, FileCheck2, TrendingUp, Package, History,
-  User, Calendar, AlertTriangle, UserX, RotateCcw, Cpu, Layers, Link2, Tag,
-  Shield, BookOpen, Sparkles, Repeat2, PlayCircle, Star, CreditCard, Route,
-  Mail, CheckCircle2,
+  ArrowRight, Check, X, ChevronDown, Mail, CheckCircle2, User, Users,
+  AlertTriangle, Star, Route, HelpCircle, PlayCircle, Scale, Bot,
+  FileText,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "AI経営 — AIを会社のOSに。",
+  title: "Polaris AI — そろそろ、AI社員を採用しませんか。",
   description:
-    "法人向けAIエージェントの開発、社内ナレッジベースの構築、AIコンサルティングを通じて、AIを会社のOSにします。",
+    "Polaris AIは、御社の業務をまるごと任せられるAI社員です。一人採用するだけで、営業・人事・マーケティングまで、それぞれを担当する専門のAI社員たちがチームで動きます。基盤づくりから運用まで、PolarisXが一気通貫で伴走します。",
 };
 
 export default function Home() {
@@ -22,371 +22,676 @@ export default function Home() {
       className={`theme-service ${spaceGrotesk.variable} ${notoSansJP.variable} ${jetbrainsMono.variable}`}
     >
       {/* HEADER */}
-      <header className="mk-header">
-        <div className="mk-wrap mk-header__in">
-          <a className="mk-logo" href="#top"><img src="/assets/PolarisX_mark.svg" alt="" width={26} height={26} /><span>Polaris<span style={{ color: "var(--blue-500)" }}>X</span></span></a>
-          <nav className="mk-nav">
+      <header className="v2-header">
+        <div className="v2-wrap v2-header__in">
+          <a className="v2-logo" href="#top"><img src="/assets/PolarisX_wordmark.svg" alt="PolarisX" style={{ height: 26, width: "auto" }} /></a>
+          <nav className="v2-nav">
             <a href="#problem">課題</a>
-            <a href="#solution">AI経営とは</a>
-            <a href="#demo">デモ</a>
+            <a href="#solution">Polaris AIとは</a>
+            <a href="#compare">比較</a>
+            <a href="#before-after">導入前後</a>
             <a href="#why-us">選ばれる理由</a>
-            <a href="#pricing">料金</a>
             <a href="#process">導入の流れ</a>
           </nav>
-          <div className="mk-header__cta">
+          <div className="v2-header__cta">
             <a className="px-btn px-btn--ghost px-btn--sm" href="#contact">資料請求</a>
             <a className="px-btn px-btn--primary px-btn--sm" href="#contact">無料で相談する</a>
           </div>
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="mk-hero" id="top">
-        <div className="mk-stars">
-          <div className="mk-star" style={{ width: "340px", height: "340px", top: "-90px", right: "-50px" }}></div>
-          <div className="mk-star" style={{ width: "180px", height: "180px", top: "320px", left: "-70px", opacity: 0.3 }}></div>
-        </div>
-        <div className="mk-wrap mk-hero__grid">
-          <div className="sv-reveal">
-            <span className="mk-eyebrow"><BarChart2 />AI経営 / AI Management</span>
-            <h1 className="mk-h1">AIを、<br /><em>会社のOS</em>に。</h1>
-            <p className="mk-lead">個人利用で止まっているAIを、担当業務を担う&quot;AI社員&quot;へ。AIが会社の一員として自律的に動き続ける「AI経営」を、御社に実装します。土台づくりから内製化まで一気通貫で伴走します。</p>
-            <div className="mk-hero__cta">
+      {/* HERO + 図解1: サービス構成図 */}
+      <section className="v2-hero" id="top">
+        <div className="v2-wrap v2-hero__grid">
+          <div>
+            <span className="v2-eyebrow"><Users />Polaris AI / AI社員</span>
+            <h1 className="v2-h1">そろそろ、<br /><em>AI社員</em>を採用しませんか。</h1>
+            <p className="v2-lead">Polaris AIは、御社の業務をまるごと任せられるAI社員です。一人採用するだけで、営業・人事・マーケティングまで、それぞれを担当する専門のAI社員たちがチームで動きます。</p>
+            <div className="v2-hero__cta">
               <a className="px-btn px-btn--primary px-btn--lg" href="#contact">無料で相談する<ArrowRight className="px-btn__icon" /></a>
-              <a className="px-btn px-btn--secondary px-btn--lg" href="#demo">デモを見る</a>
+              <a className="px-btn px-btn--secondary px-btn--lg" href="#before-after">導入前後を見る</a>
             </div>
-            <div className="mk-hero__note"><Check style={{ width: 15, height: 15, color: "var(--success)" }} />初回相談（30分）は無料 ・ オンライン</div>
+            <div className="v2-hero__note"><Check />初回相談（30分）は無料 ・ オンライン</div>
+            <div className="v2-hero__examples">
+              <span className="v2-hero__examples-lbl">できること（例）</span>
+              <span className="v2-hero__chip">提案書のたたきを作る</span>
+              <span className="v2-hero__chip">議事録を要約する</span>
+              <span className="v2-hero__chip">社内資料を横断検索する</span>
+            </div>
           </div>
 
-          {/* HERO DEMO: 意思決定ログ / decision record */}
-          <div className="mk-preview sv-reveal" style={{ transitionDelay: ".08s" }}>
-            <div className="sv-rec">
-              <div className="sv-rec__head">
-                <span className="sv-rec__title"><FileCheck2 />経営参謀AI ・ 稼働ログ</span>
-                <span className="sv-score">確信度 <b>0.92</b></span>
+          <div className="v2-org" role="img" aria-label="Polaris AIのしくみ：あなたがPolaris AIに話しかけると、司令塔として営業・マーケ・ナレッジの専門AI社員を呼び出し、MCP接続された御社のNotion・Slack・Google Drive・社内DBから必要な情報を取得して仕事を進める構成図">
+            <div className="v2-org__cap">Polaris AI のしくみ</div>
+            <div className="v2-org__you">
+              <span className="v2-org__bubble"><span className="v2-org__av"><User /></span>「株式会社セイリンへの提案書、過去の類似案件から作って」</span>
+            </div>
+            <div className="v2-vline v2-vline--arrow"></div>
+            <div className="v2-org__polaris">
+              <div className="nm">Polaris AI</div>
+              <div className="rl">司令塔AI社員 ── 依頼を理解し、担当するAI社員を自律的に呼び出す</div>
+            </div>
+            <div className="v2-branch v2-branch--2"><i></i><i></i></div>
+            <div className="v2-teams v2-teams--2">
+              <div className="v2-team">
+                <div className="v2-team__lbl">営業チーム</div>
+                <div className="v2-team__body">
+                  <div className="v2-staff__s"><div className="t">議事録リサーチAI社員</div></div>
+                  <div className="v2-staff__s"><div className="t">類似提案リサーチAI社員</div></div>
+                  <div className="v2-staff__s"><div className="t">提案書作成AI社員</div></div>
+                </div>
               </div>
-              <div className="sv-rec__decision">東日本セグメントの在庫配分を <em>+15%</em> 引き上げることを提案。</div>
-              <div className="sv-grounds">
-                <span className="sv-grounds__lbl">根拠 ・ データ出典</span>
-                <div className="sv-ground"><TrendingUp />需要予測：東日本の伸長率 +12.4%<span>forecast.v3</span></div>
-                <div className="sv-ground"><Package />欠品リスク：閾値超過 3 SKU<span>inventory.db</span></div>
-                <div className="sv-ground"><History />類似の過去判断：2 件で再現<span>decisions/2025</span></div>
+              <div className="v2-team">
+                <div className="v2-team__lbl">マーケチーム</div>
+                <div className="v2-team__body">
+                  <div className="v2-staff__s"><div className="t">価格・実績AI社員</div></div>
+                  <div className="v2-staff__s"><div className="t">市場調査AI社員</div></div>
+                </div>
               </div>
-              <div className="sv-rec__meta"><span><User />担当：経営参謀AI</span><span><Calendar />2026-06-10</span></div>
+            </div>
+            <div className="v2-mcp"><span className="vl"></span><span className="tag">PolarisX独自開発の高精度RAG</span><span className="vl"></span></div>
+            <div className="v2-tools">
+              <div className="v2-tools__lbl">御社のナレッジベース・データベース</div>
+              <div className="v2-tools__logos">
+                {TOOL_ITEMS.map((item) => (
+                  <div
+                    key={item.label}
+                    className={`v2-tools__logo${item.keys.length > 1 ? " v2-tools__logo--pair" : ""}`}
+                  >
+                    <span className="v2-tools__logo-icons">
+                      {item.keys.map((k) => (
+                        <ToolLogo key={k} name={k} />
+                      ))}
+                    </span>
+                    <span className="v2-tools__logo-name">{item.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* TRUST / framing strip */}
-      <div className="mk-trust">
-        <div className="mk-wrap">
-          <div className="mk-trust__lbl">こんなチームの業務を、&quot;AI社員&quot;が担い始めています</div>
-          <div className="mk-trust__row">
-            <span>経営企画</span><span>事業開発</span><span>マーケティング</span><span>サプライチェーン</span><span>経営層</span>
-          </div>
-        </div>
-      </div>
 
       {/* PROBLEM */}
-      <section className="mk-section" id="problem">
-        <div className="mk-wrap">
-          <div className="mk-shead sv-reveal">
-            <span className="mk-eyebrow"><AlertTriangle />課題・現状</span>
-            <h2>なぜ、AIは&quot;個人の便利ツール&quot;で止まるのか。</h2>
-            <p>ChatGPTは使い始めた。それでも会社の力にはなっていない。原因は、いつも同じ3つに行き着きます。</p>
+      <section className="v2-sec v2-sec--sunken" id="problem">
+        <div className="v2-wrap">
+          <div className="v2-shead">
+            <span className="v2-eyebrow"><AlertTriangle />課題・現状</span>
+            <h2>これから &quot;本気で&quot; AIを活用するなら。</h2>
+            <p>次の症状が１つでも当てはまるなら、Polaris AI が刺さります。</p>
           </div>
-          <div className="sv-problems">
-            <div className="sv-pcard sv-reveal">
-              <div className="sv-pcard__n">01</div>
-              <div className="sv-pcard__icon"><Cpu /></div>
-              <h3>AIが個人利用で止まっている</h3>
-              <p>社員それぞれがChatGPTを触ってはいる。でも会社全体・組織としてのナレッジは何も積み上がっていかない。</p>
-              <div className="sv-pcard__q">＝ AIが、組織の力になっていない。</div>
-            </div>
-            <div className="sv-pcard sv-reveal" style={{ transitionDelay: ".07s" }}>
-              <div className="sv-pcard__n">02</div>
-              <div className="sv-pcard__icon"><UserX /></div>
-              <h3>業務が属人化している</h3>
-              <p>営業もマーケも分析も、担当者の頭の中に閉じたまま。人が代われば振り出しに戻り、人手の限界がそのまま事業の限界になる。</p>
-              <div className="sv-pcard__q">＝ ナレッジが、組織に残らない。</div>
-            </div>
-            <div className="sv-pcard sv-reveal" style={{ transitionDelay: ".14s" }}>
-              <div className="sv-pcard__n">03</div>
-              <div className="sv-pcard__icon"><RotateCcw /></div>
-              <h3>AIを入れても効果が出ない</h3>
-              <p>とりあえず導入もPoCもやった。でも成果に結びつかず「入れただけ」で止まっている。AIが御社固有の文脈を知らないからです。</p>
-              <div className="sv-pcard__q">＝ AIが、あなたの会社を知らない。</div>
-            </div>
-          </div>
-
-          {/* stat strip */}
-          <div className="sv-statstrip sv-reveal" style={{ transitionDelay: ".1s" }}>
-            <div className="sv-statstrip__bars">
-              <div className="sv-statbar">
-                <div className="sv-statbar__val">10%</div>
-                <div className="sv-statbar__track"><div className="sv-statbar__fill--lo"></div></div>
-                <div className="sv-statbar__lbl">日本</div>
+          <div className="v2-problems">
+            <div className="v2-problem">
+              <div className="v2-problem__viz">
+                <div className="pain-viz pain-viz--1">
+                  <div className="pain-viz__user"><User /></div>
+                  <div className="pain-viz__bubble">???</div>
+                  <div className="pain-viz__console">
+                    <div className="pain-viz__console-head"><span /><span /><span /></div>
+                    <div className="pain-viz__console-body"><i /><i /><i /></div>
+                  </div>
+                </div>
               </div>
-              <div className="sv-statbar sv-statbar--hi">
-                <div className="sv-statbar__val">45%</div>
-                <div className="sv-statbar__track"><div className="sv-statbar__fill--hi"></div></div>
-                <div className="sv-statbar__lbl">米国</div>
-              </div>
+              <h3><span className="no">01</span>AIツールを、使いこなせない</h3>
+              <p>プロンプトが書けない、指示の出し方が難しい。結局、一部の詳しい人しか使わず、投資対効果が出ない。</p>
             </div>
-            <div className="sv-statstrip__txt">
-              生成AIで「期待を大きく上回る効果」を出せている日本企業はわずか <strong>10%</strong>（米国は45%）。<strong>原因は、AIが「あなたの会社」を知らないから。</strong>KPI定義も事業背景も知らないAIが返すのは、一般論だけです。
-              <div className="sv-statstrip__src">出典：PwC Japan「生成AIに関する実態調査2025春 5カ国比較」</div>
+            <div className="v2-problem">
+              <div className="v2-problem__viz">
+                <div className="pain-viz pain-viz--2">
+                  <div className="pain-viz__box pain-viz__box--ai">
+                    <Bot />
+                    <span>汎用AI</span>
+                  </div>
+                  <div className="pain-viz__break">?</div>
+                  <div className="pain-viz__box pain-viz__box--co">
+                    <Users />
+                    <span>御社の情報</span>
+                  </div>
+                </div>
+              </div>
+              <h3><span className="no">02</span>汎用AIは、&quot;御社&quot;を知らない</h3>
+              <p>貴社の業務プロセスも、顧客との過去のやり取りも知らない。毎回コピペで背景を教えるくらいなら、自分でやったほうが早い。</p>
+            </div>
+            <div className="v2-problem">
+              <div className="v2-problem__viz">
+                <div className="pain-viz pain-viz--3">
+                  <div className="pain-viz__vet">
+                    <div className="pain-viz__u pain-viz__u--vet"><User /></div>
+                    <div className="pain-viz__vet-lbl">ベテランだけ</div>
+                  </div>
+                  <div className="pain-viz__team">
+                    <div className="pain-viz__u pain-viz__u--off"><User /><span className="pain-viz__q">?</span></div>
+                    <div className="pain-viz__u pain-viz__u--off"><User /><span className="pain-viz__q">?</span></div>
+                    <div className="pain-viz__u pain-viz__u--off"><User /><span className="pain-viz__q">?</span></div>
+                  </div>
+                </div>
+              </div>
+              <h3><span className="no">03</span>ノウハウが、属人化している</h3>
+              <p>実際の仕事の進め方はベテラン社員の頭の中にしかない。誰が何を知っているかも分からず、退職や異動のたびに振り出しに戻る。</p>
+              <div className="v2-problem__hook">AIを活かすには、まずナレッジを整える必要がある。</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SOLUTION: 2つの土台 */}
-      <section className="mk-section mk-section--sunken" id="solution">
-        <div className="mk-wrap">
-          <div className="mk-shead sv-reveal">
-            <span className="mk-eyebrow"><Layers />AI経営とは</span>
-            <h2>&quot;AI社員&quot;が動き出す、2つの共通の土台。</h2>
+      {/* SOLUTION */}
+      <section className="v2-sec" id="solution">
+        <div className="v2-wrap">
+          <div className="v2-shead">
+            <span className="v2-eyebrow"><Bot />Polaris AIとは</span>
+            <h2>Polaris AI は、話しかけて仕事を任せられる &quot;AI社員&quot; です。</h2>
+            <p>「◯◯を作って」「◯◯を調べて」と社員に頼むのと同じ感覚で使えます。裏側で御社の情報を集めながら仕事を進め、対話と成果物が組織のナレッジとして残っていきます。</p>
           </div>
-
-          <div className="sv-sol-intro sv-reveal">
-            <p className="sv-sol-intro__line">AI経営とは、AIが担当業務を持ち、人間の社員のように自律的に動き続ける経営です。汎用AIが頼りないのは、頭が悪いからではなく<em>あなたの会社を知らない</em>だけ。だから私たちは、&quot;AI社員&quot;が動くための共通の土台をつくります。</p>
-          </div>
-
-          <div className="sv-pillars sv-reveal" style={{ transitionDelay: ".06s" }}>
-            <div className="sv-pillar-card">
-              <div className="sv-pillar-card__top">
-                <div className="sv-pillar-card__badge">FOUNDATION 01</div>
-                <div className="sv-pillar-card__n">C</div>
+          <div className="v2-zigzag">
+            <div className="v2-zigzag__row">
+              <div className="v2-zigzag__text">
+                <div className="no">01</div>
+                <h3>窓口はひとつ、話し方は自由。</h3>
+                <p>「どのAIを、どう使うか」を選んだり、プロンプトを工夫する必要はありません。「◯◯を作って」と話しかけるだけで、裏側の専門AI社員たちに自動で仕事が割り振られます。社員全員が、同じ入り口から仕事を頼めます。</p>
               </div>
-              <div className="sv-pillar-card__title">AI Ready なデータ基盤</div>
-              <div className="sv-pillar-card__desc">AIが安心して使えるよう、散在するデータを整え、統合する。土台なしには、何も始まりません。</div>
-              <div className="sv-pillar-card__items">
-                <div className="sv-pillar-card__item"><Link2 />分断データの統合・ID紐づけ</div>
-                <div className="sv-pillar-card__item"><Tag />KPI・業務用語のセマンティック定義</div>
-                <div className="sv-pillar-card__item"><Shield />権限・参照範囲の制御</div>
-              </div>
-            </div>
-            <div className="sv-pillar-card sv-pillar-card--ctx">
-              <div className="sv-pillar-card__top">
-                <div className="sv-pillar-card__badge">FOUNDATION 02</div>
-                <div className="sv-pillar-card__n">B</div>
-              </div>
-              <div className="sv-pillar-card__title">コンテキストレイヤー</div>
-              <div className="sv-pillar-card__desc">会社の知見・KPI定義・業務の文脈を、AIが読める形に外在化する。一度教えれば、忘れない・全員で共有できる・退職しない。</div>
-              <div className="sv-pillar-card__items">
-                <div className="sv-pillar-card__item"><BookOpen />前提・指標定義・業務ルールの蓄積</div>
-                <div className="sv-pillar-card__item"><History />過去の意思決定と根拠のアーカイブ</div>
-                <div className="sv-pillar-card__item"><Sparkles />AI が自社の文脈で考えられる状態へ</div>
+              <div className="v2-zigzag__vis">
+                <div className="viz-01">
+                  <div className="viz-01__user">
+                    <span className="viz-01__av"><User /></span>
+                    <span className="viz-01__bubble">◯◯を任せる</span>
+                  </div>
+                  <div className="viz-01__arrow" />
+                  <div className="viz-01__polaris">Polaris AI</div>
+                  <div className="viz-01__fan"><i /><i /><i /></div>
+                  <div className="viz-01__team">
+                    <span>営業AI</span>
+                    <span>マーケAI</span>
+                    <span>リサーチAI</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="sv-pillar-result sv-reveal" style={{ transitionDelay: ".12s" }}>
-            <div className="sv-pillar-result__icon"><Repeat2 /></div>
-            <div>
-              <div className="sv-pillar-result__title">AIが、担当業務を持つ&quot;社員&quot;になる</div>
-              <div className="sv-pillar-result__desc">土台の上で、AIは営業・分析・ヘルプデスク・経営参謀といった担当業務を自律的にこなす&quot;AI社員&quot;として動き出します。人手の限界に縛られない経営へ。</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* DEMO: BEFORE / AFTER */}
-      <section className="mk-section" id="demo">
-        <div className="mk-wrap">
-          <div className="mk-shead sv-reveal">
-            <span className="mk-eyebrow"><PlayCircle />デモ</span>
-            <h2>同じ問いでも、&quot;AI社員&quot;の答えはこれだけ変わる。</h2>
-            <p>言葉より、見てもらうのが早い。会社の文脈を知るAI社員なら、業種を問わず打ち手まで返します。</p>
-          </div>
-
-          <div className="sv-demo-block sv-reveal">
-            <div className="sv-demo-q">
-              <span className="sv-demo-q__tag">SaaS · チャーン増加</span>
-              <span className="sv-demo-q__text">「先月チャーンが増えた。なぜ？防げたのか？」</span>
-            </div>
-            <div className="sv-demo-pair">
-              <div className="sv-demo-box before">
-                <div className="sv-demo-box__lbl">BEFORE · 汎用AI</div>
-                <div className="sv-demo-box__txt">価値提供やオンボーディングに課題があるかもしれません。ヘルススコアの導入や、チャーンした顧客へのインタビューを実施することをお勧めします。</div>
-                <div className="sv-demo-crit">← 御社の数字も文脈も不在。一般論しか返らない。</div>
+            <div className="v2-zigzag__row v2-zigzag__row--rev">
+              <div className="v2-zigzag__text">
+                <div className="no">02</div>
+                <h3>御社の情報を、自分で探しに行く。</h3>
+                <p>事前に Notion・Slack・Google Drive・社内DBなどをPolaris AIとつないでおくと、質問に応じて独自開発の高精度RAG<span className="v2-note">（= 社内から必要な情報だけを自動で探す技術）</span>が必要な情報を自分で取りに行きます。背景情報を人がコピペで教える必要はもうありません。</p>
               </div>
-              <div className="sv-demo-box after">
-                <div className="sv-demo-box__lbl">AFTER · 分析AIエージェント</div>
-                <div className="sv-demo-grid">
-                  <span className="dk">結論</span><span className="dv">MRRチャーン <span className="num-neg">▲480万円</span></span>
-                  <span className="dk">要因</span><span className="dv">解約13社中9社が旧プランの<strong>更新月に集中</strong></span>
-                  <span className="dk">予兆</span><span className="dv">7社は60日前にシート率55%以下＝<strong>事前検知できた</strong></span>
-                  <span className="dk">打ち手</span><span className="dv">旧プランの年間巻き取り＋60日前アラート</span>
-                  <span className="dk">効果</span><span className="dv"><span className="num-pos">MRR約390万円</span>、半分は防げる</span>
+              <div className="v2-zigzag__vis">
+                <div className="viz-02">
+                  <div className="viz-02__q">「◯◯社の資料は？」</div>
+                  <div className="viz-02__arrow" />
+                  <div className="viz-02__brain">
+                    <div className="viz-02__brain-in">Polaris AI</div>
+                    <div className="viz-02__rag">独自開発の高精度RAG</div>
+                  </div>
+                  <div className="viz-02__seek">
+                    <div className="viz-02__seek-item"><ToolLogo name="notion" /><em>関連ページを検索</em></div>
+                    <div className="viz-02__seek-item"><ToolLogo name="slack" /><em>過去の会話を確認</em></div>
+                    <div className="viz-02__seek-item"><ToolLogo name="google-drive" /><em>資料フォルダを探索</em></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="v2-zigzag__row">
+              <div className="v2-zigzag__text">
+                <div className="no">03</div>
+                <h3>成果物が、組織のナレッジになる。</h3>
+                <p>Polaris AIと一緒に作成した議事録・提案書・調査メモが、そのまま組織のナレッジとして蓄積されていきます。個人の頭の中に眠っていた判断や進め方が、誰でも参照できる会社の資産になります。</p>
+              </div>
+              <div className="v2-zigzag__vis">
+                <div className="viz-03">
+                  <div className="viz-03__pair">
+                    <div className="viz-03__actor"><span className="viz-03__av"><User /></span>営業</div>
+                    <div className="viz-03__link">↔</div>
+                    <div className="viz-03__actor viz-03__actor--ai">Polaris AI</div>
+                  </div>
+                  <div className="viz-03__arrow" />
+                  <div className="viz-03__doc">
+                    <div className="viz-03__doc-lines"><i /><i /><i /></div>
+                    <div className="viz-03__doc-lbl">議事録・提案書・調査メモ</div>
+                  </div>
+                  <div className="viz-03__arrow" />
+                  <div className="viz-03__base">
+                    <div className="viz-03__base-lbl">組織のナレッジ</div>
+                    <div className="viz-03__base-lines"><i /><i /><i /></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="sv-demo-block sv-reveal" style={{ transitionDelay: ".08s" }}>
-            <div className="sv-demo-q">
-              <span className="sv-demo-q__tag">EC · D2C · CVR低下</span>
-              <span className="sv-demo-q__text">「流入は増えてるのにCVRが落ちた。何が起きてる？」</span>
-            </div>
-            <div className="sv-demo-pair">
-              <div className="sv-demo-box before">
-                <div className="sv-demo-box__lbl">BEFORE · 汎用AI</div>
-                <div className="sv-demo-box__txt">表示速度や導線の問題、または季節要因が影響している可能性があります。A/Bテストで原因を特定することをお勧めします。</div>
-                <div className="sv-demo-crit">← 何も特定できていない。打てる手がない。</div>
+          <div className="v2-demo-cta">
+            <div className="v2-demo-cta__txt">実際の使用シーンは、初回相談でデモをご覧いただけます。</div>
+            <a className="px-btn px-btn--ghost px-btn--sm" href="#contact">無料相談を予約<ArrowRight className="px-btn__icon" /></a>
+          </div>
+        </div>
+      </section>
+
+      {/* 図解2: 比較表 */}
+      <section className="v2-sec v2-sec--sunken" id="compare">
+        <div className="v2-wrap">
+          <div className="v2-shead">
+            <span className="v2-eyebrow"><Scale />比較</span>
+            <h2>ChatGPTと、何が違うのか。</h2>
+          </div>
+          <div className="v2-cmp">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th scope="col" className="px">Polaris AI</th>
+                  <th scope="col">汎用AIチャット<span className="note">ChatGPT / Gemini 等</span></th>
+                  <th scope="col">Microsoft Copilot</th>
+                  <th scope="col">個別導入のAIツール</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">使いこなし</th>
+                  <td className="px"><span className="v2-mark v2-mark--best">◎</span><span className="d">話しかけるだけ</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">プロンプトの習熟が必要</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">アプリごとに学習</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">ツールごとに学習</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">自社の文脈理解</th>
+                  <td className="px"><span className="v2-mark v2-mark--best">◎</span><span className="d">独自RAGで社内を自律検索</span></td>
+                  <td><span className="v2-mark v2-mark--no">×</span><span className="d">毎回コピペで説明</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">M365 内のみ</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">ツール内のみ</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">ナレッジの蓄積</th>
+                  <td className="px"><span className="v2-mark v2-mark--best">◎</span><span className="d">対話が組織の共通知に</span></td>
+                  <td><span className="v2-mark v2-mark--no">×</span><span className="d">個人のチャットに散在</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">個人の履歴に散在</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">ツールごとに分断</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">利用可能なAI</th>
+                  <td className="px"><span className="v2-mark v2-mark--best">◎</span><span className="d">ChatGPT・Gemini・Claude</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">ChatGPT / Gemini のみ</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">OpenAI 系のみ</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">ツールごとに異なる</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">窓口</th>
+                  <td className="px"><span className="v2-mark v2-mark--best">◎</span><span className="d">Polaris AI 一人</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">用途ごとに使い分け</span></td>
+                  <td><span className="v2-mark v2-mark--no">×</span><span className="d">Office アプリごと</span></td>
+                  <td><span className="v2-mark v2-mark--no">×</span><span className="d">ツールごとにバラバラ</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">導入の手軽さ</th>
+                  <td className="px"><span className="v2-mark v2-mark--tri">△</span><span className="d">初期設計あり・最短2週間〜</span></td>
+                  <td><span className="v2-mark v2-mark--best">◎</span><span className="d">即利用可</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">M365 テナント設定が必要</span></td>
+                  <td><span className="v2-mark v2-mark--tri">△</span><span className="d">ツールごとに導入</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="v2-cmp__note">※ 各社のサービス内容は 2026年7月時点の公開情報に基づく一般的な理解です。</p>
+        </div>
+      </section>
+
+      {/* 図解3: BEFORE / AFTER */}
+      <section className="v2-sec" id="before-after">
+        <div className="v2-wrap">
+          <div className="v2-shead">
+            <span className="v2-eyebrow"><PlayCircle />導入前後</span>
+            <h2>導入前と導入後で、現場はこう変わる。</h2>
+            <p>※ 導入前の症状はよくあるパターンとしてまとめたもので、御社の状況によって変わります。</p>
+          </div>
+          <div className="v2-ba">
+            <div className="v2-ba__row">
+              <div className="v2-ba__cat">
+                <span className="v2-ba__cat-n">01</span>
+                <span className="v2-ba__cat-lbl">AI活用の実態</span>
               </div>
-              <div className="sv-demo-box after">
-                <div className="sv-demo-box__lbl">AFTER · 分析AIエージェント</div>
-                <div className="sv-demo-grid">
-                  <span className="dk">結論</span><span className="dv">CVR <span className="num-neg">2.8%→2.3%</span>（流入+12%＝転換の問題）</span>
-                  <span className="dk">要因</span><span className="dv">カート→決済が71→58%。<strong>送料無料ライン変更</strong>（5,000→8,000円）で定期初回客がラインを割った</span>
-                  <span className="dk">打ち手</span><span className="dv">ラインを6,000円に戻す</span>
-                  <span className="dk">効果</span><span className="dv">月 <span className="num-pos">+約330万円</span>の回復見込み</span>
+              <div className="v2-ba__pair">
+                <div className="v2-ba__side v2-ba__side--before">
+                  <div className="v2-ba__flag">Before</div>
+                  <div className="v2-ba__viz">
+                    <div className="ba-viz ba-viz--1b">
+                      <div className="ba-viz__row">
+                        <span className="ba-viz__u ba-viz__u--on"><User /></span>
+                        <span className="ba-viz__u"><User /></span>
+                        <span className="ba-viz__u"><User /></span>
+                        <span className="ba-viz__u"><User /></span>
+                        <span className="ba-viz__u"><User /></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="v2-ba__text">使いこなす人が、限られがち</div>
+                  <div className="v2-ba__desc">プロンプトを書ける一部の社員に活用が偏り、投資対効果が見えにくくなりがちです。</div>
+                </div>
+                <div className="v2-ba__arrow" aria-hidden="true"><ArrowRight /></div>
+                <div className="v2-ba__side v2-ba__side--after">
+                  <div className="v2-ba__flag">After</div>
+                  <div className="v2-ba__viz">
+                    <div className="ba-viz ba-viz--1a">
+                      <div className="ba-viz__polaris">Polaris AI</div>
+                      <div className="ba-viz__lines ba-viz__lines--down"><i /><i /><i /><i /><i /></div>
+                      <div className="ba-viz__row">
+                        <span className="ba-viz__u ba-viz__u--on"><User /></span>
+                        <span className="ba-viz__u ba-viz__u--on"><User /></span>
+                        <span className="ba-viz__u ba-viz__u--on"><User /></span>
+                        <span className="ba-viz__u ba-viz__u--on"><User /></span>
+                        <span className="ba-viz__u ba-viz__u--on"><User /></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="v2-ba__text">現場の誰もが仕事を任せられる</div>
+                  <div className="v2-ba__desc">話しかけるだけで、営業もバックオフィスもAIに仕事を任せられる。</div>
+                  <div className="v2-ba__metric"><span className="v2-ba__metric-lbl">自社実践の目安</span><span className="v2-ba__metric-val">マーケティング記事作成 <strong>60分 → 5分</strong></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div className="v2-ba__row">
+              <div className="v2-ba__cat">
+                <span className="v2-ba__cat-n">02</span>
+                <span className="v2-ba__cat-lbl">情報の受け渡し</span>
+              </div>
+              <div className="v2-ba__pair">
+                <div className="v2-ba__side v2-ba__side--before">
+                  <div className="v2-ba__flag">Before</div>
+                  <div className="v2-ba__viz">
+                    <div className="ba-viz ba-viz--2b">
+                      <div className="ba-viz__flow">
+                        <span className="ba-viz__u ba-viz__u--on"><User /></span>
+                        <span className="ba-viz__hand"><ArrowRight /></span>
+                        <div className="ba-viz__bubble"><i /><i /><i /></div>
+                        <span className="ba-viz__hand"><ArrowRight /></span>
+                        <span className="ba-viz__ai">AI</span>
+                      </div>
+                      <div className="ba-viz__loop">× 質問のたびに</div>
+                    </div>
+                  </div>
+                  <div className="v2-ba__text">背景を渡す手間がかかる</div>
+                  <div className="v2-ba__desc">質問のたびに背景情報を人がコピペで渡す必要があり、AI に頼む工数と自分でやる工数が変わらなくなりがちです。</div>
+                </div>
+                <div className="v2-ba__arrow" aria-hidden="true"><ArrowRight /></div>
+                <div className="v2-ba__side v2-ba__side--after">
+                  <div className="v2-ba__flag">After</div>
+                  <div className="v2-ba__viz">
+                    <div className="ba-viz ba-viz--2a">
+                      <div className="ba-viz__polaris">Polaris AI</div>
+                      <div className="ba-viz__fan"><i /><i /><i /></div>
+                      <div className="ba-viz__tools">
+                        <span className="ba-viz__tool"><ToolLogo name="notion" /></span>
+                        <span className="ba-viz__tool"><ToolLogo name="slack" /></span>
+                        <span className="ba-viz__tool"><ToolLogo name="google-drive" /></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="v2-ba__text">AIが自分で取りに行く</div>
+                  <div className="v2-ba__desc">Notion・Slack・Driveから、AIが必要な情報を自分で取りに来る。</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="v2-ba__row">
+              <div className="v2-ba__cat">
+                <span className="v2-ba__cat-n">03</span>
+                <span className="v2-ba__cat-lbl">業務知見の在り方</span>
+              </div>
+              <div className="v2-ba__pair">
+                <div className="v2-ba__side v2-ba__side--before">
+                  <div className="v2-ba__flag">Before</div>
+                  <div className="v2-ba__viz">
+                    <div className="ba-viz ba-viz--3b">
+                      <div className="ba-viz__row">
+                        <span className="ba-viz__u ba-viz__u--vet"><User /><span className="ba-viz__brainmark" aria-hidden="true" /></span>
+                        <span className="ba-viz__u ba-viz__u--off"><User /><span className="ba-viz__qmark">?</span></span>
+                        <span className="ba-viz__u ba-viz__u--off"><User /><span className="ba-viz__qmark">?</span></span>
+                        <span className="ba-viz__u ba-viz__u--off"><User /><span className="ba-viz__qmark">?</span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="v2-ba__text">ベテランの頭の中に留まりがち</div>
+                  <div className="v2-ba__desc">判断基準や進め方が個人の経験として蓄積され、退職や異動のたびに知見が失われがちです。</div>
+                </div>
+                <div className="v2-ba__arrow" aria-hidden="true"><ArrowRight /></div>
+                <div className="v2-ba__side v2-ba__side--after">
+                  <div className="v2-ba__flag">After</div>
+                  <div className="v2-ba__viz">
+                    <div className="ba-viz ba-viz--3a">
+                      <div className="ba-viz__ring">
+                        <span className="ba-viz__u ba-viz__u--on ba-viz__u--tl"><User /></span>
+                        <span className="ba-viz__u ba-viz__u--on ba-viz__u--tr"><User /></span>
+                        <div className="ba-viz__center-doc"><FileText /><span>組織のナレッジ</span></div>
+                        <span className="ba-viz__u ba-viz__u--on ba-viz__u--bl"><User /></span>
+                        <span className="ba-viz__u ba-viz__u--on ba-viz__u--br"><User /></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="v2-ba__text">誰でも参照できる資産に</div>
+                  <div className="v2-ba__desc">対話と成果物がそのまま蓄積され、誰でも参照できる会社の資産になる。</div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div className="sv-demo-disc sv-reveal">※ デモ数値はリアル想定のダミーです。本番は自社データ・PoC結果に差し替えます。</div>
         </div>
       </section>
 
-      {/* WHY US: 4 reasons */}
-      <section className="mk-section mk-section--sunken" id="why-us">
-        <div className="mk-wrap">
-          <div className="mk-shead sv-reveal">
-            <span className="mk-eyebrow"><Star />選ばれる理由</span>
-            <h2>&quot;入れただけ&quot;で終わらせない、5つの理由。</h2>
+      {/* WHY US */}
+      <section className="v2-sec v2-sec--tint" id="why-us">
+        <div className="v2-wrap">
+          <div className="v2-shead">
+            <span className="v2-eyebrow"><Star />選ばれる理由</span>
+            <h2>他社と、ここが違います。</h2>
           </div>
-          <div className="sv-why-grid sv-reveal" style={{ transitionDelay: ".06s" }}>
-            <div className="sv-why-card">
-              <div className="sv-why-n">01</div>
-              <div>
-                <div className="sv-why-title">「AIを入れたのに効果が出ない」を越える</div>
-                <p className="sv-why-desc">組織に眠る暗黙知を、AIが読めるコンテキストレイヤーへ。汎用AIには届かなかった&quot;担当業務を任せられるAI社員&quot;を実現します。</p>
+          <div className="v2-why">
+            <div className="v2-why__row">
+              <div className="v2-why__text">
+                <div className="v2-why__n">01</div>
+                <div className="v2-why__t">独自開発の高精度RAGで、&quot;御社を知っているAI&quot; を実現</div>
+                <p className="v2-why__d">汎用AIやチャット型ツールでは届かない、意思決定に使える精度。暗黙知を含む社内文脈をAIが読める形に整え、質問に応じて&quot;推論してから絞り込む&quot;検索設計で必要な情報だけを取りに行きます。</p>
+                <div className="v2-why__proof"><span>裏付け</span>PolarisXが独自開発したRAG技術を Polaris AI に搭載。単なるベクトル検索ではなく、社内文脈を扱うために設計した独自アーキテクチャです。</div>
+              </div>
+              <div className="v2-why__vis">
+                <div className="why-viz why-viz--flow">
+                  <div className="why-viz__step"><span className="why-viz__k">STEP 1</span><span className="why-viz__v">質問を理解</span></div>
+                  <div className="why-viz__arrow" />
+                  <div className="why-viz__step why-viz__step--em"><span className="why-viz__k">STEP 2 · 推論</span><span className="why-viz__v">どこを探すべきか判断</span></div>
+                  <div className="why-viz__arrow" />
+                  <div className="why-viz__step why-viz__step--em"><span className="why-viz__k">STEP 3 · 絞り込み検索</span><span className="why-viz__v">関連する情報だけ取得</span></div>
+                  <div className="why-viz__arrow" />
+                  <div className="why-viz__step why-viz__step--goal"><span className="why-viz__k">結果</span><span className="why-viz__v">精度の高い回答</span></div>
+                </div>
               </div>
             </div>
-            <div className="sv-why-card">
-              <div className="sv-why-n">02</div>
-              <div>
-                <div className="sv-why-title">分析の当事者だった</div>
-                <p className="sv-why-desc">レポートを作る側ではなく、その数字で事業を動かしてきた人間が、経営に本当に効くAI活用を設計します。</p>
+
+            <div className="v2-why__row v2-why__row--rev">
+              <div className="v2-why__text">
+                <div className="v2-why__n">02</div>
+                <div className="v2-why__t">自社がAIネイティブで意思決定している</div>
+                <p className="v2-why__d">机上の提案はしません。自分たちの経営判断こそAIで回し、検証済みの形で御社に届けます。「使ってみたら合わなかった」を、事前に潰しきります。</p>
+                <div className="v2-why__proof"><span>裏付け</span>マーケ運用・補助金申請・協業調査などの実務を、社内のAI社員組織が日々担っています。<strong>実例: 補助金申請のドラフトは、AI社員が9割を執筆。</strong></div>
+              </div>
+              <div className="v2-why__vis">
+                <div className="why-viz why-viz--metric">
+                  <div className="why-viz__lbl">社内で実運用中のAI社員組織</div>
+                  <div className="why-viz__metrics">
+                    <div className="why-viz__m">
+                      <div className="why-viz__mv">3<small>部門</small></div>
+                      <div className="why-viz__ml">CMO / CFO / CSO</div>
+                    </div>
+                    <div className="why-viz__mdiv" aria-hidden="true" />
+                    <div className="why-viz__m">
+                      <div className="why-viz__mv">約20<small>体</small></div>
+                      <div className="why-viz__ml">AI社員が稼働</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="sv-why-card">
-              <div className="sv-why-n">03</div>
-              <div>
-                <div className="sv-why-title">私たち自身が、AIを会社のOSにしている</div>
-                <p className="sv-why-desc">机上の提案はしません。自分たちの業務こそ誰よりもAIで回し、実証した手応えで御社に届けます。</p>
+
+            <div className="v2-why__row">
+              <div className="v2-why__text">
+                <div className="v2-why__n">03</div>
+                <div className="v2-why__t">実務を回してきたチームが、診断から運用まで伴走</div>
+                <p className="v2-why__d">「レポートを作る側」ではなく、その数字で事業を動かしてきたメンバーが在籍。事業成長・大規模データ分析・AIプロダクト開発の経験を持つチームが、御社の実務を理解した上で診断・基盤構築・AI社員開発・運用改善を一貫して担います。</p>
+                <div className="v2-why__proof"><span>裏付け</span>「相談は営業、実装は別会社、運用はまた別」という分業型では届かない、事業に効く実装ができる体制です。</div>
               </div>
-            </div>
-            <div className="sv-why-card">
-              <div className="sv-why-n">04</div>
-              <div>
-                <div className="sv-why-title">診断から土台構築・AI社員開発まで一気通貫</div>
-                <p className="sv-why-desc">AI活用診断から共通の土台の構築、AI社員（エージェント）開発まで、同じチームが分断なく担います。</p>
-              </div>
-            </div>
-            <div className="sv-why-card" style={{ gridColumn: "1 / -1" }}>
-              <div className="sv-why-n">05</div>
-              <div>
-                <div className="sv-why-title">成果を、仕組みとして残す</div>
-                <p className="sv-why-desc">AIを外注し続ければ、ノウハウは社外に貯まり費用も発生し続けます。私たちはAI社員と共通の土台を御社の&quot;資産&quot;として残し、内製で運用・更新できる状態まで伴走します。私たちが離れても、回り続けます。</p>
+              <div className="v2-why__vis">
+                <div className="why-viz why-viz--team">
+                  <div className="why-viz__lbl">実務経験ベースのAI設計</div>
+                  <div className="why-viz__creds">
+                    <div className="why-viz__cred">
+                      <div className="why-viz__cred-t">事業成長 PdM</div>
+                      <div className="why-viz__cred-d">メガベンチャー主力事業を年次130%成長</div>
+                    </div>
+                    <div className="why-viz__cred">
+                      <div className="why-viz__cred-t">大規模データ分析・AI導入</div>
+                      <div className="why-viz__cred-d">DeNA 国内最大規模のデータ分析リード</div>
+                    </div>
+                    <div className="why-viz__cred">
+                      <div className="why-viz__cred-t">プロダクト開発</div>
+                      <div className="why-viz__cred-d">複数スタートアップの CTO / リード経験</div>
+                    </div>
+                  </div>
+                  <div className="why-viz__phases">
+                    <span>診断</span>
+                    <span>基盤構築</span>
+                    <span>AI社員開発</span>
+                    <span>運用改善</span>
+                  </div>
+                  <div className="why-viz__note">全工程を同じチームが担当</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PRICING */}
-      <section className="mk-section" id="pricing">
-        <div className="mk-wrap">
-          <div className="mk-shead sv-reveal">
-            <span className="mk-eyebrow"><CreditCard />料金プラン</span>
-            <h2>スモールスタートから、継続的な伴走まで。</h2>
-            <p>初期導入で土台をつくり、月次伴走で定着とナレッジ化を続けます。</p>
+      {/* PROCESS: フェーズ図 + 料金 */}
+      <section className="v2-sec v2-sec--sunken" id="process">
+        <div className="v2-wrap">
+          <div className="v2-shead">
+            <span className="v2-eyebrow"><Route />導入の流れ</span>
+            <h2>はじめ方は、2つのフェーズです。</h2>
+            <p>「相談内容がまだ固まっていない」段階で十分です。まずは無料相談から。</p>
           </div>
-          <div className="sv-prices sv-reveal" style={{ transitionDelay: ".06s" }}>
-            <div className="sv-price">
-              <div className="sv-price__plan">Initial</div>
-              <div className="sv-price__title">初期導入</div>
-              <div className="sv-price__sub">アセスメント＋コンテキストレイヤー構築＋導入設定</div>
-              <div className="sv-price__val">¥100万〜300万</div>
-              <div className="sv-price__unit">一括 / 導入設定までを含む</div>
-              <div className="sv-price__desc">現状のデータと業務を評価し、AIが意思決定に使える状態の土台を構築します。</div>
+
+          <div className="v2-process__meta">
+            <div className="v2-process__meta-item">
+              <span className="v2-process__meta-lbl">最短導入期間</span>
+              <span className="v2-process__meta-val">2週間〜</span>
             </div>
-            <div className="sv-price feat">
-              <div className="sv-price__plan">Monthly</div>
-              <div className="sv-price__title">月次伴走</div>
-              <div className="sv-price__sub">運用・定着支援と継続的なチューニング・テンプレ化</div>
-              <div className="sv-price__val">¥20万〜80万</div>
-              <div className="sv-price__unit">月額 / 継続</div>
-              <div className="sv-price__desc">定義チューニング、新規分析のテンプレート化、定着支援を継続。使うほど磨かれます。</div>
+            <div className="v2-process__meta-item">
+              <span className="v2-process__meta-lbl">スタート地点</span>
+              <span className="v2-process__meta-val">Phase 1 / Phase 2 どちらからでも</span>
+              <span className="v2-process__meta-note">既に基盤が整っている企業は Phase 2 から着手可能</span>
             </div>
-            <div className="sv-price">
-              <div className="sv-price__plan">Option</div>
-              <div className="sv-price__title">オプション開発</div>
-              <div className="sv-price__sub">AIエージェント・予測モデル受託・基盤拡張</div>
-              <div className="sv-price__val">要相談</div>
-              <div className="sv-price__unit">プロジェクト個別見積（100万円〜想定）</div>
-              <div className="sv-price__desc">需要予測モデル受託、追加ワークフロー、基盤拡張。DWH/DBがない企業もご相談ください。</div>
+          </div>
+
+          <div className="v2-phases">
+            <div className="v2-phase">
+              <div className="v2-phase__tag">Phase 1</div>
+              <h3>基盤をつくる</h3>
+              <div className="v2-phase__steps">
+                <div className="v2-phase__step"><span className="v2-phase__dot">1</span><div><div className="t">診断</div><div className="d">現状のAI活用・データ環境を確認します。</div></div></div>
+                <div className="v2-phase__step"><span className="v2-phase__dot">2</span><div><div className="t">ナレッジ基盤の整備</div><div className="d">無ければ構築を並走します。</div></div></div>
+                <div className="v2-phase__step"><span className="v2-phase__dot">3</span><div><div className="t">RAG SaaS導入</div><div className="d">AIが社内情報を読める状態をつくります。</div></div></div>
+              </div>
             </div>
+            <div className="v2-phases__arrow" aria-hidden="true"><ArrowRight /></div>
+            <div className="v2-phase v2-phase--2">
+              <div className="v2-phase__tag">Phase 2</div>
+              <h3>AI社員を配属する</h3>
+              <div className="v2-phase__steps">
+                <div className="v2-phase__step"><span className="v2-phase__dot">1</span><div><div className="t">AI社員テンプレート選定</div><div className="d">業務に合わせて担当を選びます。</div></div></div>
+                <div className="v2-phase__step"><span className="v2-phase__dot">2</span><div><div className="t">個社カスタマイズ</div><div className="d">御社の業務・文脈に合わせ込みます。</div></div></div>
+                <div className="v2-phase__step"><span className="v2-phase__dot">3</span><div><div className="t">配属・運用改善</div><div className="d">配属後も継続的に改善します。</div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="v2-price">
+            <div className="v2-price__row">
+              <div className="v2-price__label">初期費用</div>
+              <div className="v2-price__val"><span className="v2-price__num">20万円</span><span className="v2-price__unit">〜</span></div>
+            </div>
+            <p className="v2-price__note">上記は初期費用の最低ライン。業務範囲・接続ツールの数・データ量など、御社の実態に応じて個別お見積もりします。月額は業務範囲によって変動するため、無料相談時にレンジをご提示します。</p>
+            <ul>
+              <li><Check />フェーズ1 から、小さく始められます</li>
+              <li><Check />権限体系の再設計、既存ツールのライセンス費用は対象外（すでにあるものを活かします）</li>
+            </ul>
+            <div><a className="px-btn px-btn--primary" href="#contact">無料で相談する<ArrowRight className="px-btn__icon" /></a></div>
           </div>
         </div>
       </section>
 
-      {/* PROCESS / steps */}
-      <section className="mk-section mk-section--sunken" id="process">
-        <div className="mk-wrap">
-          <div className="mk-shead sv-reveal">
-            <span className="mk-eyebrow"><Route />導入の流れ</span>
-            <h2>はじめ方は、シンプルです。</h2>
-            <p>「相談内容がまだ固まっていない」段階で十分です。まずは現状をお聞かせください。</p>
+      {/* FAQ */}
+      <section className="v2-sec" id="faq">
+        <div className="v2-wrap">
+          <div className="v2-shead">
+            <span className="v2-eyebrow"><HelpCircle />よくある質問</span>
+            <h2>導入前に、よくいただくご質問。</h2>
           </div>
-          <div className="sv-steps">
-            <div className="sv-step sv-reveal"><span className="sv-step__dot"></span><div className="sv-step__n">STEP 01</div><h3>無料相談・AI活用診断</h3><p>現状の課題とデータ環境を伺い、AI活用の論点を整理。まだ何も決まっていなくて大丈夫です。<strong style={{ color: "var(--blue-600)" }}>（初回無料）</strong></p></div>
-            <div className="sv-step sv-reveal" style={{ transitionDelay: ".07s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 02</div><h3>共通の土台を構築</h3><p>データ基盤を整え、会社の知見・KPI定義・業務の文脈をAIが読める形に。&quot;AI社員&quot;が動ける状態へ。</p></div>
-            <div className="sv-step sv-reveal" style={{ transitionDelay: ".14s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 03</div><h3>月次伴走・定着</h3><p>運用と定着を継続支援。テンプレ化とチューニングで、成果を組織の仕組みとして残します。</p></div>
-            <div className="sv-step sv-reveal" style={{ transitionDelay: ".21s" }}><span className="sv-step__dot"></span><div className="sv-step__n">STEP 04</div><h3>AI社員・モデル開発（任意）</h3><p>土台が整ったら、営業・分析・経営参謀などのAI社員や需要予測モデルを開発・内製化支援。</p></div>
+          <div className="v2-faq">
+            <details className="v2-faq__item">
+              <summary>セキュリティが心配です。社内の機密情報を渡しても大丈夫ですか？<ChevronDown /></summary>
+              <div className="v2-faq__body">Notion・Slack・Google Drive・社内データベースなどとは標準的な接続方式でつなぎ、Polaris AIは質問に応じて必要な情報だけをその都度取得します。情報をまとめて一箇所にコピーしたり、必要のない情報まで渡したりする必要はありません。</div>
+            </details>
+            <details className="v2-faq__item">
+              <summary>今使っているツール（Slack・Notionなど）は入れ替える必要がありますか？<ChevronDown /></summary>
+              <div className="v2-faq__body">いいえ。既存のツールはそのまま活かします。権限体系そのものの再設計や、既存ツールのライセンス費用は対象外です。Polaris AIは、すでにある環境に接続する形で導入します。</div>
+            </details>
+            <details className="v2-faq__item">
+              <summary>ITに詳しい社員がいなくても使えますか？<ChevronDown /></summary>
+              <div className="v2-faq__body">はい。話しかける相手はPolaris AI一人だけです。「どのAIを、どう使うか」を考える必要はなく、上司や同僚に頼むのと同じ感覚で仕事を任せられます。</div>
+            </details>
+            <details className="v2-faq__item">
+              <summary>どんな会社にフィットしますか？<ChevronDown /></summary>
+              <div className="v2-faq__body">日々の業務判断が特定の社員に集中している組織、AI導入で成果を出しきれていない組織に向いています。まずは無料相談で、御社の状況をお聞かせください。</div>
+            </details>
           </div>
         </div>
       </section>
 
       {/* CONTACT */}
-      <section className="mk-section sv-contact" id="contact">
-        <div className="mk-wrap">
-          <div className="sv-contact__grid">
-            <div className="sv-contact__intro sv-reveal">
-              <span className="mk-eyebrow"><Mail />お問い合わせ</span>
-              <h2>御社の「先月、なぜ？」に、<br />AI が答えられるか<em>試しませんか。</em></h2>
-              <p>初回相談（30分）は無料です。話しながら整理していきましょう。</p>
-              <ul className="sv-assure">
+      <section className="v2-sec v2-contact" id="contact">
+        <div className="v2-wrap">
+          <div className="v2-contact__grid">
+            <div className="v2-contact__intro">
+              <span className="v2-eyebrow"><Mail />お問い合わせ</span>
+              <h2>まずは、<em>御社の課題整理</em>から。</h2>
+              <p>初回相談（30分）は無料です。話しながら、現状を整理していきましょう。</p>
+              <div className="v2-contact__benefits">
+                <div className="v2-contact__benefits-lbl">無料相談で分かること</div>
+                <ul className="v2-contact__benefits-list">
+                  <li><Check />御社の AI 活用ポテンシャルの診断</li>
+                  <li><Check />想定投資額のレンジ（初期費用・月額）</li>
+                  <li><Check />導入から成果が出るまでの想定タイムライン</li>
+                </ul>
+              </div>
+              <ul className="v2-assure">
                 <li><CheckCircle2 />初回ヒアリング & 現状診断は無料</li>
                 <li><CheckCircle2 />オンライン 30〜60 分・営業日 2 日以内にご返信</li>
                 <li><CheckCircle2 />無理な提案・しつこい営業はしません</li>
               </ul>
             </div>
 
-            <ServiceContactForm />
+            <div className="v2-contact__form-wrap">
+              <div className="v2-contact__badge"><Check />初回相談 30分 無料 ・ オンライン</div>
+              <ServiceContactForm />
+            </div>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="mk-footer">
-        <div className="mk-wrap">
-          <div className="mk-footer__grid">
-            <div className="mk-footer__col">
-              <a className="mk-logo" href="#top" style={{ marginBottom: "14px" }}><img src="/assets/PolarisX_mark.svg" alt="" width={26} height={26} /><span>Polaris<span style={{ color: "var(--blue-500)" }}>X</span></span></a>
-              <p style={{ fontSize: "13.5px", color: "var(--text-muted)", lineHeight: 1.7, maxWidth: "24em" }}>AIを、会社のOSに。担当業務を持つ&quot;AI社員&quot;が動く経営を、あらゆる企業の当たり前に。</p>
+      <footer className="v2-footer">
+        <div className="v2-wrap">
+          <div className="v2-footer__grid">
+            <div className="v2-footer__col">
+              <a className="v2-logo" href="#top" style={{ marginBottom: "14px" }}><img src="/assets/PolarisX_wordmark.svg" alt="PolarisX" style={{ height: 26, width: "auto" }} /></a>
+              <p className="v2-footer__lead">そろそろ、AI社員を採用しませんか。Polaris AIが、御社の業務をまるごと引き受けます。</p>
             </div>
-            <div className="mk-footer__col"><h4>サービス</h4><a href="#problem">課題・現状</a><a href="#solution">AI経営とは</a><a href="#why-us">選ばれる理由</a><a href="#pricing">料金プラン</a><a href="#process">導入の流れ</a></div>
-            <div className="mk-footer__col"><h4>会社情報</h4><Link href="/company">会社情報</Link><Link href="/company#contact">お問い合わせ</Link></div>
-            <div className="mk-footer__col"><h4>リソース</h4><Link href="/blogs">ブログ</Link><Link href="/privacy-policy">プライバシー</Link></div>
+            <div className="v2-footer__col"><h4>サービス</h4><a href="#problem">課題・現状</a><a href="#solution">Polaris AIとは</a><a href="#compare">比較</a><a href="#why-us">選ばれる理由</a><a href="#process">導入の流れ</a><a href="#faq">よくある質問</a></div>
+            <div className="v2-footer__col"><h4>会社情報</h4><Link href="/company">会社情報</Link><Link href="/company#contact">お問い合わせ</Link></div>
+            <div className="v2-footer__col"><h4>リソース</h4><Link href="/blogs">ブログ</Link><Link href="/privacy-policy">プライバシー</Link></div>
           </div>
-          <div className="mk-footer__bottom">
+          <div className="v2-footer__bottom">
             <span>© 2026 PolarisX, Inc.</span>
             <span style={{ display: "flex", gap: "16px" }}><Link href="/privacy-policy" style={{ color: "inherit", textDecoration: "none" }}>プライバシー</Link></span>
           </div>
