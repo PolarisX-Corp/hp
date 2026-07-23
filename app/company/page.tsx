@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Sparkles, ArrowRight, Crosshair, Mountain } from "lucide-react";
 import { COMPANY_BRAND, COMPANY_PROFILE } from "@/lib/company";
 import CompanyContactForm from "../components/CompanyContactForm";
@@ -103,6 +104,9 @@ export default function Company() {
                 <span className="px-badge px-badge--accent co-serv__tag co-en">Polaris AI / AI Agent Development</span>
                 <h3>{COMPANY_PROFILE.businesses[0]}</h3>
                 <p>Polaris AIは、御社の業務をまるごと任せられるAI社員です。営業・人事・マーケティングなど、それぞれの担当を持つ専門AI社員がチームで動く状態を設計・開発します。</p>
+                <Link className="px-btn px-btn--primary co-serv__cta" href="/">
+                  Polaris AIを見る<ArrowRight className="px-btn__icon" />
+                </Link>
               </div>
             </div>
             <div className="co-serv__ex">
@@ -135,21 +139,18 @@ export default function Company() {
           <div className="co-secnum co-reveal">MEMBERS ／ 04</div>
           <div className="co-members">
             <div className="co-mem co-reveal">
-              <div className="co-mem__avatar">SO</div>
               <span className="px-badge px-badge--neutral co-mem__role co-en">代表取締役 CEO</span>
               <h3>折本 聖也</h3>
               <div className="co-mem__romaji">Seiya Orimoto</div>
               <p className="co-mem__bio">東北大学・大学院を卒業後、メガベンチャーで主力事業のPdMとして、年次130%の成長を牽引。その後、東大発AIスタートアップでAIエンジニアとして最先端の深層学習の社会実装に従事。</p>
             </div>
             <div className="co-mem co-reveal">
-              <div className="co-mem__avatar">IH</div>
               <span className="px-badge px-badge--neutral co-mem__role co-en">共同創業者 COO</span>
               <h3>He Sibei</h3>
               <div className="co-mem__romaji">Iris He</div>
               <p className="co-mem__bio">中国出身、学生時代に連続起業し、複数事業の収益化を実現。その後、DeNAにて国内最大規模のゲームタイトルの意思決定を支えるデータ分析、AI導入・推進をリード。</p>
             </div>
             <div className="co-mem co-reveal">
-              <div className="co-mem__avatar">AA</div>
               <span className="px-badge px-badge--neutral co-mem__role co-en">共同創業者 CTO</span>
               <h3>安部 歩夢</h3>
               <div className="co-mem__romaji">Ayumu Abe</div>
