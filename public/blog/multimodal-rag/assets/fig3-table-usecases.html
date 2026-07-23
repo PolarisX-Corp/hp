@@ -1,0 +1,62 @@
+<!-- style: flat (基調) + R2 SVGピクトグラム — table: 効く場面の一覧（場面×眠っている非テキスト資料×AIに聞けるようになること） -->
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F7F8FB; --card:#FFFFFF; --border:#E2E5EE;
+    --ink:#00063D; --body:#363C4D; --muted:#6B7388;
+    --accent:#366EFF; --accent-d:#1841B8; --accent-bg:#EAF0FF; --accent-bd:#ADC3FF;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1280px; height:1024px; }
+  body { font-family:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+         background:var(--bg); color:var(--ink); padding:44px 50px 26px; display:flex; flex-direction:column; }
+  .title { font-size:30px; font-weight:800; letter-spacing:-.01em; line-height:1.3; }
+  .title .em { color:var(--accent); }
+  .sub { font-size:18px; color:var(--muted); font-weight:600; margin-top:10px; }
+
+  .tbl { flex:1; display:grid; grid-template-columns:220px 1fr 1fr; margin-top:20px;
+         background:var(--card); border:1.5px solid var(--border); border-radius:16px; overflow:hidden;
+         box-shadow:0 6px 18px rgba(0,6,61,.06); }
+  .hcell { background:var(--accent-bg); border-bottom:2px solid var(--accent-bd);
+           font-size:21px; font-weight:800; color:var(--accent-d); padding:14px 16px;
+           display:flex; align-items:center; }
+  .cell { border-bottom:1px solid var(--border); padding:14px 16px; display:flex; align-items:center;
+          font-size:20px; color:var(--body); line-height:1.4; }
+  .cell.last { border-bottom:none; }
+  .scene { font-size:22px; font-weight:800; color:var(--ink); gap:10px; }
+  .scene svg { width:30px; height:30px; flex-shrink:0; }
+  .ask { font-weight:700; color:var(--ink); }
+  .ask b { color:var(--accent-d); }
+</style></head>
+<body>
+  <div class="title">マルチモーダルRAGが効く場面 — <span class="em">「目で図を見て判断していた業務」</span></div>
+  <div class="sub">業務の根拠が非テキスト資料に偏っている場面ほど、効果が出やすい（報告されている活用領域の整理）</div>
+
+  <div class="tbl">
+    <div class="hcell">場面</div>
+    <div class="hcell">眠っている非テキスト資料</div>
+    <div class="hcell">AIに聞けるようになること</div>
+
+    <div class="cell scene"><svg viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V9l6-4v15"/><path d="M10 20V5l10 4v11"/><path d="M14 12h2M14 16h2M6.5 12h1M6.5 16h1"/></svg>製造・建設</div>
+    <div class="cell">図面・CAD・設備写真・技術資料</div>
+    <div class="cell ask">類似設計の検索、保全手順・<b>設計データの抽出</b></div>
+
+    <div class="cell scene"><svg viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l1.2-5h13.6L20 10"/><path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/><path d="M9 20v-5h6v5"/></svg>店舗・サービス業</div>
+    <div class="cell">写真入りマニュアル・売場レイアウト図・手順の図解</div>
+    <div class="cell ask">「写真で伝えてきた」<b>作業手順・売場基準の確認</b></div>
+
+    <div class="cell scene"><svg viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M13 3v5h5"/><circle cx="15" cy="15" r="2.6"/><path d="M15 13.2v1.8l1.2.8"/></svg>バックオフィス</div>
+    <div class="cell">スキャン契約書・押印済み書類・手書き帳票</div>
+    <div class="cell ask">漏れていた<b>条項・記載内容の確認</b></div>
+
+    <div class="cell scene last"><svg viewBox="0 0 24 24" fill="none" stroke="#366EFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>企画・資料読解</div>
+    <div class="cell last">グラフ・フローチャート入りの資料</div>
+    <div class="cell last ask"><b>数値傾向の把握</b>・分岐の読み取り</div>
+  </div>
+
+  <div class="brandbar" style="flex-shrink:0; margin-top:18px; padding-top:13px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between;">
+    <div style="font-size:21px; color:var(--muted); font-weight:600;">AIを会社のOSにする。</div>
+    <img style="height:36px; width:auto; opacity:.95;" src="../../../brand/PolarisX_wordmark.svg" alt="PolarisX">
+  </div>
+</body></html>
