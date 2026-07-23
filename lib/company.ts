@@ -20,19 +20,19 @@ export const COMPANY_PROFILE = {
 export const COMPANY_BRAND = {
   catchphrase: "そろそろ、AI社員を採用しませんか。",
   description: "PolarisXは、AI社員を通じて、御社の業務に新しい戦力を届ける会社です。",
-  mission: "AIを会社のOSにする。",
+  mission: "AIで会社の創造性を解放する。",
   values: [
     {
       name: "AIファースト",
-      description: "自分たちが一番AIを信じて使い込む",
+      description: "自分たちが一番AIを信じて使い込み、実務で得た知見をお客様への価値に変える",
     },
     {
       name: "創造する",
-      description: "新しい価値を創造することに注力する",
+      description: "既存のやり方をなぞるだけでなく、AI時代に必要な新しい働き方と価値をつくる",
     },
     {
       name: "目的思考",
-      description: "何のためかを考え行動する",
+      description: "技術や手段から入らず、何のためにやるのかを問い続け、成果につながる選択をする",
     },
   ],
 } as const;
