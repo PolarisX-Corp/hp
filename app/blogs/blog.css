@@ -294,7 +294,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adju
 .bl-prose em { font-style: italic; }
 /* マーカー強調（Markdown の ==テキスト== ）。下半分のみ塗って文字コントラストを確保し、
    太字で色以外の強調も持たせる。box-decoration-break で折返し行にも塗りを継続 */
-.bl-prose mark { background: linear-gradient(transparent 62%, var(--blue-100) 62%); color: var(--neutral-900); font-weight: 600;
+.bl-prose mark { background: linear-gradient(transparent 62%, var(--blue-100) 62%); color: var(--neutral-900); font-weight: 700;
   padding: 0 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .bl-prose ul, .bl-prose ol { margin: 0 0 var(--space-5); padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .bl-prose ul li { position: relative; padding-left: 28px; }
