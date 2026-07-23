@@ -403,23 +403,6 @@ body { margin: 0; }
 .co-hero__row p { font-size: 17px; line-height: 1.85; color: var(--text-secondary); max-width: 30em; margin: 0; }
 .co-hero__acts { display: flex; gap: var(--space-3); flex-wrap: wrap; }
 
-/* marquee */
-.co-marquee { margin-top: var(--space-16); overflow: hidden; background: var(--indigo-900); position: relative; }
-.co-marquee::before, .co-marquee::after {
-  content: ""; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
-}
-.co-marquee::before { left: 0; background: linear-gradient(90deg, var(--indigo-900), transparent); }
-.co-marquee::after { right: 0; background: linear-gradient(270deg, var(--indigo-900), transparent); }
-.co-mqtrack { display: flex; white-space: nowrap; width: max-content; animation: co-scroll 30s linear infinite; }
-@keyframes co-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .co-mqtrack { animation: none; } }
-.co-mqgroup { display: inline-flex; align-items: center; }
-.co-mqgroup span.co-mqi {
-  font-family: var(--font-display); font-weight: 600; font-size: 26px; color: #fff;
-  letter-spacing: -0.01em; padding: 18px 0; display: inline-flex; align-items: center;
-}
-.co-mqsep { width: 9px; height: 9px; margin: 0 30px; transform: rotate(45deg); background: var(--blue-400); border-radius: 2px; flex: none; }
-
 /* ---------- Mission band (dark indigo) ---------- */
 .co-mission { background: var(--indigo-950); color: #fff; position: relative; overflow: hidden; }
 .co-mission .co-secnum { color: var(--blue-300); }

@@ -7,7 +7,6 @@ export const COMPANY_PROFILE = {
   industry: "情報通信業",
   businesses: [
     "法人向けAIエージェントの開発",
-    "社内ナレッジベースの構築",
     "AIコンサルティングサービス",
   ],
   address: "東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C",
