@@ -292,7 +292,10 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adju
 .bl-prose a { color: var(--text-link); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
 .bl-prose strong { font-weight: 700; color: var(--neutral-900); }
 .bl-prose em { font-style: italic; }
-.bl-prose mark { background: var(--blue-50); color: var(--blue-800); padding: 1px 4px; border-radius: 4px; }
+/* マーカー強調（Markdown の ==テキスト== ）。下半分のみ塗って文字コントラストを確保し、
+   太字で色以外の強調も持たせる。box-decoration-break で折返し行にも塗りを継続 */
+.bl-prose mark { background: linear-gradient(transparent 62%, var(--blue-100) 62%); color: var(--neutral-900); font-weight: 600;
+  padding: 0 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .bl-prose ul, .bl-prose ol { margin: 0 0 var(--space-5); padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .bl-prose ul li { position: relative; padding-left: 28px; }
 .bl-prose ul li::before { content: ""; position: absolute; left: 6px; top: 11px; width: 7px; height: 7px; border-radius: 999px; background: var(--blue-500); }

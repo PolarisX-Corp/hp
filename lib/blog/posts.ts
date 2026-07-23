@@ -37,13 +37,15 @@ function stripInline(md: string): string {
     .replace(/(\*\*|__)(.*?)\1/g, "$2")
     .replace(/(\*|_)(.*?)\1/g, "$2")
     .replace(/~~(.*?)~~/g, "$1")
+    // マーカー記法（remark-mark と同じ「内側の端が空白でない」場合のみ）
+    .replace(/==(\S(?:[^=]*\S)?)==/g, "$1")
     .trim();
 }
 
 function computeReadingMinutes(content: string): number {
   const text = content
     .replace(/```[\s\S]*?```/g, "") // コードブロック除去
-    .replace(/[#>*_`~\-|]/g, "")
+    .replace(/[#>*_`~\-|=]/g, "")
     .replace(/\s+/g, "");
   return Math.max(1, Math.round(text.length / CHARS_PER_MINUTE));
 }
