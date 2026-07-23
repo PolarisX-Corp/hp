@@ -264,9 +264,9 @@ body { margin: 0; }
 .bl-breadcrumb [aria-current] { color: var(--text-secondary); }
 
 .bl-article-head { max-width: 760px; padding: var(--space-6) 0 var(--space-8); }
-.bl-article-head h1 { font-family: var(--font-display); font-weight: 700; font-size: 42px; line-height: 1.18; letter-spacing: -0.03em;
+.bl-article-head h1 { font-family: var(--font-display); font-weight: 700; font-size: 36px; line-height: 1.18; letter-spacing: -0.03em;
   color: var(--indigo-950); margin: var(--space-4) 0 0; text-wrap: balance; }
-.bl-article-head .lede { font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin: var(--space-5) 0 0; }
+.bl-article-head .lede { font-size: 16px; line-height: 1.8; color: var(--text-secondary); margin: var(--space-5) 0 0; }
 
 .bl-meta { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; margin-top: var(--space-6); }
 .bl-byline { display: flex; align-items: center; gap: 11px; }
@@ -295,11 +295,11 @@ body { margin: 0; }
    装飾の強さは h2 > h3 > h4 の順で、見た目のために見出しレベルを飛ばさない。
    overflow-wrap: break-word — 長いURLや英単語が1語で本文幅を超えるときだけ折り返す
    （min-content 幅は変えないので表の列が不自然に潰れることはない）。 */
-.bl-prose { font-size: 16.5px; line-height: 1.9; color: var(--neutral-800); overflow-wrap: break-word; }
+.bl-prose { font-size: 16px; line-height: 1.9; color: var(--neutral-800); overflow-wrap: break-word; }
 /* 本文中の h1 は非推奨（記事タイトルと二重になる）。誤用時も h2 と混同しないよう控えめに描画 */
 .bl-prose h1 { font-family: var(--font-display); font-weight: 700; font-size: 30px; line-height: 1.35; letter-spacing: -0.025em;
   color: var(--indigo-950); margin: var(--space-12) 0 var(--space-5); scroll-margin-top: 88px; }
-.bl-prose h2 { font-family: var(--font-display); font-weight: 700; font-size: 27px; line-height: 1.45; letter-spacing: -0.02em;
+.bl-prose h2 { font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1.45; letter-spacing: -0.02em;
   color: var(--indigo-950); background: var(--blue-50); border-left: 6px solid var(--indigo-900);
   border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: var(--space-12) 0 var(--space-5);
   padding: var(--space-4) var(--space-5); scroll-margin-top: 88px; }
@@ -307,7 +307,7 @@ body { margin: 0; }
 .bl-prose h3 { font-family: var(--font-display); font-weight: 600; font-size: 20px; line-height: 1.5; letter-spacing: -0.01em;
   color: var(--indigo-950); border-left: 4px solid var(--blue-500); border-bottom: 1px solid var(--border-default);
   margin: var(--space-8) 0 var(--space-4); padding: 0 0 var(--space-3) var(--space-4); scroll-margin-top: 88px; }
-.bl-prose h4 { font-family: var(--font-display); font-weight: 600; font-size: 17px; line-height: 1.6; color: var(--indigo-950);
+.bl-prose h4 { font-family: var(--font-display); font-weight: 600; font-size: 16px; line-height: 1.6; color: var(--indigo-950);
   margin: var(--space-6) 0 var(--space-2); scroll-margin-top: 88px; }
 .bl-prose p { margin: 0 0 var(--space-5); }
 .bl-prose a { color: var(--text-link); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
@@ -477,7 +477,7 @@ body { margin: 0; }
 }
 @media (max-width: 680px) {
   .bl-nav, .bl-header__cta .px-btn:not(.bl-header__primary), .bl-header .bl-search { display: none; }
-  .bl-article-head h1 { font-size: 32px; }
+  .bl-article-head h1 { font-size: 24px; }
   .bl-index-hero h1 { font-size: 34px; }
   .bl-grid { grid-template-columns: 1fr; }
   .bl-footer__grid { grid-template-columns: 1fr 1fr; }
@@ -485,8 +485,8 @@ body { margin: 0; }
   /* prose: 装飾が本文を圧迫しないよう、見出しの塗り・余白を縮める */
   .bl-prose { font-size: 16px; line-height: 1.85; }
   .bl-prose h1 { font-size: 25px; }
-  .bl-prose h2 { font-size: 21px; border-left-width: 5px; padding: var(--space-3) var(--space-4); margin-top: var(--space-10); }
-  .bl-prose h3 { font-size: 18px; border-left-width: 3px; padding-left: var(--space-3); }
+  .bl-prose h2 { font-size: 24px; border-left-width: 5px; padding: var(--space-3) var(--space-4); margin-top: var(--space-10); }
+  .bl-prose h3 { font-size: 20px; border-left-width: 3px; padding-left: var(--space-3); }
   .bl-prose h4 { font-size: 16px; }
   .bl-prose blockquote { padding: var(--space-4); }
   .bl-prose ol li { padding-left: 32px; }
