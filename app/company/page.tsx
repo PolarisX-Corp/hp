@@ -199,20 +199,41 @@ export default function Company() {
       {/* FOOTER */}
       <footer className="co-footer">
         <div className="co-wrap">
-          <div className="co-foot">
-            <a className="co-logo" href="#top" aria-label="PolarisX">
-              <img src="/assets/PolarisX_wordmark.svg" alt="PolarisX" />
-            </a>
-            <ul>
-              <li><a href="#mission">MISSION</a></li>
-              <li><a href="#values">VALUES</a></li>
-              <li><a href="#services">SERVICES</a></li>
-              <li><a href="#members">MEMBERS</a></li>
-              <li><a href="#company">COMPANY</a></li>
-              <li><a href="#contact">CONTACT</a></li>
-            </ul>
+          <div className="co-footer__grid">
+            <div className="co-footer__col">
+              <a className="co-logo" href="#top" aria-label="PolarisX">
+                <img src="/assets/PolarisX_wordmark.svg" alt="PolarisX" />
+              </a>
+              <p className="co-footer__lead">
+                AI社員の開発から導入・運用支援まで、企業がAIを実務で使い続けられる仕組みを構築します。
+              </p>
+            </div>
+            <div className="co-footer__col">
+              <h4>サービス</h4>
+              <Link href="/">サービスページ</Link>
+              <Link href="/#contact">無料で相談する</Link>
+            </div>
+            <div className="co-footer__col">
+              <h4>会社情報</h4>
+              <a href="#mission">MISSION</a>
+              <a href="#values">VALUES</a>
+              <a href="#services">SERVICES</a>
+              <a href="#members">MEMBERS</a>
+              <a href="#company">COMPANY</a>
+              <a href="#contact">CONTACT</a>
+            </div>
+            <div className="co-footer__col">
+              <h4>リソース</h4>
+              <Link href="/blogs">ブログ</Link>
+              <Link href="/privacy-policy">プライバシー</Link>
+            </div>
           </div>
-          <div className="co-copy">© 2026 PolarisX, Inc. All rights reserved.</div>
+          <div className="co-footer__bottom">
+            <span>© 2026 PolarisX, Inc. All rights reserved.</span>
+            <span className="co-footer__legal">
+              <Link href="/privacy-policy">プライバシー</Link>
+            </span>
+          </div>
         </div>
       </footer>
     </div>
