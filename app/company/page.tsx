@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Fragment } from "react";
 import { Sparkles, ArrowRight, Crosshair, Mountain } from "lucide-react";
 import { COMPANY_BRAND, COMPANY_PROFILE } from "@/lib/company";
 import CompanyContactForm from "../components/CompanyContactForm";
@@ -9,29 +8,8 @@ import "./company.css";
 export const metadata: Metadata = {
   title: "会社情報",
   description:
-    "PolarisX株式会社の会社情報。法人向けAIエージェントの開発、社内ナレッジベースの構築、AIコンサルティングサービスを提供しています。",
+    "PolarisX株式会社の会社情報。法人向けAIエージェントの開発、AIコンサルティングサービスを提供しています。",
 };
-
-const MARQUEE_ITEMS = [
-  "AIを会社のOSにする",
-  "AIファースト",
-  "法人向けAIエージェント",
-  "社内ナレッジベース",
-  "AIコンサルティング",
-];
-
-function MarqueeGroup() {
-  return (
-    <div className="co-mqgroup">
-      {MARQUEE_ITEMS.map((item) => (
-        <Fragment key={item}>
-          <span className="co-mqi">{item}</span>
-          <span className="co-mqsep" />
-        </Fragment>
-      ))}
-    </div>
-  );
-}
 
 export default function Company() {
   return (
@@ -74,12 +52,6 @@ export default function Company() {
             </div>
           </div>
         </div>
-        <div className="co-marquee" aria-hidden="true">
-          <div className="co-mqtrack">
-            <MarqueeGroup />
-            <MarqueeGroup />
-          </div>
-        </div>
       </section>
 
       {/* MISSION (01) */}
@@ -120,22 +92,22 @@ export default function Company() {
       <section className="co-sec co-sec--sunken" id="services">
         <div className="co-wrap">
           <div className="co-secnum co-reveal">SERVICES ／ 03</div>
-          <h2 className="co-serv-head co-reveal">AIを会社のOSにする、<em>3つの事業。</em></h2>
-          <p className="co-serv-lead co-reveal">AI社員の開発、社内ナレッジの整備、導入・運用支援まで。企業がAIを実務で使い続けられる仕組みを、一気通貫で構築します。</p>
+          <h2 className="co-serv-head co-reveal">AIを会社のOSにする、<em>2つの事業。</em></h2>
+          <p className="co-serv-lead co-reveal">御社の業務をまるごと任せられるAI社員の開発と、AI活用の導入・運用支援まで。企業がAIを実務で使い続けられる仕組みを、一気通貫で構築します。</p>
 
           {/* Service 01 */}
           <div className="co-serv co-reveal">
             <div className="co-serv__top">
               <div className="co-serv__no">01</div>
               <div className="co-serv__meta">
-                <span className="px-badge px-badge--accent co-serv__tag co-en">AI Agent Development</span>
+                <span className="px-badge px-badge--accent co-serv__tag co-en">Polaris AI / AI Agent Development</span>
                 <h3>{COMPANY_PROFILE.businesses[0]}</h3>
-                <p>営業・人事・マーケティングなど、担当業務を持つ「AI社員」を、各社の業務と既存環境に合わせて設計・開発します。</p>
+                <p>Polaris AIは、御社の業務をまるごと任せられるAI社員です。営業・人事・マーケティングなど、それぞれの担当を持つ専門AI社員がチームで動く状態を設計・開発します。</p>
               </div>
             </div>
             <div className="co-serv__ex">
-              <div className="co-ex"><div className="co-ex-tag">Workflow</div><h4>業務別AI社員</h4><p>日常業務の流れや社内ルールを踏まえ、必要な情報収集から成果物の作成までを担うAIエージェントを構築します。</p></div>
-              <div className="co-ex"><div className="co-ex-tag">Integration</div><h4>既存環境との接続</h4><p>現在利用している社内ツールやデータを活かし、AI社員が必要な情報を参照して働ける環境を整えます。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">Orchestration</div><h4>司令塔AIと専門AI社員</h4><p>話しかけるだけで依頼内容を理解し、営業・マーケティング・調査などの専門AI社員へ自律的に仕事を割り振る仕組みを構築します。</p></div>
+              <div className="co-ex"><div className="co-ex-tag">RAG / Integration</div><h4>独自RAGと既存ツール連携</h4><p>Notion・Slack・Google Drive・社内DBなどと接続し、AI社員が必要な情報を自分で取りに行き、成果物を組織のナレッジとして残せる環境を整えます。</p></div>
             </div>
           </div>
 
@@ -144,24 +116,8 @@ export default function Company() {
             <div className="co-serv__top">
               <div className="co-serv__no">02</div>
               <div className="co-serv__meta">
-                <span className="px-badge px-badge--accent co-serv__tag co-en">Internal Knowledge Base</span>
-                <h3>{COMPANY_PROFILE.businesses[1]}</h3>
-                <p>社内に散在する文書や業務知見をつなぎ、必要な人とAIが、必要なときに活用できるナレッジ基盤を構築します。</p>
-              </div>
-            </div>
-            <div className="co-serv__ex">
-              <div className="co-ex"><div className="co-ex-tag">Connection</div><h4>社内情報をつなぐ</h4><p>Notion・Confluence・Slack・Google Driveなど、情報がある場所を横断して参照できる状態へ整えます。</p></div>
-              <div className="co-ex"><div className="co-ex-tag">Knowledge</div><h4>属人知を共通知へ</h4><p>個人の頭の中や日々のやり取りに埋もれた判断・進め方を、組織で再利用できる知見として蓄積します。</p></div>
-            </div>
-          </div>
-
-          {/* Service 03 */}
-          <div className="co-serv co-reveal">
-            <div className="co-serv__top">
-              <div className="co-serv__no">03</div>
-              <div className="co-serv__meta">
                 <span className="px-badge px-badge--accent co-serv__tag co-en">AI Consulting</span>
-                <h3>{COMPANY_PROFILE.businesses[2]}</h3>
+                <h3>{COMPANY_PROFILE.businesses[1]}</h3>
                 <p>AI活用の課題整理から導入設計、実装、運用・定着まで、各社の状況に合わせて一貫して支援します。</p>
               </div>
             </div>
