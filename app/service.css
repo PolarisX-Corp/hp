@@ -849,6 +849,7 @@ body { margin: 0; }
 .v2-cmp td .d { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; }
 .v2-cmp td.px .d { color: var(--indigo-950); font-weight: 600; }
 .v2-cmp__note { margin-top: 12px; font-size: 11.5px; color: var(--text-muted); line-height: 1.6; }
+.v2-cmp__scroll-hint { display: none; }
 
 /* ---------- 図解3: Before / After ---------- */
 .v2-ba { display: flex; flex-direction: column; gap: var(--space-10); max-width: 940px; margin: 0 auto; }
@@ -1089,4 +1090,32 @@ body { margin: 0; }
   .v2-contact__grid { grid-template-columns: 1fr; gap: var(--space-10); }
   .sv-form__row { grid-template-columns: 1fr; }
   .v2-footer__grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Phones (≤560px) ---------- */
+@media (max-width: 560px) {
+  /* 図解1: 仕組み図 — チームを縦積みにし、社員名を1行に収めて崩れを防ぐ */
+  .v2-org { padding: 20px 14px 18px; }
+  .v2-teams--2 { grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+  .v2-mcp .tag { font-size: 12.5px; padding: 8px 14px; white-space: normal; text-align: center; }
+
+  /* 図解2: 比較表 — 行の縦幅を詰めて画面に収め、横スクロールを明示 */
+  .v2-cmp__scroll-hint {
+    display: flex; align-items: center; justify-content: flex-end; gap: 4px;
+    margin: -2px 2px 10px; font-family: var(--font-display);
+    font-size: 11.5px; font-weight: 600; color: var(--text-muted);
+  }
+  .v2-cmp table { min-width: 720px; font-size: 13px; }
+  .v2-cmp th, .v2-cmp td { padding: 10px 8px; }
+  .v2-cmp thead th { padding: 11px 8px; font-size: 12px; }
+  .v2-cmp thead th.px { font-size: 14px; }
+  .v2-cmp th[scope="row"] {
+    font-size: 12.5px; padding-left: 12px;
+    position: sticky; left: 0; z-index: 2;
+    box-shadow: 1px 0 0 var(--border-subtle);
+  }
+  .v2-cmp thead th:first-child { position: sticky; left: 0; z-index: 3; }
+  .v2-mark { font-size: 18px; margin-bottom: 3px; }
+  .v2-cmp td .d { font-size: 11px; line-height: 1.4; }
+  .v2-cmp .note { font-size: 10px; }
 }
