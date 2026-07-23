@@ -53,6 +53,9 @@
   --accent-hover:  var(--blue-600);
   --accent-press:  var(--blue-700);
 
+  /* マーカー（==テキスト==）の蛍光ペン色。ブランド配色ではなく視認性を優先した黄色。 */
+  --mark-bg: #FFE86B;
+
   /* Focus ring */
   --focus-ring: 0 0 0 3px color-mix(in srgb, var(--blue-500) 35%, transparent);
 
@@ -305,9 +308,10 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adju
 .bl-prose a { color: var(--text-link); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
 .bl-prose strong { font-weight: 700; color: var(--neutral-900); }
 .bl-prose em { font-style: italic; }
-/* マーカー強調（Markdown の ==テキスト== ）。下半分のみ塗って文字コントラストを確保し、
-   太字で色以外の強調も持たせる。box-decoration-break で折返し行にも塗りを継続 */
-.bl-prose mark { background: linear-gradient(transparent 62%, var(--blue-100) 62%); color: var(--neutral-900); font-weight: 700;
+/* マーカー強調（Markdown の ==テキスト== ）。可読性重視で黄色の蛍光ペン風に文字の高さいっぱいを塗る
+   （この箇所はブランド配色より視認性を優先）。太字で色以外の強調も併せ持ち、
+   box-decoration-break で折返し行にも塗りを継続する。 */
+.bl-prose mark { background: var(--mark-bg); color: var(--neutral-900); font-weight: 700;
   padding: 0 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 /* リスト：ul = 並列の要素、ol = 順序/手順。マーカーは 1 行目の中央に合わせる */
 .bl-prose ul, .bl-prose ol { margin: 0 0 var(--space-5); padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
