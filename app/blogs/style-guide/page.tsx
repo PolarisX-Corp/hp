@@ -3,6 +3,7 @@ import path from "node:path";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { spaceGrotesk, notoSansJP, jetbrainsMono } from "../../fonts";
+import { CATEGORIES } from "@/lib/blog/categories";
 import { BlogHeader, BlogFooter } from "../components/BlogChrome";
 import { Prose } from "../components/Prose";
 import "../blog.css";
@@ -47,7 +48,11 @@ export default function StyleGuidePage() {
 
         <div className="bl-section">
           <article className="bl-body">
-            <Prose content={sample} basePath="/blog/_style-guide" />
+            <Prose
+              content={sample}
+              basePath="/blog/_style-guide"
+              category={CATEGORIES[0]}
+            />
           </article>
         </div>
       </main>

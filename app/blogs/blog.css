@@ -362,6 +362,31 @@ body { margin: 0; }
 .bl-prose th { background: var(--surface-sunken); font-family: var(--font-display); font-weight: 600; color: var(--indigo-950); }
 .bl-prose tbody tr:nth-child(even) { background: var(--neutral-50); }
 
+/* 本文内CTA: H2章の中央に1つだけ自動挿入する。本文より一段だけ浮かせ、
+   大型CTAほど広告的に見えない明るいカードとして扱う。 */
+.bl-inline-cta { position: relative; isolation: isolate; overflow: hidden; display: grid;
+  grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--space-6);
+  margin: var(--space-10) 0; padding: var(--space-6); border: 1px solid var(--blue-200);
+  border-left: 5px solid var(--blue-500); border-radius: var(--radius-xl);
+  background: linear-gradient(120deg, var(--surface-card), var(--blue-50)); box-shadow: var(--shadow-xs); }
+.bl-inline-cta::after { content: ""; position: absolute; z-index: -1; width: 180px; height: 180px;
+  right: -80px; top: -110px; border-radius: var(--radius-full);
+  background: radial-gradient(circle, color-mix(in srgb, var(--blue-300) 34%, transparent), transparent 68%); }
+.bl-inline-cta__copy { min-width: 0; }
+.bl-prose .bl-inline-cta__eyebrow { display: flex; align-items: center; gap: 7px;
+  margin: 0 0 var(--space-2); color: var(--blue-700); font-family: var(--font-display);
+  font-size: 12px; font-weight: 600; letter-spacing: .03em; }
+.bl-inline-cta__eyebrow svg { flex: none; }
+.bl-prose .bl-inline-cta__title { margin: 0; color: var(--indigo-950); font-family: var(--font-display);
+  font-size: 19px; font-weight: 700; line-height: 1.5; letter-spacing: -0.015em; text-wrap: balance; }
+.bl-prose .bl-inline-cta__description { max-width: 38em; margin: var(--space-2) 0 0;
+  color: var(--text-secondary); font-size: 13.5px; line-height: 1.7; }
+.bl-inline-cta__actions { position: relative; z-index: 1; min-width: 180px; display: flex;
+  flex-direction: column; align-items: stretch; gap: 8px; }
+.bl-prose .bl-inline-cta__button { color: #fff; text-decoration: none; }
+.bl-inline-cta__note { color: var(--text-muted); font-family: var(--font-mono); font-size: 10.5px; text-align: center; }
+.bl-inline-cta + h2 { margin-top: var(--space-10); }
+
 /* tags row */
 .bl-tags { display: flex; gap: 9px; flex-wrap: wrap; margin: var(--space-8) 0; }
 .bl-tag { font-size: 12.5px; color: var(--text-secondary); background: var(--surface-sunken); border: 1px solid var(--border-subtle);
@@ -381,7 +406,7 @@ body { margin: 0; }
 .bl-author__links a { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; color: var(--text-link); text-decoration: none; font-weight: 500; }
 
 /* large CTA block */
-.bl-ctablock { position: relative; overflow: hidden; border-radius: var(--radius-2xl); color: #fff; text-align: center;
+.bl-ctablock { display: none; position: relative; overflow: hidden; border-radius: var(--radius-2xl); color: #fff; text-align: center;
   background: linear-gradient(120deg, var(--indigo-950), var(--indigo-900) 45%, var(--blue-700)); padding: var(--space-12) var(--space-8); margin: var(--space-12) 0; }
 .bl-ctablock h3 { position: relative; z-index: 1; font-family: var(--font-display); font-weight: 700; font-size: 28px; letter-spacing: -0.025em; line-height: 1.25; margin: 0; color: var(--text-inverse); }
 .bl-ctablock p { position: relative; z-index: 1; font-size: 15.5px; color: rgba(255,255,255,.82); margin: var(--space-3) auto var(--space-6); max-width: 32em; }
@@ -467,7 +492,10 @@ body { margin: 0; }
   .bl-body { order: 2; max-width: none; }
   .bl-side { display: contents; }
   .bl-side__card--toc { order: 1; margin-bottom: var(--space-8); }
-  .bl-side-cta { order: 3; margin-top: var(--space-8); }
+  /* 狭幅では本文内CTA + 読了後CTAを使い、サイドバーCTAは重複させない。
+     ワイド画面では逆に読了後CTAを隠し、stickyサイドバーCTAを使う。 */
+  .bl-side-cta { display: none; }
+  .bl-ctablock { display: block; }
   .bl-side__card--popular { order: 4; margin-top: var(--space-5); }
   .bl-feature { grid-template-columns: 1fr; }
   .bl-feature__media { min-height: 220px; }
@@ -493,6 +521,9 @@ body { margin: 0; }
   .bl-prose ol li::before { width: 22px; height: 22px; font-size: 11px; }
   .bl-prose ul li { padding-left: 22px; }
   .bl-prose ul li::before { left: 3px; }
+  .bl-inline-cta { grid-template-columns: 1fr; gap: var(--space-5); padding: var(--space-5); }
+  .bl-inline-cta__actions { min-width: 0; }
+  .bl-inline-cta__button { width: 100%; }
   .bl-company__grid { padding: var(--space-6); }
   /* 列数の多い表は、幅なりに詰めると1列1文字まで潰れて読めない。セルに下限幅を
      与えたうえで .bl-table-scroll 内の横スクロールで読ませる。 */

@@ -127,7 +127,11 @@ export default async function ArticlePage({
         {/* layout: body + sidebar */}
         <div className="bl-layout">
           <article className="bl-body">
-            <Prose content={post.content} basePath={post.basePath} />
+            <Prose
+              content={post.content}
+              basePath={post.basePath}
+              category={post.category}
+            />
 
             {post.tags.length > 0 && (
               <div className="bl-tags">
